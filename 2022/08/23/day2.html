@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Day 2 | fastpages</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Day 2" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="I made a random number generator and my website has the proof, but it won’t let me have fun." />
+<meta property="og:description" content="I made a random number generator and my website has the proof, but it won’t let me have fun." />
+<link rel="canonical" href="https://mister-dew.github.io/realdrew/2022/08/23/day2.html" />
+<meta property="og:url" content="https://mister-dew.github.io/realdrew/2022/08/23/day2.html" />
+<meta property="og:site_name" content="fastpages" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-08-23T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Day 2" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-08-23T00:00:00-05:00","datePublished":"2022-08-23T00:00:00-05:00","description":"I made a random number generator and my website has the proof, but it won’t let me have fun.","headline":"Day 2","mainEntityOfPage":{"@type":"WebPage","@id":"https://mister-dew.github.io/realdrew/2022/08/23/day2.html"},"url":"https://mister-dew.github.io/realdrew/2022/08/23/day2.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/realdrew/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://mister-dew.github.io/realdrew/feed.xml" title="fastpages" /><link rel="shortcut icon" type="image/x-icon" href="/realdrew/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/realdrew/">fastpages</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/realdrew/about/">About Drew</a><a class="page-link" href="/realdrew/search/">Search</a><a class="page-link" href="/realdrew/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Day 2</h1><p class="page-description">I made a random number generator and my website has the proof, but it won't let me have fun.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-08-23T00:00:00-05:00" itemprop="datePublished">
+        Aug 23, 2022
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      1 min read
+    
+</span></p>
+
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#independent-endeavors">Independent Endeavors</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#research">Research</a></li>
+<li class="toc-entry toc-h2"><a href="#whats-the-point-of-a-random-number-generator">What’s the point of a random number generator?</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#current-obstacles">Current Obstacles</a></li>
+</ul><h1 id="independent-endeavors">
+<a class="anchor" href="#independent-endeavors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Independent Endeavors</h1>
+
+<p>It takes a lot of investment in a class for me to go out of my way to apply my knowledge in ways not enforced by the teacher or class. Maybe computer science is my thing.</p>
+
+<h2 id="research">
+<a class="anchor" href="#research" aria-hidden="true"><span class="octicon octicon-link"></span></a>Research</h2>
+
+<p>Over summer, I spent some time looking over the things you could do with Python. One thing I always wanted to make for some strange reason was a random number generator.</p>
+
+<p>From a mathematical standpoint, I have always been fascinated by the concept of probability. Given things like the butterfly effect and the way that various microscopic events and processes manipulate free will, even humans cannot truly create randomness. Unfortunately, computers really can’t either, but they can do their very best to replicate it.</p>
+
+<p>I looked around on Google in my very minimal free time and found the “rand.integer” and “rand.range” commands. This is enough to create the basic RNG code I set out to.</p>
+
+<h2 id="whats-the-point-of-a-random-number-generator">
+<a class="anchor" href="#whats-the-point-of-a-random-number-generator" aria-hidden="true"><span class="octicon octicon-link"></span></a>What’s the point of a random number generator?</h2>
+
+<p>Ultimately, I want to use this RNG to add an element of unpredictability to my site. Maybe, after setting a variable, using “If” commands will allow me to create certain images, phrases, words, etc. based on which number is generated. Messing with which numbers do what and the possible range of generated numbers could make certain events more likely than others.</p>
+
+<p>I also really like the concept of adding little Easter eggs for people who interact with the site. Maybe if you click on certain pages and get lucky, something goofy or unexpected appears.</p>
+
+<p>There’s just a lot of fun to be had with unpredictability.</p>
+
+<h1 id="current-obstacles">
+<a class="anchor" href="#current-obstacles" aria-hidden="true"><span class="octicon octicon-link"></span></a>Current Obstacles</h1>
+
+<p>So I made a random number generator that works perfectly in the code of my website…but not on the website itself.</p>
+
+<p>When the page reloads, the generated numbers stay the same. I think the only way I can make the generator work as intended is if I make a button to click and let it run a new generation. I don’t know how to do this at the moment, and a small amount of research hasn’t led to much.</p>
+
+<p>More to come!</p>
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="mister-dew/realdrew"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/realdrew/2022/08/23/day2.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/realdrew/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/realdrew/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/realdrew/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/fastai" target="_blank" title="fastai"><svg class="svg-icon grey"><use xlink:href="/realdrew/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fastdotai" target="_blank" title="fastdotai"><svg class="svg-icon grey"><use xlink:href="/realdrew/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
