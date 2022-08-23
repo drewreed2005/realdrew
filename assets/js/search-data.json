@@ -3,7 +3,7 @@
     
         "post0": {
             "title": "Title",
-            "content": "print(&quot;Hello! Python here. I can do lots of cool stuff.&quot;) . Hello! Python here. I can do lots of cool stuff. . import random num = random.randrange(0,256) print(num) print(&quot;I just printed a random number for you!&quot;) . 6 I just printed a random number for you! . import random variable = random.randint(1,255) print(&quot;Lemme guess...was it &quot; + str(variable) + &quot;? There&#39;s a one in 256 chance I got it right!&quot;) . Lemme guess...was it 126? There&#39;s a one in 256 chance I got it right! .",
+            "content": "print(&quot;Hello! Python here. I can do lots of cool stuff.&quot;) . Hello! Python here. I can do lots of cool stuff. . import random num = random.randrange(1,257) print(num) print(&quot;I just printed a random number for you!&quot;) . 57 I just printed a random number for you! . import random variable = random.randint(0,256) print(&quot;Lemme guess...was it &quot; + str(variable) + &quot;? There&#39;s a one in 256 chance I got it right!&quot;) . Lemme guess...was it 62? There&#39;s a one in 256 chance I got it right! .",
             "url": "https://mister-dew.github.io/realdrew/2022/08/22/randomnumber.html",
             "relUrl": "/2022/08/22/randomnumber.html",
             "date": " • Aug 22, 2022"
