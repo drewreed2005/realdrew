@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      1 min read
+      4 min read
     
 </span></p>
 
@@ -129,6 +129,131 @@ window.onload = wrap_img;
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">getpass</span><span class="o">,</span> <span class="nn">sys</span>
+    
+<span class="k">def</span> <span class="nf">question_with_response</span><span class="p">(</span><span class="n">prompt</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"You said: "</span> <span class="o">+</span> <span class="n">msg</span> <span class="o">+</span> <span class="s2">"."</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">msg</span>
+
+<span class="n">questions</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">correct</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Hello! Welcome to Drew's super awesome (slightly plagiar-inspired) Python quiz!"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"You will be asked "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">questions</span><span class="p">)</span> <span class="o">+</span> <span class="s2">" questions about basic Python commands. All quiz responses should be in all lowercase letters."</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Before we begin, what would you like me to call you?"</span><span class="p">)</span>
+<span class="n">bigboy</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bigboy</span> <span class="o">+</span> <span class="s2">"? That's a cool name!"</span><span class="p">)</span>
+
+<span class="n">rsp</span> <span class="o">=</span> <span class="n">question_with_response</span><span class="p">(</span><span class="s2">"1. Let's start with the simplest function of all: how can you make Python display static text?"</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">rsp</span> <span class="o">==</span> <span class="s2">"print"</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"That's right! Let's make things more interesting."</span><span class="p">)</span>
+    <span class="n">correct</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Not quite... The response we were looking for was 'print'."</span><span class="p">)</span>
+
+<span class="n">rsp</span> <span class="o">=</span> <span class="n">question_with_response</span><span class="p">(</span><span class="s2">"2. When using the 'if' function to force a unique reaction for a specific scenario, which function lets you give a different response for ALL other answers?"</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">rsp</span> <span class="o">==</span> <span class="s2">"else"</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Good job! Let's continue..."</span><span class="p">)</span>
+    <span class="n">correct</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Nope... Looks like you'll have to try something ELSE for that one."</span><span class="p">)</span>
+
+<span class="n">rsp</span> <span class="o">=</span> <span class="n">question_with_response</span><span class="p">(</span><span class="s2">"3. This three-letter function can redefine a phrase to automate certain behaviors when used. What is it?"</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">rsp</span> <span class="o">==</span> <span class="s2">"def"</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Great job! Two more to go."</span><span class="p">)</span>
+    <span class="n">correct</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"That's DEF-initely not it..."</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Let's see how you're doing so far, "</span> <span class="o">+</span> <span class="n">bigboy</span> <span class="o">+</span> <span class="s2">"..."</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">correct</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Wow! 3/3! You're a natural. Let's get back to it."</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">correct</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"2/3 isn't bad, you know. Get the next two right and you'll have a solid B minus!"</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">correct</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"1/3 isn't quite ideal, but it's better than nothing. Why not give these next two your best shot?"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Really? None? ...I mean, you've got two more chances to get some points on the board..."</span><span class="p">)</span>
+
+<span class="n">rsp</span> <span class="o">=</span> <span class="n">question_with_response</span><span class="p">(</span><span class="s2">"4. Which function allows the user to provide a custom response to a given prompt?"</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">rsp</span> <span class="o">==</span> <span class="s2">"input"</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"That's right! You've been using that the whole time, FYI."</span><span class="p">)</span>
+    <span class="n">correct</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Unfortunately, you seem to have INPUT an incorrect response."</span><span class="p">)</span>
+
+<span class="n">rsp</span> <span class="o">=</span> <span class="n">question_with_response</span><span class="p">(</span><span class="s2">"5. The home stretch! To display a variable, for example, in printed static text, which symbol separates the variable from the rest of the quote?"</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">rsp</span> <span class="o">==</span> <span class="s2">"+"</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Nailed it!"</span><span class="p">)</span>
+    <span class="n">correct</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">elif</span> <span class="n">rsp</span> <span class="o">==</span> <span class="s2">"plus"</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Nailed it!"</span><span class="p">)</span>
+    <span class="n">correct</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Rough conclusion...definitely not a PLUS."</span><span class="p">)</span>
+
+<span class="n">per_score</span> <span class="o">=</span> <span class="p">(</span><span class="n">correct</span> <span class="o">/</span> <span class="n">questions</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bigboy</span> <span class="o">+</span> <span class="s2">", you scored "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">correct</span><span class="p">)</span> <span class="o">+</span><span class="s2">"/"</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">questions</span><span class="p">)</span> <span class="o">+</span> <span class="s2">"! That's "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">per_score</span><span class="p">)</span> <span class="o">+</span> <span class="s2">"%."</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">correct</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Too bad, though! You needed at least 4 out of 5 (80.0"</span> <span class="o">+</span> <span class="s2">"%"</span> <span class="o">+</span> <span class="s2">") of the problems correct to pass. Why not reload and try again?"</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">correct</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"One mistake is perfectly okay! You still managed to pass this quiz. Congratulations!"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"You managed to pass with flying colors! A perfect score! Why didn't you make this quiz, then?"</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">bigboy</span> <span class="o">==</span> <span class="s2">"Drew"</span> <span class="ow">and</span> <span class="n">correct</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Whadduya mean you did make this? You're THAT Drew? What a coincidence."</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">bigboy</span> <span class="o">==</span> <span class="s2">"drew"</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Whadduya mean you did make this? You're THAT Drew? What a coincidence."</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Hello! Welcome to Drew's super awesome (slightly plagiar-inspired) Python quiz!
+You will be asked 5 questions about basic Python commands. All quiz responses should be in all lowercase letters.
+Before we begin, what would you like me to call you?
+Drew? That's a cool name!
+1. Let's start with the simplest function of all: how can you make Python display static text?
+You said: print.
+That's right! Let's make things more interesting.
+2. When using the 'if' function to force a unique reaction for a specific scenario, which function lets you give a different response for ALL other answers?
+You said: else.
+Good job! Let's continue...
+3. This three-letter function can redefine a phrase to automate certain behaviors when used. What is it?
+You said: def.
+Great job! Two more to go.
+Let's see how you're doing so far, Drew...
+Wow! 3/3! You're a natural. Let's get back to it.
+4. Which function allows the user to provide a custom response to a given prompt?
+You said: input.
+That's right! You've been using that the whole time, FYI.
+5. The home stretch! To display a variable, for example, in printed static text, which symbol separates the variable from the rest of the quote?
+You said: +.
+Nailed it!
+Drew, you scored 5/5! That's 100.0%.
+You managed to pass with flying colors! A perfect score! Why didn't you make this quiz, then?
+Whadduya mean you did make this? You're THAT Drew? What a coincidence.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
 
 </div>
     
