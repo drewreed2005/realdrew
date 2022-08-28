@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Quizzes and More
-permalink: /notes/
+permalink: /more/
 ---
 
 [Random Number Generator](https://mister-dew.github.io/realdrew/2022/08/22/randomnumber.html)
