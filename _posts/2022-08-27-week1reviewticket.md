@@ -40,7 +40,7 @@ I also included some other commands I learned about on my own through independen
 
 This is where I put some random non-post projects. Most of what is found in there contributes to specific Hacks, though some, like the Random Number Generator, were just made for fun.
 
-### [Week 1 Python Quiz](https://mister-dew.github.io/realdrew/2022/08/22/randomnumber.html)
+### [Week 1 Python Quiz](https://mister-dew.github.io/realdrew/2022/08/23/pythonworkweek1.html)
 
 The "Python Hello" page we read through earlier in the week included a Hack asking the reader to make his or her own Python quiz, including a percentage score at the end.
 
