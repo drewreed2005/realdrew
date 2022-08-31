@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      5 min read
+      12 min read
     
 </span></p>
 
@@ -133,27 +133,17 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">random</span><span class="o">,</span> <span class="nn">os</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
 <span class="kn">from</span> <span class="nn">sre_compile</span> <span class="kn">import</span> <span class="n">isstring</span>
+<span class="kn">from</span> <span class="nn">turtle</span> <span class="kn">import</span> <span class="n">pd</span>
 <span class="kn">from</span> <span class="nn">unicodedata</span> <span class="kn">import</span> <span class="n">name</span>
 
-<span class="n">lucky</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">lucky</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">score</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">mq0</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">mq1</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">mq2</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">mq3</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">mq4</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">mq5</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">mq6</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">mq8</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">mq9</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">mq10</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">fq0</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">fq1</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">fq2</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">fq3</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">fq4</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">global</span> <span class="n">mcheckval</span>
+<span class="n">mcheckval</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="k">global</span> <span class="n">fcheckval</span>
+<span class="n">fcheckval</span> <span class="o">=</span> <span class="mi">8</span>
 
 <span class="n">mc_lst</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">14</span><span class="p">)</span>
 <span class="n">fr_lst</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span>
@@ -161,42 +151,173 @@ window.onload = wrap_img;
 <span class="n">mc_select</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="n">mc_lst</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">fr_select</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="n">fr_lst</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">mc_question</span><span class="p">(</span><span class="n">mc_prompt</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">mc_prompt</span><span class="p">)</span>
-    <span class="k">global</span> <span class="n">msg</span>
-    <span class="n">msg</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"You chose option '"</span> <span class="o">+</span> <span class="n">msg</span> <span class="o">+</span> <span class="s2">".'"</span><span class="p">)</span>
+<span class="n">vowels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"e"</span><span class="p">,</span> <span class="s2">"i"</span><span class="p">,</span> <span class="s2">"o"</span><span class="p">,</span> <span class="s2">"u"</span><span class="p">]</span>
+<span class="n">vowiable</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">randv</span> <span class="o">=</span> <span class="n">vowels</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">vowiable</span><span class="p">)]</span>
 
-<span class="k">def</span> <span class="nf">fr_question</span><span class="p">(</span><span class="n">fr_prompt</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">fr_prompt</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">mc_question</span><span class="p">():</span>
     <span class="k">global</span> <span class="n">msg</span>
     <span class="n">msg</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">msg</span> <span class="o">+</span> <span class="s2">", huh...?"</span><span class="p">)</span>
+    <span class="k">global</span> <span class="n">realmsg</span>
+    <span class="n">realmsg</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"You chose option '"</span> <span class="o">+</span> <span class="n">realmsg</span> <span class="o">+</span> <span class="s2">".'"</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">fr_question</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">msg</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+    <span class="k">global</span> <span class="n">realmsg</span>
+    <span class="n">realmsg</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">realmsg</span> <span class="o">+</span> <span class="s2">", huh...?"</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">mc_check</span><span class="p">():</span>
-    <span class="n">accmsg</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
-    <span class="k">if</span> <span class="n">accmsg</span> <span class="o">==</span> <span class="s2">"A"</span> <span class="ow">or</span> <span class="n">accmsg</span> <span class="o">==</span> <span class="s2">"1"</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">mcheckval</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"A"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"1"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">90</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"A little clumsy here and there, but a classic!"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"B"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"2"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">100</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"They really found their sea legs by then! Good to hear."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"C"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"3"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">100</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Gotta love the end of the Golden Era..."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"D"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"4"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">80</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"I guess the first little bit was solid, but...'The Gift of Gum'?"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"E"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"5"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">40</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"You must be nostalgic for it...right? I hope..."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"F"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"6"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">50</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"You must be nostalgic for it...right? I hope..."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"G"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"7"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">50</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"You must be nostalgic for it...right? I hope..."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"H"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"8"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">60</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Getting there, I guess...still a lot of duds."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"I"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"9"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">100</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Yes, the revival! Points for precision! Well done."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"J"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"10"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">10</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Yeesh..."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"K"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"11"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">15</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"I'm glad you can find enjoyment in it."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"L"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"12"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">20</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"I'm glad you can find enjoyment in it."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"M"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"13"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">30</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"I've hardly seen any of it but I can tell this is...a take."</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">mcheckval</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"A"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Math"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">40</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Math can be a confusing to SUM, but improvement is a SINE of effort."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"B"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Science"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">100</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"For a set of laws that govern life, science can be pretty inconsistent..."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"C"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"English"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">30</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"I mean, you've been speaking it this whole survey!</span><span class="se">\n</span><span class="s2">It must not be THAT bad."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"D"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"History"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">50</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Sometimes, it's like reading fiction. Ever heard of the Latter Day Jig?"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"E"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"PE"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">60</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Hardly seems like a subject in the first place..."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"F"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Music/Fine Arts"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">30</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Well, if you don't like one fine art, there are plenty more out there!"</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">mcheckval</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"A"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Generation 5"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">10</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Maybe a design dud here and there, but Unova's story holds strong."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"B"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Generation 6"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">50</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"With the EXP share on, that question must've been easy for you!"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"C"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Generation 7"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">30</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Were the cutscenes really that unbearable?"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"D"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Generation 8"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">100</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"The box legendary is a dog with a sword in its mouth."</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">mcheckval</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"A"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Vanilla"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">30</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Daring today, aren't we?"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"B"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Chocolate"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">70</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"A classic."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"C"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Strawberry"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">90</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Like strawberry milk but better!"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"D"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Rainbow Sherbet"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">70</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"A surprisingly good mix of flavors."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"E"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Mint Chocolate Chip"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">80</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Sometimes, it just hits the spot."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"F"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Cookies and Cream"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">60</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"But cookies ain't ice cream..."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"G"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Cotton Candy"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">100</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"So underrated!"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"H"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Watermelon"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">100</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Only the enlightened few..."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"I"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Pralines and Cream"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">20</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Mom?"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"J"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Reese's Peanut Butter Cup"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">10</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"I can already feel the life leaving me."</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">mcheckval</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"A"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Pop"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">60</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"I guess that's why it's called pop."</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">mcheckval</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">mcheckval</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">mcheckval</span> <span class="o">==</span> <span class="mi">7</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">mcheckval</span> <span class="o">==</span> <span class="mi">8</span>
+    <span class="k">elif</span> <span class="n">mcheckval</span> <span class="o">==</span> <span class="mi">9</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">mcheckval</span> <span class="o">==</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">mcheckval</span> <span class="o">==</span> <span class="mi">11</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">mcheckval</span> <span class="o">==</span> <span class="mi">12</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">mcheckval</span> <span class="o">==</span> <span class="mi">13</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">mcheckval</span> <span class="o">==</span> <span class="mi">14</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">mcheckval</span> <span class="o">==</span> <span class="mi">15</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"There seems to have been an error! Let's start over."</span><span class="p">)</span>
+        <span class="n">nameselect</span><span class="p">()</span>
 
-
-<span class="n">mc_prompt</span> <span class="o">=</span> <span class="p">[</span>
+<span class="n">mc_prompts</span> <span class="o">=</span> <span class="p">[</span>
     <span class="s2">"Which season of SpongeBob is the best?</span><span class="se">\n</span><span class="s2">a) 1</span><span class="se">\n</span><span class="s2">b) 2</span><span class="se">\n</span><span class="s2">c) 3</span><span class="se">\n</span><span class="s2">d) 4</span><span class="se">\n</span><span class="s2">e) 5</span><span class="se">\n</span><span class="s2">f) 6</span><span class="se">\n</span><span class="s2">g) 7</span><span class="se">\n</span><span class="s2">h) 8</span><span class="se">\n</span><span class="s2">i) 9</span><span class="se">\n</span><span class="s2">j) 10</span><span class="se">\n</span><span class="s2">k) 11</span><span class="se">\n</span><span class="s2">l) 12</span><span class="se">\n</span><span class="s2">m) 13"</span><span class="p">,</span>
-    <span class="s2">"Which of these school subjects is the WORST?</span><span class="se">\n</span><span class="s2">a) Math</span><span class="se">\n</span><span class="s2">b) Science</span><span class="se">\n</span><span class="s2">c) English</span><span class="se">\n</span><span class="s2">d) History"</span><span class="p">,</span>
+    <span class="s2">"Which of these school subjects is the WORST?</span><span class="se">\n</span><span class="s2">a) Math</span><span class="se">\n</span><span class="s2">b) Science</span><span class="se">\n</span><span class="s2">c) English</span><span class="se">\n</span><span class="s2">d) History</span><span class="se">\n</span><span class="s2">e) PE</span><span class="se">\n</span><span class="s2">f) Music/Fine Arts"</span><span class="p">,</span>
     <span class="s2">"Let's be honest: when did the Pokémon series REALLY start to decline?</span><span class="se">\n</span><span class="s2">a) Generation 5</span><span class="se">\n</span><span class="s2">b) Generation 6</span><span class="se">\n</span><span class="s2">c) Generation 7</span><span class="se">\n</span><span class="s2">d) Generation 8"</span><span class="p">,</span>
-    <span class="s2">"Which of these ice cream flavors beats out the rest?</span><span class="se">\n</span><span class="s2">a) Vanilla</span><span class="se">\n</span><span class="s2">b) Chocolate</span><span class="se">\n</span><span class="s2">c) Strawberry</span><span class="se">\n</span><span class="s2">d) Rainbow Sherbet</span><span class="se">\n</span><span class="s2">e) Mint Chocolate Chip</span><span class="se">\n</span><span class="s2">f) Cookies and Cream</span><span class="se">\n</span><span class="s2">g) Cotton Candy</span><span class="se">\n</span><span class="s2">h) Watermelon</span><span class="se">\n</span><span class="s2">i) Pralines and Cream</span><span class="se">\n</span><span class="s2">j) Cotton Candy</span><span class="se">\n</span><span class="s2">k) Reese's Peanut Butter Cup"</span><span class="p">,</span>
-    <span class="s2">"Pick your favorite music genre (out of these):</span><span class="se">\n</span><span class="s2">a) Pop</span><span class="se">\n</span><span class="s2">b)Rock</span><span class="se">\n</span><span class="s2">c) Country</span><span class="se">\n</span><span class="s2">d) Punk/Ska</span><span class="se">\n</span><span class="s2">e) Jazz</span><span class="se">\n</span><span class="s2">f) Classical</span><span class="se">\n</span><span class="s2">g) Lo-fi</span><span class="se">\n</span><span class="s2">h) Movie/Game Soundtracks</span><span class="se">\n</span><span class="s2">i) K-Pop"</span><span class="p">,</span>
+    <span class="s2">"Which of these ice cream flavors beats out the rest?</span><span class="se">\n</span><span class="s2">a) Vanilla</span><span class="se">\n</span><span class="s2">b) Chocolate</span><span class="se">\n</span><span class="s2">c) Strawberry</span><span class="se">\n</span><span class="s2">d) Rainbow Sherbet</span><span class="se">\n</span><span class="s2">e) Mint Chocolate Chip</span><span class="se">\n</span><span class="s2">f) Cookies and Cream</span><span class="se">\n</span><span class="s2">g) Cotton Candy</span><span class="se">\n</span><span class="s2">h) Watermelon</span><span class="se">\n</span><span class="s2">i) Pralines and Cream</span><span class="se">\n</span><span class="s2">j) Reese's Peanut Butter Cup"</span><span class="p">,</span>
+    <span class="s2">"Pick your favorite music genre (out of these):</span><span class="se">\n</span><span class="s2">a) Pop</span><span class="se">\n</span><span class="s2">b) Rock</span><span class="se">\n</span><span class="s2">c) Country</span><span class="se">\n</span><span class="s2">d) Punk/Ska</span><span class="se">\n</span><span class="s2">e) Jazz</span><span class="se">\n</span><span class="s2">f) Classical</span><span class="se">\n</span><span class="s2">g) Lo-fi</span><span class="se">\n</span><span class="s2">h) Movie/Game Soundtracks</span><span class="se">\n</span><span class="s2">i) K-Pop"</span><span class="p">,</span>
     <span class="s2">"What is your favorite color?</span><span class="se">\n</span><span class="s2">a) Red</span><span class="se">\n</span><span class="s2">b) Orange</span><span class="se">\n</span><span class="s2">c) Yellow</span><span class="se">\n</span><span class="s2">d) Green</span><span class="se">\n</span><span class="s2">e) Blue</span><span class="se">\n</span><span class="s2">f) Purple</span><span class="se">\n</span><span class="s2">g) Brown</span><span class="se">\n</span><span class="s2">h) Black</span><span class="se">\n</span><span class="s2">i) Gray</span><span class="se">\n</span><span class="s2">j) White</span><span class="se">\n</span><span class="s2">k) Clear"</span><span class="p">,</span>
     <span class="s2">"What kind of movie would you be most interested in watching?</span><span class="se">\n</span><span class="s2">a) Action</span><span class="se">\n</span><span class="s2">b) Comedy</span><span class="se">\n</span><span class="s2">c) Horror</span><span class="se">\n</span><span class="s2">d) Rom-com"</span><span class="p">,</span>
     <span class="s2">"Which of these qualities is most important in a partner?</span><span class="se">\n</span><span class="s2">a) Appearance</span><span class="se">\n</span><span class="s2">b) Personality</span><span class="se">\n</span><span class="s2">c) Intelligence</span><span class="se">\n</span><span class="s2">d) Values"</span><span class="p">,</span>
     <span class="s2">"If an older man drank your drink after being asked to watch it</span><span class="se">\n</span><span class="s2">while you used the bathroom at a concert, would you confront him?</span><span class="se">\n</span><span class="s2">a) Definitely</span><span class="se">\n</span><span class="s2">b) Maybe</span><span class="se">\n</span><span class="s2">c) Probably not</span><span class="se">\n</span><span class="s2">d) Definitely not</span><span class="se">\n</span><span class="s2">e) I'd ask my date to confront him"</span><span class="p">,</span>
     <span class="s2">"Which kind of (common) pet would you prefer to own?</span><span class="se">\n</span><span class="s2">a) Dog</span><span class="se">\n</span><span class="s2">b) Cat</span><span class="se">\n</span><span class="s2">c) Fish</span><span class="se">\n</span><span class="s2">d) Hampster/Guinea Pig</span><span class="se">\n</span><span class="s2">e) Bunny"</span><span class="p">,</span>
-    <span class="s2">""</span><span class="p">,</span>
-    <span class="p">]</span>
+    <span class="s2">"How often do you usually shower?</span><span class="se">\n</span><span class="s2">a) Once a day</span><span class="se">\n</span><span class="s2">b) More than once per day</span><span class="se">\n</span><span class="s2">c) Once every other day</span><span class="se">\n</span><span class="s2">d) Once a week</span><span class="se">\n</span><span class="s2">e) What is a shower?"</span><span class="p">,</span>
+    <span class="s2">"What is the correct milkshake flavor?</span><span class="se">\n</span><span class="s2">a) Vanilla</span><span class="se">\n</span><span class="s2">b) Chocolate</span><span class="se">\n</span><span class="s2">c) Strawberry</span><span class="se">\n</span><span class="s2">d) Oreo/Cookies &amp; Cream"</span><span class="p">,</span>
+    <span class="s2">"It's a lazy day at home. No plans at the moment. What do you wear?</span><span class="se">\n</span><span class="s2">a) Sweatshirt and sweatpants</span><span class="se">\n</span><span class="s2">b) Pajamas</span><span class="se">\n</span><span class="s2">c) Full outfit just in case</span><span class="se">\n</span><span class="s2">d) Birthday suit</span><span class="se">\n</span><span class="s2">e) Other"</span><span class="p">,</span>
+    <span class="s2">"A hot stud you really like just asked for your number! What do you text?</span><span class="se">\n</span><span class="s2">a) Something nonchalant</span><span class="se">\n</span><span class="s2">b) Something peppy and fun</span><span class="se">\n</span><span class="s2">c) Something to make him/her laugh</span><span class="se">\n</span><span class="s2">d) Something endearingly mean</span><span class="se">\n</span><span class="s2">e) Ghost the stud because of anxiety"</span><span class="p">,</span>
+    <span class="s2">"When was the last time you cried?</span><span class="se">\n</span><span class="s2">a) Today</span><span class="se">\n</span><span class="s2">b) This week</span><span class="se">\n</span><span class="s2">c) This month</span><span class="se">\n</span><span class="s2">d) This year</span><span class="se">\n</span><span class="s2">e) So long ago I lost track"</span>
+<span class="p">]</span>
 
-<span class="n">fr_prompt</span> <span class="o">=</span> <span class="p">[</span>
+<span class="n">fr_prompts</span> <span class="o">=</span> <span class="p">[</span>
     <span class="s2">"What is your favorite food? (Pick a one-word food, please.)"</span><span class="p">,</span>
     <span class="s2">"How old are you? (Use numeric digits, please.)"</span><span class="p">,</span>
     <span class="s2">"What is your favorite number? (Use numeric digits, please.)"</span><span class="p">,</span>
-    <span class="s2">"If you were to start a family, how many children would you have?"</span><span class="p">,</span>
+    <span class="s2">"If you were to start a family, how many children would you have? (Use numeric digits, please.)"</span><span class="p">,</span>
+    <span class="s2">"What is the largest age difference (in years) you're willing to look past in a relationship?</span><span class="se">\n</span><span class="s2">(Use numeric digits, please.)"</span><span class="p">,</span>
+    <span class="s2">"You adopt a cat of unspecified gender! What do you call it?"</span><span class="p">,</span>
+    <span class="s2">"Your son is born! What is his name?"</span><span class="p">,</span>
+    <span class="s2">"Your daughter is born! What is her name?"</span>
 <span class="p">]</span>
 
 <span class="k">def</span> <span class="nf">nameselect</span><span class="p">():</span>
@@ -226,59 +347,126 @@ window.onload = wrap_img;
 <span class="k">if</span> <span class="n">gen_select</span> <span class="o">==</span> <span class="s2">"a"</span> <span class="ow">or</span> <span class="n">gen_select</span> <span class="o">==</span> <span class="s2">"Male"</span> <span class="ow">or</span> <span class="n">gen_select</span> <span class="o">==</span> <span class="s2">"male"</span><span class="p">:</span>
     <span class="n">gender</span> <span class="o">=</span> <span class="s2">"M"</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"Good to meet you, then, big man!"</span><span class="p">)</span>
-<span class="k">if</span> <span class="n">gen_select</span> <span class="o">==</span> <span class="s2">"b"</span> <span class="ow">or</span> <span class="n">gen_select</span> <span class="o">==</span> <span class="s2">"Female"</span> <span class="ow">or</span> <span class="n">gen_select</span> <span class="o">==</span> <span class="s2">"female"</span><span class="p">:</span>
+<span class="k">elif</span> <span class="n">gen_select</span> <span class="o">==</span> <span class="s2">"b"</span> <span class="ow">or</span> <span class="n">gen_select</span> <span class="o">==</span> <span class="s2">"Female"</span> <span class="ow">or</span> <span class="n">gen_select</span> <span class="o">==</span> <span class="s2">"female"</span><span class="p">:</span>
     <span class="n">gender</span> <span class="o">=</span> <span class="s2">"F"</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"Why, how do you do, m'lady?</span><span class="se">\n</span><span class="s2">Err...ehem!"</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="n">gender</span> <span class="o">=</span> <span class="s2">"O"</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"How curious..."</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"A"</span> <span class="ow">and</span> <span class="p">(</span><span class="n">gender</span> <span class="o">==</span> <span class="s2">"M"</span> <span class="ow">or</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"O"</span><span class="p">):</span>
-    <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"AJar"</span>
-<span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"A"</span> <span class="ow">and</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"F"</span><span class="p">:</span>
-    <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Aliciaptor"</span>
-<span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"B"</span> <span class="ow">and</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"M"</span><span class="p">:</span>
-    <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Boristocrat"</span>
-<span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"B"</span> <span class="ow">and</span> <span class="p">(</span><span class="n">gender</span> <span class="o">==</span> <span class="s2">"F"</span> <span class="ow">or</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"O"</span><span class="p">):</span>
-    <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Bailington"</span>
-<span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"C"</span> <span class="ow">and</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"M"</span><span class="p">:</span>
-    <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Carlston"</span>
-<span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"C"</span> <span class="ow">and</span> <span class="p">(</span><span class="n">gender</span> <span class="o">==</span> <span class="s2">"F"</span> <span class="ow">or</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"O"</span><span class="p">):</span>
-    <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Charlise"</span>
-<span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"D"</span> <span class="ow">and</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"M"</span><span class="p">:</span>
-    <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Drevious"</span>
-<span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"D"</span> <span class="ow">and</span> <span class="p">(</span><span class="n">gender</span> <span class="o">==</span> <span class="s2">"F"</span> <span class="ow">or</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"O"</span><span class="p">):</span>
-    <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Dremselle"</span>
-<span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"E"</span> <span class="ow">and</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"M"</span><span class="p">:</span>
-    <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Ebbie"</span>
-<span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"E"</span> <span class="ow">and</span> <span class="p">(</span><span class="n">gender</span> <span class="o">==</span> <span class="s2">"F"</span> <span class="ow">or</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"O"</span><span class="p">):</span>
-    <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Elvia"</span>
-<span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"F"</span> <span class="ow">and</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"M"</span><span class="p">:</span>
-    <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Felvis"</span>
-<span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"F"</span> <span class="ow">and</span> <span class="p">(</span><span class="n">gender</span> <span class="o">==</span> <span class="s2">"F"</span> <span class="ow">or</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"O"</span><span class="p">):</span>
-    <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Freaky"</span>
-<span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"G"</span> <span class="ow">and</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"M"</span><span class="p">:</span>
-    <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Gooby"</span>
-<span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"G"</span> <span class="ow">and</span> <span class="p">(</span><span class="n">gender</span> <span class="o">==</span> <span class="s2">"F"</span> <span class="ow">or</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"O"</span><span class="p">):</span>
-    <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Glorbis"</span>
-<span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"H"</span> <span class="ow">and</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"M"</span><span class="p">:</span>
-    <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Harvrey"</span>
-<span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"H"</span> <span class="ow">and</span> <span class="p">(</span><span class="n">gender</span> <span class="o">==</span> <span class="s2">"F"</span> <span class="ow">or</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"O"</span><span class="p">):</span>
-    <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Helenena"</span>
-<span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"I"</span> <span class="ow">and</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"M"</span><span class="p">:</span>
-    <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Inglo"</span>
-<span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"I"</span> <span class="ow">and</span> <span class="p">(</span><span class="n">gender</span> <span class="o">==</span> <span class="s2">"F"</span> <span class="ow">or</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"O"</span><span class="p">):</span>
-    <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Ingla"</span>
-<span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"J"</span> <span class="ow">and</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"M"</span><span class="p">:</span>
-    <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Jeano"</span>
-<span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"J"</span> <span class="ow">and</span> <span class="p">(</span><span class="n">gender</span> <span class="o">==</span> <span class="s2">"F"</span> <span class="ow">or</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"O"</span><span class="p">):</span>
-    <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Jacquavia"</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Zephyr"</span>
+<span class="k">def</span> <span class="nf">namescrew</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"A"</span> <span class="ow">and</span> <span class="p">(</span><span class="n">gender</span> <span class="o">==</span> <span class="s2">"M"</span> <span class="ow">or</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"O"</span><span class="p">):</span>
+        <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"AJar"</span>
+    <span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"A"</span> <span class="ow">and</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"F"</span><span class="p">:</span>
+        <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Aliciaptor"</span>
+    <span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"B"</span> <span class="ow">and</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"M"</span><span class="p">:</span>
+        <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Boristocrat"</span>
+    <span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"B"</span> <span class="ow">and</span> <span class="p">(</span><span class="n">gender</span> <span class="o">==</span> <span class="s2">"F"</span> <span class="ow">or</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"O"</span><span class="p">):</span>
+        <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Bailington"</span>
+    <span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"C"</span> <span class="ow">and</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"M"</span><span class="p">:</span>
+        <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Carlston"</span>
+    <span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"C"</span> <span class="ow">and</span> <span class="p">(</span><span class="n">gender</span> <span class="o">==</span> <span class="s2">"F"</span> <span class="ow">or</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"O"</span><span class="p">):</span>
+        <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Charlise"</span>
+    <span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"D"</span> <span class="ow">and</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"M"</span><span class="p">:</span>
+        <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Drevious"</span>
+    <span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"D"</span> <span class="ow">and</span> <span class="p">(</span><span class="n">gender</span> <span class="o">==</span> <span class="s2">"F"</span> <span class="ow">or</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"O"</span><span class="p">):</span>
+        <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Dremselle"</span>
+    <span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"E"</span> <span class="ow">and</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"M"</span><span class="p">:</span>
+        <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Ebbie"</span>
+    <span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"E"</span> <span class="ow">and</span> <span class="p">(</span><span class="n">gender</span> <span class="o">==</span> <span class="s2">"F"</span> <span class="ow">or</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"O"</span><span class="p">):</span>
+        <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Elvia"</span>
+    <span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"F"</span> <span class="ow">and</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"M"</span><span class="p">:</span>
+        <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Felvis"</span>
+    <span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"F"</span> <span class="ow">and</span> <span class="p">(</span><span class="n">gender</span> <span class="o">==</span> <span class="s2">"F"</span> <span class="ow">or</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"O"</span><span class="p">):</span>
+        <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Freaky"</span>
+    <span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"G"</span> <span class="ow">and</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"M"</span><span class="p">:</span>
+        <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Gooby"</span>
+    <span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"G"</span> <span class="ow">and</span> <span class="p">(</span><span class="n">gender</span> <span class="o">==</span> <span class="s2">"F"</span> <span class="ow">or</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"O"</span><span class="p">):</span>
+        <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Glorbis"</span>
+    <span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"H"</span> <span class="ow">and</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"M"</span><span class="p">:</span>
+        <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Harvrey"</span>
+    <span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"H"</span> <span class="ow">and</span> <span class="p">(</span><span class="n">gender</span> <span class="o">==</span> <span class="s2">"F"</span> <span class="ow">or</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"O"</span><span class="p">):</span>
+        <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Helenena"</span>
+    <span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"I"</span> <span class="ow">and</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"M"</span><span class="p">:</span>
+        <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Inglo"</span>
+    <span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"I"</span> <span class="ow">and</span> <span class="p">(</span><span class="n">gender</span> <span class="o">==</span> <span class="s2">"F"</span> <span class="ow">or</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"O"</span><span class="p">):</span>
+        <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Ingla"</span>
+    <span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"J"</span> <span class="ow">and</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"M"</span><span class="p">:</span>
+        <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Jeano"</span>
+    <span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"J"</span> <span class="ow">and</span> <span class="p">(</span><span class="n">gender</span> <span class="o">==</span> <span class="s2">"F"</span> <span class="ow">or</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"O"</span><span class="p">):</span>
+        <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Jacquavia"</span>
+    <span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"K"</span> <span class="ow">and</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"M"</span><span class="p">:</span>
+        <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Klevin"</span>
+    <span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"K"</span> <span class="ow">and</span> <span class="p">(</span><span class="n">gender</span> <span class="o">==</span> <span class="s2">"F"</span> <span class="ow">or</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"O"</span><span class="p">):</span>
+        <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Kraseche"</span>
+    <span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"L"</span> <span class="ow">and</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"M"</span><span class="p">:</span>
+        <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Levat"</span> <span class="o">+</span> <span class="n">randv</span> <span class="o">+</span> <span class="s2">"te"</span>
+    <span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"L"</span> <span class="ow">and</span> <span class="p">(</span><span class="n">gender</span> <span class="o">==</span> <span class="s2">"F"</span> <span class="ow">or</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"O"</span><span class="p">):</span>
+        <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"L"</span> <span class="o">+</span> <span class="n">randv</span> <span class="o">+</span> <span class="s2">"rvenza"</span>
+    <span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"M"</span> <span class="ow">and</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"M"</span><span class="p">:</span>
+        <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Mor"</span> <span class="o">+</span> <span class="n">randv</span> <span class="o">+</span> <span class="s2">"svo"</span>
+    <span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"M"</span> <span class="ow">and</span> <span class="p">(</span><span class="n">gender</span> <span class="o">==</span> <span class="s2">"F"</span> <span class="ow">or</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"O"</span><span class="p">):</span>
+        <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Marv"</span> <span class="o">+</span> <span class="n">randv</span> <span class="o">+</span> <span class="s2">"na"</span>
+    <span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"N"</span> <span class="ow">and</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"M"</span><span class="p">:</span>
+        <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Nels"</span> <span class="o">+</span> <span class="n">randv</span> <span class="o">+</span> <span class="s2">"rlo"</span>
+    <span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"N"</span> <span class="ow">and</span> <span class="p">(</span><span class="n">gender</span> <span class="o">==</span> <span class="s2">"F"</span> <span class="ow">or</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"O"</span><span class="p">):</span>
+        <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Neebl"</span> <span class="o">+</span> <span class="n">randv</span>
+    <span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"O"</span> <span class="ow">and</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"M"</span><span class="p">:</span>
+        <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Orth"</span> <span class="o">+</span> <span class="n">randv</span> <span class="o">+</span> <span class="s2">"to"</span>
+    <span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"O"</span> <span class="ow">and</span> <span class="p">(</span><span class="n">gender</span> <span class="o">==</span> <span class="s2">"F"</span> <span class="ow">or</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"O"</span><span class="p">):</span>
+        <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Orl"</span> <span class="o">+</span> <span class="n">randv</span> <span class="o">+</span> <span class="s2">"va"</span>
+    <span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"P"</span> <span class="ow">and</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"M"</span><span class="p">:</span>
+        <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Pl"</span> <span class="o">+</span> <span class="n">randv</span> <span class="o">+</span> <span class="s2">"plo"</span>
+    <span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"P"</span> <span class="ow">and</span> <span class="p">(</span><span class="n">gender</span> <span class="o">==</span> <span class="s2">"F"</span> <span class="ow">or</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"O"</span><span class="p">):</span>
+        <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Pro"</span> <span class="o">+</span> <span class="n">randv</span> <span class="o">+</span> <span class="s2">"da"</span>
+    <span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"Q"</span> <span class="ow">and</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"M"</span><span class="p">:</span>
+        <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Qual"</span> <span class="o">+</span> <span class="n">randv</span> <span class="o">+</span> <span class="s2">"cov"</span>
+    <span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"Q"</span> <span class="ow">and</span> <span class="p">(</span><span class="n">gender</span> <span class="o">==</span> <span class="s2">"F"</span> <span class="ow">or</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"O"</span><span class="p">):</span>
+        <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Quiz"</span> <span class="o">+</span> <span class="n">randv</span> <span class="o">+</span> <span class="s2">"ll"</span>
+    <span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"R"</span> <span class="ow">and</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"M"</span><span class="p">:</span>
+        <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"R"</span> <span class="o">+</span> <span class="n">randv</span> <span class="o">+</span> <span class="s2">"llapso"</span>
+    <span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"R"</span> <span class="ow">and</span> <span class="p">(</span><span class="n">gender</span> <span class="o">==</span> <span class="s2">"F"</span> <span class="ow">or</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"O"</span><span class="p">):</span>
+        <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Rop"</span> <span class="o">+</span> <span class="n">randv</span> <span class="o">+</span> <span class="s2">"relle"</span>
+    <span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"S"</span> <span class="ow">and</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"M"</span><span class="p">:</span>
+        <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Sl"</span> <span class="o">+</span> <span class="n">randv</span> <span class="o">+</span> <span class="s2">"cco"</span>
+    <span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"S"</span> <span class="ow">and</span> <span class="p">(</span><span class="n">gender</span> <span class="o">==</span> <span class="s2">"F"</span> <span class="ow">or</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"O"</span><span class="p">):</span>
+        <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Slo"</span> <span class="o">+</span> <span class="n">randv</span> <span class="o">+</span> <span class="s2">"na"</span>
+    <span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"T"</span> <span class="ow">and</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"M"</span><span class="p">:</span>
+        <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Tr"</span> <span class="o">+</span> <span class="n">randv</span> <span class="o">+</span> <span class="s2">"lbo"</span>
+    <span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"T"</span> <span class="ow">and</span> <span class="p">(</span><span class="n">gender</span> <span class="o">==</span> <span class="s2">"F"</span> <span class="ow">or</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"O"</span><span class="p">):</span>
+        <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Test"</span> <span class="o">+</span> <span class="n">randv</span> <span class="o">+</span> <span class="s2">"ca"</span>
+    <span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"U"</span> <span class="ow">and</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"M"</span><span class="p">:</span>
+        <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Ulyss"</span> <span class="o">+</span> <span class="n">randv</span> <span class="o">+</span> <span class="s2">"s"</span>
+    <span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"U"</span> <span class="ow">and</span> <span class="p">(</span><span class="n">gender</span> <span class="o">==</span> <span class="s2">"F"</span> <span class="ow">or</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"O"</span><span class="p">):</span>
+        <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Urs"</span> <span class="o">+</span> <span class="n">randv</span> <span class="o">+</span> <span class="s2">"loa"</span>
+    <span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"V"</span> <span class="ow">and</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"M"</span><span class="p">:</span>
+        <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Volt"</span> <span class="o">+</span> <span class="n">randv</span> <span class="o">+</span> <span class="s2">"gio"</span>
+    <span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"V"</span> <span class="ow">and</span> <span class="p">(</span><span class="n">gender</span> <span class="o">==</span> <span class="s2">"F"</span> <span class="ow">or</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"O"</span><span class="p">):</span>
+        <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Ver"</span> <span class="o">+</span> <span class="n">randv</span> <span class="o">+</span> <span class="s2">"nclessa"</span>
+    <span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"W"</span> <span class="ow">and</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"M"</span><span class="p">:</span>
+        <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Welch"</span> <span class="o">+</span> <span class="n">randv</span> <span class="o">+</span> <span class="s2">"llo"</span>
+    <span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"W"</span> <span class="ow">and</span> <span class="p">(</span><span class="n">gender</span> <span class="o">==</span> <span class="s2">"F"</span> <span class="ow">or</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"O"</span><span class="p">):</span>
+        <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Wr"</span> <span class="o">+</span> <span class="n">randv</span> <span class="o">+</span> <span class="s2">"nna"</span>
+    <span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"X"</span> <span class="ow">and</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"M"</span><span class="p">:</span>
+        <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Xan"</span> <span class="o">+</span> <span class="n">randv</span> <span class="o">+</span> <span class="s2">"llo"</span>
+    <span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"X"</span> <span class="ow">and</span> <span class="p">(</span><span class="n">gender</span> <span class="o">==</span> <span class="s2">"F"</span> <span class="ow">or</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"O"</span><span class="p">):</span>
+        <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Xandra"</span>
+    <span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"Y"</span> <span class="ow">and</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"M"</span><span class="p">:</span>
+        <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Yos"</span> <span class="o">+</span> <span class="n">randv</span> <span class="o">+</span> <span class="s2">"shi"</span>
+    <span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"Y"</span> <span class="ow">and</span> <span class="p">(</span><span class="n">gender</span> <span class="o">==</span> <span class="s2">"F"</span> <span class="ow">or</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"O"</span><span class="p">):</span>
+        <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Yarr"</span> <span class="o">+</span> <span class="n">randv</span> <span class="o">+</span> <span class="s2">"ppa"</span>
+    <span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"Z"</span> <span class="ow">and</span> <span class="n">gender</span> <span class="o">==</span> <span class="s2">"M"</span><span class="p">:</span>
+        <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Zoom"</span> <span class="o">+</span> <span class="n">randv</span> <span class="o">+</span> <span class="s2">"llo"</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">fakename</span> <span class="o">=</span> <span class="s2">"Zerkl"</span> <span class="o">+</span> <span class="n">randv</span> <span class="o">+</span> <span class="s2">"va"</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">"Okay, "</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">", I think it's time for us to begin the survey."</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">fakename</span><span class="p">)</span>
-<span class="n">mc_question</span><span class="p">(</span><span class="n">mc_prompt</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">mc_select</span><span class="p">[</span><span class="mi">0</span><span class="p">])])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mc_prompts</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">mc_select</span><span class="p">[</span><span class="mi">0</span><span class="p">])])</span>
+<span class="k">def</span> <span class="nf">question1</span><span class="p">():</span>
+    <span class="n">mcheckval</span> <span class="o">=</span> <span class="n">mc_select</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">mc_question</span><span class="p">()</span>
+    <span class="n">mc_check</span><span class="p">()</span>
+<span class="n">question1</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -292,10 +480,10 @@ window.onload = wrap_img;
 
 <div class="output_subarea output_text output_error">
 <pre>
-<span class="ansi-cyan-fg">  Input </span><span class="ansi-green-fg">In [62]</span>
-<span class="ansi-red-fg">    elif name[0] == "B" and gender == "M"::</span>
-                                          ^
-<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
+<span class="ansi-cyan-fg">  Input </span><span class="ansi-green-fg">In [77]</span>
+<span class="ansi-red-fg">    elif mcheckval == 5:</span>
+    ^
+<span class="ansi-red-fg">IndentationError</span><span class="ansi-red-fg">:</span> expected an indented block
 </pre>
 </div>
 </div>
