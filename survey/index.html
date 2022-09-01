@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      12 min read
+      17 min read
     
 </span></p>
 
@@ -277,17 +277,170 @@ window.onload = wrap_img;
         <span class="k">if</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"A"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Pop"</span><span class="p">:</span>
             <span class="n">score</span> <span class="o">+</span> <span class="mi">60</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">"I guess that's why it's called pop."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"B"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Rock"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">100</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Put another dime in the jukebox, baby!"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"C"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Country"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">25</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"In controlled circumstances..."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"D"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Punk/Ska"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">85</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Respectable."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"E"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Jazz"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">90</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"So groovy."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"F"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Classical"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">70</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"What year is it?"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"G"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Lo-Fi"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">50</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"ZZZzzz..."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"H"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Movie/Game Soundtracks"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">100</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"It takes a real musical ear to appreciate it."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"I"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"K-Pop"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">10</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Okay..."</span><span class="p">)</span>
     <span class="k">elif</span> <span class="n">mcheckval</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"A"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Red"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">80</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Something about it feels classic. And bloody."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"B"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Orange"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">80</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Orange you glad you didn't say...never mind."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"C"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Yellow"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">80</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"A very happy color. I like it."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"D"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Green"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">30</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Do you keep green things in your pocket protector?"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"E"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Blue"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">70</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Daring today, aren't we? Whoops, I referenced it again."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"F"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Purple"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">100</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Like royalty..."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"G"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Brown"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">70</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Rustic and natural...it has its appeal."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"H"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Black"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">50</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"A Rolling Stones fan, eh?"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"I"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Gray"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">60</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Maybe like a cool silver..."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"J"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"White"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">90</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Sleek and minimalistic with infinite possibilities."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"K"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Clear"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">100</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"What do you mean it's not a color? How close-minded."</span><span class="p">)</span>
     <span class="k">elif</span> <span class="n">mcheckval</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"A"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Action"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">60</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"*Explosion* *Laser* *Michael Bay*"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"B"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Comedy"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">100</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Funny movies are always the ones that stick with me."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"C"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Horror"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">20</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Psych-horror is interesting, but jumpscares scream lazy."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"D"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Rom-com"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">100</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"I wish she'd watch one with me sometime..."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"E"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Drama"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">50</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"A deep moral dilemma always gets me invested."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"F"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Musical"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">100</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Wait, aren't there different genres of musicals?</span><span class="se">\n</span><span class="s2">Eh, somehow we'll work this out."</span><span class="p">)</span>
     <span class="k">elif</span> <span class="n">mcheckval</span> <span class="o">==</span> <span class="mi">7</span><span class="p">:</span>
-    <span class="k">elif</span> <span class="n">mcheckval</span> <span class="o">==</span> <span class="mi">8</span>
+        <span class="k">if</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"A"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Appearance"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">20</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Well, at least you're honest."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"B"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Personality"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">90</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Yeah, I like big personalities too."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"C"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Intelligence"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">70</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"I get the feeling your intelligence front is deceiving..."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"D"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Values"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">100</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"So important, yet so sorely ignored."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"E"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"All of the above"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">100</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"In the search for a true soulmate, I see..."</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">mcheckval</span> <span class="o">==</span> <span class="mi">8</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"A"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Definitely"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">70</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Try not to get into TOO much trouble..."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"B"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Maybe"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">80</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Circumstances are important."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"C"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Probably not"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">90</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Somtimes, it's best not to deal with strangers."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"D"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Definitely not"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">80</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"An invertebrate? In MY survey?"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"E"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"I'd ask my date to confront him"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">100</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Bold of you to assume you went with a date."</span><span class="p">)</span>
     <span class="k">elif</span> <span class="n">mcheckval</span> <span class="o">==</span> <span class="mi">9</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"A"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Dog"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">80</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"The vanilla woof-woof solution."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"B"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Cat"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">100</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Chill little guys with empty heads. Great pets."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"C"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Fish"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">90</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Blub. Simple life."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"D"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Hampster/Guinea Pig"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">80</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"I mean, I've never seen a dog on an infinitely-spinning wheel."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"E"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Bunny"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">90</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"It's like Easter every day."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"F"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Giraffe"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">100</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"He would stay in the backyard, unconditionally loved."</span><span class="p">)</span>
     <span class="k">elif</span> <span class="n">mcheckval</span> <span class="o">==</span> <span class="mi">10</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"A"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Once a day"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">100</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Perfectly reasonable."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"B"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"More than once per day"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">100</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"A bit overkill, but the spirit is admirable."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"C"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Once every other day"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">75</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"A lot accumulated over two days..."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"D"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Once a week"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">30</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"I sure hope that's a cultural thing or something..."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"E"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"What is a shower?"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">60</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"I appreciate the honesty.</span><span class="se">\n</span><span class="s2">A shower is a structure found in home bathrooms. They are used to clean..."</span><span class="p">)</span>
     <span class="k">elif</span> <span class="n">mcheckval</span> <span class="o">==</span> <span class="mi">11</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"A"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Vanilla"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">50</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Daring today, aren't...I did it again."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"B"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Chocolate"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">80</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"The ice cream classic...milkshake-ified."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"C"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Strawberry"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">100</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Smooth, sweet and delicious."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"D"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Oreo/Cookies &amp; Cream"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">75</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"What kind of cookies? And pure cream?"</span><span class="p">)</span>
     <span class="k">elif</span> <span class="n">mcheckval</span> <span class="o">==</span> <span class="mi">12</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"A"</span> <span class="ow">or</span> <span class="n">realmsg</span> <span class="o">==</span> <span class="s2">"Sweatshirt and sweatpants"</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+</span> <span class="mi">100</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Nice and comfy."</span><span class="p">)</span>
     <span class="k">elif</span> <span class="n">mcheckval</span> <span class="o">==</span> <span class="mi">13</span><span class="p">:</span>
     <span class="k">elif</span> <span class="n">mcheckval</span> <span class="o">==</span> <span class="mi">14</span><span class="p">:</span>
-    <span class="k">elif</span> <span class="n">mcheckval</span> <span class="o">==</span> <span class="mi">15</span><span class="p">:</span>
+    <span class="k">else</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">"There seems to have been an error! Let's start over."</span><span class="p">)</span>
         <span class="n">nameselect</span><span class="p">()</span>
 
@@ -298,10 +451,10 @@ window.onload = wrap_img;
     <span class="s2">"Which of these ice cream flavors beats out the rest?</span><span class="se">\n</span><span class="s2">a) Vanilla</span><span class="se">\n</span><span class="s2">b) Chocolate</span><span class="se">\n</span><span class="s2">c) Strawberry</span><span class="se">\n</span><span class="s2">d) Rainbow Sherbet</span><span class="se">\n</span><span class="s2">e) Mint Chocolate Chip</span><span class="se">\n</span><span class="s2">f) Cookies and Cream</span><span class="se">\n</span><span class="s2">g) Cotton Candy</span><span class="se">\n</span><span class="s2">h) Watermelon</span><span class="se">\n</span><span class="s2">i) Pralines and Cream</span><span class="se">\n</span><span class="s2">j) Reese's Peanut Butter Cup"</span><span class="p">,</span>
     <span class="s2">"Pick your favorite music genre (out of these):</span><span class="se">\n</span><span class="s2">a) Pop</span><span class="se">\n</span><span class="s2">b) Rock</span><span class="se">\n</span><span class="s2">c) Country</span><span class="se">\n</span><span class="s2">d) Punk/Ska</span><span class="se">\n</span><span class="s2">e) Jazz</span><span class="se">\n</span><span class="s2">f) Classical</span><span class="se">\n</span><span class="s2">g) Lo-fi</span><span class="se">\n</span><span class="s2">h) Movie/Game Soundtracks</span><span class="se">\n</span><span class="s2">i) K-Pop"</span><span class="p">,</span>
     <span class="s2">"What is your favorite color?</span><span class="se">\n</span><span class="s2">a) Red</span><span class="se">\n</span><span class="s2">b) Orange</span><span class="se">\n</span><span class="s2">c) Yellow</span><span class="se">\n</span><span class="s2">d) Green</span><span class="se">\n</span><span class="s2">e) Blue</span><span class="se">\n</span><span class="s2">f) Purple</span><span class="se">\n</span><span class="s2">g) Brown</span><span class="se">\n</span><span class="s2">h) Black</span><span class="se">\n</span><span class="s2">i) Gray</span><span class="se">\n</span><span class="s2">j) White</span><span class="se">\n</span><span class="s2">k) Clear"</span><span class="p">,</span>
-    <span class="s2">"What kind of movie would you be most interested in watching?</span><span class="se">\n</span><span class="s2">a) Action</span><span class="se">\n</span><span class="s2">b) Comedy</span><span class="se">\n</span><span class="s2">c) Horror</span><span class="se">\n</span><span class="s2">d) Rom-com"</span><span class="p">,</span>
-    <span class="s2">"Which of these qualities is most important in a partner?</span><span class="se">\n</span><span class="s2">a) Appearance</span><span class="se">\n</span><span class="s2">b) Personality</span><span class="se">\n</span><span class="s2">c) Intelligence</span><span class="se">\n</span><span class="s2">d) Values"</span><span class="p">,</span>
+    <span class="s2">"What kind of movie would you be most interested in watching?</span><span class="se">\n</span><span class="s2">a) Action</span><span class="se">\n</span><span class="s2">b) Comedy</span><span class="se">\n</span><span class="s2">c) Horror</span><span class="se">\n</span><span class="s2">d) Rom-com</span><span class="se">\n</span><span class="s2">e) Drama</span><span class="se">\n</span><span class="s2">f) Musical"</span><span class="p">,</span>
+    <span class="s2">"Which of these qualities is most important in a partner?</span><span class="se">\n</span><span class="s2">a) Appearance</span><span class="se">\n</span><span class="s2">b) Personality</span><span class="se">\n</span><span class="s2">c) Intelligence</span><span class="se">\n</span><span class="s2">d) Values</span><span class="se">\n</span><span class="s2">e) All of the above"</span><span class="p">,</span>
     <span class="s2">"If an older man drank your drink after being asked to watch it</span><span class="se">\n</span><span class="s2">while you used the bathroom at a concert, would you confront him?</span><span class="se">\n</span><span class="s2">a) Definitely</span><span class="se">\n</span><span class="s2">b) Maybe</span><span class="se">\n</span><span class="s2">c) Probably not</span><span class="se">\n</span><span class="s2">d) Definitely not</span><span class="se">\n</span><span class="s2">e) I'd ask my date to confront him"</span><span class="p">,</span>
-    <span class="s2">"Which kind of (common) pet would you prefer to own?</span><span class="se">\n</span><span class="s2">a) Dog</span><span class="se">\n</span><span class="s2">b) Cat</span><span class="se">\n</span><span class="s2">c) Fish</span><span class="se">\n</span><span class="s2">d) Hampster/Guinea Pig</span><span class="se">\n</span><span class="s2">e) Bunny"</span><span class="p">,</span>
+    <span class="s2">"Which kind of (common) pet would you prefer to own?</span><span class="se">\n</span><span class="s2">a) Dog</span><span class="se">\n</span><span class="s2">b) Cat</span><span class="se">\n</span><span class="s2">c) Fish</span><span class="se">\n</span><span class="s2">d) Hampster/Guinea Pig</span><span class="se">\n</span><span class="s2">e) Bunny</span><span class="se">\n</span><span class="s2">f) Giraffe"</span><span class="p">,</span>
     <span class="s2">"How often do you usually shower?</span><span class="se">\n</span><span class="s2">a) Once a day</span><span class="se">\n</span><span class="s2">b) More than once per day</span><span class="se">\n</span><span class="s2">c) Once every other day</span><span class="se">\n</span><span class="s2">d) Once a week</span><span class="se">\n</span><span class="s2">e) What is a shower?"</span><span class="p">,</span>
     <span class="s2">"What is the correct milkshake flavor?</span><span class="se">\n</span><span class="s2">a) Vanilla</span><span class="se">\n</span><span class="s2">b) Chocolate</span><span class="se">\n</span><span class="s2">c) Strawberry</span><span class="se">\n</span><span class="s2">d) Oreo/Cookies &amp; Cream"</span><span class="p">,</span>
     <span class="s2">"It's a lazy day at home. No plans at the moment. What do you wear?</span><span class="se">\n</span><span class="s2">a) Sweatshirt and sweatpants</span><span class="se">\n</span><span class="s2">b) Pajamas</span><span class="se">\n</span><span class="s2">c) Full outfit just in case</span><span class="se">\n</span><span class="s2">d) Birthday suit</span><span class="se">\n</span><span class="s2">e) Other"</span><span class="p">,</span>
@@ -467,6 +620,7 @@ window.onload = wrap_img;
     <span class="n">mc_question</span><span class="p">()</span>
     <span class="n">mc_check</span><span class="p">()</span>
 <span class="n">question1</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">score</span><span class="p">))</span>
 </pre></div>
 
     </div>
