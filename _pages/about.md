@@ -10,8 +10,4 @@ After starting from scratch, it seems like the website is good to go.
 
 He is now playing with Python because it makes him feel like God.
 
-This website is powered by **[fastpages](https://github.com/fastai/fastpages)** [^1].
-
-
-
-[^1]:a blogging platform that natively supports Jupyter notebooks in addition to other formats.
+(Formerly known as "mister-dew", commonly misconceived as "misty-dew" by Mr. Mortensen.)
