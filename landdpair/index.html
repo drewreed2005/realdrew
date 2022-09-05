@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Lists and Dictionaries Pair Programming | Drew’s Super Awesome Fastpages Site</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Lists and Dictionaries Pair Programming" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="See Devon’s side for the while loop, he has incorporated it into a game." />
+<meta property="og:description" content="See Devon’s side for the while loop, he has incorporated it into a game." />
+<link rel="canonical" href="https://mister-dew.github.io/realdrew/landdpair/" />
+<meta property="og:url" content="https://mister-dew.github.io/realdrew/landdpair/" />
+<meta property="og:site_name" content="Drew’s Super Awesome Fastpages Site" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-09-05T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Lists and Dictionaries Pair Programming" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-09-05T00:00:00-05:00","datePublished":"2022-09-05T00:00:00-05:00","description":"See Devon’s side for the while loop, he has incorporated it into a game.","headline":"Lists and Dictionaries Pair Programming","mainEntityOfPage":{"@type":"WebPage","@id":"https://mister-dew.github.io/realdrew/landdpair/"},"url":"https://mister-dew.github.io/realdrew/landdpair/"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/realdrew/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://mister-dew.github.io/realdrew/feed.xml" title="Drew's Super Awesome Fastpages Site" /><link rel="shortcut icon" type="image/x-icon" href="/realdrew/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/realdrew/">Drew&#39;s Super Awesome Fastpages Site</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/realdrew/about/">About Me</a><a class="page-link" href="/realdrew/notes/">Notes</a><a class="page-link" href="/realdrew/more/">Quizzes and More</a><a class="page-link" href="/realdrew/search/">Search</a><a class="page-link" href="/realdrew/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Lists and Dictionaries Pair Programming</h1><p class="page-description">See Devon's side for the `while` loop, he has incorporated it into a game.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-09-05T00:00:00-05:00" itemprop="datePublished">
+        Sep 5, 2022
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      4 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/realdrew/categories/#python">python</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-justify-center">
+          <div class="px-2">
+
+    <a href="https://github.com/mister-dew/realdrew/tree/master/_notebooks/2022-09-05-listsanddictionariespairprog.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/realdrew/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/mister-dew/realdrew/master?filepath=_notebooks%2F2022-09-05-listsanddictionariespairprog.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/realdrew/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/mister-dew/realdrew/blob/master/_notebooks/2022-09-05-listsanddictionariespairprog.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/realdrew/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+          <div class="px-2">
+  <a href="https://deepnote.com/launch?url=https%3A%2F%2Fgithub.com%2Fmister-dew%2Frealdrew%2Fblob%2Fmaster%2F_notebooks%2F2022-09-05-listsanddictionariespairprog.ipynb" target="_blank">
+      <img class="notebook-badge-image" src="/realdrew/assets/badges/deepnote.svg" alt="Launch in Deepnote"/>
+  </a>
+</div>
+
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="toc" class="section-nav">
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-09-05-listsanddictionariespairprog.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For the below loop, I have chosen to use the same visual formatting for the output loop as in the Lists and Dictionaries page from this week, but the included info has been altered as well as how it is collected and certain possible variations of how it can be output.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">ssl</span>
+
+<span class="n">affirmative</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'yes'</span><span class="p">,</span> <span class="s1">'Yes'</span><span class="p">,</span> <span class="s1">'yeah'</span><span class="p">,</span> <span class="s1">'Yeah'</span><span class="p">,</span> <span class="s1">'yup'</span><span class="p">,</span> <span class="s1">'Yup'</span><span class="p">,</span> <span class="s1">'y'</span><span class="p">,</span> <span class="s1">'Y'</span><span class="p">,</span> <span class="s1">'yea'</span><span class="p">,</span> <span class="s1">'Yea'</span><span class="p">,</span> <span class="s1">'mhm'</span><span class="p">,</span> <span class="s1">'Mhm'</span><span class="p">,</span> <span class="s1">'yep'</span><span class="p">,</span> <span class="s1">'Yep'</span><span class="p">,</span> <span class="s1">'Affirmative,'</span> <span class="s1">'affirmative'</span><span class="p">,</span> <span class="s1">'sure'</span><span class="p">,</span> <span class="s1">'Sure'</span><span class="p">,</span> <span class="s1">'alright'</span><span class="p">,</span> <span class="s1">'Alright'</span><span class="p">,</span> <span class="s1">'okay'</span><span class="p">,</span> <span class="s1">'Okay'</span><span class="p">,</span> <span class="s1">'OK'</span><span class="p">,</span> <span class="s1">'ok'</span><span class="p">,</span> <span class="s1">'Ok'</span><span class="p">]</span>
+<span class="n">negative</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'No'</span><span class="p">,</span> <span class="s1">'no'</span><span class="p">,</span> <span class="s1">'Nope'</span><span class="p">,</span> <span class="s1">'nope'</span><span class="p">,</span> <span class="s1">'N'</span><span class="p">,</span> <span class="s1">'n'</span><span class="p">,</span> <span class="s1">'Nah'</span><span class="p">,</span> <span class="s1">'nah'</span><span class="p">,</span> <span class="s1">'nuh-uh'</span><span class="p">,</span> <span class="s1">'Nuh-uh'</span><span class="p">,</span> <span class="s1">'negative'</span><span class="p">,</span> <span class="s1">'Negative'</span><span class="p">]</span>
+
+<span class="n">InfoDb</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">def</span> <span class="nf">print_data</span><span class="p">(</span><span class="n">d_rec</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">d_rec</span><span class="p">[</span><span class="s2">"FirstName"</span><span class="p">],</span> <span class="n">d_rec</span><span class="p">[</span><span class="s2">"LastName"</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\t</span><span class="s2">"</span><span class="p">,</span> <span class="s2">"Place of Birth:"</span><span class="p">,</span> <span class="n">d_rec</span><span class="p">[</span><span class="s2">"POB"</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\t</span><span class="s2">"</span><span class="p">,</span> <span class="s2">"Favorite Color:"</span><span class="p">,</span> <span class="n">d_rec</span><span class="p">[</span><span class="s2">"Favorite Color"</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\t</span><span class="s2">"</span><span class="p">,</span> <span class="s2">"Favorite Food:"</span><span class="p">,</span> <span class="n">d_rec</span><span class="p">[</span><span class="s2">"Favorite Food"</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\t</span><span class="s2">"</span><span class="p">,</span> <span class="s2">"Pets: "</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">", "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">d_rec</span><span class="p">[</span><span class="s2">"Pets"</span><span class="p">]))</span>
+    <span class="nb">print</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">back_print_data</span><span class="p">(</span><span class="n">d_rec</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">d_rec</span><span class="p">[</span><span class="s2">"LastName"</span><span class="p">],</span> <span class="n">d_rec</span><span class="p">[</span><span class="s2">"FirstName"</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\t</span><span class="s2">"</span><span class="p">,</span> <span class="s2">"Pets: "</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">", "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">d_rec</span><span class="p">[</span><span class="s2">"Pets"</span><span class="p">]))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\t</span><span class="s2">"</span><span class="p">,</span> <span class="s2">"Favorite Food:"</span><span class="p">,</span> <span class="n">d_rec</span><span class="p">[</span><span class="s2">"Favorite Food"</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\t</span><span class="s2">"</span><span class="p">,</span> <span class="s2">"Favorite Color:"</span><span class="p">,</span> <span class="n">d_rec</span><span class="p">[</span><span class="s2">"Favorite Color"</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\t</span><span class="s2">"</span><span class="p">,</span> <span class="s2">"Place of Birth:"</span><span class="p">,</span> <span class="n">d_rec</span><span class="p">[</span><span class="s2">"POB"</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">recursive_loop</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">InfoDb</span><span class="p">):</span>
+        <span class="n">record</span> <span class="o">=</span> <span class="n">InfoDb</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">print_data</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>
+        <span class="n">recursive_loop</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span>
+<span class="k">def</span> <span class="nf">back_recursive_loop</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">InfoDb</span><span class="p">):</span>
+        <span class="n">record</span> <span class="o">=</span> <span class="n">InfoDb</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">back_print_data</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>
+        <span class="n">back_recursive_loop</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">infograb</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Excellent. Let's get started.</span><span class="se">\n</span><span class="s2">What is your legal first name?"</span><span class="p">)</span>
+    <span class="n">fname1</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+    <span class="k">global</span> <span class="n">infname</span>
+    <span class="n">infname</span> <span class="o">=</span> <span class="n">fname1</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Understood. Thank you, "</span> <span class="o">+</span> <span class="n">infname</span> <span class="o">+</span> <span class="s2">".</span><span class="se">\n</span><span class="s2">What is your legal last name?"</span><span class="p">)</span>
+    <span class="n">lname1</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+    <span class="k">global</span> <span class="n">inlname</span>
+    <span class="n">inlname</span> <span class="o">=</span> <span class="n">lname1</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Understood. Your full name is "</span> <span class="o">+</span> <span class="n">infname</span><span class="p">,</span> <span class="n">inlname</span> <span class="o">+</span> <span class="s2">".</span><span class="se">\n</span><span class="s2">Now, please tell us: in what city were you born?"</span><span class="p">)</span>
+    <span class="k">global</span> <span class="n">inpob</span>
+    <span class="n">inpob</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Understood. You were born in "</span> <span class="o">+</span> <span class="n">inpob</span> <span class="o">+</span> <span class="s2">".</span><span class="se">\n</span><span class="s2">What is your favorite color?"</span><span class="p">)</span>
+    <span class="k">global</span> <span class="n">infcolor</span>
+    <span class="n">infcolor</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Understood. Your favorite color is "</span> <span class="o">+</span> <span class="n">infcolor</span> <span class="o">+</span> <span class="s2">".</span><span class="se">\n</span><span class="s2">What is your favorite food?"</span><span class="p">)</span>
+    <span class="k">global</span> <span class="n">inffood</span>
+    <span class="n">inffood</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Understood. Your favorite food is "</span> <span class="o">+</span> <span class="n">inffood</span> <span class="o">+</span> <span class="s2">". Now, please name the species of pets you have.</span><span class="se">\n</span><span class="s2">(Write them all in one input with spaces separating them.)</span><span class="se">\n</span><span class="s2">(If you do not have a pet, simply say 'None' or 'N/A'."</span><span class="p">)</span>
+    <span class="n">pet_inp</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+    <span class="k">global</span> <span class="n">pet_list</span>
+    <span class="n">pet_list</span> <span class="o">=</span> <span class="n">pet_inp</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Understood. That concludes the survey."</span><span class="p">)</span>
+    <span class="k">return</span>
+
+<span class="n">InfoDb</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+    <span class="s2">"FirstName"</span><span class="p">:</span> <span class="n">infname</span><span class="p">,</span>
+    <span class="s2">"LastName"</span><span class="p">:</span> <span class="n">inlname</span><span class="p">,</span>
+    <span class="s2">"POB"</span><span class="p">:</span> <span class="n">inpob</span><span class="p">,</span>
+    <span class="s2">"Favorite Color"</span><span class="p">:</span> <span class="n">infcolor</span><span class="p">,</span>
+    <span class="s2">"Favorite Food"</span><span class="p">:</span> <span class="n">inffood</span><span class="p">,</span>
+    <span class="s2">"Pets"</span><span class="p">:</span> <span class="n">pet_list</span>
+<span class="p">})</span>
+
+<span class="n">InfoDb</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+    <span class="s2">"FirstName"</span><span class="p">:</span> <span class="s2">"Drew"</span><span class="p">,</span>
+    <span class="s2">"LastName"</span><span class="p">:</span> <span class="s2">"Reed"</span><span class="p">,</span>
+    <span class="s2">"POB"</span><span class="p">:</span> <span class="s2">"San Diego"</span><span class="p">,</span>
+    <span class="s2">"Favorite Color"</span><span class="p">:</span> <span class="s2">"Purple"</span><span class="p">,</span>
+    <span class="s2">"Favorite Food"</span><span class="p">:</span> <span class="s2">"Sushi"</span><span class="p">,</span>
+    <span class="s2">"Pets"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"Cat"</span><span class="p">,</span> <span class="s2">"Dog"</span><span class="p">]</span>
+<span class="p">})</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Welcome to the Information Database! We will keep your info safe.</span><span class="se">\n</span><span class="s2">Would you like to provide your information to us?"</span><span class="p">)</span>
+<span class="n">consent</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+<span class="k">if</span> <span class="n">consent</span> <span class="ow">in</span> <span class="n">affirmative</span><span class="p">:</span>
+    <span class="n">infograb</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Would you like to print the current log of information?"</span><span class="p">)</span>
+    <span class="n">consent3</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">consent3</span> <span class="ow">in</span> <span class="n">affirmative</span><span class="p">:</span>
+        <span class="n">recursive_loop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Thank you for provding your data.</span><span class="se">\n</span><span class="s2">Would you like to print this data backward?"</span><span class="p">)</span>
+        <span class="n">consent5</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">consent5</span> <span class="ow">in</span> <span class="n">affirmative</span><span class="p">:</span>
+            <span class="n">back_recursive_loop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"I am tired. This concludes the program. Gracias."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">consent5</span> <span class="ow">in</span> <span class="n">negative</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Understood. Have a nice day."</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Your response confuses me. Thank you for your interaction."</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">consent3</span> <span class="ow">in</span> <span class="n">negative</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"That is alright. Thank you for your data."</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Your response confuses me. Try again later."</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">consent</span> <span class="ow">in</span> <span class="n">negative</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"That is alright. Would you like to print the current log of information?"</span><span class="p">)</span>
+    <span class="n">consent2</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">consent2</span> <span class="ow">in</span> <span class="n">affirmative</span><span class="p">:</span>
+        <span class="n">recursive_loop</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Thank you for interacting with the program.</span><span class="se">\n</span><span class="s2">Would you like to print this data backward?"</span><span class="p">)</span>
+        <span class="n">consent4</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">consent4</span> <span class="ow">in</span> <span class="n">affirmative</span><span class="p">:</span>
+            <span class="n">back_recursive_loop</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"I am tired. This concludes the program. Gracias."</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">consent2</span> <span class="ow">in</span> <span class="n">negative</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Understood. Have a nice day."</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Your response confuses me. Try again later."</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Your response confuses me. Try again later."</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Welcome to the Information Database! We will keep your info safe.
+Would you like to provide your information to us?
+Excellent. Let's get started.
+What is your legal first name?
+Understood. Thank you, Devon.
+What is your legal last name?
+Understood. Your full name is Devon Shepherd.
+Now, please tell us: in what city were you born?
+Understood. You were born in San Diego.
+What is your favorite color?
+Understood. Your favorite color is Red.
+What is your favorite food?
+Understood. Your favorite food is IDK. Now, please name the species of pets you have.
+(Write them all in one input with spaces separating them.)
+(If you do not have a pet, simply say 'None' or 'N/A'.
+Understood. That concludes the survey.
+Would you like to print the current log of information?
+Devon Shepherd
+	 Place of Birth: San Diego
+	 Favorite Color: Red
+	 Favorite Food: I don't know
+	 Pets: Dog
+
+Drew Reed
+	 Place of Birth: San Diego
+	 Favorite Color: Purple
+	 Favorite Food: Sushi
+	 Pets: Cat, Dog
+
+Thank you for provding your data.
+Would you like to print this data backward?
+Shepherd Devon
+	 Pets: Dog
+	 Favorite Food: I don't know
+	 Favorite Color: Red
+	 Place of Birth: San Diego
+
+Reed Drew
+	 Pets: Cat, Dog
+	 Favorite Food: Sushi
+	 Favorite Color: Purple
+	 Place of Birth: San Diego
+
+I am tired. This concludes the program. Gracias.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Making use of a recursive loop and user inputs, this program allows you to give your own information to be printed in the initial InfoDb format.</p>
+<p>A hack from one relevant page asks to print the data backward, so if you want, the program can do that to.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="mister-dew/realdrew"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/realdrew/landdpair/" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/realdrew/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/realdrew/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/realdrew/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/fastai" target="_blank" title="fastai"><svg class="svg-icon grey"><use xlink:href="/realdrew/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fastdotai" target="_blank" title="fastdotai"><svg class="svg-icon grey"><use xlink:href="/realdrew/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
