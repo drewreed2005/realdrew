@@ -50,7 +50,7 @@ I found the content surrounding loops confusing and decided to mess around with 
 
 I used a mix of Markdown and Python (like with most pages on this site) to explain what I was doing (for my own future reference). I also showed use of my own InfoDb data and various types of loops, though a much better instance of this is found in...
 
-## [Lists and Dictionaries Pair Programming](https://drewreed2005.github.io/realdrew/listsanddictionariespairprog/)
+## [Lists and Dictionaries Pair Programming](https://drewreed2005.github.io/realdrew/landdpair/)
 
 I have made a Jupyter Notebooks page along with my partner Devon to show understanding of loops and dictionaries with InfoDb. Devon used a game to show his understanding (see his Review Ticket) with a "while loop", and I used a "recursive loop" along with a system which allows the user to input their own information.
 
