@@ -16,7 +16,7 @@ This week primarily covered content regarding HTML Fragments (which was largely 
 
 This week, the hacks tended to be less plentiful but more singularly time-consuming and difficult to understand. I went into this week with a partially-complete project that I had worked on over the weekend. It just so happens that the project has some pertenance to the "Lists and Dictionaries" part of the week's content. Let's go into that first.
 
-## [The "Survey"](https://drewreed2005.github.io/realdrew/thesurvey/)
+## [The "Survey"](https://drewreed2005.github.io/realdrew/survey/)
 
 After making the Python quiz, one thing that I found distinctly unsatisfying about the quiz-taking process itself was its predictability. I didn't like that I could just know the answers to the five questions and put them in immediately. I didn't like that I had to tell the quiz-taker how to format their inputs, capitalized versus lowercase or string versus integer versus float versus symbol, etc. If someone put in the wrong kind of input, it was just nonsense that didn't contribute the quiz. It felt thoroughly uninteractive and clunky.
 
@@ -44,7 +44,7 @@ Yeah, I followed the instructions to use "dark mode" on my site. I think altered
 
 I also changed the image on the home page. Why not?
 
-## [Lists and Dictionaries Notes](https://drewreed2005.github.io/realdrew/listanddictionarynotes/)
+## [Lists and Dictionaries Notes](https://drewreed2005.github.io/realdrew/landdnotes/)
 
 I found the content surrounding loops confusing and decided to mess around with them in a notes Jupyter file under the name above. Using this, I was able to create the objective Notebooks page found below.
 
@@ -61,7 +61,7 @@ We did a portion of this during the 20 minute segments on Friday.
 Here's a table using Markdown:
 
 | Goals | Complete? | Proof |
-| ----------- | ----------- |
+| ----------- | ----------- | ----------- |
 | Lists and Dictionaries | Yes | Notes, Pair Programming, Survey |
 | HTML Fragments | Yes | This Table |
 | Live Review | Underway | You're looking at this table |
