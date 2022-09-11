@@ -24,4 +24,4 @@ Expect a turn-based battle system, a solid number of towns to travel to and inte
 
 What will the game be called? What is the scenario? These details are still being decided...
 
-Feel free to leave ideas in the description!
+Feel free to leave ideas in the comments!
