@@ -14,7 +14,7 @@ Coders are responsible for working together with many other branches of teams. T
 
 ## Polish
 
-Coders create and polish a program, but they must rely on artists, business professionals, and peoples with various other roles to create a cohesive ==product==.
+Coders create and polish a program, but they must rely on artists, business professionals, and peoples with various other roles to create a cohesive *product*.
 
 There's a reason programs like Facebook and Instagram are so successful, and it certainly isn't entirely due to the team that codes it.
 
