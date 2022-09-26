@@ -14,4 +14,6 @@ See various learning materials below.
 
 [Big Idea 1: Collaboration Notes](https://drewreed2005.github.io/realdrew/2022/09/18/collaborationnotes.html)
 
+[Javascript Notes (Table at the Bottom)](https://drewreed2005.github.io/realdrew/2002/09/18/javascriptnotes/)
+
 More to come!

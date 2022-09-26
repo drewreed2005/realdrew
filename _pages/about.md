@@ -8,6 +8,6 @@ Drew panicked over the course of four days because his fastpages website would n
 
 After starting from scratch, it seems like the website is good to go.
 
-He is now playing with Python because it makes him feel like God.
+He is now playing with mixing knowledge of various code languages and complaining because he is teaching himself.
 
-(Formerly known as "mister-dew", commonly misconceived as "misty-dew" by Mr. Mortensen.)
+(Formerly known as "mister-dew", commonly misconceived as "misty-dew," apparently.)
