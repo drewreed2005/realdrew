@@ -89,4 +89,18 @@ The more unplanned break time the user spent and the longer the duration of cert
 
 # Frontend Wire Frame Diagram
 
-TBD
+<img src="{{site.baseurl}}/images/workwatchwireframe.png" alt="Program Purpose question" width="800"/>
+
+Our Frontend Designer Jagger Klein created this diagram to show the UI of the Work Watch. The text of the menu options can be a bit uncertain, but the plan is to make them buttons which reveal a submenu when hovered over/clicked to edit certain settings.
+
+The "Timer Length" block will more accurately contain a customizeable list of assignments and anticipated assignment durations. The "Customize Timer Look" will contain setting such as selecting the visibility of the timer, the color or font of notifications, break alarm tones, and the timer itself may have other looks (digital segmented numbers, clean Serif numbers, etc.). The "Time Break" menu encompasses settings regarding the intervals between breaks, the duration of breaks, and the intervals between time notifications. The "Time Points" menu encompasses the theoretical idea of creating an incentive system along with the timer where you can use points to unlock new looks or something. At the moment, this is an extra feature to be added if possible.
+
+The "STOP" and "Start" buttons represent the "END TIMER" and "PLAY/PAUSE TIMER" buttons respectively, and the "BREAK TIME" button would normally go in the middle. The latter wasn't included because the idea for a break-specific button came about in the UML Diagramming phase, and this vision was not communicated as both assignments were created simultaneously. With these resources combined, we'll be able to create a more cohesive idea of what the UI of the program will be like.
+
+# This Week's SCRUM Board Sub-Entry and Assignments
+
+A link to it can be found [here](https://github.com/drewreed2005/realdrew/issues/10). Considering this the first week of work on the Work Watch, current progress has been marked and taken into account.
+
+An overarching SCRUM Board has been created to organize these various weeks of progress into a single entity to document our work thoroughly.
+
+The assignments for each role this week (specifically in reference to the Work Watch, not including the "Deployment" individual tasks) are also listed on this week's board. As you can see, all role-specific tasks have been completed.
