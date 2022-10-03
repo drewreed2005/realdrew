@@ -94,4 +94,4 @@ This question is an honest mistake on my part. I seem to have disregarded that `
 
 # Applying Program Design and Development
 
-This can be seen in another Notebooks post in which I plan the Work Watch project from the SCRUM Master point of view. [Link here](https://drewreed2005.github.io/realdrew/wwplanning/).
+This can be seen in another Notebooks post in which I plan the Work Watch project from the SCRUM Master point of view. [Link here](https://drewreed2005.github.io/realdrew/workwatchddplan/).
