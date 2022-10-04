@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Identifying and Correcting Errors Notes | Drew’s Big Fastpages Blog</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Identifying and Correcting Errors Notes" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Showing understanding with execution. See code comments for comment." />
+<meta property="og:description" content="Showing understanding with execution. See code comments for comment." />
+<link rel="canonical" href="https://drewreed2005.github.io/realdrew/identifyingerrorsnotes/" />
+<meta property="og:url" content="https://drewreed2005.github.io/realdrew/identifyingerrorsnotes/" />
+<meta property="og:site_name" content="Drew’s Big Fastpages Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-10-03T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Identifying and Correcting Errors Notes" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-10-03T00:00:00-05:00","datePublished":"2022-10-03T00:00:00-05:00","description":"Showing understanding with execution. See code comments for comment.","headline":"Identifying and Correcting Errors Notes","mainEntityOfPage":{"@type":"WebPage","@id":"https://drewreed2005.github.io/realdrew/identifyingerrorsnotes/"},"url":"https://drewreed2005.github.io/realdrew/identifyingerrorsnotes/"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/realdrew/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://drewreed2005.github.io/realdrew/feed.xml" title="Drew's Big Fastpages Blog" /><link rel="shortcut icon" type="image/x-icon" href="/realdrew/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/realdrew/">Drew&#39;s Big Fastpages Blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/realdrew/about/">About Me</a><a class="page-link" href="/realdrew/notes/">Notes</a><a class="page-link" href="/realdrew/more/">Programs and More</a><a class="page-link" href="/realdrew/search/">Search</a><a class="page-link" href="/realdrew/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Identifying and Correcting Errors Notes</h1><p class="page-description">Showing understanding with execution. See code comments for comment.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-10-03T00:00:00-05:00" itemprop="datePublished">
+        Oct 3, 2022
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      6 min read
+    
+</span></p>
+
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-justify-center">
+          <div class="px-2">
+
+    <a href="https://github.com/drewreed2005/realdrew/tree/master/_notebooks/2022-10-03-identifyingerrors.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/realdrew/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/drewreed2005/realdrew/master?filepath=_notebooks%2F2022-10-03-identifyingerrors.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/realdrew/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/drewreed2005/realdrew/blob/master/_notebooks/2022-10-03-identifyingerrors.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/realdrew/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+          <div class="px-2">
+  <a href="https://deepnote.com/launch?url=https%3A%2F%2Fgithub.com%2Fdrewreed2005%2Frealdrew%2Fblob%2Fmaster%2F_notebooks%2F2022-10-03-identifyingerrors.ipynb" target="_blank">
+      <img class="notebook-badge-image" src="/realdrew/assets/badges/deepnote.svg" alt="Launch in Deepnote"/>
+  </a>
+</div>
+
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-10-03-identifyingerrors.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This first function exists to tell the user where in the alphabet a given letter is. Below is some work to fix certain problems with the program, the corrections being detailed with Python comments.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">alphabet</span> <span class="o">=</span> <span class="s2">&quot;abcdefghijklmnopqrstuvwxyz&quot;</span>
+
+<span class="n">alphabetList</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">alphabet</span><span class="p">:</span>
+    <span class="n">alphabetList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">alphabetList</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, &#39;f&#39;, &#39;g&#39;, &#39;h&#39;, &#39;i&#39;, &#39;j&#39;, &#39;k&#39;, &#39;l&#39;, &#39;m&#39;, &#39;n&#39;, &#39;o&#39;, &#39;p&#39;, &#39;q&#39;, &#39;r&#39;, &#39;s&#39;, &#39;t&#39;, &#39;u&#39;, &#39;v&#39;, &#39;w&#39;, &#39;x&#39;, &#39;y&#39;, &#39;z&#39;]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">letter</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;What letter would you like to check?&quot;</span><span class="p">)</span>
+
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">26</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">alphabetList</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">letter</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The letter &quot;</span> <span class="o">+</span> <span class="n">letter</span> <span class="o">+</span> <span class="s2">&quot; is the &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; letter in the alphabet&quot;</span><span class="p">)</span> <span class="c1">#1 has been added to i to account for zero-based syntax.</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>The letter z is the 26 letter in the alphabet
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">letter</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;What letter would you like to check?&quot;</span><span class="p">)</span>
+<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#Count has been moved out of the function so that it can be overwritten by the input.</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">alphabetList</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">letter</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The letter &quot;</span> <span class="o">+</span> <span class="n">letter</span> <span class="o">+</span> <span class="s2">&quot; is the &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; letter in the alphabet&quot;</span><span class="p">)</span> <span class="c1">#1 is added to count to account for zero-based syntax.</span>
+    <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>The letter b is the 2 letter in the alphabet
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The program below gives a list of even numbers less than or equal to 10. In the cell below it, we want it to print odd numbers instead.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">evens</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="n">evens</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">2</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">evens</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[0, 2, 4, 6, 8, 10]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">odds</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1">#The starting i value has been increased to one so that the list starts at 1 and 2 is added each loop.</span>
+
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="n">odds</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">2</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">odds</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The program below extracts even numbers from a list of numbers from 0 to 10. We want it to print odd numbers instead.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+<span class="n">evens</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="n">evens</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">evens</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[0, 2, 4, 6, 8, 10]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+<span class="n">odds</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">):</span> <span class="c1">#remainder has been set to 1, as odd numbers give a remainder of 1 when divided by 2</span>
+        <span class="n">odds</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">odds</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[1, 3, 5, 7, 9]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The program below lists numbers between 1 and 100 once if it is divisible by 2 or 5.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">newNumbers</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">:</span> <span class="c1">#we want to include 100, so it becomes &quot;&lt;=&quot; instead of &quot;&lt;&quot;</span>
+    <span class="n">numbers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="c1">#prevents 0 from being included, as it&#39;s between 1 and 100</span>
+        <span class="k">pass</span>
+    <span class="k">elif</span> <span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">newNumbers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="k">elif</span> <span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="c1">#&quot;if&quot; changed to &quot;elif&quot; so that both conditions are considered</span>
+        <span class="n">newNumbers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">newNumbers</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[2, 4, 5, 6, 8, 10, 12, 14, 15, 16, 18, 20, 22, 24, 25, 26, 28, 30, 32, 34, 35, 36, 38, 40, 42, 44, 45, 46, 48, 50, 52, 54, 55, 56, 58, 60, 62, 64, 65, 66, 68, 70, 72, 74, 75, 76, 78, 80, 82, 84, 85, 86, 88, 90, 92, 94, 95, 96, 98, 100]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Challenge">Challenge<a class="anchor-link" href="#Challenge"> </a></h2><p>Fixing the code below. What it does is mentioned in comments. Basically, it's a food menu. I decided to make it allow you to create an infinitely large order accounting for invalid inputs.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">menu</span> <span class="o">=</span>  <span class="p">{</span><span class="s2">&quot;burger&quot;</span><span class="p">:</span> <span class="mf">3.99</span><span class="p">,</span>
+         <span class="s2">&quot;fries&quot;</span><span class="p">:</span> <span class="mf">1.99</span><span class="p">,</span>
+         <span class="s2">&quot;drink&quot;</span><span class="p">:</span> <span class="mf">0.99</span><span class="p">}</span>
+<span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1">#shows the user the menu and prompts them to select an item</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Menu&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">menu</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">k</span> <span class="o">+</span> <span class="s2">&quot;  $&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">))</span> <span class="c1">#why does v have &quot;str&quot; in front of it?</span>
+
+<span class="c1">#ideally the code should prompt the user multiple times</span>
+<span class="n">item</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Please select an item from the menu&quot;</span><span class="p">)</span>
+
+<span class="c1">#code should add the price of the menu items selected by the user </span>
+<span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Menu
+burger  $3.99
+fries  $1.99
+drink  $0.99
+0
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>I input my order and the total remained at zero. It seems like there isn't any code in this program to add the price of the items in the dictionary <code>menu</code> to the total price of the order. This is a matter of adding some code that is completely absent.</p>
+<p>Please see the code comments to see all the things I changed as well as their purposes.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">affirmative</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;yes&#39;</span><span class="p">,</span> <span class="s1">&#39;Yes&#39;</span><span class="p">,</span> <span class="s1">&#39;yeah&#39;</span><span class="p">,</span> <span class="s1">&#39;Yeah&#39;</span><span class="p">,</span> <span class="s1">&#39;yup&#39;</span><span class="p">,</span> <span class="s1">&#39;Yup&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="s1">&#39;yea&#39;</span><span class="p">,</span> <span class="s1">&#39;Yea&#39;</span><span class="p">,</span> <span class="s1">&#39;mhm&#39;</span><span class="p">,</span> <span class="s1">&#39;Mhm&#39;</span><span class="p">,</span> <span class="s1">&#39;yep&#39;</span><span class="p">,</span> <span class="s1">&#39;Yep&#39;</span><span class="p">,</span> <span class="s1">&#39;Affirmative,&#39;</span> <span class="s1">&#39;affirmative&#39;</span><span class="p">,</span> <span class="s1">&#39;sure&#39;</span><span class="p">,</span> <span class="s1">&#39;Sure&#39;</span><span class="p">,</span> <span class="s1">&#39;alright&#39;</span><span class="p">,</span> <span class="s1">&#39;Alright&#39;</span><span class="p">,</span> <span class="s1">&#39;okay&#39;</span><span class="p">,</span> <span class="s1">&#39;Okay&#39;</span><span class="p">,</span> <span class="s1">&#39;OK&#39;</span><span class="p">,</span> <span class="s1">&#39;ok&#39;</span><span class="p">,</span> <span class="s1">&#39;Ok&#39;</span><span class="p">]</span>
+<span class="n">negative</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;No&#39;</span><span class="p">,</span> <span class="s1">&#39;no&#39;</span><span class="p">,</span> <span class="s1">&#39;Nope&#39;</span><span class="p">,</span> <span class="s1">&#39;nope&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">,</span> <span class="s1">&#39;Nah&#39;</span><span class="p">,</span> <span class="s1">&#39;nah&#39;</span><span class="p">,</span> <span class="s1">&#39;nuh-uh&#39;</span><span class="p">,</span> <span class="s1">&#39;Nuh-uh&#39;</span><span class="p">,</span> <span class="s1">&#39;negative&#39;</span><span class="p">,</span> <span class="s1">&#39;Negative&#39;</span><span class="p">]</span>
+<span class="c1">#Capital and lowercase versions of all the responses are provided because this list was created before I knew how to force the string to be read as lower/uppercase</span>
+
+<span class="n">menu</span> <span class="o">=</span>  <span class="p">{</span><span class="s2">&quot;Burger&quot;</span><span class="p">:</span> <span class="mf">3.99</span><span class="p">,</span>
+         <span class="s2">&quot;Fries&quot;</span><span class="p">:</span> <span class="mf">1.99</span><span class="p">,</span>
+         <span class="s2">&quot;Drink&quot;</span><span class="p">:</span> <span class="mf">0.99</span><span class="p">}</span>
+
+<span class="c1">#shows the user the menu and prompts them to select an item</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Menu&quot;</span><span class="p">)</span>
+
+<span class="c1">#ideally the code should prompt the user multiple times</span>
+<span class="n">total</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#price is defined later here just so that it is defined first</span>
+<span class="n">ordered</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="k">def</span> <span class="nf">finish</span><span class="p">():</span> <span class="c1">#function to allow the user to order another item</span>
+    <span class="k">global</span> <span class="n">fin</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Is your order complete?&quot;</span><span class="p">)</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+    <span class="n">fin</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="c1">#corrects for possible capitalized user response</span>
+<span class="k">def</span> <span class="nf">finishcheck</span><span class="p">():</span>
+    <span class="n">roundtotal</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">total</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1">#rounding to prevent certain sum errors with floats</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Your current total is $&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">roundtotal</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span>
+    <span class="n">finish</span><span class="p">()</span> <span class="c1">#see just above</span>
+    <span class="k">if</span> <span class="n">fin</span> <span class="ow">in</span> <span class="n">affirmative</span><span class="p">:</span> <span class="c1">#using affirmative bank to understand user responses</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Understood.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="mi">0</span> <span class="c1">#value to be read later (0 = stop)</span>
+    <span class="k">elif</span> <span class="n">fin</span> <span class="ow">in</span> <span class="n">negative</span><span class="p">:</span> <span class="c1">#same but with negative</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Understood.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="mi">1</span> <span class="c1">#value to be read later (1 = continue)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Invalid response.&quot;</span><span class="p">)</span>
+        <span class="n">finish</span><span class="p">()</span> <span class="c1">#repeating process when an invalid response is provided</span>
+<span class="k">def</span> <span class="nf">order</span><span class="p">():</span> <span class="c1">#defined as a function so that the process can be repeated</span>
+    <span class="k">global</span> <span class="n">total</span>
+    <span class="k">global</span> <span class="n">ordered</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">menu</span><span class="o">.</span><span class="n">items</span><span class="p">():</span> <span class="c1">#reprinting the menu for each order</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">k</span> <span class="o">+</span> <span class="s2">&quot;  $&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">ordered</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;What else would you like to order?&quot;</span><span class="p">)</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Please select an item from the menu&quot;</span><span class="p">)</span>
+    <span class="n">item</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="s2">&quot;burger&quot;</span><span class="p">:</span> <span class="c1">#I probably should&#39;ve found a way to iterate this :/</span>
+        <span class="n">total</span> <span class="o">+=</span> <span class="mf">3.99</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You ordered a burger.&quot;</span><span class="p">)</span>
+        <span class="n">ordered</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">if</span> <span class="n">finishcheck</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="k">else</span><span class="p">:</span> <span class="c1">#using else to prevent a second instance of finishcheck()</span>
+            <span class="n">order</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="n">item</span> <span class="o">==</span> <span class="s2">&quot;fries&quot;</span><span class="p">:</span>
+        <span class="n">total</span> <span class="o">+=</span> <span class="mf">1.99</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You ordered fries.&quot;</span><span class="p">)</span>
+        <span class="n">ordered</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">if</span> <span class="n">finishcheck</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">order</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="n">item</span> <span class="o">==</span> <span class="s2">&quot;drink&quot;</span><span class="p">:</span>
+        <span class="n">total</span> <span class="o">+=</span> <span class="mf">0.99</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You ordered a drink.&quot;</span><span class="p">)</span>
+        <span class="n">ordered</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">if</span> <span class="n">finishcheck</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">order</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span> <span class="c1">#repeating the order process when an invalid input is provided</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;We do not serve that here.&quot;</span><span class="p">)</span>
+        <span class="n">order</span><span class="p">()</span>
+
+<span class="n">order</span><span class="p">()</span>
+<span class="c1">#code should add the price of the menu items selected by the user</span>
+<span class="n">roundtotal</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">total</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1">#rounding to prevent certain sum errors with floats</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Your total is $&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">roundtotal</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;. Thank you for choosing Python&#39;s Pub.&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Menu
+Burger  $3.99
+Fries  $1.99
+Drink  $0.99
+You ordered a burger.
+Your current total is $3.99.
+Is your order complete?
+Understood.
+Burger  $3.99
+Fries  $1.99
+Drink  $0.99
+What else would you like to order?
+You ordered fries.
+Your current total is $5.98.
+Is your order complete?
+Understood.
+Burger  $3.99
+Fries  $1.99
+Drink  $0.99
+What else would you like to order?
+You ordered a drink.
+Your current total is $6.97.
+Is your order complete?
+Understood.
+Your total is $6.97. Thank you for choosing Python&#39;s Pub.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="drewreed2005/realdrew"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/realdrew/identifyingerrorsnotes/" hidden></a>
+</article>
+
+<script src="https://utteranc.es/client.js"
+        repo="[ENTER REPO HERE]"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/realdrew/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/realdrew/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/realdrew/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Documentation of my constant progress toward being a master coder (haiyah).</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/fastai" target="_blank" title="fastai"><svg class="svg-icon grey"><use xlink:href="/realdrew/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fastdotai" target="_blank" title="fastdotai"><svg class="svg-icon grey"><use xlink:href="/realdrew/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
