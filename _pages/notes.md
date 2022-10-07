@@ -4,9 +4,6 @@ title: Notes
 permalink: /notes/
 ---
 
-See various learning materials below.
+{% include nav_data.html %}
 
-| [Week 1 Python Notes](https://drewreed2005.github.io/realdrew/2022/08/26/week1learning.html) | [Focus and Habits Notes](https://drewreed2005.github.io/realdrew/2022/08/26/Focus-and-Habits-Notes.html) | [Lists and Dictionaries Notes](https://drewreed2005.github.io/realdrew/landdnotes/) |
-| [Big Idea 1: Collaboration Notes](https://drewreed2005.github.io/realdrew/2022/09/18/collaborationnotes.html) | [Javascript Notes (Table at the Bottom)](https://drewreed2005.github.io/realdrew/javascriptnotes/)| [Big Idea 1: Program Design and Development Notes](https://drewreed2005.github.io/realdrew/programdesignnotes/) |
-
-More to come!
+Access notes by clicking on the link above. Notes pages include information about topics covered in weekly lectures.

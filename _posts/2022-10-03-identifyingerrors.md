@@ -21,6 +21,13 @@ layout: notebook
         
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>{% include nav_data.html %}</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>This first function exists to tell the user where in the alphabet a given letter is. Below is some work to fix certain problems with the program, the corrections being detailed with Python comments.</p>
 
 </div>
@@ -441,7 +448,6 @@ drink  $0.99
 <span class="c1">#shows the user the menu and prompts them to select an item</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Menu&quot;</span><span class="p">)</span>
 
-<span class="c1">#ideally the code should prompt the user multiple times</span>
 <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#price is defined later here just so that it is defined first</span>
 <span class="n">ordered</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="k">def</span> <span class="nf">finish</span><span class="p">():</span> <span class="c1">#function to allow the user to order another item</span>
@@ -535,6 +541,135 @@ Burger  $3.99
 Fries  $1.99
 Drink  $0.99
 What else would you like to order?
+You ordered a drink.
+Your current total is $6.97.
+Is your order complete?
+Understood.
+Your total is $6.97. Thank you for choosing Python&#39;s Pub.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>I was dissatisfied with the check not being iterated, so I worked with my friend AJ to reverse-engineer and then understand the <code>items()</code> function.</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">affirmative</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;yes&#39;</span><span class="p">,</span> <span class="s1">&#39;Yes&#39;</span><span class="p">,</span> <span class="s1">&#39;yeah&#39;</span><span class="p">,</span> <span class="s1">&#39;Yeah&#39;</span><span class="p">,</span> <span class="s1">&#39;yup&#39;</span><span class="p">,</span> <span class="s1">&#39;Yup&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="s1">&#39;yea&#39;</span><span class="p">,</span> <span class="s1">&#39;Yea&#39;</span><span class="p">,</span> <span class="s1">&#39;mhm&#39;</span><span class="p">,</span> <span class="s1">&#39;Mhm&#39;</span><span class="p">,</span> <span class="s1">&#39;yep&#39;</span><span class="p">,</span> <span class="s1">&#39;Yep&#39;</span><span class="p">,</span> <span class="s1">&#39;Affirmative,&#39;</span> <span class="s1">&#39;affirmative&#39;</span><span class="p">,</span> <span class="s1">&#39;sure&#39;</span><span class="p">,</span> <span class="s1">&#39;Sure&#39;</span><span class="p">,</span> <span class="s1">&#39;alright&#39;</span><span class="p">,</span> <span class="s1">&#39;Alright&#39;</span><span class="p">,</span> <span class="s1">&#39;okay&#39;</span><span class="p">,</span> <span class="s1">&#39;Okay&#39;</span><span class="p">,</span> <span class="s1">&#39;OK&#39;</span><span class="p">,</span> <span class="s1">&#39;ok&#39;</span><span class="p">,</span> <span class="s1">&#39;Ok&#39;</span><span class="p">]</span>
+<span class="n">negative</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;No&#39;</span><span class="p">,</span> <span class="s1">&#39;no&#39;</span><span class="p">,</span> <span class="s1">&#39;Nope&#39;</span><span class="p">,</span> <span class="s1">&#39;nope&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">,</span> <span class="s1">&#39;Nah&#39;</span><span class="p">,</span> <span class="s1">&#39;nah&#39;</span><span class="p">,</span> <span class="s1">&#39;nuh-uh&#39;</span><span class="p">,</span> <span class="s1">&#39;Nuh-uh&#39;</span><span class="p">,</span> <span class="s1">&#39;negative&#39;</span><span class="p">,</span> <span class="s1">&#39;Negative&#39;</span><span class="p">]</span>
+<span class="c1">#Capital and lowercase versions of all the responses are provided because this list was created before I knew how to force the string to be read as lower/uppercase</span>
+
+<span class="n">menu</span> <span class="o">=</span>  <span class="p">{</span><span class="s2">&quot;Burger&quot;</span><span class="p">:</span> <span class="mf">3.99</span><span class="p">,</span>
+         <span class="s2">&quot;Fries&quot;</span><span class="p">:</span> <span class="mf">1.99</span><span class="p">,</span>
+         <span class="s2">&quot;Drink&quot;</span><span class="p">:</span> <span class="mf">0.99</span><span class="p">}</span>
+
+<span class="n">total</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#price is defined later here just so that it is defined first</span>
+<span class="n">ordered</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="k">def</span> <span class="nf">finish</span><span class="p">():</span> <span class="c1">#function to allow the user to order another item</span>
+    <span class="k">global</span> <span class="n">fin</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Is your order complete?&quot;</span><span class="p">)</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+    <span class="n">fin</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="c1">#corrects for possible capitalized user response</span>
+<span class="k">def</span> <span class="nf">finishcheck</span><span class="p">():</span>
+    <span class="n">roundtotal</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">total</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1">#rounding to prevent certain sum errors with floats</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Your current total is $&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">roundtotal</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span>
+    <span class="n">finish</span><span class="p">()</span> <span class="c1">#see just above</span>
+    <span class="k">if</span> <span class="n">fin</span> <span class="ow">in</span> <span class="n">affirmative</span><span class="p">:</span> <span class="c1">#using affirmative bank to understand user responses</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Understood.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="mi">0</span> <span class="c1">#value to be read later (0 = stop)</span>
+    <span class="k">elif</span> <span class="n">fin</span> <span class="ow">in</span> <span class="n">negative</span><span class="p">:</span> <span class="c1">#same but with negative</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Understood.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="mi">1</span> <span class="c1">#value to be read later (1 = continue)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Invalid response.&quot;</span><span class="p">)</span>
+        <span class="n">finish</span><span class="p">()</span> <span class="c1">#repeating process when an invalid response is provided</span>
+<span class="k">def</span> <span class="nf">ordercheck</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">total</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Please select an item from the menu&quot;</span><span class="p">)</span>
+    <span class="n">item</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">menu</span><span class="o">.</span><span class="n">items</span><span class="p">():</span> <span class="c1">#for loop checks if input is one of the accepted dictionary keys</span>
+        <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="n">k</span><span class="p">:</span>
+            <span class="n">ordered</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="s2">&quot;fries&quot;</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You ordered fries.&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You ordered a &quot;</span> <span class="o">+</span> <span class="n">k</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span>
+            <span class="n">total</span> <span class="o">+=</span> <span class="n">v</span>
+            <span class="k">return</span> <span class="mi">1</span>
+<span class="k">def</span> <span class="nf">order</span><span class="p">():</span> <span class="c1">#defined as a function so that the process can be repeated</span>
+    <span class="k">global</span> <span class="n">ordered</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\r</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-----MENU-----&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">menu</span><span class="o">.</span><span class="n">items</span><span class="p">():</span> <span class="c1">#reprinting the menu for each order</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">k</span> <span class="o">+</span> <span class="s2">&quot;  $&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--------------&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">ordered</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;What else would you like to order?&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">ordercheck</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">finishcheck</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">order</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;We don&#39;t serve that here.&quot;</span><span class="p">)</span>
+        <span class="n">order</span><span class="p">()</span>
+
+<span class="n">order</span><span class="p">()</span>
+<span class="n">roundtotal</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">total</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1">#rounding to prevent certain sum errors with floats</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Your total is $&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">roundtotal</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;. Thank you for choosing Python&#39;s Pub.&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+-----MENU-----
+Burger  $3.99
+Fries  $1.99
+Drink  $0.99
+--------------
+You ordered a burger.
+Your current total is $3.99.
+Is your order complete?
+Understood.
+
+-----MENU-----
+Burger  $3.99
+Fries  $1.99
+Drink  $0.99
+--------------
+You ordered a fries.
+Your current total is $5.98.
+Is your order complete?
+Understood.
+
+-----MENU-----
+Burger  $3.99
+Fries  $1.99
+Drink  $0.99
+--------------
 You ordered a drink.
 Your current total is $6.97.
 Is your order complete?
