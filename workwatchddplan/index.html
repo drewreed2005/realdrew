@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      5 min read
+      7 min read
     
 </span></p>
 
@@ -96,32 +96,41 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul id="toc" class="section-nav">
-<li class="toc-entry toc-h1"><a href="#work-watch-overview">Work Watch Overview</a></li>
-<li class="toc-entry toc-h1"><a href="#work-watch-uml-diagram">Work Watch UML Diagram</a>
+<li class="toc-entry toc-h2"><a href="#work-watch-overview">Work Watch Overview</a></li>
+<li class="toc-entry toc-h2"><a href="#work-watch-uml-diagram">Work Watch UML Diagram</a>
 <ul>
-<li class="toc-entry toc-h2"><a href="#work-watch-startups-default-values-and-constant-variable-checks">Work Watch Startups, Default Values and Constant Variable Checks</a></li>
-<li class="toc-entry toc-h2"><a href="#user-inputs-pre--and-post-start">User Inputs (Pre- and Post-Start)</a></li>
-<li class="toc-entry toc-h2"><a href="#watch-end-and-reflection">Watch End and Reflection</a></li>
+<li class="toc-entry toc-h3"><a href="#work-watch-startups-default-values-and-constant-variable-checks">Work Watch Startups, Default Values and Constant Variable Checks</a></li>
+<li class="toc-entry toc-h3"><a href="#user-inputs-pre--and-post-start">User Inputs (Pre- and Post-Start)</a></li>
+<li class="toc-entry toc-h3"><a href="#watch-end-and-reflection">Watch End and Reflection</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h1"><a href="#frontend-wire-frame-diagram">Frontend Wire Frame Diagram</a></li>
-<li class="toc-entry toc-h1"><a href="#this-weeks-scrum-board-sub-entry-and-assignments">This Week’s SCRUM Board Sub-Entry and Assignments</a></li>
-</ul><h1 id="work-watch-overview">
-<a class="anchor" href="#work-watch-overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Work Watch Overview</h1>
+<li class="toc-entry toc-h2"><a href="#frontend-wire-frame-diagram">Frontend Wire Frame Diagram</a></li>
+<li class="toc-entry toc-h2"><a href="#this-weeks-scrum-board-sub-entry-and-assignments">This Week’s SCRUM Board Sub-Entry and Assignments</a></li>
+<li class="toc-entry toc-h2"><a href="#create-task-requirements">Create Task Requirements</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#project-purpose">Project Purpose</a></li>
+<li class="toc-entry toc-h3"><a href="#data-abstraction-and-managing-complexity">Data Abstraction and Managing Complexity</a></li>
+<li class="toc-entry toc-h3"><a href="#procedural-abstraction">Procedural Abstraction</a></li>
+<li class="toc-entry toc-h3"><a href="#algorithm-implementation">Algorithm Implementation</a></li>
+<li class="toc-entry toc-h3"><a href="#testing">Testing</a></li>
+</ul>
+</li>
+</ul><h2 id="work-watch-overview">
+<a class="anchor" href="#work-watch-overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Work Watch Overview</h2>
 
 <p>To recap the program purpose and what we have so far, the Work Watch is a program that times your work session and tells you when to take breaks. More precisely, the program lets you input a set of tasks you intend to complete and the expected duration for each so that the timer can tell you how on-track you are. You can also customize how frequently you want to take breaks based on the amount of time you have to work. You can input custom suggestions for what to do during breaks, though certain particularly ideal break activities will be recommended. You can also choose whether or not you want to see the timer counting up.</p>
 
 <p>The reason we want to create this is that many studies have shown that taking frequent breaks during long work sessions greatly increases the quality of your work output. During these breaks, students who feel that they don’t have time to do activities like reading and exercising that supplement their learning will have the time to.</p>
 
-<h1 id="work-watch-uml-diagram">
-<a class="anchor" href="#work-watch-uml-diagram" aria-hidden="true"><span class="octicon octicon-link"></span></a>Work Watch UML Diagram</h1>
+<h2 id="work-watch-uml-diagram">
+<a class="anchor" href="#work-watch-uml-diagram" aria-hidden="true"><span class="octicon octicon-link"></span></a>Work Watch UML Diagram</h2>
 
 <p><img src="/realdrew/images/workwatchUMLdiagram.png" alt="Program Purpose question" width="800"></p>
 
 <p>This diagram shows what variables will be needed/used/modified during all stages of the Work Watch program. Let’s go a little more in depth.</p>
 
-<h2 id="work-watch-startups-default-values-and-constant-variable-checks">
-<a class="anchor" href="#work-watch-startups-default-values-and-constant-variable-checks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Work Watch Startups, Default Values and Constant Variable Checks</h2>
+<h3 id="work-watch-startups-default-values-and-constant-variable-checks">
+<a class="anchor" href="#work-watch-startups-default-values-and-constant-variable-checks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Work Watch Startups, Default Values and Constant Variable Checks</h3>
 
 <p>When the Work Watch program is first opened, the file <code class="language-plaintext highlighter-rouge">deltavar.py</code> is opened and default values completely overwrite whatever settings exist from previous uses to ensure that, once the timer has been used and stopped, it can be reset and used again.</p>
 
@@ -172,22 +181,22 @@ while watchon == True:
     inctime()
 </code></pre></div></div>
 
-<h2 id="user-inputs-pre--and-post-start">
-<a class="anchor" href="#user-inputs-pre--and-post-start" aria-hidden="true"><span class="octicon octicon-link"></span></a>User Inputs (Pre- and Post-Start)</h2>
+<h3 id="user-inputs-pre--and-post-start">
+<a class="anchor" href="#user-inputs-pre--and-post-start" aria-hidden="true"><span class="octicon octicon-link"></span></a>User Inputs (Pre- and Post-Start)</h3>
 
 <p>A series of functions listed in “User Input (functions)” will register user inputs in place of default settings. Once the timer is initiated, they will overwrite the defaults and dictate the behavior of the timer.</p>
 
 <p>Once the timer has started running, the “Pause/Play Timer,” (not in UML chart but will exist) “Break Time,” “Task Complete,” and “End Timer” buttons will complete the corresponding functions described in the top-right box of the diagram.</p>
 
-<h2 id="watch-end-and-reflection">
-<a class="anchor" href="#watch-end-and-reflection" aria-hidden="true"><span class="octicon octicon-link"></span></a>Watch End and Reflection</h2>
+<h3 id="watch-end-and-reflection">
+<a class="anchor" href="#watch-end-and-reflection" aria-hidden="true"><span class="octicon octicon-link"></span></a>Watch End and Reflection</h3>
 
 <p>Keeping in mind the discrepancies between anticipated task completion times and actual completion times, anticipated break times and actual break times, and unexpected pauses and breaks, the quality and consistency of the user’s work session is determined mathematically.</p>
 
 <p>The more unplanned break time the user spent and the longer the duration of certain task completion sessions than anticipated, the more unproductive the session is considered. However, the opposite is also true: if the user completes a task faster than the anticipated time, takes shorter breaks or takes breaks at more distant intervals, the work session will be considered more productive. However, if too few breaks are taken, the work session may be considered relatively unhealthy.</p>
 
-<h1 id="frontend-wire-frame-diagram">
-<a class="anchor" href="#frontend-wire-frame-diagram" aria-hidden="true"><span class="octicon octicon-link"></span></a>Frontend Wire Frame Diagram</h1>
+<h2 id="frontend-wire-frame-diagram">
+<a class="anchor" href="#frontend-wire-frame-diagram" aria-hidden="true"><span class="octicon octicon-link"></span></a>Frontend Wire Frame Diagram</h2>
 
 <p><img src="/realdrew/images/workwatchwireframe.png" alt="Program Purpose question" width="800"></p>
 
@@ -197,14 +206,50 @@ while watchon == True:
 
 <p>The “STOP” and “Start” buttons represent the “END TIMER” and “PLAY/PAUSE TIMER” buttons respectively, and the “BREAK TIME” button would normally go in the middle. The latter wasn’t included because the idea for a break-specific button came about in the UML Diagramming phase, and this vision was not communicated as both assignments were created simultaneously. With these resources combined, we’ll be able to create a more cohesive idea of what the UI of the program will be like.</p>
 
-<h1 id="this-weeks-scrum-board-sub-entry-and-assignments">
-<a class="anchor" href="#this-weeks-scrum-board-sub-entry-and-assignments" aria-hidden="true"><span class="octicon octicon-link"></span></a>This Week’s SCRUM Board Sub-Entry and Assignments</h1>
+<h2 id="this-weeks-scrum-board-sub-entry-and-assignments">
+<a class="anchor" href="#this-weeks-scrum-board-sub-entry-and-assignments" aria-hidden="true"><span class="octicon octicon-link"></span></a>This Week’s SCRUM Board Sub-Entry and Assignments</h2>
 
 <p>A link to it can be found <a href="https://github.com/drewreed2005/realdrew/issues/10">here</a>. Considering this the first week of work on the Work Watch, current progress has been marked and taken into account.</p>
 
 <p>An overarching SCRUM Board has been created to organize these various weeks of progress into a single entity to document our work thoroughly.</p>
 
 <p>The assignments for each role this week (specifically in reference to the Work Watch, not including the “Deployment” individual tasks) are also listed on this week’s board. As you can see, all role-specific tasks have been completed.</p>
+
+<blockquote>
+  <p>Below is a new entry to the Program Design assignment one week later.</p>
+</blockquote>
+
+<h2 id="create-task-requirements">
+<a class="anchor" href="#create-task-requirements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Create Task Requirements</h2>
+
+<p>For this week, we were asked to address how our program meets the College Board create task requirements.</p>
+
+<h3 id="project-purpose">
+<a class="anchor" href="#project-purpose" aria-hidden="true"><span class="octicon octicon-link"></span></a>Project Purpose</h3>
+
+<p>See the <a href="/realdrew/workwatchddplan/#work-watch-overview">top of this page</a> for project purpose. In short, it’s to regulate a work session by advising when to take breaks and what to do during those breaks.</p>
+
+<h3 id="data-abstraction-and-managing-complexity">
+<a class="anchor" href="#data-abstraction-and-managing-complexity" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data Abstraction and Managing Complexity</h3>
+
+<p>Much of the idea for this program is algebra based. When breaks will be advised is a mathematical formula (explained briefly in sections above). The timer itself runs on a while loop, turned on and off by a <code class="language-plaintext highlighter-rouge">True</code>/<code class="language-plaintext highlighter-rouge">False</code> state check.</p>
+
+<p>Lists are used to organize the names and durations of a user’s tasks. By <code class="language-plaintext highlighter-rouge">append</code>ing them when input, an unlimited number of entries can be created without any clutter.</p>
+
+<h3 id="procedural-abstraction">
+<a class="anchor" href="#procedural-abstraction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Procedural Abstraction</h3>
+
+<p>Procedural abstraction and data abstraction kind of go hand in hand for this program, but one more easily-defined example is the current idea for the code that makes breaks occur. The duration of a break is directly based on the either preset or custom duration of the user’s break, defined as the variable <code class="language-plaintext highlighter-rouge">breakdur</code>. The break function <code class="language-plaintext highlighter-rouge">breaktime(duration)</code> includes the placeholder <code class="language-plaintext highlighter-rouge">duration</code> to be replaced with <code class="language-plaintext highlighter-rouge">breakdur</code> when run for each break.</p>
+
+<h3 id="algorithm-implementation">
+<a class="anchor" href="#algorithm-implementation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Algorithm Implementation</h3>
+
+<p>The timer itself iterates constantly, checking if it should give a special response after each iteration (break, notification, etc.).</p>
+
+<h3 id="testing">
+<a class="anchor" href="#testing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Testing</h3>
+
+<p>Since much of the program is based on user input, invalid user inputs (for example, if they input a string rather than an integer) are fully accounted for. The best way to see this is with the task creation process. If the task duration is not provided or is input as a string/decimal, it cannot be <code class="language-plaintext highlighter-rouge">append</code>ed to the list of tasks until it is an integer. If no task name is provdied, it is automatically named “Untitled Task” on the timer. Things like this show understanding of possible unintentional actions taken by the user.</p>
 
   </div><!-- from https://github.com/utterance/utterances -->
 <script src="https://utteranc.es/client.js"

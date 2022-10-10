@@ -722,7 +722,7 @@ Your total is $6.97. Thank you for choosing Python&#39;s Pub.
     <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">menu</span><span class="o">.</span><span class="n">items</span><span class="p">():</span> <span class="c1">#for loop checks if input is one of the accepted dictionary keys</span>
         <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="n">k</span><span class="p">:</span>
             <span class="n">ordered</span> <span class="o">=</span> <span class="kc">True</span>
-            <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="s2">&quot;fries&quot;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="s2">&quot;Fries&quot;</span><span class="p">:</span>
                 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You ordered fries.&quot;</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You ordered a &quot;</span> <span class="o">+</span> <span class="n">k</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span>
@@ -730,7 +730,6 @@ Your total is $6.97. Thank you for choosing Python&#39;s Pub.
             <span class="k">return</span> <span class="mi">1</span>
 <span class="k">def</span> <span class="nf">order</span><span class="p">():</span> <span class="c1">#defined as a function so that the process can be repeated</span>
     <span class="k">global</span> <span class="n">ordered</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\r</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-----MENU-----&quot;</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">menu</span><span class="o">.</span><span class="n">items</span><span class="p">():</span> <span class="c1">#reprinting the menu for each order</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">k</span> <span class="o">+</span> <span class="s2">&quot;  $&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
@@ -761,8 +760,7 @@ Your total is $6.97. Thank you for choosing Python&#39;s Pub.
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>
------MENU-----
+<pre>-----MENU-----
 Burger  $3.99
 Fries  $1.99
 Drink  $0.99
@@ -771,23 +769,21 @@ You ordered a burger.
 Your current total is $3.99.
 Is your order complete?
 Understood.
-
------MENU-----
-Burger  $3.99
-Fries  $1.99
-Drink  $0.99
---------------
-You ordered a fries.
-Your current total is $5.98.
-Is your order complete?
-Understood.
-
 -----MENU-----
 Burger  $3.99
 Fries  $1.99
 Drink  $0.99
 --------------
 You ordered a drink.
+Your current total is $4.98.
+Is your order complete?
+Understood.
+-----MENU-----
+Burger  $3.99
+Fries  $1.99
+Drink  $0.99
+--------------
+You ordered fries.
 Your current total is $6.97.
 Is your order complete?
 Understood.
