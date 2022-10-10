@@ -27,28 +27,15 @@ layout: notebook
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Python,-RapidAPI-Terms">Python, RapidAPI Terms<a class="anchor-link" href="#Python,-RapidAPI-Terms"> </a></h3><blockquote><p>APIs and tooling like Jupyter docs allows many opportunities in fields like Data Science.  As more and more developers use APIs, they build standards in how you setup a client, send requests and receive information...</p>
-</blockquote>
+<h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction"> </a></h2><p>RapidAPI is constantly sending out and receiving information in the form of API data.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Covid19-RapidAPI-Example">Covid19 RapidAPI Example<a class="anchor-link" href="#Covid19-RapidAPI-Example"> </a></h3><blockquote><p>To begin the API journey.  You need to find an API provider.</p>
-</blockquote>
-<ul>
-<li>RapidAPI is a great option.  You must setup and account, but there are many free options.</li>
-<li>Goto this page for starters, the <a href="https://rapidapi.com/spamakashrajtech/api/corona-virus-world-and-india-data/">Corona virus World and India data</a>- Under Code Snippets pick Python - Requests</li>
-</ul>
-<p>RapidAPI, you will select Python Requests type of code to work with you Notebook.</p>
-<ul>
-<li>The url is the endpoint to which the API is directed</li>
-<li>The headers is a dictionary data structure to send special messaging to the endpoint </li>
-<li>The requests.request() python function is used to send a request and retrieve their responses</li>
-<li>The response variable receives result of of the request in JSON text</li>
-</ul>
-<p>Next step, is to format the response according to your data science needs</p>
+<h3 id="Covid19-RapidAPI-Example">Covid19 RapidAPI Example<a class="anchor-link" href="#Covid19-RapidAPI-Example"> </a></h3><p>The example API data used in class can be found <a href="https://rapidapi.com/spamakashrajtech/api/corona-virus-world-and-india-data/">here</a>.</p>
+<p>As I was still getting comfortable with APIs, the only real modification I made to this (aside from the key) was adding another part of the output about Japan's COVID stats.</p>
 
 </div>
 </div>
@@ -193,12 +180,7 @@ tests_per_1m_population 371,215
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Digital-Coin-Example">Digital Coin Example<a class="anchor-link" href="#Digital-Coin-Example"> </a></h3><blockquote><p>This example provides digital coin feedback (ie Bitcoin).  It include popularity, price, symbols, etc.</p>
-<ul>
-<li>A valid X-RapidAPI-Key is required.  Look in code for link to RapidAPI page</li>
-<li>Read all comments in code for further guidance</li>
-</ul>
-</blockquote>
+<h3 id="Digital-Coin-Example">Digital Coin Example<a class="anchor-link" href="#Digital-Coin-Example"> </a></h3><p>This example provides digital coin feedback.  It include popularity, price, symbols, etc. I've gone ahead and subscribed and input my own key for the data.</p>
 
 </div>
 </div>
@@ -242,8 +224,7 @@ tests_per_1m_population 371,215
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Formatting-Digital-Coin-example">Formatting Digital Coin example<a class="anchor-link" href="#Formatting-Digital-Coin-example"> </a></h3><blockquote><p>JSON text transferred from the API in the previous cell was converted to a Python Dictionary called json.  The "coins" in the dictionary contain a list of the most relevant data.   Look at the code and comments to see how the original text is turned into something understandable.   Additionally, there are error check to make sure we are starting the code with the expectation that the API was run correctly.</p>
-</blockquote>
+<h3 id="Formatting-Digital-Coin-example">Formatting Digital Coin example<a class="anchor-link" href="#Formatting-Digital-Coin-example"> </a></h3><p>This is where I found that the <code>json</code> data (in the form of a list of dictionaries) can be decompiled and procedurally printed in a certain format just like in "Lists and Dictionaries." Influence from that assignment can be seen later.</p>
 
 </div>
 </div>
