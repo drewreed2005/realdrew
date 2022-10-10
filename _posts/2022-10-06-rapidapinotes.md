@@ -580,6 +580,7 @@ Rank Url: https://coinranking.com/coin/iAzbfXiBBKkR6+eos-eos
 <span class="k">def</span> <span class="nf">print_forum</span><span class="p">(</span><span class="n">f_rec</span><span class="p">):</span> <span class="c1">#see use below</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Post Title and Info: &quot;&#39;</span> <span class="o">+</span> <span class="n">f_rec</span><span class="p">[</span><span class="s2">&quot;forum&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;&quot;&#39;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">URL: &quot;</span> <span class="o">+</span> <span class="n">f_rec</span><span class="p">[</span><span class="s2">&quot;url&quot;</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">reccheckloop</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
     <span class="k">global</span> <span class="n">z</span> <span class="c1">#pulls z = 0</span>
     <span class="n">record</span> <span class="o">=</span> <span class="n">speedrun</span><span class="p">[</span><span class="n">z</span><span class="p">]</span> <span class="c1">#starts with the first dictionary of the API</span>
@@ -644,106 +645,157 @@ Rank Url: https://coinranking.com/coin/iAzbfXiBBKkR6+eos-eos
 
 Post Title and Info: &#34;Mario Kart 8 Deluxe Category Extensions9 Sep 2022PearPear&#34;
 	URL: https://www.speedrun.com/mk8dxce/forum
+
 Post Title and Info: &#34;Load Time Remover and Auto-SplitterVikeMKVikeMKVikeMKVikeMK19 Apr 2022modularizedmodularized&#34;
 	URL: https://www.speedrun.com/mk8dx/thread/yeh1o
+
 Post Title and Info: &#34;Run TimingsSnipinG117SnipinG117SnipinG117SnipinG1172 Apr 2021Pianist15Pianist15&#34;
 	URL: https://www.speedrun.com/mk8dx/thread/wa4sr
+
 Post Title and Info: &#34;UPDATE: Time Thresholds for Video Requirementamberamberamberamber12 Aug 2020OddPandemoniumOddPandemonium&#34;
 	URL: https://www.speedrun.com/mk8dx/thread/k76ek
+
 Post Title and Info: &#34;DLC CategoriesPianist15Pianist15Pianist15Pianist1516 Mar 2022Pianist15Pianist15&#34;
 	URL: https://www.speedrun.com/mk8dx/thread/wye5d
+
 Post Title and Info: &#34;Cup runs will now require you to start on the proper starting track.amberamberamberamber19 Feb 2022amberamber&#34;
 	URL: https://www.speedrun.com/mk8dx/thread/4op0q
+
 Post Title and Info: &#34;IGT TimingPianist15Pianist15Pianist15Pianist151 Apr 2021Pianist15Pianist15&#34;
 	URL: https://www.speedrun.com/mk8dx/thread/rpdws
+
 Post Title and Info: &#34;FAQPianist15Pianist15Pianist15Pianist1519 Feb 2019Pianist15Pianist15&#34;
 	URL: https://www.speedrun.com/mk8dx/thread/etl7j
+
 Post Title and Info: &#34;Discord ServerSnipinG117SnipinG117SnipinG117SnipinG1171 May 2017SnipinG117SnipinG117&#34;
 	URL: https://www.speedrun.com/mk8dx/thread/0kbd6
+
 Post Title and Info: &#34;How do you record videos of you speedrunning MK8D?Red_BrickRed_BrickRed_BrickRed_Brick1 Oct 2022ZarzaZarza&#34;
 	URL: https://www.speedrun.com/mk8dx/thread/g4um9
+
 Post Title and Info: &#34;I&#39;m getting into theory crafting and need your helpEeveeBest11EeveeBest11EeveeBest11EeveeBest1122 Sep 2022EeveeBest11EeveeBest11&#34;
 	URL: https://www.speedrun.com/mk8dx/thread/i9aro
+
 Post Title and Info: &#34;Individual LevelsHylz75Hylz75Hylz75Hylz751 Sep 2022PearPear&#34;
 	URL: https://www.speedrun.com/mk8dx/thread/q2dbw
+
 Post Title and Info: &#34;MKLeaderboards.comPenguinzXvXPenguinzXvXPenguinzXvXPenguinzXvX26 Aug 2022PenguinzXvXPenguinzXvX&#34;
 	URL: https://www.speedrun.com/mk8dx/thread/915g7
+
 Post Title and Info: &#34;questionsnrZorasnrZorasnrZorasnrZora24 Aug 2022snrZorasnrZora&#34;
 	URL: https://www.speedrun.com/mk8dx/thread/sz9mo
+
 Post Title and Info: &#34;I think there is an issueSniper_Mango10Sniper_Mango10Sniper_Mango10Sniper_Mango1015 Aug 2022Sniper_Mango10Sniper_Mango10&#34;
 	URL: https://www.speedrun.com/mk8dx/thread/st9io
+
 Post Title and Info: &#34;Category idea: ZRlessnotsignal300notsignal300notsignal300notsignal3007 Aug 2022PearPear&#34;
 	URL: https://www.speedrun.com/mk8dx/thread/yppaa
+
 Post Title and Info: &#34;New category: Overlap%RP_Boy_GamingRP_Boy_GamingRP_Boy_GamingRP_Boy_Gaming31 Jul 2022EeveeBest11EeveeBest11&#34;
 	URL: https://www.speedrun.com/mk8dx/thread/o51o3
+
 Post Title and Info: &#34;An IdeaMEGA_mky_GamerYTMEGA_mky_GamerYTMEGA_mky_GamerYTMEGA_mky_GamerYT22 Jun 2022ParadoxicalPinkParadoxicalPink&#34;
 	URL: https://www.speedrun.com/mk8dx/thread/doc34
+
 Post Title and Info: &#34;One Down 47 to goLoganSpLoganSpLoganSpLoganSp13 Jun 2022LoganSpLoganSp&#34;
 	URL: https://www.speedrun.com/mk8dx/thread/1age3
+
 Post Title and Info: &#34;DLC Cups questionUnithlees5Unithlees5Unithlees5Unithlees58 Jun 2022Unithlees5Unithlees5&#34;
 	URL: https://www.speedrun.com/mk8dx/thread/51cv3
+
 Post Title and Info: &#34;ShelledThe_wormiest_wormThe_wormiest_wormThe_wormiest_wormThe_wormiest_worm24 May 2022AkhosAkhos&#34;
 	URL: https://www.speedrun.com/mk8dx/thread/x7ofv
+
 Post Title and Info: &#34;Inside drift bikesGooseEggGooseEggGooseEggGooseEgg23 May 2022MineChildXMineChildX&#34;
 	URL: https://www.speedrun.com/mk8dx/thread/nwl0j
+
 Post Title and Info: &#34;ILsPurdyOctolingYTPurdyOctolingYTPurdyOctolingYTPurdyOctolingYT23 Feb 2022PurdyOctolingYTPurdyOctolingYT&#34;
 	URL: https://www.speedrun.com/mk8dx/thread/tqazq
+
 Post Title and Info: &#34;DLCZumiZumiZumiZumi18 Feb 2022ElimsElims&#34;
 	URL: https://www.speedrun.com/mk8dx/thread/b3pa3
+
 Post Title and Info: &#34;run accepting timeLenniiLenniiLenniiLennii18 Feb 2022Pianist15Pianist15&#34;
 	URL: https://www.speedrun.com/mk8dx/thread/suziz
+
 Post Title and Info: &#34;DLCStLouisStLouisStLouisStLouis9 Feb 2022StLouisStLouis&#34;
 	URL: https://www.speedrun.com/mk8dx/thread/64pd6
+
 Post Title and Info: &#34;Problem with the leaderboardPatrickButSmartPatrickButSmartPatrickButSmartPatrickButSmart2 Feb 2022AeonFrodoAeonFrodo&#34;
 	URL: https://www.speedrun.com/mk8dx/thread/31vt2
+
 Post Title and Info: &#34;Do you have to win?21 Jan 2022HazelnoetHazelnoet&#34;
 	URL: https://www.speedrun.com/mk8dx/thread/6zvnl
+
 Post Title and Info: &#34;digital/physical differences | différence digital/physiqueMathieutpMathieutpMathieutpMathieutp16 Jan 2022AkhosAkhos&#34;
 	URL: https://www.speedrun.com/mk8dx/thread/zlmiy
+
 Post Title and Info: &#34;How difficult are the grand prix cpusPatrickButSmartPatrickButSmartPatrickButSmartPatrickButSmart27 Oct 2021PatrickButSmartPatrickButSmart&#34;
 	URL: https://www.speedrun.com/mk8dx/thread/79urz
+
 Post Title and Info: &#34;An IdeaCanonball_RunCanonball_RunCanonball_RunCanonball_Run1 Oct 2021Canonball_RunCanonball_Run&#34;
 	URL: https://www.speedrun.com/mk8dx/thread/xa696
+
 Post Title and Info: &#34;multiple run submissionsm1btlyzm1btlyzm1btlyzm1btlyz22 Sep 2021m1btlyzm1btlyz&#34;
 	URL: https://www.speedrun.com/mk8dx/thread/15a6g
+
 Post Title and Info: &#34;Question on Davi&#39;s run (200cc items 32 tracks)RP_Boy_GamingRP_Boy_GamingRP_Boy_GamingRP_Boy_Gaming4 Sep 2021RP_Boy_GamingRP_Boy_Gaming&#34;
 	URL: https://www.speedrun.com/mk8dx/thread/mq4wu
+
 Post Title and Info: &#34;Standard everything but any characterHarv123089Harv123089Harv123089Harv12308931 Aug 2021GsFlintGsFlint&#34;
 	URL: https://www.speedrun.com/mk8dx/thread/8gpct
+
 Post Title and Info: &#34;golden mario%SSJonaSSJonaSSJonaSSJona17 Aug 2021AZZYTASTERAZZYTASTER&#34;
 	URL: https://www.speedrun.com/mk8dx/thread/mm24i
+
 Post Title and Info: &#34;I&#39;m confused.Gamerpro9102Gamerpro9102Gamerpro9102Gamerpro91026 Aug 2021brogo2021brogo2021&#34;
 	URL: https://www.speedrun.com/mk8dx/thread/yesj5
+
 Post Title and Info: &#34;Suspicious of some runs...OddPandemoniumOddPandemoniumOddPandemoniumOddPandemonium28 Jun 2021Pianist15Pianist15&#34;
 	URL: https://www.speedrun.com/mk8dx/thread/kuyj6
+
 Post Title and Info: &#34;Time Trial Cup Runscielogancielogancielogancielogan27 Jun 2021Pianist15Pianist15&#34;
 	URL: https://www.speedrun.com/mk8dx/thread/dbyq1
+
 Post Title and Info: &#34;Recording on switchcielogancielogancielogancielogan25 Jun 2021BennyTheGreatBennyTheGreat&#34;
 	URL: https://www.speedrun.com/mk8dx/thread/530xe
+
 Post Title and Info: &#34;Shy Guy Falls No Mushroom ShortcutMissPinkManeMissPinkManeMissPinkManeMissPinkMane13 May 2021BayesicBayesic&#34;
 	URL: https://www.speedrun.com/mk8dx/thread/k43nb
+
 Post Title and Info: &#34;BIG IDEA!TanksalotTanksalotTanksalotTanksalot13 May 2021TanksalotTanksalot&#34;
 	URL: https://www.speedrun.com/mk8dx/thread/zxlaa
+
 Post Title and Info: &#34;Shy Guy Falls N.I.S.C.TanksalotTanksalotTanksalotTanksalot17 Apr 2021TanksalotTanksalot&#34;
 	URL: https://www.speedrun.com/mk8dx/thread/3t3hh
+
 Post Title and Info: &#34;Rainbow% (probably a terrible idea)2404UNFX404UNFX404UNFX404UNFX28 Feb 2021CrankydetectiveCrankydetective&#34;
 	URL: https://www.speedrun.com/mk8dx/thread/j96iu
+
 Post Title and Info: &#34;2 Player Runs?The_Gamer_DudeThe_Gamer_DudeThe_Gamer_DudeThe_Gamer_Dude25 Feb 2021Pianist15Pianist15&#34;
 	URL: https://www.speedrun.com/mk8dx/thread/yw88y
+
 Post Title and Info: &#34;maybe a new shortcutSSJonaSSJonaSSJonaSSJona4 Feb 2021Pianist15Pianist15&#34;
 	URL: https://www.speedrun.com/mk8dx/thread/5qcm0
+
 Post Title and Info: &#34;Time trials - retro tracks - 150cc - shroomsreddy_srreddy_srreddy_srreddy_sr28 Jan 2021linny356linny356&#34;
 	URL: https://www.speedrun.com/mk8dx/thread/a5f23
+
 Post Title and Info: &#34;My second runSplitzaydenzSplitzaydenz24 Jan 2021Splitzaydenz&#34;
 	URL: https://www.speedrun.com/mk8dx/thread/rjya4
+
 Post Title and Info: &#34;My first runSplitzaydenzSplitzaydenz23 Jan 2021Splitzaydenz&#34;
 	URL: https://www.speedrun.com/mk8dx/thread/fsjdj
+
 Post Title and Info: &#34;New Catagory Idea: Mankalor%xdimmortalxdimmortalxdimmortalxdimmortal20 Jan 2021PearPear&#34;
 	URL: https://www.speedrun.com/mk8dx/thread/239hq
+
 Post Title and Info: &#34;Random.14 Jan 2021DillPickelDillPickel&#34;
 	URL: https://www.speedrun.com/mk8dx/thread/w13jt
+
 Post Title and Info: &#34;Outdated Rules?BabyfurzBabyfurzBabyfurzBabyfurz2 Jan 2021BabyfurzBabyfurz&#34;
 	URL: https://www.speedrun.com/mk8dx/thread/46bm7
+
 
 -------------------- END --------------------
 </pre>

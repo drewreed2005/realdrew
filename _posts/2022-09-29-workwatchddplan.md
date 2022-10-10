@@ -10,19 +10,19 @@ categories: [work-watch]
 permalink: /workwatchddplan/
 ---
 
-# Work Watch Overview
+## Work Watch Overview
 
 To recap the program purpose and what we have so far, the Work Watch is a program that times your work session and tells you when to take breaks. More precisely, the program lets you input a set of tasks you intend to complete and the expected duration for each so that the timer can tell you how on-track you are. You can also customize how frequently you want to take breaks based on the amount of time you have to work. You can input custom suggestions for what to do during breaks, though certain particularly ideal break activities will be recommended. You can also choose whether or not you want to see the timer counting up.
 
 The reason we want to create this is that many studies have shown that taking frequent breaks during long work sessions greatly increases the quality of your work output. During these breaks, students who feel that they don't have time to do activities like reading and exercising that supplement their learning will have the time to.
 
-# Work Watch UML Diagram
+## Work Watch UML Diagram
 
 <img src="{{site.baseurl}}/images/workwatchUMLdiagram.png" alt="Program Purpose question" width="800"/>
 
 This diagram shows what variables will be needed/used/modified during all stages of the Work Watch program. Let's go a little more in depth.
 
-## Work Watch Startups, Default Values and Constant Variable Checks
+### Work Watch Startups, Default Values and Constant Variable Checks
 
 When the Work Watch program is first opened, the file `deltavar.py` is opened and default values completely overwrite whatever settings exist from previous uses to ensure that, once the timer has been used and stopped, it can be reset and used again.
 
@@ -75,19 +75,19 @@ while watchon == True:
     inctime()
 ```
 
-## User Inputs (Pre- and Post-Start)
+### User Inputs (Pre- and Post-Start)
 
 A series of functions listed in "User Input (functions)" will register user inputs in place of default settings. Once the timer is initiated, they will overwrite the defaults and dictate the behavior of the timer.
 
 Once the timer has started running, the "Pause/Play Timer," (not in UML chart but will exist) "Break Time," "Task Complete," and "End Timer" buttons will complete the corresponding functions described in the top-right box of the diagram.
 
-## Watch End and Reflection
+### Watch End and Reflection
 
 Keeping in mind the discrepancies between anticipated task completion times and actual completion times, anticipated break times and actual break times, and unexpected pauses and breaks, the quality and consistency of the user's work session is determined mathematically.
 
 The more unplanned break time the user spent and the longer the duration of certain task completion sessions than anticipated, the more unproductive the session is considered. However, the opposite is also true: if the user completes a task faster than the anticipated time, takes shorter breaks or takes breaks at more distant intervals, the work session will be considered more productive. However, if too few breaks are taken, the work session may be considered relatively unhealthy.
 
-# Frontend Wire Frame Diagram
+## Frontend Wire Frame Diagram
 
 <img src="{{site.baseurl}}/images/workwatchwireframe.png" alt="Program Purpose question" width="800"/>
 
@@ -97,10 +97,38 @@ The "Timer Length" block will more accurately contain a customizeable list of as
 
 The "STOP" and "Start" buttons represent the "END TIMER" and "PLAY/PAUSE TIMER" buttons respectively, and the "BREAK TIME" button would normally go in the middle. The latter wasn't included because the idea for a break-specific button came about in the UML Diagramming phase, and this vision was not communicated as both assignments were created simultaneously. With these resources combined, we'll be able to create a more cohesive idea of what the UI of the program will be like.
 
-# This Week's SCRUM Board Sub-Entry and Assignments
+## This Week's SCRUM Board Sub-Entry and Assignments
 
 A link to it can be found [here](https://github.com/drewreed2005/realdrew/issues/10). Considering this the first week of work on the Work Watch, current progress has been marked and taken into account.
 
 An overarching SCRUM Board has been created to organize these various weeks of progress into a single entity to document our work thoroughly.
 
 The assignments for each role this week (specifically in reference to the Work Watch, not including the "Deployment" individual tasks) are also listed on this week's board. As you can see, all role-specific tasks have been completed.
+
+>Below is a new entry to the Program Design assignment one week later.
+
+## Create Task Requirements
+
+For this week, we were asked to address how our program meets the College Board create task requirements.
+
+### Project Purpose
+
+See the [top of this page]({{site.baseurl}}/workwatchddplan/#work-watch-overview) for project purpose. In short, it's to regulate a work session by advising when to take breaks and what to do during those breaks.
+
+### Data Abstraction and Managing Complexity
+
+Much of the idea for this program is algebra based. When breaks will be advised is a mathematical formula (explained briefly in sections above). The timer itself runs on a while loop, turned on and off by a `True`/`False` state check.
+
+Lists are used to organize the names and durations of a user's tasks. By `append`ing them when input, an unlimited number of entries can be created without any clutter.
+
+### Procedural Abstraction
+
+Procedural abstraction and data abstraction kind of go hand in hand for this program, but one more easily-defined example is the current idea for the code that makes breaks occur. The duration of a break is directly based on the either preset or custom duration of the user's break, defined as the variable `breakdur`. The break function `breaktime(duration)` includes the placeholder `duration` to be replaced with `breakdur` when run for each break.
+
+### Algorithm Implementation
+
+The timer itself iterates constantly, checking if it should give a special response after each iteration (break, notification, etc.).
+
+### Testing
+
+Since much of the program is based on user input, invalid user inputs (for example, if they input a string rather than an integer) are fully accounted for. The best way to see this is with the task creation process. If the task duration is not provided or is input as a string/decimal, it cannot be `append`ed to the list of tasks until it is an integer. If no task name is provdied, it is automatically named "Untitled Task" on the timer. Things like this show understanding of possible unintentional actions taken by the user.
