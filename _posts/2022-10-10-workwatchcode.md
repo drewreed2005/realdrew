@@ -157,21 +157,21 @@ layout: notebook
 What is the duration of this task (in minutes)?
 Would you like to add another task?
 Understood.
-[{&#39;title&#39;: &#39;test&#39;, &#39;dur&#39;: 10}]
+[{&#39;title&#39;: &#39;Show Mr. Mortensen Our Code&#39;, &#39;dur&#39;: 5}]
 How often (in minutes) would you like breaks to occur?
 It is advised that short breaks be taken around every 30 minutes.
 How long (in minutes) would you like breaks to last?
 (Breaks around 10 minutes long are good for productivity.)
-[2, 1]
+[2, 120]
 How often (in minutes) would you like to receive session notifications?
 (Allows users with hidden timers to keep track of their session duration.)
 1
-You have chosen to take 1-minute breaks every 2 minutes.
+You have chosen to take 120-minute breaks every 2 minutes.
 You have also chosen to receive session notifications every 1 minute.
 You have input these tasks to complete during your work session:
 
-Assignment Title: test
-Expected Duration: 10
+Assignment Title: Show Mr. Mortensen Our Code
+Expected Duration: 5
 
 All done.
 </pre>
@@ -256,8 +256,8 @@ All done.
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>The timer has been running for more than 1 minute.
 The timer has been running for more than 2 minutes.
-It&#39;s break time! Please take a 1-minute break.
-2m : 5s                     </pre>
+It&#39;s break time! Please take a 120-minute break.
+2m : 4s                     </pre>
 </div>
 </div>
 
@@ -284,7 +284,7 @@ It&#39;s break time! Please take a 1-minute break.
 <span class="ansi-green-intense-fg ansi-bold">     &lt;a href=&#39;vscode-notebook-cell:/Users/mister_dew/vscode/realdrew/_notebooks/2022-10-10-workwatchcode.ipynb#W2sZmlsZQ%3D%3D?line=44&#39;&gt;45&lt;/a&gt;</span> time.sleep(1)
 <span class="ansi-green-fg">---&gt; &lt;a href=&#39;vscode-notebook-cell:/Users/mister_dew/vscode/realdrew/_notebooks/2022-10-10-workwatchcode.ipynb#W2sZmlsZQ%3D%3D?line=45&#39;&gt;46&lt;/a&gt;</span> inctime()
 
-    <span class="ansi-red-fg">[... skipping similar frames: inctime at line 46 (122 times)]</span>
+    <span class="ansi-red-fg">[... skipping similar frames: inctime at line 46 (121 times)]</span>
 
 <span class="ansi-green-intense-fg ansi-bold">/Users/mister_dew/vscode/realdrew/_notebooks/2022-10-10-workwatchcode.ipynb Cell 3</span> in <span class="ansi-cyan-fg">inctime</span><span class="ansi-blue-fg">()</span>
 <span class="ansi-green-intense-fg ansi-bold">     &lt;a href=&#39;vscode-notebook-cell:/Users/mister_dew/vscode/realdrew/_notebooks/2022-10-10-workwatchcode.ipynb#W2sZmlsZQ%3D%3D?line=43&#39;&gt;44&lt;/a&gt;</span> print(str(dismins) + &#34;m : &#34; + str(dissecs) + &#34;s                     &#34;, end = &#39;\r&#39;)
