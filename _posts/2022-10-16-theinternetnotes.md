@@ -93,3 +93,51 @@ Here is a diagram found in the College Board video to illustrate the process of 
   <img src="{{site.baseurl}}/images/internetmcreview.png" alt="True or False Review" width="600"/>
   <figcaption>Via College Board APCSP Big Idea 4 - The Internet, Video 2</figcaption>
 </figure>
+
+## Expectations from APCSP Page
+
+Here are some things mentioned on the APCSP "Big Idea 4 - The Internet" page that we're supposed to do.
+
+### Domain Name Service
+
+[Here]({{site.baseurl}}/theinternetnotes/#application-layer) is where the College Board materials bring up DNS.
+
+Let's use "sub.domain.com" as an example. The "domain" part is the site's regular domain. The "sub" is a unique subdomain of the site.
+
+Here are screenshots of the A and CNAME records associated with YouTube.
+
+<img src="{{site.baseurl}}/images/youtubednsa.png" alt="DNS A Record" width="500"/>
+
+<img src="{{site.baseurl}}/images/youtubednscname.png" alt="DNS CNAME Record" width="500"/>
+
+The A record seems to show the various IP addresses that you can be directed to when requesting YouTube's domain. The numerous addresses, as the video mentioned, are likely to avoid too much traffic on a single page, considering how much traffic YouTube constantly gets.
+
+### IP Addresses I Use Daily
+
+Here are six, as requested.
+
+MyConnect (Canvas):
+- 18.204.109.29
+- 3.95.144.229
+- 34.202.195.44
+
+Google:
+- 142.250.189.196
+
+YouTube:
+- 142.250.189.174
+- 142.250.189.206
+- 142.250.191.46
+- ETC...
+
+Google Docs:
+- 142.250.191.46
+
+Slack:
+- 3.95.117.96
+- 34.193.255.5
+- 34.203.97.10
+- ETC...
+
+Github:
+- 140.82.112.3
