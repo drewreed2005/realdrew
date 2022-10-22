@@ -146,7 +146,7 @@ window.onload = wrap_img;
             
             // td for joke cell
             const joke = document.createElement("td");
-              joke.innerHTML = row.id + ". " + row.joke;  // add fetched data to innerHTML
+              joke.innerHTML = (row.id + 1) + ". " + row.joke;  // add fetched data to innerHTML
 
             // td for haha cell with onclick actions
             const haha = document.createElement("td");
