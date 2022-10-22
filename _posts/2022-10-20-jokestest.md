@@ -3,8 +3,7 @@ title: Alarm API
 layout: default
 description: VOTE NOW!
 permalink: /data/alarms
-categories: [C4.7]
-tags: [javascript]
+categories: [C4.7, javascript]
 ---
 
 {% include nav_data.html %}
@@ -72,7 +71,7 @@ Please listen to the alarm tones found [here](https://on.soundcloud.com/d43FR) t
             
             // td for joke cell
             const joke = document.createElement("td");
-              joke.innerHTML = row.id + ". " + row.joke;  // add fetched data to innerHTML
+              joke.innerHTML = (row.id + 1) + ". " + row.joke;  // add fetched data to innerHTML
 
             // td for haha cell with onclick actions
             const haha = document.createElement("td");
