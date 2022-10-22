@@ -2,7 +2,7 @@
 keywords: fastai
 description: A frontend-less hub for Work Watch code.
 title: Work Watch Code
-toc: true
+toc: false
 hide: true
 search-exclude: true
 permalink: /workwatchcode/
@@ -20,6 +20,18 @@ layout: notebook
 
 <div class="container" id="notebook-container">
         
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Below is a placeholder process of saving user information. Here are some important frontend considerations:</p>
+<ul>
+<li><code>taskask()</code> should be in the form of two text inputs: the left (labeled "Task Title") allowing the user to input a 50-character long task name and the right (labeled "Task Duration") exclusively allowing the user to input a three-digit integer</li>
+<li><code>breakdur</code>, <code>breakintv</code>, and <code>notifintv</code> will all be defined by a text input box identical to the right one of <code>taskask()</code></li>
+<li>The task settings should be a separate section of the menus, but the notifications and break settings can all be in one place.</li>
+</ul>
+
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -29,12 +41,12 @@ layout: notebook
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
 <span class="n">affirmative</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;yes&#39;</span><span class="p">,</span> <span class="s1">&#39;yeah&#39;</span><span class="p">,</span> <span class="s1">&#39;yup&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;yea&#39;</span><span class="p">,</span> <span class="s1">&#39;mhm&#39;</span><span class="p">,</span> <span class="s1">&#39;yep&#39;</span><span class="p">,</span> <span class="s1">&#39;affirmative&#39;</span><span class="p">,</span> <span class="s1">&#39;sure&#39;</span><span class="p">,</span> <span class="s1">&#39;alright&#39;</span><span class="p">,</span> <span class="s1">&#39;okay&#39;</span><span class="p">,</span> <span class="s1">&#39;ok&#39;</span><span class="p">,</span> <span class="s1">&#39;okey-dokey&#39;</span><span class="p">,</span> <span class="s1">&#39;oky-doky&#39;</span><span class="p">,</span> <span class="s1">&#39;yessir&#39;</span><span class="p">,</span> <span class="s1">&#39;yessiree&#39;</span><span class="p">,</span> <span class="s1">&#39;okie-dokie&#39;</span><span class="p">,</span> <span class="s1">&#39;heck yeah&#39;</span><span class="p">,</span> <span class="s1">&#39;of course&#39;</span><span class="p">]</span>
-<span class="n">negative</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;no&#39;</span><span class="p">,</span> <span class="s1">&#39;nope&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">,</span> <span class="s1">&#39;nah&#39;</span><span class="p">,</span> <span class="s1">&#39;nuh-uh&#39;</span><span class="p">,</span> <span class="s1">&#39;negative&#39;</span><span class="p">,</span> <span class="s1">&#39;no thanks&#39;</span><span class="p">,</span> <span class="s1">&#39;no thank you&#39;</span><span class="p">,</span> <span class="s1">&#39;heck no&#39;</span><span class="p">,</span> <span class="s1">&#39;of course not&#39;</span><span class="p">,</span> <span class="s1">&#39;never&#39;</span><span class="p">]</span>
-<span class="n">tasklist</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">intlo</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">negative</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;no&#39;</span><span class="p">,</span> <span class="s1">&#39;nope&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">,</span> <span class="s1">&#39;nah&#39;</span><span class="p">,</span> <span class="s1">&#39;nuh-uh&#39;</span><span class="p">,</span> <span class="s1">&#39;negative&#39;</span><span class="p">,</span> <span class="s1">&#39;no thanks&#39;</span><span class="p">,</span> <span class="s1">&#39;no thank you&#39;</span><span class="p">,</span> <span class="s1">&#39;heck no&#39;</span><span class="p">,</span> <span class="s1">&#39;of course not&#39;</span><span class="p">,</span> <span class="s1">&#39;never&#39;</span><span class="p">]</span> <span class="c1">#just for this beta program&#39;s simplicity</span>
+<span class="n">tasklist</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#to be filled out as an appended list of dictionaries</span>
+<span class="n">intlo</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#a global variable that always resets to zero after use</span>
 
 <span class="k">def</span> <span class="nf">taskask</span><span class="p">():</span>
-    <span class="n">msg</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Most affirmative/negative responses are accepted.&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Most affirmative/negative responses are accepted.&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="c1">#checks for a second task</span>
     <span class="k">if</span> <span class="n">msg</span> <span class="ow">in</span> <span class="n">affirmative</span><span class="p">:</span>
         <span class="n">taskcreate</span><span class="p">()</span>
     <span class="k">elif</span> <span class="n">msg</span> <span class="ow">in</span> <span class="n">negative</span><span class="p">:</span>
@@ -43,7 +55,7 @@ layout: notebook
     <span class="k">else</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Invalid response.&quot;</span><span class="p">)</span>
         <span class="n">taskask</span><span class="p">()</span>
-<span class="k">def</span> <span class="nf">intloop</span><span class="p">(</span><span class="n">var</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">intloop</span><span class="p">(</span><span class="n">var</span><span class="p">):</span> <span class="c1">#checks if a given parameter input is an integer greater than 0</span>
     <span class="n">temp</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">var</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
@@ -52,7 +64,7 @@ layout: notebook
         <span class="k">return</span> <span class="kc">True</span>
     <span class="k">except</span><span class="p">:</span>
         <span class="k">return</span> <span class="kc">False</span>
-<span class="k">def</span> <span class="nf">intcheck</span><span class="p">(</span><span class="n">var</span><span class="p">):</span> <span class="c1">#checks if the tdur input is valid</span>
+<span class="k">def</span> <span class="nf">intcheck</span><span class="p">(</span><span class="n">var</span><span class="p">):</span> <span class="c1">#checks if the var input is valid, then defines it (can be iterated)</span>
     <span class="k">if</span> <span class="n">var</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="c1">#check for tdur</span>
         <span class="k">global</span> <span class="n">tdur</span>
         <span class="n">tdur</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Please input an integer value.&quot;</span><span class="p">)</span>
@@ -109,7 +121,7 @@ layout: notebook
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;How often (in minutes) would you like to receive session notifications?&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;(Allows users with hidden timers to keep track of their session duration.)&quot;</span><span class="p">)</span>
     <span class="n">intcheck</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">singularitycheck</span><span class="p">(</span><span class="n">term</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">singularitycheck</span><span class="p">(</span><span class="n">term</span><span class="p">):</span> <span class="c1">#checks if an inputted number is singular (used for grammar)</span>
     <span class="k">global</span> <span class="n">ess</span>
     <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">term</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="n">ess</span> <span class="o">=</span> <span class="s2">&quot;.&quot;</span>
@@ -117,9 +129,9 @@ layout: notebook
         <span class="n">ess</span> <span class="o">=</span> <span class="s2">&quot;s.&quot;</span>
 
 <span class="n">taskcreate</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">tasklist</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tasklist</span><span class="p">)</span> <span class="c1">#debug check for tasklist formatting</span>
 <span class="n">breakcreate</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">breaklist</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">breaklist</span><span class="p">)</span> <span class="c1">#debug check for established break time info</span>
 <span class="n">notifcreate</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">notifintv</span><span class="p">)</span>
 <span class="n">singularitycheck</span><span class="p">(</span><span class="n">breakintv</span><span class="p">)</span>
@@ -131,7 +143,7 @@ layout: notebook
     <span class="k">if</span> <span class="n">intlo</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">tasklist</span><span class="p">):</span>
         <span class="n">thistask</span> <span class="o">=</span> <span class="n">tasklist</span><span class="p">[</span><span class="n">intlo</span><span class="p">]</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Assignment Title: &quot;</span> <span class="o">+</span> <span class="n">thistask</span><span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">])</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Expected Duration: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">thistask</span><span class="p">[</span><span class="s2">&quot;dur&quot;</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Expected Duration: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">thistask</span><span class="p">[</span><span class="s2">&quot;dur&quot;</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39; minutes </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
         <span class="n">intlo</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="n">tasksummary</span><span class="p">()</span>
     <span class="k">else</span><span class="p">:</span>
@@ -156,22 +168,30 @@ layout: notebook
 <pre>What is the title of your task?
 What is the duration of this task (in minutes)?
 Would you like to add another task?
+What is the title of your task?
+What is the duration of this task (in minutes)?
+Invalid response.
+Would you like to add another task?
+Invalid response.
 Understood.
-[{&#39;title&#39;: &#39;Show Mr. Mortensen Our Code&#39;, &#39;dur&#39;: 5}]
+[{&#39;title&#39;: &#39;show mr. mortensen our code&#39;, &#39;dur&#39;: 4}, {&#39;title&#39;: &#39;show him again&#39;, &#39;dur&#39;: 2}]
 How often (in minutes) would you like breaks to occur?
 It is advised that short breaks be taken around every 30 minutes.
 How long (in minutes) would you like breaks to last?
 (Breaks around 10 minutes long are good for productivity.)
-[2, 120]
+[2, 100]
 How often (in minutes) would you like to receive session notifications?
 (Allows users with hidden timers to keep track of their session duration.)
 1
-You have chosen to take 120-minute breaks every 2 minutes.
+You have chosen to take 100-minute breaks every 2 minutes.
 You have also chosen to receive session notifications every 1 minute.
 You have input these tasks to complete during your work session:
 
-Assignment Title: Show Mr. Mortensen Our Code
-Expected Duration: 5
+Assignment Title: show mr. mortensen our code
+Expected Duration: 4 minutes 
+
+Assignment Title: show him again
+Expected Duration: 2 minutes 
 
 All done.
 </pre>
@@ -195,6 +215,7 @@ All done.
 <span class="n">mins</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">tasknum</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">watchon</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">breaktime</span> <span class="o">=</span> <span class="kc">False</span>
 
 <span class="k">def</span> <span class="nf">notifcheck</span><span class="p">():</span>
     <span class="k">if</span> <span class="n">mins</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
@@ -209,7 +230,7 @@ All done.
     <span class="k">if</span> <span class="n">mins</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">mins</span> <span class="o">%</span> <span class="nb">int</span><span class="p">(</span><span class="n">breakintv</span><span class="p">))</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;It&#39;s break time! Please take a &quot;</span> <span class="o">+</span> <span class="n">breakdur</span> <span class="o">+</span> <span class="s2">&quot;-minute break.&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;It&#39;s break time! Please take a &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">breakdur</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;-minute break.&quot;</span><span class="p">)</span>
         <span class="n">breaktime</span> <span class="o">=</span> <span class="kc">True</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span>
@@ -227,21 +248,27 @@ All done.
 <span class="k">def</span> <span class="nf">inctime</span><span class="p">():</span>
     <span class="k">global</span> <span class="n">secs</span>
     <span class="k">global</span> <span class="n">mins</span>
+    <span class="k">global</span> <span class="n">breaktime</span>
     <span class="n">secs</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="n">mins</span> <span class="o">=</span> <span class="n">secs</span> <span class="o">/</span> <span class="mi">60</span>
-    <span class="n">dissecs</span> <span class="o">=</span> <span class="n">secs</span> <span class="o">-</span> <span class="nb">int</span><span class="p">(</span><span class="n">secs</span> <span class="o">/</span> <span class="mi">60</span><span class="p">)</span> <span class="o">*</span> <span class="mi">60</span>
-    <span class="n">dismins</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">mins</span> <span class="o">-</span> <span class="nb">int</span><span class="p">(</span><span class="n">mins</span> <span class="o">/</span> <span class="mi">60</span><span class="p">)</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+    <span class="n">dissecs</span> <span class="o">=</span> <span class="n">secs</span> <span class="o">-</span> <span class="nb">int</span><span class="p">(</span><span class="n">secs</span> <span class="o">/</span> <span class="mi">60</span><span class="p">)</span> <span class="o">*</span> <span class="mi">60</span> <span class="c1">#Devon&#39;s dissecs code (slight mod.)</span>
+    <span class="n">dismins</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">mins</span> <span class="o">-</span> <span class="nb">int</span><span class="p">(</span><span class="n">mins</span> <span class="o">/</span> <span class="mi">60</span><span class="p">)</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span> <span class="c1">#Devon&#39;s dismins code</span>
     <span class="n">notifcheck</span><span class="p">()</span> <span class="c1">#Calculates if a notification should be provided</span>
     <span class="n">breakcheck</span><span class="p">()</span> <span class="c1">#Calculates if it&#39;s break time</span>
     <span class="c1">#taskcheck() #Calculates if the task was expected to have been completed</span>
+    <span class="k">if</span> <span class="n">breaktime</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">watchon</span> <span class="o">==</span> <span class="kc">False</span>
+        <span class="k">return</span>
     <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">dismins</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;m : &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">dissecs</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;s                     &quot;</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\r</span><span class="s1">&#39;</span><span class="p">)</span>
     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">inctime</span><span class="p">()</span>
 
-<span class="k">while</span> <span class="n">watchon</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">watchon</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
     <span class="n">inctime</span><span class="p">()</span>
 <span class="k">if</span> <span class="n">watchon</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Your work session lasted &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">mins</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; minutes and &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">secs</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; seconds.&quot;</span><span class="p">)</span>
+    <span class="n">secs</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="n">mins</span> <span class="o">=</span> <span class="mi">0</span>
 </pre></div>
 
     </div>
@@ -256,48 +283,8 @@ All done.
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>The timer has been running for more than 1 minute.
 The timer has been running for more than 2 minutes.
-It&#39;s break time! Please take a 120-minute break.
-2m : 4s                     </pre>
-</div>
-</div>
-
-<div class="output_area">
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">KeyboardInterrupt</span>                         Traceback (most recent call last)
-<span class="ansi-green-intense-fg ansi-bold">/Users/mister_dew/vscode/realdrew/_notebooks/2022-10-10-workwatchcode.ipynb Cell 3</span> in <span class="ansi-cyan-fg">&lt;cell line: 48&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">     &lt;a href=&#39;vscode-notebook-cell:/Users/mister_dew/vscode/realdrew/_notebooks/2022-10-10-workwatchcode.ipynb#W2sZmlsZQ%3D%3D?line=45&#39;&gt;46&lt;/a&gt;</span>     inctime()
-<span class="ansi-green-intense-fg ansi-bold">     &lt;a href=&#39;vscode-notebook-cell:/Users/mister_dew/vscode/realdrew/_notebooks/2022-10-10-workwatchcode.ipynb#W2sZmlsZQ%3D%3D?line=47&#39;&gt;48&lt;/a&gt;</span> while watchon == True:
-<span class="ansi-green-fg">---&gt; &lt;a href=&#39;vscode-notebook-cell:/Users/mister_dew/vscode/realdrew/_notebooks/2022-10-10-workwatchcode.ipynb#W2sZmlsZQ%3D%3D?line=48&#39;&gt;49&lt;/a&gt;</span>     inctime()
-<span class="ansi-green-intense-fg ansi-bold">     &lt;a href=&#39;vscode-notebook-cell:/Users/mister_dew/vscode/realdrew/_notebooks/2022-10-10-workwatchcode.ipynb#W2sZmlsZQ%3D%3D?line=49&#39;&gt;50&lt;/a&gt;</span> if watchon == False:
-<span class="ansi-green-intense-fg ansi-bold">     &lt;a href=&#39;vscode-notebook-cell:/Users/mister_dew/vscode/realdrew/_notebooks/2022-10-10-workwatchcode.ipynb#W2sZmlsZQ%3D%3D?line=50&#39;&gt;51&lt;/a&gt;</span>     print(&#34;Your work session lasted &#34; + str(mins) + &#34; minutes and &#34; + str(secs) + &#34; seconds.&#34;)
-
-<span class="ansi-green-intense-fg ansi-bold">/Users/mister_dew/vscode/realdrew/_notebooks/2022-10-10-workwatchcode.ipynb Cell 3</span> in <span class="ansi-cyan-fg">inctime</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">     &lt;a href=&#39;vscode-notebook-cell:/Users/mister_dew/vscode/realdrew/_notebooks/2022-10-10-workwatchcode.ipynb#W2sZmlsZQ%3D%3D?line=43&#39;&gt;44&lt;/a&gt;</span> print(str(dismins) + &#34;m : &#34; + str(dissecs) + &#34;s                     &#34;, end = &#39;\r&#39;)
-<span class="ansi-green-intense-fg ansi-bold">     &lt;a href=&#39;vscode-notebook-cell:/Users/mister_dew/vscode/realdrew/_notebooks/2022-10-10-workwatchcode.ipynb#W2sZmlsZQ%3D%3D?line=44&#39;&gt;45&lt;/a&gt;</span> time.sleep(1)
-<span class="ansi-green-fg">---&gt; &lt;a href=&#39;vscode-notebook-cell:/Users/mister_dew/vscode/realdrew/_notebooks/2022-10-10-workwatchcode.ipynb#W2sZmlsZQ%3D%3D?line=45&#39;&gt;46&lt;/a&gt;</span> inctime()
-
-<span class="ansi-green-intense-fg ansi-bold">/Users/mister_dew/vscode/realdrew/_notebooks/2022-10-10-workwatchcode.ipynb Cell 3</span> in <span class="ansi-cyan-fg">inctime</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">     &lt;a href=&#39;vscode-notebook-cell:/Users/mister_dew/vscode/realdrew/_notebooks/2022-10-10-workwatchcode.ipynb#W2sZmlsZQ%3D%3D?line=43&#39;&gt;44&lt;/a&gt;</span> print(str(dismins) + &#34;m : &#34; + str(dissecs) + &#34;s                     &#34;, end = &#39;\r&#39;)
-<span class="ansi-green-intense-fg ansi-bold">     &lt;a href=&#39;vscode-notebook-cell:/Users/mister_dew/vscode/realdrew/_notebooks/2022-10-10-workwatchcode.ipynb#W2sZmlsZQ%3D%3D?line=44&#39;&gt;45&lt;/a&gt;</span> time.sleep(1)
-<span class="ansi-green-fg">---&gt; &lt;a href=&#39;vscode-notebook-cell:/Users/mister_dew/vscode/realdrew/_notebooks/2022-10-10-workwatchcode.ipynb#W2sZmlsZQ%3D%3D?line=45&#39;&gt;46&lt;/a&gt;</span> inctime()
-
-    <span class="ansi-red-fg">[... skipping similar frames: inctime at line 46 (121 times)]</span>
-
-<span class="ansi-green-intense-fg ansi-bold">/Users/mister_dew/vscode/realdrew/_notebooks/2022-10-10-workwatchcode.ipynb Cell 3</span> in <span class="ansi-cyan-fg">inctime</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">     &lt;a href=&#39;vscode-notebook-cell:/Users/mister_dew/vscode/realdrew/_notebooks/2022-10-10-workwatchcode.ipynb#W2sZmlsZQ%3D%3D?line=43&#39;&gt;44&lt;/a&gt;</span> print(str(dismins) + &#34;m : &#34; + str(dissecs) + &#34;s                     &#34;, end = &#39;\r&#39;)
-<span class="ansi-green-intense-fg ansi-bold">     &lt;a href=&#39;vscode-notebook-cell:/Users/mister_dew/vscode/realdrew/_notebooks/2022-10-10-workwatchcode.ipynb#W2sZmlsZQ%3D%3D?line=44&#39;&gt;45&lt;/a&gt;</span> time.sleep(1)
-<span class="ansi-green-fg">---&gt; &lt;a href=&#39;vscode-notebook-cell:/Users/mister_dew/vscode/realdrew/_notebooks/2022-10-10-workwatchcode.ipynb#W2sZmlsZQ%3D%3D?line=45&#39;&gt;46&lt;/a&gt;</span> inctime()
-
-<span class="ansi-green-intense-fg ansi-bold">/Users/mister_dew/vscode/realdrew/_notebooks/2022-10-10-workwatchcode.ipynb Cell 3</span> in <span class="ansi-cyan-fg">inctime</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">     &lt;a href=&#39;vscode-notebook-cell:/Users/mister_dew/vscode/realdrew/_notebooks/2022-10-10-workwatchcode.ipynb#W2sZmlsZQ%3D%3D?line=42&#39;&gt;43&lt;/a&gt;</span> #taskcheck() #Calculates if the task was expected to have been completed
-<span class="ansi-green-intense-fg ansi-bold">     &lt;a href=&#39;vscode-notebook-cell:/Users/mister_dew/vscode/realdrew/_notebooks/2022-10-10-workwatchcode.ipynb#W2sZmlsZQ%3D%3D?line=43&#39;&gt;44&lt;/a&gt;</span> print(str(dismins) + &#34;m : &#34; + str(dissecs) + &#34;s                     &#34;, end = &#39;\r&#39;)
-<span class="ansi-green-fg">---&gt; &lt;a href=&#39;vscode-notebook-cell:/Users/mister_dew/vscode/realdrew/_notebooks/2022-10-10-workwatchcode.ipynb#W2sZmlsZQ%3D%3D?line=44&#39;&gt;45&lt;/a&gt;</span> time.sleep(1)
-<span class="ansi-green-intense-fg ansi-bold">     &lt;a href=&#39;vscode-notebook-cell:/Users/mister_dew/vscode/realdrew/_notebooks/2022-10-10-workwatchcode.ipynb#W2sZmlsZQ%3D%3D?line=45&#39;&gt;46&lt;/a&gt;</span> inctime()
-
-<span class="ansi-red-fg">KeyboardInterrupt</span>: </pre>
+It&#39;s break time! Please take a 100-minute break.
+</pre>
 </div>
 </div>
 
@@ -307,6 +294,94 @@ It&#39;s break time! Please take a 120-minute break.
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Testing alarm tones.</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">playsound</span> <span class="kn">import</span> <span class="n">playsound</span>
+
+<span class="n">secs</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="n">mins</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">tasknum</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">watchon</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">breakintv</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">breakdur</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="k">def</span> <span class="nf">breaktest</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">watchon</span>
+    <span class="k">global</span> <span class="n">breakintv</span>
+    <span class="k">global</span> <span class="n">breakdur</span>
+    <span class="k">if</span> <span class="n">mins</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">mins</span> <span class="o">%</span> <span class="nb">int</span><span class="p">(</span><span class="n">breakintv</span><span class="p">))</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;It&#39;s break time! Please take a &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">breakdur</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;-minute break.&quot;</span><span class="p">)</span>
+        <span class="n">playsound</span><span class="p">(</span><span class="s1">&#39;../audio/traditionalalarm.mp3&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span>
+
+<span class="k">def</span> <span class="nf">testtime</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">secs</span>
+    <span class="k">global</span> <span class="n">mins</span>
+    <span class="n">secs</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">mins</span> <span class="o">=</span> <span class="n">secs</span> <span class="o">/</span> <span class="mi">60</span>
+    <span class="n">dissecs</span> <span class="o">=</span> <span class="n">secs</span> <span class="o">-</span> <span class="nb">int</span><span class="p">(</span><span class="n">secs</span> <span class="o">/</span> <span class="mi">60</span><span class="p">)</span> <span class="o">*</span> <span class="mi">60</span> <span class="c1">#Devon&#39;s dissecs code (slight mod.)</span>
+    <span class="n">dismins</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">mins</span> <span class="o">-</span> <span class="nb">int</span><span class="p">(</span><span class="n">mins</span> <span class="o">/</span> <span class="mi">60</span><span class="p">)</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span> <span class="c1">#Devon&#39;s dismins code</span>
+    <span class="k">if</span> <span class="n">breaktest</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span> <span class="c1">#Calculates if it&#39;s break time</span>
+        <span class="n">watchon</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">return</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">dismins</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;m : &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">dissecs</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;s                     &quot;</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\r</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">testtime</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="n">watchon</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">testtime</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Your work session lasted &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">mins</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; minutes and &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">secs</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; seconds.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Your work session lasted &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">mins</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; minutes and &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">secs</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; seconds.&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>It&#39;s break time! Please take a 100-minute break.
+Your work session lasted 1.0 minutes and 60 seconds.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Audio test was successful.</p>
+<p>New test for second timer for break time.</p>
+
+</div>
+</div>
+</div>
 </div>
  
 
