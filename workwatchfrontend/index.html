@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      3 min read
+      4 min read
     
 </span></p>
 
@@ -341,150 +341,161 @@ window.onload = wrap_img;
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<style>
-body {
-  color: #FFFFFF;
-  background: #000000;
-  text-align: center;
-  font-family: 'OCR A Std', monospace;
-}
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
-#break {
-  margin: 40px 50px;
-  text-align: center;
-  color: #DAD6D6;
-  background: #9550B2;
-  border:solid 1px #C97CEA;
-  border-radius:5px;
-  padding:10px 20px 10px;
-  letter-spacing: 1px;
-  cursor:pointer;
-}
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="o">&lt;</span><span class="n">style</span><span class="o">&gt;</span>
+<span class="n">body</span> <span class="p">{</span>
+  <span class="n">color</span><span class="p">:</span> <span class="c1">#FFFFFF;</span>
+  <span class="n">background</span><span class="p">:</span> <span class="c1">#000000;</span>
+  <span class="n">text</span><span class="o">-</span><span class="n">align</span><span class="p">:</span> <span class="n">center</span><span class="p">;</span>
+  <span class="n">font</span><span class="o">-</span><span class="n">family</span><span class="p">:</span> <span class="s1">&#39;OCR A Std&#39;</span><span class="p">,</span> <span class="n">monospace</span><span class="p">;</span>
+<span class="p">}</span>
 
-#notif {
-  margin: 40px 50px;
-  text-align: center;
-  color: #DAD6D6;
-  background: #DD6400;
-  border:solid 1px #FABF7A;
-  border-radius:5px;
-  padding:10px 20px 10px;
-  letter-spacing: 1px;
-  cursor:pointer;
-}
+<span class="c1">#break {</span>
+  <span class="n">margin</span><span class="p">:</span> <span class="mi">40</span><span class="n">px</span> <span class="mi">50</span><span class="n">px</span><span class="p">;</span>
+  <span class="n">text</span><span class="o">-</span><span class="n">align</span><span class="p">:</span> <span class="n">center</span><span class="p">;</span>
+  <span class="n">color</span><span class="p">:</span> <span class="c1">#DAD6D6;</span>
+  <span class="n">background</span><span class="p">:</span> <span class="c1">#9550B2;</span>
+  <span class="n">border</span><span class="p">:</span><span class="n">solid</span> <span class="mi">1</span><span class="n">px</span> <span class="c1">#C97CEA;</span>
+  <span class="n">border</span><span class="o">-</span><span class="n">radius</span><span class="p">:</span><span class="mi">5</span><span class="n">px</span><span class="p">;</span>
+  <span class="n">padding</span><span class="p">:</span><span class="mi">10</span><span class="n">px</span> <span class="mi">20</span><span class="n">px</span> <span class="mi">10</span><span class="n">px</span><span class="p">;</span>
+  <span class="n">letter</span><span class="o">-</span><span class="n">spacing</span><span class="p">:</span> <span class="mi">1</span><span class="n">px</span><span class="p">;</span>
+  <span class="n">cursor</span><span class="p">:</span><span class="n">pointer</span><span class="p">;</span>
+<span class="p">}</span>
 
-#task {
-  margin: 40px 50px;
-  text-align: center;
-  color: #DAD6D6;
-  background: #10ACAC;
-  border:solid 1px #7AF2F2;
-  border-radius:5px;
-  padding:10px 20px 10px;
-  letter-spacing: 1px;
-  cursor:pointer;
-}
+<span class="c1">#notif {</span>
+  <span class="n">margin</span><span class="p">:</span> <span class="mi">40</span><span class="n">px</span> <span class="mi">50</span><span class="n">px</span><span class="p">;</span>
+  <span class="n">text</span><span class="o">-</span><span class="n">align</span><span class="p">:</span> <span class="n">center</span><span class="p">;</span>
+  <span class="n">color</span><span class="p">:</span> <span class="c1">#DAD6D6;</span>
+  <span class="n">background</span><span class="p">:</span> <span class="c1">#DD6400;</span>
+  <span class="n">border</span><span class="p">:</span><span class="n">solid</span> <span class="mi">1</span><span class="n">px</span> <span class="c1">#FABF7A;</span>
+  <span class="n">border</span><span class="o">-</span><span class="n">radius</span><span class="p">:</span><span class="mi">5</span><span class="n">px</span><span class="p">;</span>
+  <span class="n">padding</span><span class="p">:</span><span class="mi">10</span><span class="n">px</span> <span class="mi">20</span><span class="n">px</span> <span class="mi">10</span><span class="n">px</span><span class="p">;</span>
+  <span class="n">letter</span><span class="o">-</span><span class="n">spacing</span><span class="p">:</span> <span class="mi">1</span><span class="n">px</span><span class="p">;</span>
+  <span class="n">cursor</span><span class="p">:</span><span class="n">pointer</span><span class="p">;</span>
+<span class="p">}</span>
 
-#hide {
-  margin: 1px;
-  text-align: center;
-  color: #DAD6D6;
-  background: #000000;
-  border:solid 1px #FFFFFF;
-  border-radius:5px;
-  padding:10px 20px 10px;
-  letter-spacing: 1px;
-  cursor:pointer;
-}
+<span class="c1">#task {</span>
+  <span class="n">margin</span><span class="p">:</span> <span class="mi">40</span><span class="n">px</span> <span class="mi">50</span><span class="n">px</span><span class="p">;</span>
+  <span class="n">text</span><span class="o">-</span><span class="n">align</span><span class="p">:</span> <span class="n">center</span><span class="p">;</span>
+  <span class="n">color</span><span class="p">:</span> <span class="c1">#DAD6D6;</span>
+  <span class="n">background</span><span class="p">:</span> <span class="c1">#10ACAC;</span>
+  <span class="n">border</span><span class="p">:</span><span class="n">solid</span> <span class="mi">1</span><span class="n">px</span> <span class="c1">#7AF2F2;</span>
+  <span class="n">border</span><span class="o">-</span><span class="n">radius</span><span class="p">:</span><span class="mi">5</span><span class="n">px</span><span class="p">;</span>
+  <span class="n">padding</span><span class="p">:</span><span class="mi">10</span><span class="n">px</span> <span class="mi">20</span><span class="n">px</span> <span class="mi">10</span><span class="n">px</span><span class="p">;</span>
+  <span class="n">letter</span><span class="o">-</span><span class="n">spacing</span><span class="p">:</span> <span class="mi">1</span><span class="n">px</span><span class="p">;</span>
+  <span class="n">cursor</span><span class="p">:</span><span class="n">pointer</span><span class="p">;</span>
+<span class="p">}</span>
 
-#startBtn {
-  margin: 40px auto;
-  text-align: center;
-  color: #DAD6D6;
-  background: #008000;
-  border:solid px #35492C;
-  border-radius:5px;
-  padding:16px 40px 16px;
-  letter-spacing: 2px;
-  cursor:pointer;
-}
+<span class="c1">#hide {</span>
+  <span class="n">margin</span><span class="p">:</span> <span class="mi">1</span><span class="n">px</span><span class="p">;</span>
+  <span class="n">text</span><span class="o">-</span><span class="n">align</span><span class="p">:</span> <span class="n">center</span><span class="p">;</span>
+  <span class="n">color</span><span class="p">:</span> <span class="c1">#DAD6D6;</span>
+  <span class="n">background</span><span class="p">:</span> <span class="c1">#000000;</span>
+  <span class="n">border</span><span class="p">:</span><span class="n">solid</span> <span class="mi">1</span><span class="n">px</span> <span class="c1">#FFFFFF;</span>
+  <span class="n">border</span><span class="o">-</span><span class="n">radius</span><span class="p">:</span><span class="mi">5</span><span class="n">px</span><span class="p">;</span>
+  <span class="n">padding</span><span class="p">:</span><span class="mi">10</span><span class="n">px</span> <span class="mi">20</span><span class="n">px</span> <span class="mi">10</span><span class="n">px</span><span class="p">;</span>
+  <span class="n">letter</span><span class="o">-</span><span class="n">spacing</span><span class="p">:</span> <span class="mi">1</span><span class="n">px</span><span class="p">;</span>
+  <span class="n">cursor</span><span class="p">:</span><span class="n">pointer</span><span class="p">;</span>
+<span class="p">}</span>
 
-#stopBtn {
-  margin: 40px 5px auto;
-  text-align: center;
-  color: #DAD6D6;
-  background: #B22222;
-  border:solid px #590F20;
-  border-radius:5px;
-  padding:16px 40px 16px;
-  letter-spacing: 2px;
-  cursor:pointer;
-}
+<span class="c1">#startBtn {</span>
+  <span class="n">margin</span><span class="p">:</span> <span class="mi">40</span><span class="n">px</span> <span class="n">auto</span><span class="p">;</span>
+  <span class="n">text</span><span class="o">-</span><span class="n">align</span><span class="p">:</span> <span class="n">center</span><span class="p">;</span>
+  <span class="n">color</span><span class="p">:</span> <span class="c1">#DAD6D6;</span>
+  <span class="n">background</span><span class="p">:</span> <span class="c1">#008000;</span>
+  <span class="n">border</span><span class="p">:</span><span class="n">solid</span> <span class="n">px</span> <span class="c1">#35492C;</span>
+  <span class="n">border</span><span class="o">-</span><span class="n">radius</span><span class="p">:</span><span class="mi">5</span><span class="n">px</span><span class="p">;</span>
+  <span class="n">padding</span><span class="p">:</span><span class="mi">16</span><span class="n">px</span> <span class="mi">40</span><span class="n">px</span> <span class="mi">16</span><span class="n">px</span><span class="p">;</span>
+  <span class="n">letter</span><span class="o">-</span><span class="n">spacing</span><span class="p">:</span> <span class="mi">2</span><span class="n">px</span><span class="p">;</span>
+  <span class="n">cursor</span><span class="p">:</span><span class="n">pointer</span><span class="p">;</span>
+<span class="p">}</span>
 
-#resetBtn {
-  margin: 40px auto;
-  text-align: center;
-  color: #000000;
-  background: #F0FFFF;
-  border:solid px #3E383F;
-  border-radius:5px;
-  padding:16px 50px 17px;
-  letter-spacing: 2px;
-  cursor:pointer;
-}
+<span class="c1">#stopBtn {</span>
+  <span class="n">margin</span><span class="p">:</span> <span class="mi">40</span><span class="n">px</span> <span class="mi">5</span><span class="n">px</span> <span class="n">auto</span><span class="p">;</span>
+  <span class="n">text</span><span class="o">-</span><span class="n">align</span><span class="p">:</span> <span class="n">center</span><span class="p">;</span>
+  <span class="n">color</span><span class="p">:</span> <span class="c1">#DAD6D6;</span>
+  <span class="n">background</span><span class="p">:</span> <span class="c1">#B22222;</span>
+  <span class="n">border</span><span class="p">:</span><span class="n">solid</span> <span class="n">px</span> <span class="c1">#590F20;</span>
+  <span class="n">border</span><span class="o">-</span><span class="n">radius</span><span class="p">:</span><span class="mi">5</span><span class="n">px</span><span class="p">;</span>
+  <span class="n">padding</span><span class="p">:</span><span class="mi">16</span><span class="n">px</span> <span class="mi">40</span><span class="n">px</span> <span class="mi">16</span><span class="n">px</span><span class="p">;</span>
+  <span class="n">letter</span><span class="o">-</span><span class="n">spacing</span><span class="p">:</span> <span class="mi">2</span><span class="n">px</span><span class="p">;</span>
+  <span class="n">cursor</span><span class="p">:</span><span class="n">pointer</span><span class="p">;</span>
+<span class="p">}</span>
 
-h2
-{
-  font-size: 50px;
-  letter-spacing: 2px;
-  margin: 150px 0 0 ;
-}
+<span class="c1">#resetBtn {</span>
+  <span class="n">margin</span><span class="p">:</span> <span class="mi">40</span><span class="n">px</span> <span class="n">auto</span><span class="p">;</span>
+  <span class="n">text</span><span class="o">-</span><span class="n">align</span><span class="p">:</span> <span class="n">center</span><span class="p">;</span>
+  <span class="n">color</span><span class="p">:</span> <span class="c1">#000000;</span>
+  <span class="n">background</span><span class="p">:</span> <span class="c1">#F0FFFF;</span>
+  <span class="n">border</span><span class="p">:</span><span class="n">solid</span> <span class="n">px</span> <span class="c1">#3E383F;</span>
+  <span class="n">border</span><span class="o">-</span><span class="n">radius</span><span class="p">:</span><span class="mi">5</span><span class="n">px</span><span class="p">;</span>
+  <span class="n">padding</span><span class="p">:</span><span class="mi">16</span><span class="n">px</span> <span class="mi">50</span><span class="n">px</span> <span class="mi">17</span><span class="n">px</span><span class="p">;</span>
+  <span class="n">letter</span><span class="o">-</span><span class="n">spacing</span><span class="p">:</span> <span class="mi">2</span><span class="n">px</span><span class="p">;</span>
+  <span class="n">cursor</span><span class="p">:</span><span class="n">pointer</span><span class="p">;</span>
+<span class="p">}</span>
 
-h3
-{
-  font-size: 40px;
-  letter-spacing: 5px; 
-  margin: 30px;
-  background: #444444;
-  border:solid 5px #444444;
-  border-radius:50px;
-  padding:16px 40px 16px;
-  letter-spacing: 2px;
+<span class="n">h2</span>
+<span class="p">{</span>
+  <span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="p">:</span> <span class="mi">50</span><span class="n">px</span><span class="p">;</span>
+  <span class="n">letter</span><span class="o">-</span><span class="n">spacing</span><span class="p">:</span> <span class="mi">2</span><span class="n">px</span><span class="p">;</span>
+  <span class="n">margin</span><span class="p">:</span> <span class="mi">150</span><span class="n">px</span> <span class="mi">0</span> <span class="mi">0</span> <span class="p">;</span>
+<span class="p">}</span>
 
-}
+<span class="n">h3</span>
+<span class="p">{</span>
+  <span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="p">:</span> <span class="mi">40</span><span class="n">px</span><span class="p">;</span>
+  <span class="n">letter</span><span class="o">-</span><span class="n">spacing</span><span class="p">:</span> <span class="mi">5</span><span class="n">px</span><span class="p">;</span> 
+  <span class="n">margin</span><span class="p">:</span> <span class="mi">30</span><span class="n">px</span><span class="p">;</span>
+  <span class="n">background</span><span class="p">:</span> <span class="c1">#444444;</span>
+  <span class="n">border</span><span class="p">:</span><span class="n">solid</span> <span class="mi">5</span><span class="n">px</span> <span class="c1">#444444;</span>
+  <span class="n">border</span><span class="o">-</span><span class="n">radius</span><span class="p">:</span><span class="mi">50</span><span class="n">px</span><span class="p">;</span>
+  <span class="n">padding</span><span class="p">:</span><span class="mi">16</span><span class="n">px</span> <span class="mi">40</span><span class="n">px</span> <span class="mi">16</span><span class="n">px</span><span class="p">;</span>
+  <span class="n">letter</span><span class="o">-</span><span class="n">spacing</span><span class="p">:</span> <span class="mi">2</span><span class="n">px</span><span class="p">;</span>
+    
+<span class="p">}</span>
 
-h4
-{
-  font-size: 15px;
-  letter-spacing: 1px;
-  margin: 1px;
-  background: #000000;
-  border:solid 2px #444444;
-  border-radius: 100px;
-  padding:1px 1px 1px;
-  letter-spacing: 2px;
-  text-align: center;
-  width: 50%;
-  transform: translate(+47.5%);
-}
+<span class="n">h4</span>
+<span class="p">{</span>
+  <span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="p">:</span> <span class="mi">15</span><span class="n">px</span><span class="p">;</span>
+  <span class="n">letter</span><span class="o">-</span><span class="n">spacing</span><span class="p">:</span> <span class="mi">1</span><span class="n">px</span><span class="p">;</span>
+  <span class="n">margin</span><span class="p">:</span> <span class="mi">1</span><span class="n">px</span><span class="p">;</span>
+  <span class="n">background</span><span class="p">:</span> <span class="c1">#000000;</span>
+  <span class="n">border</span><span class="p">:</span><span class="n">solid</span> <span class="mi">2</span><span class="n">px</span> <span class="c1">#444444;</span>
+  <span class="n">border</span><span class="o">-</span><span class="n">radius</span><span class="p">:</span> <span class="mi">100</span><span class="n">px</span><span class="p">;</span>
+  <span class="n">padding</span><span class="p">:</span><span class="mi">1</span><span class="n">px</span> <span class="mi">1</span><span class="n">px</span> <span class="mi">1</span><span class="n">px</span><span class="p">;</span>
+  <span class="n">letter</span><span class="o">-</span><span class="n">spacing</span><span class="p">:</span> <span class="mi">2</span><span class="n">px</span><span class="p">;</span>
+  <span class="n">text</span><span class="o">-</span><span class="n">align</span><span class="p">:</span> <span class="n">center</span><span class="p">;</span>
+  <span class="n">width</span><span class="p">:</span> <span class="mi">50</span><span class="o">%</span><span class="p">;</span>
+  <span class="n">transform</span><span class="p">:</span> <span class="n">translate</span><span class="p">(</span><span class="o">+</span><span class="mf">47.5</span><span class="o">%</span><span class="p">);</span>
+<span class="p">}</span>
 
-#stopwatch
-{
-  margin: 10px;
-  font-size: 32px;
-  color: #FFFFFF;
-  background: #7C7C7C;
-  width: 13%;
-  border-radius: 5px;
-  justify-content: center;
-  transform: translate(+325%, +36%);
-}
-</style>
+<span class="c1">#stopwatch</span>
+<span class="p">{</span>
+  <span class="n">margin</span><span class="p">:</span> <span class="mi">10</span><span class="n">px</span><span class="p">;</span>
+  <span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="p">:</span> <span class="mi">32</span><span class="n">px</span><span class="p">;</span>
+  <span class="n">color</span><span class="p">:</span> <span class="c1">#FFFFFF;</span>
+  <span class="n">background</span><span class="p">:</span> <span class="c1">#7C7C7C;</span>
+  <span class="n">width</span><span class="p">:</span> <span class="mi">13</span><span class="o">%</span><span class="p">;</span>
+  <span class="n">border</span><span class="o">-</span><span class="n">radius</span><span class="p">:</span> <span class="mi">5</span><span class="n">px</span><span class="p">;</span>
+  <span class="n">justify</span><span class="o">-</span><span class="n">content</span><span class="p">:</span> <span class="n">center</span><span class="p">;</span>
+  <span class="n">transform</span><span class="p">:</span> <span class="n">translate</span><span class="p">(</span><span class="o">+</span><span class="mi">325</span><span class="o">%</span><span class="p">,</span> <span class="o">+</span><span class="mi">36</span><span class="o">%</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="o">&lt;/</span><span class="n">style</span><span class="o">&gt;</span>
+</pre></div>
+
+    </div>
 </div>
 </div>
+
 </div>
+    
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Current JS.</p>
