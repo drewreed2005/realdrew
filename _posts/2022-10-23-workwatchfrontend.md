@@ -205,14 +205,24 @@ layout: notebook
 <div class=" highlight hl-python"><pre><span></span><span class="o">&lt;</span><span class="n">h3</span><span class="o">&gt;</span><span class="n">Work</span> <span class="n">Watch</span><span class="o">&lt;/</span><span class="n">h3</span><span class="o">&gt;</span>
 <span class="o">&lt;</span><span class="n">h4</span><span class="o">&gt;&lt;</span><span class="n">button</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;break&quot;</span><span class="o">&gt;</span><span class="n">Breaks</span><span class="o">&lt;/</span><span class="n">button</span><span class="o">&gt;&amp;</span><span class="n">emsp</span><span class="p">;</span> <span class="o">&lt;</span><span class="n">button</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;notif&quot;</span><span class="o">&gt;</span><span class="n">Notifications</span><span class="o">&lt;/</span><span class="n">button</span><span class="o">&gt;&amp;</span><span class="n">emsp</span><span class="p">;</span><span class="o">&lt;</span><span class="n">button</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;task&quot;</span><span class="o">&gt;</span><span class="n">Tasks</span><span class="o">&lt;/</span><span class="n">button</span><span class="o">&gt;&lt;/</span><span class="n">h4</span><span class="o">&gt;</span>
 <span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;&lt;</span><span class="n">button</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;hide&quot;</span><span class="o">&gt;</span><span class="n">Hide</span> <span class="n">Time</span><span class="o">&lt;/</span><span class="n">button</span><span class="o">&gt;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;&lt;</span><span class="n">button</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;hide&quot;</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;hide&quot;</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="err">!</span><span class="o">--</span><span class="n">HIDE</span> <span class="n">BUTTON</span> <span class="n">HERE</span><span class="o">--&gt;</span>
+<span class="o">&lt;/</span><span class="n">button</span><span class="o">&gt;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 <span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;stopwatch&quot;</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;stopwatch&quot;</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;font-size:32px&quot;</span><span class="o">&gt;</span>
-        <span class="o">&lt;</span><span class="err">!</span><span class="o">--</span> <span class="n">stopwatch</span> <span class="n">goes</span> <span class="n">here</span> <span class="o">--&gt;</span>
+        <span class="o">&lt;</span><span class="err">!</span><span class="o">--</span> <span class="n">STOPWATCH</span> <span class="n">HERE</span> <span class="o">--&gt;</span>
     <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
     <span class="o">&lt;</span><span class="n">button</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;btn-start&quot;</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;startBtn&quot;</span><span class="o">&gt;</span><span class="n">Start</span><span class="o">&lt;/</span><span class="n">button</span><span class="o">&gt;</span>
     <span class="o">&lt;</span><span class="n">button</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;btn-stop&quot;</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;stopBtn&quot;</span><span class="o">&gt;</span><span class="n">Stop</span><span class="o">&lt;/</span><span class="n">button</span><span class="o">&gt;</span>
     <span class="o">&lt;</span><span class="n">button</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;btn-reset&quot;</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;resetBtn&quot;</span><span class="o">&gt;</span><span class="n">Reset</span><span class="o">&lt;/</span><span class="n">button</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">h4</span><span class="o">&gt;&lt;</span><span class="n">br</span><span class="o">&gt;</span><span class="n">This</span> <span class="n">will</span> <span class="n">be</span> <span class="n">a</span> <span class="n">timer</span> <span class="n">notification</span><span class="o">.&lt;</span><span class="n">br</span><span class="o">&gt;&lt;</span><span class="n">br</span><span class="o">&gt;</span><span class="n">This</span> <span class="n">will</span> <span class="n">be</span> <span class="n">a</span> <span class="k">break</span> <span class="n">notification</span><span class="o">.&lt;</span><span class="n">br</span><span class="o">&gt;&lt;</span><span class="n">br</span><span class="o">&gt;</span><span class="n">This</span> <span class="n">will</span> <span class="n">be</span> <span class="n">a</span> <span class="n">task</span> <span class="n">notification</span><span class="o">.&lt;</span><span class="n">br</span><span class="o">&gt;&lt;</span><span class="n">br</span><span class="o">&gt;&lt;/</span><span class="n">h4</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">h4</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;notifbox&quot;</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;notifbox&quot;</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="err">!</span><span class="o">--</span><span class="n">NOTIF</span> <span class="n">BOX</span> <span class="n">HERE</span><span class="o">--&gt;</span>
+<span class="o">&lt;/</span><span class="n">h4</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">h5</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;breakinput&quot;</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;transform:translate(+70%, -350%)&quot;</span><span class="o">&gt;&lt;</span><span class="n">label</span><span class="o">&gt;</span><span class="n">Break</span> <span class="n">Info</span><span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;&lt;/</span><span class="n">label</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;</span><span class="n">Break</span> <span class="n">interval</span><span class="p">:</span> <span class="o">&lt;</span><span class="nb">input</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;bintvinput&quot;</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;text-align:left&quot;</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;number&quot;</span> <span class="nb">min</span><span class="o">=</span><span class="s2">&quot;1&quot;</span> <span class="n">minlength</span><span class="o">=</span><span class="s2">&quot;1&quot;</span> <span class="nb">max</span><span class="o">=</span><span class="s2">&quot;999&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;30&quot;</span><span class="o">&gt;&lt;/</span><span class="nb">input</span><span class="o">&gt;&amp;</span><span class="n">nbspminutes</span><span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;&lt;</span><span class="n">br</span><span class="o">&gt;</span><span class="n">Break</span> <span class="n">duration</span><span class="p">:</span> <span class="o">&lt;</span><span class="nb">input</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;bdurinput&quot;</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;text-align:left&quot;</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;number&quot;</span> <span class="nb">min</span><span class="o">=</span><span class="s2">&quot;1&quot;</span> <span class="n">minlength</span><span class="o">=</span><span class="s2">&quot;1&quot;</span> <span class="nb">max</span><span class="o">=</span><span class="s2">&quot;999&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;10&quot;</span><span class="o">&gt;&amp;</span><span class="n">nbspminutes</span><span class="o">&lt;/</span><span class="n">h5</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">h5</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;notifinput&quot;</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;transform:translate(+105%, -543%);width:30%&quot;</span><span class="o">&gt;&lt;</span><span class="n">label</span><span class="o">&gt;</span><span class="n">Notification</span> <span class="n">Info</span><span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;&lt;/</span><span class="n">label</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;</span><span class="n">Notification</span> <span class="n">interval</span><span class="p">:</span> <span class="o">&lt;</span><span class="nb">input</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;nintvinput&quot;</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;text-align:left&quot;</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;number&quot;</span> <span class="nb">min</span><span class="o">=</span><span class="s2">&quot;1&quot;</span> <span class="n">minlength</span><span class="o">=</span><span class="s2">&quot;1&quot;</span> <span class="nb">max</span><span class="o">=</span><span class="s2">&quot;999&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;20&quot;</span><span class="o">&gt;&lt;/</span><span class="nb">input</span><span class="o">&gt;&amp;</span><span class="n">nbspminutes</span><span class="o">&lt;/</span><span class="n">h5</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">h5</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;taskinput&quot;</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;transform:translate(+105%, -543%);width:30%;display:none&quot;</span><span class="o">&gt;&lt;</span><span class="n">label</span><span class="o">&gt;</span><span class="n">Task</span> <span class="n">Info</span><span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;&lt;/</span><span class="n">label</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;</span><span class="n">Notification</span> <span class="n">interval</span><span class="p">:</span> <span class="o">&lt;</span><span class="nb">input</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;nintvinput&quot;</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;text-align:left&quot;</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;number&quot;</span> <span class="nb">min</span><span class="o">=</span><span class="s2">&quot;1&quot;</span> <span class="n">minlength</span><span class="o">=</span><span class="s2">&quot;1&quot;</span> <span class="nb">max</span><span class="o">=</span><span class="s2">&quot;999&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;20&quot;</span><span class="o">&gt;&lt;/</span><span class="nb">input</span><span class="o">&gt;&amp;</span><span class="n">nbspminutes</span><span class="o">&lt;/</span><span class="n">h5</span><span class="o">&gt;</span>
 </pre></div>
 
     </div>
@@ -363,6 +373,20 @@ layout: notebook
   <span class="n">transform</span><span class="p">:</span> <span class="n">translate</span><span class="p">(</span><span class="o">+</span><span class="mf">47.5</span><span class="o">%</span><span class="p">);</span>
 <span class="p">}</span>
 
+<span class="n">h5</span> <span class="p">{</span>
+  <span class="n">margin</span><span class="p">:</span> <span class="mi">10</span><span class="n">px</span><span class="p">;</span>
+  <span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="p">:</span> <span class="mi">16</span><span class="n">px</span><span class="p">;</span>
+  <span class="n">color</span><span class="p">:</span> <span class="c1">#000001;</span>
+  <span class="n">border</span><span class="p">:</span> <span class="n">solid</span> <span class="mi">2</span><span class="n">px</span> <span class="c1">#7C7C7C;</span>
+  <span class="n">padding</span><span class="p">:</span> <span class="mi">5</span><span class="n">px</span> <span class="mi">5</span><span class="n">px</span> <span class="mi">5</span><span class="n">px</span><span class="p">;</span>
+  <span class="n">background</span><span class="p">:</span> <span class="c1">#FFFFFF;</span>
+  <span class="n">width</span><span class="p">:</span> <span class="mi">25</span><span class="o">%</span><span class="p">;</span>
+  <span class="n">border</span><span class="o">-</span><span class="n">radius</span><span class="p">:</span> <span class="mi">5</span><span class="n">px</span><span class="p">;</span>
+  <span class="n">justify</span><span class="o">-</span><span class="n">content</span><span class="p">:</span> <span class="n">center</span><span class="p">;</span>
+  <span class="n">position</span><span class="p">:</span> <span class="n">absolute</span><span class="p">;</span>
+  <span class="n">display</span><span class="p">:</span> <span class="n">none</span><span class="p">;</span>
+<span class="p">}</span>
+
 <span class="c1">#stopwatch</span>
 <span class="p">{</span>
   <span class="n">margin</span><span class="p">:</span> <span class="mi">10</span><span class="n">px</span><span class="p">;</span>
@@ -405,6 +429,34 @@ layout: notebook
 <span class="n">let</span> <span class="nb">min</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 <span class="n">let</span> <span class="n">hr</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 <span class="n">let</span> <span class="n">running</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">let</span> <span class="n">notifbox</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">getElementById</span><span class="p">(</span><span class="s1">&#39;notifbox&#39;</span><span class="p">);</span>
+<span class="n">let</span> <span class="n">notiftext</span> <span class="o">=</span> <span class="s2">&quot;This will be a timer notification.&quot;</span><span class="p">;</span>
+<span class="n">let</span> <span class="n">breaktext</span> <span class="o">=</span> <span class="s2">&quot;This will be a break notification.&quot;</span><span class="p">;</span>
+<span class="n">let</span> <span class="n">tasktext</span> <span class="o">=</span> <span class="s2">&quot;This will be a task notification.&quot;</span><span class="p">;</span>
+<span class="n">let</span> <span class="n">notifintv</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">let</span> <span class="n">breakintv</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">let</span> <span class="n">breaktrig</span> <span class="o">=</span> <span class="p">(</span><span class="n">breakintv</span> <span class="o">*</span> <span class="mi">6000</span><span class="p">)</span>
+<span class="n">let</span> <span class="n">breakend</span> <span class="o">=</span> <span class="p">(</span><span class="n">breakintv</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">6000</span><span class="p">;</span>
+<span class="n">let</span> <span class="n">breakdur</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">tasklist</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="n">notifbox</span><span class="o">.</span><span class="n">innerHTML</span> <span class="o">=</span> <span class="s2">&quot;&lt;br&gt;&quot;</span> <span class="o">+</span> <span class="n">notiftext</span> <span class="o">+</span> <span class="s2">&quot;&lt;br&gt;&lt;br&gt;&quot;</span> <span class="o">+</span> <span class="n">breaktext</span> <span class="o">+</span> <span class="s2">&quot;&lt;br&gt;&lt;br&gt;&quot;</span> <span class="o">+</span> <span class="n">tasktext</span> <span class="o">+</span> <span class="s2">&quot;&lt;br&gt;&lt;br&gt;&quot;</span><span class="p">;</span>
+
+<span class="n">function</span> <span class="n">update_notifbox</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">notifbox</span><span class="o">.</span><span class="n">innerHTML</span> <span class="o">=</span> <span class="s2">&quot;&lt;br&gt;&quot;</span> <span class="o">+</span> <span class="n">notiftext</span> <span class="o">+</span> <span class="s2">&quot;&lt;br&gt;&lt;br&gt;&quot;</span> <span class="o">+</span> <span class="n">breaktext</span> <span class="o">+</span> <span class="s2">&quot;&lt;br&gt;&lt;br&gt;&quot;</span> <span class="o">+</span> <span class="n">tasktext</span> <span class="o">+</span> <span class="s2">&quot;&lt;br&gt;&lt;br&gt;&quot;</span>
+<span class="p">}</span>
+
+<span class="n">function</span> <span class="n">singularity_check</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">hr</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">){</span>
+    <span class="n">hrtext</span> <span class="o">=</span> <span class="s2">&quot; hours&quot;</span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">hrtext</span> <span class="o">=</span> <span class="s2">&quot; hour&quot;</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nb">min</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">){</span>
+    <span class="n">mintext</span> <span class="o">=</span> <span class="s2">&quot; minutes&quot;</span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">mintext</span> <span class="o">=</span> <span class="s2">&quot; minute&quot;</span><span class="p">;</span>
+  <span class="p">};</span>
+<span class="p">};</span>
 
 <span class="n">function</span> <span class="n">timer</span><span class="p">()</span> <span class="p">{</span>
     <span class="n">constant</span><span class="o">++</span><span class="p">;</span>
@@ -421,7 +473,26 @@ layout: notebook
         <span class="n">hr</span><span class="o">++</span>
         <span class="nb">min</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="p">}</span>
-
+    <span class="k">if</span><span class="p">(</span><span class="n">constant</span> <span class="o">%</span> <span class="p">(</span><span class="n">notifintv</span> <span class="o">*</span> <span class="mi">6000</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">singularity_check</span><span class="p">()</span>
+      <span class="k">if</span><span class="p">(</span><span class="n">hr</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">notiftext</span> <span class="o">=</span> <span class="s2">&quot;The timer has been running for &quot;</span> <span class="o">+</span> <span class="n">hr</span> <span class="o">+</span> <span class="n">hrtext</span> <span class="o">+</span> <span class="s2">&quot; and &quot;</span> <span class="o">+</span> <span class="nb">min</span> <span class="o">+</span> <span class="n">mintext</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span><span class="p">;</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">notiftext</span> <span class="o">=</span> <span class="s2">&quot;The timer has been running for &quot;</span> <span class="o">+</span> <span class="nb">min</span> <span class="o">+</span> <span class="n">mintext</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span><span class="p">;</span>
+      <span class="p">};</span>
+      <span class="n">update_notifbox</span><span class="p">();</span>
+    <span class="p">};</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">constant</span> <span class="o">==</span> <span class="n">breaktrig</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">breaktext</span> <span class="o">=</span> <span class="s2">&quot;It&#39;s break time! Please take a &quot;</span> <span class="o">+</span> <span class="n">breakdur</span> <span class="o">+</span> <span class="s2">&quot;-minute break.&quot;</span><span class="p">;</span>
+      <span class="n">breakend</span> <span class="o">=</span> <span class="p">(</span><span class="n">breakdur</span> <span class="o">*</span> <span class="mi">6000</span><span class="p">)</span> <span class="o">+</span> <span class="n">constant</span><span class="p">;</span>
+      <span class="n">breaktrig</span> <span class="o">=</span> <span class="p">(</span><span class="n">constant</span> <span class="o">+</span> <span class="p">(</span><span class="mi">6000</span> <span class="o">*</span> <span class="p">(</span><span class="n">breakdur</span> <span class="o">+</span> <span class="n">breakintv</span><span class="p">)))</span>
+      <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">constant</span><span class="p">,</span> <span class="n">breakend</span><span class="p">,</span> <span class="n">breakintv</span><span class="p">)</span>
+      <span class="n">update_notifbox</span><span class="p">();</span>
+    <span class="p">};</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">constant</span> <span class="o">==</span> <span class="n">breakend</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">breaktext</span> <span class="o">=</span> <span class="s2">&quot;Break time&#39;s over. Get back to work!&quot;</span><span class="p">;</span>
+      <span class="n">update_notifbox</span><span class="p">();</span>
+    <span class="p">};</span>
     <span class="o">//</span><span class="n">Doing</span> <span class="n">some</span> <span class="n">string</span> <span class="n">interpolation</span>
     <span class="n">let</span> <span class="n">seconds</span> <span class="o">=</span> <span class="n">sec</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="err">?</span> <span class="err">`</span><span class="mi">0</span><span class="err">`</span><span class="o">+</span> <span class="n">sec</span> <span class="p">:</span> <span class="n">sec</span><span class="p">;</span>
     <span class="n">let</span> <span class="n">minute</span> <span class="o">=</span> <span class="nb">min</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="err">?</span> <span class="err">`</span><span class="mi">0</span><span class="err">`</span> <span class="o">+</span> <span class="nb">min</span> <span class="p">:</span> <span class="nb">min</span><span class="p">;</span>
@@ -450,6 +521,10 @@ layout: notebook
     <span class="nb">min</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
     <span class="n">hr</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
     <span class="n">output</span><span class="o">.</span><span class="n">innerHTML</span> <span class="o">=</span> <span class="err">`</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="err">`</span>
+    <span class="n">let</span> <span class="n">notiftext</span> <span class="o">=</span> <span class="s2">&quot;This will be a timer notification.&quot;</span><span class="p">;</span>
+    <span class="n">let</span> <span class="n">breaktext</span> <span class="o">=</span> <span class="s2">&quot;This will be a break notification.&quot;</span><span class="p">;</span>
+    <span class="n">let</span> <span class="n">tasktext</span> <span class="o">=</span> <span class="s2">&quot;This will be a task notification.&quot;</span><span class="p">;</span>
+    <span class="n">update_notifbox</span><span class="p">()</span>
 <span class="p">}</span>
 <span class="n">const</span> <span class="n">startBtn</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">getElementById</span><span class="p">(</span><span class="s1">&#39;startBtn&#39;</span><span class="p">);</span>
 <span class="n">const</span> <span class="n">stopBtn</span> <span class="o">=</span>  <span class="n">document</span><span class="o">.</span><span class="n">getElementById</span><span class="p">(</span><span class="s1">&#39;stopBtn&#39;</span><span class="p">);</span>
@@ -467,16 +542,43 @@ layout: notebook
 
 <span class="n">var</span> <span class="n">hidden</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 <span class="n">var</span> <span class="n">hw</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">getElementById</span><span class="p">(</span><span class="s1">&#39;hide&#39;</span><span class="p">);</span>
+<span class="n">hw</span><span class="o">.</span><span class="n">innerHTML</span> <span class="o">=</span> <span class="s2">&quot;Hide Time&quot;</span>
 <span class="n">var</span> <span class="n">sw</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">getElementById</span><span class="p">(</span><span class="s1">&#39;stopwatch&#39;</span><span class="p">);</span>
 <span class="n">hw</span><span class="o">.</span><span class="n">onclick</span> <span class="o">=</span> <span class="n">function</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">hidden</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
       <span class="n">sw</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">display</span> <span class="o">=</span> <span class="s2">&quot;none&quot;</span>
       <span class="n">hidden</span> <span class="o">=</span> <span class="mi">1</span>
+      <span class="n">hw</span><span class="o">.</span><span class="n">innerHTML</span> <span class="o">=</span> <span class="s2">&quot;Show Time&quot;</span>
     <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
       <span class="n">sw</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">display</span> <span class="o">=</span> <span class="s2">&quot;block&quot;</span>
       <span class="n">hidden</span> <span class="o">=</span> <span class="mi">0</span>
+      <span class="n">hw</span><span class="o">.</span><span class="n">innerHTML</span> <span class="o">=</span> <span class="s2">&quot;Hide Time&quot;</span>
     <span class="p">};</span>
   <span class="p">};</span>
+<span class="n">var</span> <span class="n">bihidden</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">nohidden</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">breakInp</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">getElementById</span><span class="p">(</span><span class="s1">&#39;breakinput&#39;</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">notifInp</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">getElementById</span><span class="p">(</span><span class="s1">&#39;notifinput&#39;</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">breakBtn</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">getElementById</span><span class="p">(</span><span class="s1">&#39;break&#39;</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">notifBtn</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">getElementById</span><span class="p">(</span><span class="s1">&#39;notif&#39;</span><span class="p">);</span>
+<span class="n">notifBtn</span><span class="o">.</span><span class="n">onclick</span> <span class="o">=</span> <span class="n">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">nohidden</span> <span class="o">==</span> <span class="mi">1</span><span class="p">){</span>
+    <span class="n">notifInp</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">display</span> <span class="o">=</span> <span class="s2">&quot;block&quot;</span><span class="p">;</span>
+    <span class="n">nohidden</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">notifInp</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">display</span> <span class="o">=</span> <span class="s2">&quot;none&quot;</span><span class="p">;</span>
+    <span class="n">nohidden</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="p">};</span>
+<span class="p">};</span>
+<span class="n">breakBtn</span><span class="o">.</span><span class="n">onclick</span> <span class="o">=</span> <span class="n">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">bihidden</span> <span class="o">==</span> <span class="mi">1</span><span class="p">){</span>
+    <span class="n">breakInp</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">display</span> <span class="o">=</span> <span class="s2">&quot;block&quot;</span><span class="p">;</span>
+    <span class="n">bihidden</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">breakInp</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">display</span> <span class="o">=</span> <span class="s2">&quot;none&quot;</span><span class="p">;</span>
+    <span class="n">bihidden</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="p">};</span>
+<span class="p">};</span>
 </pre></div>
 
     </div>
