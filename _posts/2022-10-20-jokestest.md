@@ -35,7 +35,7 @@ Please listen to the alarm tones found [here](https://on.soundcloud.com/d43FR) t
   const BOOHOO = "boohoo";
 
   // prepare fetch urls
-  const url = "http://workwatch.nighthawkcodescrums.gq/api/jokes";
+  const url = "https://workwatch.nighthawkcodescrums.gq/api/jokes";
   const like_url = url + "/like/";  // haha reaction
   const jeer_url = url + "/jeer/";  // boohoo reaction
 
