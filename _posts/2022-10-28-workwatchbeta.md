@@ -3,6 +3,8 @@ title: Work Watch Beta
 layout: none
 description: Try it out!
 permalink: /workwatchbeta
+hide: true
+search-exclude: true
 ---
 
 <h3>Work Watch</h3>
