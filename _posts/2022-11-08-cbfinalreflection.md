@@ -38,7 +38,7 @@ To clarify, going in, I understood the concept of bits and how different numbers
 
 After looking it up, I quickly figured out the pattern:
 
->0000 = 0, 0001 = 1, 0010 = 2, 0011 = 3, 0100 = 4, 0101 = 5, 0110 = 6, 0111 = 7, 1000 = 8, 1001 = 9, 1010 = 10, 1011 = 11, 1100 = 12, 1101 = 13, 1110 = 14, 1111 = 15. And you could continue this pattern with binary that has more than 4 bits if you wanted.Put one all the way to the right, move it to the left, add a new one on the right, and now that the ones are crowded up,put a 1 to the left of the leftmost 1 and make everything to the right of it 0.
+>0000 = 0, 0001 = 1, 0010 = 2, 0011 = 3, 0100 = 4, 0101 = 5, 0110 = 6, 0111 = 7, 1000 = 8, 1001 = 9, 1010 = 10, 1011 = 11, 1100 = 12, 1101 = 13, 1110 = 14, 1111 = 15. And you could continue this pattern with binary that has more than 4 bits if you wanted. Put one all the way to the right, move it to the left, add a new one on the right, and now that the ones are crowded up,put a 1 to the left of the leftmost 1 and make everything to the right of it 0.
 
 I'm glad I figured this out for the questions that came after. Though Q20 used essentially the same knowledge as Q19 and Q21 was just part of knowing  what binary is used for (everything), <mark>Question 22</mark> would put that knowledge to the test.
 
@@ -87,4 +87,9 @@ Q39 was a random index question and Q40 & Q45 was an output question, all very e
 
 ## Takeaways
 
-I learned about binary. I learned that College Board's goofy language usually ues 1-based indexes. Not a lot else.
+I learned about binary. I learned that College Board's goofy language usually ues 1-based indexes. But most of all, I learned about the value of collaboration.
+
+<audio
+        controls
+        src="../realdrew/sound/aww-cute-reaction-6208.mp3">
+</audio>
