@@ -2,8 +2,10 @@
 keywords: fastai
 description: Showing that everything (still) works.
 title: Trimester 2 Tools Verification
-permalink: /toolverification/
-categories: [javascript], [python]
+toc: true
+hide: true
+search-exclude: true
+permalink: /tools2/
 nb_path: _notebooks/2022-11-16-toolsverification.ipynb
 layout: notebook
 ---
