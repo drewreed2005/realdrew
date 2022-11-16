@@ -37,6 +37,13 @@ layout: notebook
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Python">Python<a class="anchor-link" href="#Python"> </a></h2><p>Below is a Python cell that picks which number is larger based on two inputs.</p>
+
+</div>
+</div>
+</div>
 </div>
  
 
