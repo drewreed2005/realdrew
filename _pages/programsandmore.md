@@ -6,18 +6,24 @@ permalink: /more/
 
 See various fun quizzes and programs below.
 
-[Random Number Generator](https://drewreed2005.github.io/realdrew/2022/08/22/randomnumber.html)
+## Trimester 1
 
-[Week 1 Python Quiz](https://drewreed2005.github.io/realdrew/2022/08/23/pythonworkweek1.html)
+[Random Number Generator]({{site.baseurl}}/rng/)
 
-[Bash and My Tools](https://drewreed2005.github.io/realdrew/2022/08/25/bashstuff.html)
+[Week 1 Python Quiz]({{site.baseurl}}/week1quiz/)
 
-[The Survey](https://drewreed2005.github.io/realdrew/survey/)
+[Bash and My Tools]({{site.baseurl}}/bashstuff/)
 
-[AppLab Quiz](https://drewreed2005.github.io/realdrew/applabquiz/)
+[The Survey]({{site.baseurl}}/survey/)
 
-[How I Got a 5! Quiz](https://drewreed2005.github.io/realdrew/howigota5quiz/)
+[AppLab Quiz]({{site.baseurl}}/applabquiz/)
 
-[Work Watch - Roles, Purpose and Information](https://drewreed2005.github.io/realdrew/wwinfo/)
+[How I Got a 5! Quiz]({{site.baseurl}}/howigota5quiz/)
+
+[Work Watch - Roles, Purpose and Information]({{site.baseurl}}/wwinfo/)
+
+## Trimester 2
+
+[Binary Frontend Page]({{site.baseurl}}/frontend/binary/)
 
 More to come!
