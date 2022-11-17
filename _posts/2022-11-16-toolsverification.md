@@ -2,7 +2,6 @@
 keywords: fastai
 description: Showing that everything (still) works.
 title: Trimester 2 Tools Verification
-toc: true
 hide: true
 search-exclude: true
 permalink: /tools2/
@@ -30,9 +29,15 @@ layout: notebook
     var pressed = false
     var thebutton = document.getElementById("changetext");
     thebutton.onclick = function() {
-        pressed = true
+        if (pressed == true) {
+            document.getElementById("displaytext").innerHTML = "*Sizzle, sizzle*";
+            thebutton.innerHTML = "All done :)";
+            return;
+        };
+        pressed = true;
         document.getElementById("displaytext").innerHTML = "Javascript works on my site, doubter.";
-        console.log(pressed)
+        console.log(pressed);
+        thebutton.innerHTML = "Press to destroy the evidence";
     };
 </script>
 </div>
@@ -42,6 +47,76 @@ layout: notebook
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Python">Python<a class="anchor-link" href="#Python"> </a></h2><p>Below is a Python cell that picks which number is larger based on two inputs.</p>
 
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">getfirstnum</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Please input the first number.&quot;</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">global</span> <span class="n">number1</span>
+        <span class="n">number1</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+        <span class="n">temp</span> <span class="o">=</span> <span class="n">number1</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;That&#39;s an invalid input. Please input an integer or a decimal.&quot;</span><span class="p">)</span>
+        <span class="n">getfirstnum</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">getsecondnum</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Please input the second number.&quot;</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">global</span> <span class="n">number2</span>
+        <span class="n">number2</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+        <span class="n">temp</span> <span class="o">=</span> <span class="n">number2</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;That&#39;s an invalid input. Please input an integer or a decimal.&quot;</span><span class="p">)</span>
+        <span class="n">getsecondnum</span><span class="p">()</span>
+<span class="n">getfirstnum</span><span class="p">()</span>
+<span class="n">getsecondnum</span><span class="p">()</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">number1</span> <span class="o">-</span> <span class="n">number2</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The second number, &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">number2</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;, is greater.&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="p">(</span><span class="n">number1</span> <span class="o">-</span> <span class="n">number2</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The first number, &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">number1</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;, is greater.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The two numbers are equal to each other.&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Please input the first number.
+That&#39;s an invalid input. Please input an integer or a decimal.
+Please input the first number.
+Please input the second number.
+The second number, 2.3, is greater.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Local-Server">Local Server<a class="anchor-link" href="#Local-Server"> </a></h2><p>Here's proof that my website is up and runnning through my local server (as of the publication of this post).</p>
+<figure>
+  <img src="{{site.baseurl}}/images/runningonlocalserver.png" alt="Didn't load :(" width="600"/>
+  <figcaption>Look at the link!</figcaption>
+</figure>
 </div>
 </div>
 </div>
