@@ -10,7 +10,7 @@ categories: [3.B, 3.C, C4.4]
 <!-- Hack 2: change to 24 bits and add a color code and display color when 24 bits, think about display on this one -->
 <!-- Hack 3: do your own thing -->
 
-{% assign BITS = 8 %}
+{% assign BITS = 24 %}
 
 <div class="container bg-primary">
     <header class="pb-3 mb-4 border-bottom border-primary text-dark">
@@ -25,6 +25,7 @@ categories: [3.B, 3.C, C4.4]
                 <th>Octal</th>
                 <th>Hexadecimal</th>
                 <th>Decimal</th>
+                <th>Color</th>
                 <th>Minus</th>
             </tr>
             <tr>
@@ -33,6 +34,7 @@ categories: [3.B, 3.C, C4.4]
                 <td id="octal">0</td>
                 <td id="hexadecimal">0</td>
                 <td id="decimal">0</td>
+                <td id="color" style="font-size:100px;padding:0px">▣</td> 
                 <td><button type="button" id="sub1" onclick="add(-1)">-1</button></td>
             </tr>
             </table>
@@ -55,15 +57,8 @@ categories: [3.B, 3.C, C4.4]
                 <td><input type='text' id="digit{{ i }}" Value="0" size="1" readonly></td>
                 {% endfor %}
             </tr>
-            <tr>
-                <td>128</td>
-                <td>64</td>
-                <td>32</td>
-                <td>16</td>
-                <td>8</td>
-                <td>4</td>
-                <td>2</td>
-                <td>1</td>
+            <tr id="newfunction">
+                <td>8388608</td><td>4194304</td><td>2097152</td><td>1048576</td><td>524288</td><td>262144</td><td>131072</td><td>65536</td><td>32768</td><td>16384</td><td>8192</td><td>4096</td><td>2048</td><td>1024</td><td>512</td><td>256</td><td>128</td><td>64</td><td>32</td><td>16</td><td>8</td><td>4</td><td>2</td><td>1</td>
             </tr>
             </table>
         </div>
@@ -77,6 +72,22 @@ categories: [3.B, 3.C, C4.4]
     const IMAGE_ON = "{{site.baseurl}}/images/bulb_on.gif";
     const MSG_OFF = "Turn off";
     const IMAGE_OFF = "{{site.baseurl}}/images/bulb_off.png"
+
+    // script below used to create the rows below
+    // var rowmax = 8388608;
+    // var colhtml = "<td>" + String(rowmax) + "</td>";
+    // function createCol() {
+        // if(rowmax > 1) {
+            // console.log(rowmax);
+            // rowmax = (rowmax / 2);
+            // colhtml = colhtml + "<td>" + String(rowmax) + "</td>";
+            // createCol();
+        // } else {
+            // console.log(colhtml);
+            // document.getElementById('newfunction').innerhtml = colhtml;
+        // };
+    // };
+    // createCol();
 
     // return string with current value of each bit
     function getBits() {
@@ -92,9 +103,12 @@ categories: [3.B, 3.C, C4.4]
         // Octal conversion
         document.getElementById('octal').innerHTML = parseInt(binary, 2).toString(8);
         // Hexadecimal conversion
-        document.getElementById('hexadecimal').innerHTML = parseInt(binary, 2).toString(16);
+        hexval = parseInt(binary, 2).toString(16);
+        document.getElementById('hexadecimal').innerHTML = hexval;
         // Decimal conversion
         document.getElementById('decimal').innerHTML = parseInt(binary, 2).toString();
+        // Color conversion
+        document.getElementById('color').style.color = "#" + String(hexval);
     }
     //
     function decimal_2_base(decimal, base) {
