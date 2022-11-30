@@ -25,7 +25,7 @@ layout: notebook
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Vocabulary:-Fill-in-the-Blanks">Vocabulary: Fill in the Blanks<a class="anchor-link" href="#Vocabulary:-Fill-in-the-Blanks"> </a></h3><p>The symbol for exponent is <code>^</code></p>
+<h3 id="Vocabulary:-Fill-in-the-Blanks">Vocabulary: Fill in the Blanks<a class="anchor-link" href="#Vocabulary:-Fill-in-the-Blanks"> </a></h3><p>The symbol for exponent is <code>**</code></p>
 <p>The symbol for addition is <code>+</code></p>
 <p>The symbol for subtraction is <code>-</code></p>
 <p>The symbol for multiplication is <code>*</code></p>
