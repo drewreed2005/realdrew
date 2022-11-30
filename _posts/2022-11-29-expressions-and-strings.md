@@ -1,7 +1,7 @@
 ---
 keywords: fastai
 description: Based on the notebooks template by Orlando, Jaden, Max and Dylan.
-title: Sections 3-4 (Mathematical Epxpressions and Strings) Notes
+title: Sections 3-4 (Mathematical Expressions and Strings) Notes
 toc: true
 permalink: /sections3-4notes/
 nb_path: _notebooks/2022-11-29-expressions-and-strings.ipynb
