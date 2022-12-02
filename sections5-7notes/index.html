@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Boolean Expressions, Conditionals and Nested Conditionals Lesson Notes | Drew’s Big Fastpages Blog</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Boolean Expressions, Conditionals and Nested Conditionals Lesson Notes" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Based on the notebooks template by Ryan, Lucas, Haoxuan and Shivansh." />
+<meta property="og:description" content="Based on the notebooks template by Ryan, Lucas, Haoxuan and Shivansh." />
+<link rel="canonical" href="https://drewreed2005.github.io/realdrew/sections5-7notes/" />
+<meta property="og:url" content="https://drewreed2005.github.io/realdrew/sections5-7notes/" />
+<meta property="og:site_name" content="Drew’s Big Fastpages Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-12-01T00:00:00-06:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Boolean Expressions, Conditionals and Nested Conditionals Lesson Notes" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-12-01T00:00:00-06:00","datePublished":"2022-12-01T00:00:00-06:00","description":"Based on the notebooks template by Ryan, Lucas, Haoxuan and Shivansh.","headline":"Boolean Expressions, Conditionals and Nested Conditionals Lesson Notes","mainEntityOfPage":{"@type":"WebPage","@id":"https://drewreed2005.github.io/realdrew/sections5-7notes/"},"url":"https://drewreed2005.github.io/realdrew/sections5-7notes/"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/realdrew/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://drewreed2005.github.io/realdrew/feed.xml" title="Drew's Big Fastpages Blog" /><link rel="shortcut icon" type="image/x-icon" href="/realdrew/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/realdrew/">Drew&#39;s Big Fastpages Blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/realdrew/about/">About Me</a><a class="page-link" href="/realdrew/notes/">Notes</a><a class="page-link" href="/realdrew/more/">Programs and More</a><a class="page-link" href="/realdrew/search/">Search</a><a class="page-link" href="/realdrew/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Boolean Expressions, Conditionals and Nested Conditionals Lesson Notes</h1><p class="page-description">Based on the notebooks template by Ryan, Lucas, Haoxuan and Shivansh.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-12-01T00:00:00-06:00" itemprop="datePublished">
+        Dec 1, 2022
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      5 min read
+    
+</span></p>
+
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-justify-center">
+          <div class="px-2">
+
+    <a href="https://github.com/drewreed2005/realdrew/tree/master/_notebooks/2022-12-1-sections5-7notes.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/realdrew/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/drewreed2005/realdrew/master?filepath=_notebooks%2F2022-12-1-sections5-7notes.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/realdrew/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/drewreed2005/realdrew/blob/master/_notebooks/2022-12-1-sections5-7notes.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/realdrew/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+          <div class="px-2">
+  <a href="https://deepnote.com/launch?url=https%3A%2F%2Fgithub.com%2Fdrewreed2005%2Frealdrew%2Fblob%2Fmaster%2F_notebooks%2F2022-12-1-sections5-7notes.ipynb" target="_blank">
+      <img class="notebook-badge-image" src="/realdrew/assets/badges/deepnote.svg" alt="Launch in Deepnote"/>
+  </a>
+</div>
+
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h2"><a href="#3.5-Boolean-Expresssions">3.5 Boolean Expresssions </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Rational-Operators">Rational Operators </a></li>
+<li class="toc-entry toc-h3"><a href="#Logical-Operators">Logical Operators </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#3.6-Conditionals">3.6 Conditionals </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Vocabulary">Vocabulary </a></li>
+<li class="toc-entry toc-h3"><a href="#If/Else-Statements">If/Else Statements </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#3.7-Nested-Conditional-Statements">3.7 Nested Conditional Statements </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Examples">Examples </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#Homework">Homework </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Hacks">Hacks </a></li>
+</ul>
+</li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-12-1-sections5-7notes.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="3.5-Boolean-Expresssions">
+<a class="anchor" href="#3.5-Boolean-Expresssions" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.5 Boolean Expresssions<a class="anchor-link" href="#3.5-Boolean-Expresssions"> </a>
+</h2>
+<p>Boolean expressions have two states, "True" and "False" (basically "1" and "0").</p>
+<h3 id="Rational-Operators">
+<a class="anchor" href="#Rational-Operators" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rational Operators<a class="anchor-link" href="#Rational-Operators"> </a>
+</h3>
+<p>Operators <code>==</code>, <code>!=</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, and <code>&lt;=</code> are used to compare values. They can return true of false depending on the statement. They work with both integers and strings.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"True:"</span><span class="p">,</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"True:"</span><span class="p">,</span><span class="mi">1</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"False:"</span><span class="p">,</span><span class="mi">7</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"True:"</span><span class="p">,</span> <span class="mi">5</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"False:"</span><span class="p">,</span><span class="mi">7</span> <span class="o">&gt;</span> <span class="mi">8</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"True:"</span><span class="p">,</span><span class="mi">3</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">''</span><span class="p">)</span>
+
+<span class="c1"># Same as above, but now for other values other than int</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'True:'</span><span class="p">,</span><span class="s2">"as"</span> <span class="o">==</span> <span class="s2">"as"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"False"</span><span class="p">,</span><span class="kc">True</span> <span class="o">==</span> <span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"False:"</span><span class="p">,[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"True:"</span><span class="p">,</span><span class="s1">'af'</span> <span class="o">&lt;</span> <span class="s1">'bc'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"False:"</span><span class="p">,</span><span class="s1">'ce'</span> <span class="o">&gt;</span> <span class="s1">'cf'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"True:"</span><span class="p">,[</span><span class="mi">1</span><span class="p">,</span><span class="s1">'b'</span><span class="p">]</span> <span class="o">&gt;</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="s1">'a'</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>True: True
+True: True
+False: False
+True: True
+False: False
+True: True
+
+True: True
+False False
+False: False
+True: True
+False: False
+True: True
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Logical-Operators">
+<a class="anchor" href="#Logical-Operators" aria-hidden="true"><span class="octicon octicon-link"></span></a>Logical Operators<a class="anchor-link" href="#Logical-Operators"> </a>
+</h3>
+<p>Operators like "and", "or", or "not" can be used to assess the state of boolean operands. See their use below.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"True:"</span><span class="p">,</span> <span class="kc">True</span> <span class="ow">or</span> <span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"False:"</span><span class="p">,</span> <span class="ow">not</span> <span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"True:"</span><span class="p">,</span> <span class="kc">True</span> <span class="ow">and</span> <span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"False:"</span><span class="p">,</span> <span class="ow">not</span> <span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"False:"</span><span class="p">,</span> <span class="kc">True</span> <span class="ow">and</span> <span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"True:"</span><span class="p">,</span> <span class="ow">not</span> <span class="kc">False</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>True: True
+False: False
+True: True
+False: False
+False: False
+True: True
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="3.6-Conditionals">
+<a class="anchor" href="#3.6-Conditionals" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.6 Conditionals<a class="anchor-link" href="#3.6-Conditionals"> </a>
+</h2>
+<p>Conditionals only make certain things happen when conditions are met. This is most often seen with <code>if</code>/<code>else</code> statements.</p>
+<h3 id="Vocabulary">
+<a class="anchor" href="#Vocabulary" aria-hidden="true"><span class="octicon octicon-link"></span></a>Vocabulary<a class="anchor-link" href="#Vocabulary"> </a>
+</h3>
+<p>Copied from their blog.</p>
+<blockquote>
+<p>Algorithm - A set of instructions that accomplish a task.</p>
+<p>Selection - The process that determines which parts of an algoritm is being executed based on a condition that is true or false.</p>
+</blockquote>
+<h3 id="If/Else-Statements">
+<a class="anchor" href="#If/Else-Statements" aria-hidden="true"><span class="octicon octicon-link"></span></a>If/Else Statements<a class="anchor-link" href="#If/Else-Statements"> </a>
+</h3>
+<p><code>if</code> and <code>else</code> statements are the primary conditional statements. See their basic use below.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="mi">3</span>          <span class="c1"># value that will affect true or false statement</span>
+<span class="k">if</span> <span class="n">number</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>     <span class="c1"># if part determines if the statement is true or false compared to another part of the program</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Yes,"</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">number</span><span class="p">),</span> <span class="s2">"does equal 5."</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>               <span class="c1">#else part only executes if the if part is false</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"No, "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">+</span> <span class="s2">" does not equal 5."</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>No, 3 does not equal 5.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As their blog says, solo <code>if</code> statements can be used as sort of interruptions when certain conditions are met. Here is there example.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">progress</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">progress</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">progress</span><span class="p">)</span> <span class="o">+</span> <span class="s2">"%"</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">progress</span> <span class="o">==</span> <span class="mi">50</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Half way there"</span><span class="p">)</span>
+
+    <span class="n">progress</span> <span class="o">=</span> <span class="n">progress</span> <span class="o">+</span> <span class="mi">10</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"100%"</span> <span class="o">+</span> <span class="s2">" Complete"</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0%
+10%
+20%
+30%
+40%
+50%
+Half way there
+60%
+70%
+80%
+90%
+100% Complete
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="3.7-Nested-Conditional-Statements">
+<a class="anchor" href="#3.7-Nested-Conditional-Statements" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.7 Nested Conditional Statements<a class="anchor-link" href="#3.7-Nested-Conditional-Statements"> </a>
+</h2>
+<p>Basically conditionals inside of conditional statements that make things happen on top of the other stuff. Vague, but it makes sense.</p>
+<h3 id="Examples">
+<a class="anchor" href="#Examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Examples<a class="anchor-link" href="#Examples"> </a>
+</h3>
+<p>Here is the example provided by the group to show nested conditionals.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="mi">19</span>
+<span class="n">isGraduated</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">hasLicense</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="c1"># Look if person is 18 years or older</span>
+<span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"You're 18 or older. Welcome to adulthood!"</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">isGraduated</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'Congratulations with your graduation!'</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">hasLicense</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'Happy driving!'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>You're 18 or older. Welcome to adulthood!
+Happy driving!
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Here's my take on the nested conditionals example.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">year</span> <span class="o">=</span> <span class="mi">2022</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">year</span> <span class="o">==</span> <span class="mi">1776</span><span class="p">):</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"The U.S. just declared independence, didn't they?"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"The U.S. has already gained independence, or perhaps doesn't exist..."</span><span class="p">)</span> 
+<span class="k">if</span> <span class="p">(</span><span class="n">year</span> <span class="o">==</span> <span class="mi">1848</span><span class="p">):</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Gold was just struck in California, wasn't it?"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"The Gold Rush is an afterthought, or perhaps hasn't yet happened..."</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">year</span> <span class="o">==</span> <span class="mi">2022</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Elon Musk bought Twitter not too long ago, didn't he?"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Perhaps Elon Musk and Twitter do not yet exist, or are old news..."</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">year</span> <span class="o">==</span> <span class="mi">3000</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Flying cars have just been invented, haven't they?"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"You'll have to wait a bit longer for flying cars..."</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>The U.S. has already gained independence, or perhaps doesn't exist...
+The Gold Rush is an afterthought, or perhaps hasn't yet happened...
+Elon Musk bought Twitter not too long ago, didn't he?
+You'll have to wait a bit longer for flying cars...
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Homework">
+<a class="anchor" href="#Homework" aria-hidden="true"><span class="octicon octicon-link"></span></a>Homework<a class="anchor-link" href="#Homework"> </a>
+</h2>
+<p>Here is my take on the binary homework.</p>
+<h3 id="Hacks">
+<a class="anchor" href="#Hacks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hacks<a class="anchor-link" href="#Hacks"> </a>
+</h3>
+<blockquote>
+<p>System to repeat the user input if it is not within the valid range of 8-bit binary.</p>
+<p>More conditionals with <code>try</code> and <code>except</code></p>
+<p>A Frontend version on top of the Python version.</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">DecimalToBinary</span><span class="p">(</span><span class="nb">input</span><span class="p">):</span>
+    <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="nb">input</span> <span class="o">&lt;=</span> <span class="mi">255</span><span class="p">:</span>
+        <span class="k">pass</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span> <span class="o">+</span> <span class="s2">"Intentional Error to Restart Loop"</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">7</span>
+    <span class="n">binary</span> <span class="o">=</span> <span class="s2">""</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">input</span> <span class="o">%</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">i</span><span class="p">)</span> <span class="o">==</span> <span class="nb">input</span><span class="p">:</span>
+            <span class="n">binary</span> <span class="o">+=</span> <span class="s2">"0"</span>
+            <span class="n">i</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">binary</span> <span class="o">+=</span> <span class="s2">"1"</span>
+            <span class="nb">input</span> <span class="o">-=</span> <span class="mi">2</span><span class="o">**</span><span class="n">i</span>
+            <span class="n">i</span> <span class="o">-=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">binary</span>
+ 
+<span class="c1"># function to reverse the string</span>
+<span class="k">def</span> <span class="nf">reverse</span><span class="p">(</span><span class="n">strs</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">strs</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+ 
+<span class="c1"># Driver Code</span>
+<span class="n">num</span> <span class="o">=</span> <span class="mi">67</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"The reverse of 67 in binary is:"</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">" "</span><span class="p">)</span>
+<span class="n">reverse</span><span class="p">(</span><span class="n">DecimalToBinary</span><span class="p">(</span><span class="n">num</span><span class="p">))</span>
+
+<span class="c1"># input box</span>
+<span class="k">def</span> <span class="nf">getUserInput</span><span class="p">():</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">userinp</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Input an integer between 0 and 255."</span><span class="p">))</span>
+        <span class="n">userbin</span> <span class="o">=</span> <span class="n">DecimalToBinary</span><span class="p">(</span><span class="n">userinp</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'"'</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">userinp</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'" in binary is "'</span> <span class="o">+</span> <span class="n">userbin</span> <span class="o">+</span> <span class="s1">'".'</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Invalid input."</span><span class="p">)</span>
+        <span class="n">getUserInput</span><span class="p">()</span>
+
+<span class="n">getUserInput</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>The reverse of 67 in binary is: 11000010
+Invalid input.
+Invalid input.
+"34" in binary is "00100010".
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Here's the frontend version:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p style="font-family:">Convert <input id="bininput" style="text-align:left" type="number" min="0" minlength="1" maxlength="3" max="255" value="0"> to binary...</p>
+<button id="convertbtn">CONVERT</button>
+<p id="output"></p>
+<script>
+    console.log('initialized accurately')
+    var opbox = document.getElementById("output");
+    var convertbtn = document.getElementById("convertbtn");
+    var inpbox = document.getElementById("bininput");
+    function DecimalToBinary(parameter) {
+        var input = Number(parameter);
+        if (input < 0) {
+            console.log('invalidreturn');
+            return "Invalid input.";
+        } else if (input > 255) {
+            console.log('invalidreturn');
+            return "Invalid input.";
+        };
+        var i = 7;
+        var binary = "";
+        while (i >= 0) {
+            if (input % (2**i) == input) {
+                binary += "0";
+                i -= 1;
+            } else {
+                binary += "1";
+                input -= 2**i;
+                i -= 1;
+            };
+        };
+        return binary;
+    }
+    convertbtn.onclick = function() {
+        console.log('pressed');
+        var binconvert = DecimalToBinary(Number(inpbox.value));
+        if (binconvert == "Invalid input.") {
+            console.log('invalidinput')
+            opbox.innerHTML = "Invalid input.";
+        } else {
+            console.log('valid')
+            opbox.innerHTML = String(Number(inpbox.value)) + " in binary is " + String(binconvert) + ".";
+        };
+    };
+</script>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>And here's the code behind it:</p>
+
+<pre><code>&lt;p style="font-family:"&gt;Convert &lt;input id="bininput" style="text-align:left" type="number" min="0" minlength="1" maxlength="3" max="255" value="0"&gt; to binary...&lt;/p&gt;
+&lt;button id="convertbtn"&gt;CONVERT&lt;/button&gt;
+&lt;p id="output"&gt;&lt;/p&gt;
+
+&lt;script&gt;
+    console.log('initialized accurately')
+    var opbox = document.getElementById("output");
+    var convertbtn = document.getElementById("convertbtn");
+    var inpbox = document.getElementById("bininput");
+    function DecimalToBinary(parameter) {
+        var input = Number(parameter);
+        if (input &lt; 0) {
+            console.log('invalidreturn');
+            return "Invalid input.";
+        } else if (input &gt; 255) {
+            console.log('invalidreturn');
+            return "Invalid input.";
+        };
+        var i = 7;
+        var binary = "";
+        while (i &gt;= 0) {
+            if (input % (2**i) == input) {
+                binary += "0";
+                i -= 1;
+            } else {
+                binary += "1";
+                input -= 2**i;
+                i -= 1;
+            };
+        };
+        return binary;
+    }
+    convertbtn.onclick = function() {
+        console.log('pressed');
+        var binconvert = DecimalToBinary(Number(inpbox.value));
+        if (binconvert == "Invalid input.") {
+            console.log('invalidinput')
+            opbox.innerHTML = "Invalid input.";
+        } else {
+            console.log('valid')
+            opbox.innerHTML = String(Number(inpbox.value)) + " in binary is " + String(binconvert) + ".";
+        };
+    };
+&lt;/script&gt;</code></pre>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><a class="u-url" href="/realdrew/sections5-7notes/" hidden></a>
+</article>
+
+<script src="https://utteranc.es/client.js"
+        repo="[ENTER REPO HERE]"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/realdrew/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/realdrew/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/realdrew/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Documentation of my constant progress toward being a master coder (haiyah).</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li>
+  <a rel="me" href="https://github.com/nighthawkcoders" target="_blank" title="github">
+    <svg class="svg-icon grey">
+      <use xlink:href="/realdrew/assets/minima-social-icons.svg#github"></use>
+    </svg>
+  </a>
+</li>
+<li>
+  <a rel="me" href="https://twitter.com/NighthawkCoding" target="_blank" title="twitter">
+    <svg class="svg-icon grey">
+      <use xlink:href="/realdrew/assets/minima-social-icons.svg#twitter"></use>
+    </svg>
+  </a>
+</li>
+<li>
+  <a rel="me" href="https://www.youtube.com/channel/UClIKOsDS5dsfzFA3zveDT3Q" target="_blank" title="youtube">
+    <svg class="svg-icon grey">
+      <use xlink:href="/realdrew/assets/minima-social-icons.svg#youtube"></use>
+    </svg>
+  </a>
+</li>
+</ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
