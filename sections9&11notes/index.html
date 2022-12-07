@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Developing Algorithms and Searching Lesson Notes | Drew’s Big Fastpages Blog</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Developing Algorithms and Searching Lesson Notes" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Based on the lesson by Sophia Tang, Lily Wu, Alex Lu, and Ethan Zhao." />
+<meta property="og:description" content="Based on the lesson by Sophia Tang, Lily Wu, Alex Lu, and Ethan Zhao." />
+<link rel="canonical" href="https://drewreed2005.github.io/realdrew/sections9&11notes/" />
+<meta property="og:url" content="https://drewreed2005.github.io/realdrew/sections9&11notes/" />
+<meta property="og:site_name" content="Drew’s Big Fastpages Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-12-06T00:00:00-06:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Developing Algorithms and Searching Lesson Notes" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-12-06T00:00:00-06:00","datePublished":"2022-12-06T00:00:00-06:00","description":"Based on the lesson by Sophia Tang, Lily Wu, Alex Lu, and Ethan Zhao.","headline":"Developing Algorithms and Searching Lesson Notes","mainEntityOfPage":{"@type":"WebPage","@id":"https://drewreed2005.github.io/realdrew/sections9&11notes/"},"url":"https://drewreed2005.github.io/realdrew/sections9&11notes/"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/realdrew/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://drewreed2005.github.io/realdrew/feed.xml" title="Drew's Big Fastpages Blog" /><link rel="shortcut icon" type="image/x-icon" href="/realdrew/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/realdrew/">Drew&#39;s Big Fastpages Blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/realdrew/about/">About Me</a><a class="page-link" href="/realdrew/vocab/">Vocabulary</a><a class="page-link" href="/realdrew/notes/">Notes</a><a class="page-link" href="/realdrew/more/">Programs and More</a><a class="page-link" href="/realdrew/search/">Search</a><a class="page-link" href="/realdrew/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Developing Algorithms and Searching Lesson Notes</h1><p class="page-description">Based on the lesson by Sophia Tang, Lily Wu, Alex Lu, and Ethan Zhao.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-12-06T00:00:00-06:00" itemprop="datePublished">
+        Dec 6, 2022
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      10 min read
+    
+</span></p>
+
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-justify-center">
+          <div class="px-2">
+
+    <a href="https://github.com/drewreed2005/realdrew/tree/master/_notebooks/2022-12-06-section9-11notes.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/realdrew/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/drewreed2005/realdrew/master?filepath=_notebooks%2F2022-12-06-section9-11notes.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/realdrew/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/drewreed2005/realdrew/blob/master/_notebooks/2022-12-06-section9-11notes.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/realdrew/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+          <div class="px-2">
+  <a href="https://deepnote.com/launch?url=https%3A%2F%2Fgithub.com%2Fdrewreed2005%2Frealdrew%2Fblob%2Fmaster%2F_notebooks%2F2022-12-06-section9-11notes.ipynb" target="_blank">
+      <img class="notebook-badge-image" src="/realdrew/assets/badges/deepnote.svg" alt="Launch in Deepnote"/>
+  </a>
+</div>
+
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h2"><a href="#Developing-Algothims-(Python)">Developing Algothims (Python) </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Determining-Outcomes">Determining Outcomes </a></li>
+<li class="toc-entry toc-h3"><a href="#Editing-Algorithms">Editing Algorithms </a></li>
+<li class="toc-entry toc-h3"><a href="#Task">Task </a></li>
+<li class="toc-entry toc-h3"><a href="#Homework">Homework </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#Developing-Algorithms-(JavaScript)">Developing Algorithms (JavaScript) </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Conditionals-vs.-Booleans">Conditionals vs. Booleans </a></li>
+<li class="toc-entry toc-h3"><a href="#Challenge">Challenge </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#How-it-Works">How it Works </a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#Searching-Introduction">Searching Introduction </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Sequential-Search">Sequential Search </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#Binary-Search">Binary Search </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Homework">Homework </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#Explanation">Explanation </a></li>
+<li class="toc-entry toc-h4"><a href="#The-Process">The Process </a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-12-06-section9-11notes.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Developing-Algothims-(Python)">
+<a class="anchor" href="#Developing-Algothims-(Python)" aria-hidden="true"><span class="octicon octicon-link"></span></a>Developing Algothims (Python)<a class="anchor-link" href="#Developing-Algothims-(Python)"> </a>
+</h2>
+<p>An algorithm is a set of actions that are taken to achieve a certain result. There are many algorithms that can be used to achieve a certain result.</p>
+<h3 id="Determining-Outcomes">
+<a class="anchor" href="#Determining-Outcomes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Determining Outcomes<a class="anchor-link" href="#Determining-Outcomes"> </a>
+</h3>
+<p>Below are some cells that we had to determine the outcomes of.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">mystery</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">num2</span><span class="p">):</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">num</span> <span class="o">%</span> <span class="n">num2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"True"</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"False"</span><span class="p">)</span>
+
+<span class="n">mystery</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>True
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><mark>1. What does the algorithm do? Please explain in words.</mark></p>
+<p>The algorithm checks if the first number <code>num</code> is evenly divisible by the second number <code>num2</code>, and if it is, prints "True". If else, it prints false.</p>
+<p><mark>2. What if I put in 30 as num and 4 as num2. What would be the output?</mark></p>
+<p>The output would be "False", as 30 is not evenly divisible by 4 (since <code>30 / 4 = 7.5</code>).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Editing-Algorithms">
+<a class="anchor" href="#Editing-Algorithms" aria-hidden="true"><span class="octicon octicon-link"></span></a>Editing Algorithms<a class="anchor-link" href="#Editing-Algorithms"> </a>
+</h3>
+<p>See the code cells below.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">temp</span> <span class="o">=</span> <span class="mi">95</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">temp</span> <span class="o">&gt;=</span> <span class="mi">90</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"it is too hot outside"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">temp</span> <span class="o">&gt;=</span> <span class="mi">65</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"I will go outside"</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"it is too cold outside"</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>it is too hot outside
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">temp</span> <span class="o">=</span> <span class="mi">95</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">temp</span> <span class="o">&gt;=</span> <span class="mi">90</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"it is too hot outside"</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">temp</span> <span class="o">&gt;=</span> <span class="mi">65</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"i will go outside"</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">temp</span> <span class="o">&lt;</span> <span class="mi">65</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"it is too cold outside"</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>it is too hot outside
+i will go outside
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We were asked to edit the second algorithm to make it the same as the first and to make it work with any number. Here it is:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">temp</span> <span class="o">=</span> <span class="mi">95</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">temp</span> <span class="o">&gt;=</span> <span class="mi">90</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"it is too hot outside"</span><span class="p">)</span>
+<span class="k">elif</span> <span class="p">(</span><span class="n">temp</span> <span class="o">&lt;</span> <span class="mi">65</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"it is too cold outside"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"i will go outside"</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>it is too hot outside
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>And this shows that it works the same with any number:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="n">temp</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"The temperature is </span><span class="si">{}</span><span class="s2"> degrees."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">temp</span><span class="p">))</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">temp</span> <span class="o">&gt;=</span> <span class="mi">90</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"it is too hot outside"</span><span class="p">)</span>
+<span class="k">elif</span> <span class="p">(</span><span class="n">temp</span> <span class="o">&lt;</span> <span class="mi">65</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"it is too cold outside"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"i will go outside"</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>The temperature is 71 degrees.
+i will go outside
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Task">
+<a class="anchor" href="#Task" aria-hidden="true"><span class="octicon octicon-link"></span></a>Task<a class="anchor-link" href="#Task"> </a>
+</h3>
+<p>We were given this code as an example. It is supposed to do this:</p>
+<ul>
+<li>The sum of the first integer is 1.</li>
+<li>Then, increase that integer by 1. I now add 2 to my existing sum (1). My new sum is 3.</li>
+<li>Repeat until I add 5 to my sum. The resulting sum is 15.</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># start with a sum of 0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">):</span> <span class="c1"># you will repeat the process five times for integers 1-5</span>
+    <span class="nb">sum</span> <span class="o">=</span> <span class="nb">sum</span> <span class="o">+</span> <span class="n">i</span> <span class="c1"># add the number to your sum</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">)</span> <span class="c1"># print the result</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>15
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We are expected to make an algorithm to add up the first five odd integers. I did it with the step aspect of the <code>range</code> function.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span> <span class="c1">#skips from 1 to 3, 5, 7, and finally 9 (11 is the cap)</span>
+    <span class="nb">sum</span> <span class="o">=</span> <span class="nb">sum</span> <span class="o">+</span> <span class="n">i</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>25
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Homework">
+<a class="anchor" href="#Homework" aria-hidden="true"><span class="octicon octicon-link"></span></a>Homework<a class="anchor-link" href="#Homework"> </a>
+</h3>
+<p>We were asked to use an algorithm to make the Collatz Conjecture. Conditions:</p>
+<ul>
+<li>Start with any positive integer</li>
+<li>If the number is even, divide by 2</li>
+<li>The number is odd, multiply by 3 and add 1</li>
+<li>Repeat steps 2 and 3 until you reach 1</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">integer</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="k">while</span> <span class="n">integer</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">integer</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="n">integer</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">integer</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">integer</span> <span class="o">=</span> <span class="p">(</span><span class="n">integer</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">integer</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>16
+8
+4
+2
+1
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Developing-Algorithms-(JavaScript)">
+<a class="anchor" href="#Developing-Algorithms-(JavaScript)" aria-hidden="true"><span class="octicon octicon-link"></span></a>Developing Algorithms (JavaScript)<a class="anchor-link" href="#Developing-Algorithms-(JavaScript)"> </a>
+</h2>
+<p>This is the same basic concept as before but in JavaScript. Vocab carries over. I skipped review becauses it's all review and I'm solid on it.</p>
+<h3 id="Conditionals-vs.-Booleans">
+<a class="anchor" href="#Conditionals-vs.-Booleans" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conditionals vs. Booleans<a class="anchor-link" href="#Conditionals-vs.-Booleans"> </a>
+</h3>
+<p>Conditionals can be used in conjunction with Booleans. This is a cell from their lesson.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sunny</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span>
+<span class="n">rainy</span> <span class="o">=</span> <span class="n">false</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">sunny</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">umbrella</span> <span class="o">=</span> <span class="n">false</span><span class="p">;</span> 
+<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">rainy</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">umbrella</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span> 
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">umbrella</span> <span class="o">=</span> <span class="n">false</span><span class="p">;</span> 
+<span class="p">}</span>
+
+<span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">umbrella</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>It is the same as this.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">umbrella</span> <span class="o">=</span> <span class="o">!</span>sunny <span class="o">&amp;&amp;</span> rainy<span class="p">;</span>
+
+<span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">umbrella</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A way to check if they're the same is to see if the outputs of the four possibilities result in the same outcomes.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Challenge">
+<a class="anchor" href="#Challenge" aria-hidden="true"><span class="octicon octicon-link"></span></a>Challenge<a class="anchor-link" href="#Challenge"> </a>
+</h3>
+<p>We were asked as an extra credit challenge to create a system that uses an IP address and a subnet mask to determine a network address. Here is my working JavaScript code.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">const</span> <span class="n">IP</span> <span class="o">=</span> <span class="s2">"251.84.0.1"</span><span class="p">;</span>
+<span class="n">const</span> <span class="n">SNM</span> <span class="o">=</span> <span class="s2">"255.255.255.0"</span><span class="p">;</span>
+
+<span class="n">function</span> <span class="n">DecimalToBinary</span><span class="p">(</span><span class="n">deci</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">var</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+    <span class="n">var</span> <span class="n">binary</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">deci</span> <span class="o">%</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">i</span><span class="p">)</span> <span class="o">===</span> <span class="n">deci</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">binary</span> <span class="o">+=</span> <span class="s2">"0"</span><span class="p">;</span>
+            <span class="n">i</span> <span class="o">-=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">binary</span> <span class="o">+=</span> <span class="s2">"1"</span><span class="p">;</span>
+            <span class="n">deci</span> <span class="o">-=</span> <span class="mi">2</span><span class="o">**</span><span class="n">i</span><span class="p">;</span>
+            <span class="n">i</span> <span class="o">-=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">};</span>
+    <span class="p">};</span>
+    <span class="k">return</span> <span class="n">binary</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="n">function</span> <span class="n">BinaryToDecimal</span><span class="p">(</span><span class="nb">bin</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">var</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="n">var</span> <span class="n">deci</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">bin</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">===</span> <span class="s2">"1"</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">deci</span> <span class="o">+=</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="mi">7</span> <span class="o">-</span> <span class="n">i</span><span class="p">));</span>
+    <span class="p">};</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="p">};</span>
+  <span class="k">return</span> <span class="n">deci</span>
+<span class="p">};</span>
+
+<span class="n">function</span> <span class="n">AddressToBinary</span><span class="p">(</span><span class="n">ad</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">tempdeci</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
+  <span class="n">templist</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="n">binaddress</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">let</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">ad</span><span class="o">.</span><span class="n">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">ad</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!==</span> <span class="s2">"."</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">tempdeci</span> <span class="o">+=</span> <span class="n">ad</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="n">templist</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">tempdeci</span><span class="p">);</span>
+      <span class="n">tempdeci</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
+    <span class="p">};</span>
+  <span class="p">};</span>
+  <span class="n">templist</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">tempdeci</span><span class="p">);</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">let</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">templist</span><span class="o">.</span><span class="n">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">binaddress</span> <span class="o">+=</span> <span class="n">DecimalToBinary</span><span class="p">(</span><span class="n">Number</span><span class="p">(</span><span class="n">templist</span><span class="p">[</span><span class="n">i</span><span class="p">]));</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">binaddress</span> <span class="o">+=</span> <span class="s2">"."</span><span class="p">;</span>
+    <span class="p">};</span>
+  <span class="p">};</span>
+  <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">binaddress</span><span class="p">);</span>
+  <span class="k">return</span> <span class="n">binaddress</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="n">function</span> <span class="n">AddressToDecimal</span><span class="p">(</span><span class="n">ad</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">tempdeci</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
+  <span class="n">templist</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="n">deciaddress</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">let</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">ad</span><span class="o">.</span><span class="n">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">ad</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!==</span> <span class="s2">"."</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">tempdeci</span> <span class="o">+=</span> <span class="n">ad</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="n">templist</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">tempdeci</span><span class="p">);</span>
+      <span class="n">tempdeci</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
+    <span class="p">};</span>
+  <span class="p">};</span>
+  <span class="n">templist</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">tempdeci</span><span class="p">);</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">let</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">templist</span><span class="o">.</span><span class="n">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">deciaddress</span> <span class="o">+=</span> <span class="n">BinaryToDecimal</span><span class="p">(</span><span class="n">templist</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">deciaddress</span> <span class="o">+=</span> <span class="s2">"."</span><span class="p">;</span>
+    <span class="p">};</span>
+  <span class="p">};</span>
+  <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">deciaddress</span><span class="p">);</span>
+  <span class="k">return</span> <span class="n">deciaddress</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="n">function</span> <span class="n">NetAddressConvert</span><span class="p">(</span><span class="n">ip</span><span class="p">,</span> <span class="n">snm</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">tempnetadd</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
+  <span class="n">ip</span> <span class="o">=</span> <span class="n">AddressToBinary</span><span class="p">(</span><span class="n">ip</span><span class="p">);</span>
+  <span class="n">snm</span> <span class="o">=</span> <span class="n">AddressToBinary</span><span class="p">(</span><span class="n">snm</span><span class="p">);</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">let</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">35</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">((</span><span class="n">ip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">===</span> <span class="s2">"1"</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">snm</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">===</span> <span class="s2">"1"</span><span class="p">))</span> <span class="p">{</span>
+      <span class="n">tempnetadd</span> <span class="o">+=</span> <span class="s2">"1"</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">ip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">===</span> <span class="s2">"."</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">tempnetadd</span> <span class="o">+=</span> <span class="s2">"."</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="n">tempnetadd</span> <span class="o">+=</span> <span class="s2">"0"</span><span class="p">;</span>
+    <span class="p">};</span>
+  <span class="p">};</span>
+  <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">tempnetadd</span><span class="p">);</span>
+  <span class="n">tempnetadd</span> <span class="o">=</span> <span class="n">AddressToDecimal</span><span class="p">(</span><span class="n">tempnetadd</span><span class="p">);</span>
+  <span class="k">return</span> <span class="n">tempnetadd</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="n">NetAddressConvert</span><span class="p">(</span><span class="n">IP</span><span class="p">,</span> <span class="n">SNM</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>11111011.01010100.00000000.00000001
+11111111.11111111.11111111.00000000
+11111011.01010100.00000000.00000000
+251.84.0.0
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="How-it-Works">
+<a class="anchor" href="#How-it-Works" aria-hidden="true"><span class="octicon octicon-link"></span></a>How it Works<a class="anchor-link" href="#How-it-Works"> </a>
+</h4>
+<p>I know it's pretty complicated and I didn't make any code comments, but here's how it works.</p>
+<p>I made four functions for convenience, two being ones I already made (though one was just in Python before): <code>DecimalToBinary()</code>, which converts a decimal input to 8-bit binary; <code>BinaryToDecimal()</code>, which converts an 8-bit binary input to decimal; <code>AddressToBinary()</code>, which converts an IP address or subnet mask from decimal to binary; and <code>AddressToDecimal()</code>, which converts an IP address or subnet mask from binary to decimal.</p>
+<p>The <code>NetAddressConvert()</code> function that satisfies the conditions of the assignment takes a decimal IP address and decimal subnet mask (in any order) as parameters, converts them to binary, then procedurally creates the network address by checking (using <code>&amp;&amp;</code>) if both bits at a certain index on the IP and subnet mask are "1" (adding a "1" if true), and if they aren't, it adds a "0" to the network address. Where there are periods in the IP, to ensure the same formatting, a period is placed in the network address.</p>
+<p>The example above uses 251.84.0.1 as the IP address and 255.255.255.0 as the subnet mask. The program works with all other IP addresses and subnet masks, however, as long as they stay within the legitimate bounds of 8-bit binary.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Searching-Introduction">
+<a class="anchor" href="#Searching-Introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Searching Introduction<a class="anchor-link" href="#Searching-Introduction"> </a>
+</h2>
+<p>Searching algorithms exist to find data in a program. This can be done with sequences or intervals.</p>
+<h3 id="Sequential-Search">
+<a class="anchor" href="#Sequential-Search" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sequential Search<a class="anchor-link" href="#Sequential-Search"> </a>
+</h3>
+<p>Here is an example of a sequential search algorithm.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">sequentialSearch</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>                     <span class="c1"># Declare N as length of array</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>               <span class="c1"># Iterate over the list</span>
+        <span class="k">if</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">target</span><span class="p">:</span>         <span class="c1"># Check for match</span>
+            <span class="k">return</span> <span class="n">i</span>                 <span class="c1"># Match found, return index and end function call</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>                        <span class="c1"># Element not found</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Binary-Search">
+<a class="anchor" href="#Binary-Search" aria-hidden="true"><span class="octicon octicon-link"></span></a>Binary Search<a class="anchor-link" href="#Binary-Search"> </a>
+</h2>
+<p>Binary search essentially checks for how close data is relative to what is being looked for. If an array exists and looks like this (<code>[1, 2, 3, 4, 5, 6, 7]</code>) (and it's important for it to be ordered in this case), a search that is looking for <code>6</code> and starts in the middle (returns <code>4</code>), the program knows <code>4 &lt; 6</code> and would loop only further up. Same if it was a lower number.</p>
+<p>Copied from their blog:</p>
+<blockquote>
+<p>This algorithm is extremely efficient as the maximum number of cycles in binary search is equal to log base 2 of the closest, next power of two, to length of list.</p>
+<p>If the array is 8 items long, the maximum possible cycles would be 3 (log base 2 of 8 is 3)</p>
+<p>If the array is 7 items long, the maximum possible cycles would STILL be 3 as the closest power of 2 to 7 is 8.</p>
+<p>If the array is 9 items long, the maximum possible cycles INCREASES to 4, as the closest, next power of two, is 16."</p>
+</blockquote>
+<p>Here's a code example they provided:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">binarySearch</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+    <span class="n">low</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">high</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
+    <span class="k">while</span> <span class="n">high</span> <span class="o">&gt;=</span> <span class="n">low</span><span class="p">:</span>
+        <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">high</span> <span class="o">+</span> <span class="n">low</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span> <span class="c1">#floor division, rounds it down to the nearest whole</span>
+        <span class="k">if</span> <span class="n">array</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">==</span> <span class="n">target</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mid</span>
+        <span class="k">elif</span> <span class="n">array</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">target</span><span class="p">:</span>
+            <span class="n">high</span> <span class="o">=</span> <span class="n">mid</span><span class="o">-</span><span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">low</span> <span class="o">=</span> <span class="n">mid</span><span class="o">+</span><span class="mi">1</span>
+    <span class="k">return</span> <span class="kc">False</span>   
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>And here it is in action.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">examplearray</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">]</span>
+<span class="n">binarySearch</span><span class="p">(</span><span class="n">examplearray</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>8</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Here's a version of it in a recursive loop. We already talked about converting between while and recursive loops, so no need to go crazy over it. It requires more parameters.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">BinarySearchRecursion</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">lo</span> <span class="o">&gt;</span> <span class="n">hi</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">lo</span><span class="o">+</span><span class="n">hi</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span>
+    <span class="k">if</span> <span class="n">arr</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">==</span> <span class="n">target</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">mid</span>
+    <span class="k">elif</span> <span class="n">arr</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">target</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">BinarySearchRecursion</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">lo</span><span class="p">,</span> <span class="n">mid</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">arr</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">target</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">BinarySearchRecursion</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">mid</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">hi</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Homework">
+<a class="anchor" href="#Homework" aria-hidden="true"><span class="octicon octicon-link"></span></a>Homework<a class="anchor-link" href="#Homework"> </a>
+</h3>
+<p>Problem: Given a specific integer N, return the square root of N (R) if N is a perfect square, otherwise, return the square root of N rounded down to the nearest integer</p>
+<p>Input: N (Integer)</p>
+<p>Output: R (Integer)</p>
+<p>Constraints: Do not use any built-in math operations such as <code>sqrt(x)</code> or <code>x**(0.5)</code>, Try complete the problem in logarithmic time.</p>
+<p>Run the very last code segment below to load test cases and submission function.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">sqrt</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">low</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">high</span> <span class="o">=</span> <span class="n">N</span>
+    <span class="k">if</span> <span class="n">N</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">high</span> <span class="o">=</span> <span class="p">(</span><span class="n">N</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">high</span> <span class="o">+</span> <span class="n">low</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span> <span class="c1">#floor division, rounds it down to the nearest whole</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">mid</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="n">N</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mid</span>
+        <span class="k">elif</span> <span class="p">(</span><span class="n">mid</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">N</span><span class="p">:</span>
+            <span class="n">high</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">low</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="kc">False</span>   
+
+<span class="nb">print</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">49</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>7
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span> <span class="k">as</span> <span class="n">sq</span>
+<span class="n">test_cases</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">85248289</span><span class="p">,</span><span class="mi">22297284</span><span class="p">,</span><span class="mi">18939904</span><span class="p">,</span><span class="mi">91107025</span><span class="p">,</span><span class="mi">69122596</span><span class="p">,</span><span class="mi">9721924</span><span class="p">,</span><span class="mi">37810201</span><span class="p">,</span><span class="mi">1893294144</span><span class="p">,</span><span class="mi">8722812816</span><span class="p">,</span><span class="mi">644398225</span><span class="p">]</span>
+<span class="n">answers</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">sq</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">test_cases</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">checkValid</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">test_cases</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">test_cases</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">==</span> <span class="n">answers</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Check number </span><span class="si">{}</span><span class="s2"> passed"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Check number </span><span class="si">{}</span><span class="s2"> failed"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="n">checkValid</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Check number 1 passed
+Check number 2 passed
+Check number 3 passed
+Check number 4 passed
+Check number 5 passed
+Check number 6 passed
+Check number 7 passed
+Check number 8 passed
+Check number 9 passed
+Check number 10 passed
+Check number 11 passed
+Check number 12 passed
+Check number 13 passed
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Explanation">
+<a class="anchor" href="#Explanation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Explanation<a class="anchor-link" href="#Explanation"> </a>
+</h4>
+<p>I used binary search by setting the low to 0 and the high to the target squared (N), and mid started with half of that squared number (rounded). Mid moves up/down based on how the squared number compared to the number in question squared.</p>
+<h4 id="The-Process">
+<a class="anchor" href="#The-Process" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Process<a class="anchor-link" href="#The-Process"> </a>
+</h4>
+<p>I started by making a system that listed all values between 0 and the number in question, which obviously took a lot longer because that process had to run before the search. I then tried a sequential search, which made it take even longer and felt a whole lot more amateur.</p>
+<p>I talked with Alex and realized how stupid the list thing was. I ended up just using the number that was being rooted as the high for a binary search and checked the units between 0 and it squared.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><a class="u-url" href="/realdrew/sections9&11notes/" hidden></a>
+</article>
+
+<script src="https://utteranc.es/client.js"
+        repo="[ENTER REPO HERE]"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/realdrew/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/realdrew/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/realdrew/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Documentation of my constant progress toward being a master coder (haiyah).</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li>
+  <a rel="me" href="https://github.com/nighthawkcoders" target="_blank" title="github">
+    <svg class="svg-icon grey">
+      <use xlink:href="/realdrew/assets/minima-social-icons.svg#github"></use>
+    </svg>
+  </a>
+</li>
+<li>
+  <a rel="me" href="https://twitter.com/NighthawkCoding" target="_blank" title="twitter">
+    <svg class="svg-icon grey">
+      <use xlink:href="/realdrew/assets/minima-social-icons.svg#twitter"></use>
+    </svg>
+  </a>
+</li>
+<li>
+  <a rel="me" href="https://www.youtube.com/channel/UClIKOsDS5dsfzFA3zveDT3Q" target="_blank" title="youtube">
+    <svg class="svg-icon grey">
+      <use xlink:href="/realdrew/assets/minima-social-icons.svg#youtube"></use>
+    </svg>
+  </a>
+</li>
+</ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+--2022-12-06 14:44:58--  http://wget/
+Resolving wget (wget)... failed: nodename nor servname provided, or not known.
+wget: unable to resolve host address 'wget'
+--2022-12-06 14:44:59--  https://raw.githubusercontent.com/dolphinalt/SEAL_Fastpages/master/_notebooks/2022-11-29-searching-introduction.ipynb
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.110.133, 185.199.111.133, 185.199.108.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.110.133|:443... failed: Operation timed out.
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.111.133|:443... failed: Operation timed out.
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.108.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 114105 (111K) [text/plain]
+Saving to: '2022-11-29-searching-introduction.ipynb'
+
+     0K .......... .......... .......... .......... .......... 44% 4.40M 0s
+    50K .......... .......... .......... .......... .......... 89% 23.8M 0s
+   100K .......... .                                          100% 96.2M=0.01s
+
+2022-12-06 14:46:23 (8.20 MB/s) - '2022-11-29-searching-introduction.ipynb' saved [114105/114105]
+
+FINISHED --2022-12-06 14:46:23--
+Total wall clock time: 1m 25s
+Downloaded: 1 files, 111K in 0.01s (8.20 MB/s)
