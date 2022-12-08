@@ -967,12 +967,11 @@ i will go outside
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">sqrt</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-    <span class="n">i</span> <span class="o">=</span> <span class="kc">True</span>
     <span class="n">low</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">high</span> <span class="o">=</span> <span class="n">N</span>
     <span class="k">if</span> <span class="n">N</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
         <span class="n">high</span> <span class="o">=</span> <span class="p">(</span><span class="n">N</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>
-    <span class="k">while</span> <span class="n">i</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">while</span> <span class="n">high</span> <span class="o">&gt;=</span> <span class="n">low</span><span class="p">:</span>
         <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">high</span> <span class="o">+</span> <span class="n">low</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span> <span class="c1">#floor division, rounds it down to the nearest whole</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">mid</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="n">N</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">mid</span>
