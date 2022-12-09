@@ -65,3 +65,17 @@ Sequential Search: a search method that requires a program to look at each insta
 Binary Search: a search method that starts in the middle of a series of information, compares the information found to the target, then recenters with half of the remaining data cut off
 
 Floor division: division that automatically rounds non-integer quotients
+
+### [3.12 Calling Procedures]({{site.baseurl}}/sections12-13notes/#Calling-Procedures-(Python))
+
+Procedure: a named group of programming instructions that may have parameters and return values
+
+Parameters: input values of a procedure, specified by arguments
+
+Arguments: specify the values of the parameters when a procedure is called
+
+### [3.13 Developing Procedures]({{site.baseurl}}/sections12-13notes/#Developing-Procedures)
+
+Modularity: separating a program's functions into independent pieces or blocks, each containing all the parts needed to execute a single aspect of the functionality
+
+Procedural Abstraction: providing a name for a process that allows a procedure to be used only knowing WHAT it does, not HOW it does it

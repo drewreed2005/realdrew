@@ -31,7 +31,7 @@ layout: notebook
 <p>The symbol for multiplication is <code>*</code></p>
 <p>The symbol for division is <code>/</code></p>
 <p>The symbol for modulus is <code>%</code></p>
-<p>An algorithm is <mark>a function with a set of rules that tells a program what to do</mark>. Generally, an algorithm is <mark>a function with a set of rules that tells a program what to do</mark>.</p>
+<p>An algorithm is <mark>a function with a set of rules that tells a program what to do</mark>.</p>
 
 </div>
 </div>
