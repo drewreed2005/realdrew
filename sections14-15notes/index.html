@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Libraries and Random Values Lesson Notes | Drew’s Big Fastpages Blog</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Libraries and Random Values Lesson Notes" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Based on the lesson by Prasith, Chinmay, Vyaan, Chris, and Emaad." />
+<meta property="og:description" content="Based on the lesson by Prasith, Chinmay, Vyaan, Chris, and Emaad." />
+<link rel="canonical" href="https://drewreed2005.github.io/realdrew/sections14-15notes/" />
+<meta property="og:url" content="https://drewreed2005.github.io/realdrew/sections14-15notes/" />
+<meta property="og:site_name" content="Drew’s Big Fastpages Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-12-12T00:00:00-06:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Libraries and Random Values Lesson Notes" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-12-12T00:00:00-06:00","datePublished":"2022-12-12T00:00:00-06:00","description":"Based on the lesson by Prasith, Chinmay, Vyaan, Chris, and Emaad.","headline":"Libraries and Random Values Lesson Notes","mainEntityOfPage":{"@type":"WebPage","@id":"https://drewreed2005.github.io/realdrew/sections14-15notes/"},"url":"https://drewreed2005.github.io/realdrew/sections14-15notes/"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/realdrew/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://drewreed2005.github.io/realdrew/feed.xml" title="Drew's Big Fastpages Blog" /><link rel="shortcut icon" type="image/x-icon" href="/realdrew/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/realdrew/">Drew&#39;s Big Fastpages Blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/realdrew/about/">About Me</a><a class="page-link" href="/realdrew/vocab/">Vocabulary</a><a class="page-link" href="/realdrew/notes/">Notes</a><a class="page-link" href="/realdrew/more/">Programs and More</a><a class="page-link" href="/realdrew/search/">Search</a><a class="page-link" href="/realdrew/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Libraries and Random Values Lesson Notes</h1><p class="page-description">Based on the lesson by Prasith, Chinmay, Vyaan, Chris, and Emaad.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-12-12T00:00:00-06:00" itemprop="datePublished">
+        Dec 12, 2022
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      13 min read
+    
+</span></p>
+
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-justify-center">
+          <div class="px-2">
+
+    <a href="https://github.com/drewreed2005/realdrew/tree/master/_notebooks/2022-12-12-sections14-15notes.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/realdrew/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/drewreed2005/realdrew/master?filepath=_notebooks%2F2022-12-12-sections14-15notes.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/realdrew/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/drewreed2005/realdrew/blob/master/_notebooks/2022-12-12-sections14-15notes.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/realdrew/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+          <div class="px-2">
+  <a href="https://deepnote.com/launch?url=https%3A%2F%2Fgithub.com%2Fdrewreed2005%2Frealdrew%2Fblob%2Fmaster%2F_notebooks%2F2022-12-12-sections14-15notes.ipynb" target="_blank">
+      <img class="notebook-badge-image" src="/realdrew/assets/badges/deepnote.svg" alt="Launch in Deepnote"/>
+  </a>
+</div>
+
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h2"><a href="#FOR-GRADERS">FOR GRADERS </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Basic-Expectations">Basic Expectations </a></li>
+<li class="toc-entry toc-h3"><a href="#Extras">Extras </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#Libraries">Libraries </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Additional-Notes">Additional Notes </a></li>
+<li class="toc-entry toc-h3"><a href="#Challenge-1:-Basic-Libraries">Challenge 1: Basic Libraries </a></li>
+<li class="toc-entry toc-h3"><a href="#Challenge-2:-Turtle">Challenge 2: Turtle </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#My-Image">My Image </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#Challenge-3:-Math">Challenge 3: Math </a></li>
+<li class="toc-entry toc-h3"><a href="#Homework">Homework </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#Option-1">Option 1 </a></li>
+<li class="toc-entry toc-h4"><a href="#Option-2-("Libraries-HW")">Option 2 (&quot;Libraries HW&quot;) </a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#Random-Values">Random Values </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Additional-Notes">Additional Notes </a></li>
+<li class="toc-entry toc-h3"><a href="#What-are-Random-Values?">What are Random Values? </a></li>
+<li class="toc-entry toc-h3"><a href="#Why-Do-We-Need-Random-Values-for-Code?">Why Do We Need Random Values for Code? </a></li>
+<li class="toc-entry toc-h3"><a href="#Challenge-1">Challenge 1 </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#Extra">Extra </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#Homework">Homework </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#Binary">Binary </a></li>
+<li class="toc-entry toc-h4"><a href="#Hexadecimal">Hexadecimal </a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-12-12-sections14-15notes.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="FOR-GRADERS">
+<a class="anchor" href="#FOR-GRADERS" aria-hidden="true"><span class="octicon octicon-link"></span></a>FOR GRADERS<a class="anchor-link" href="#FOR-GRADERS"> </a>
+</h2>
+<p>I combined my notes, challenges, and homework completion from both lessons into this one document, so it's pretty big and bulky. Here is what I completed (and you can verify by finding these things on the blog's table of contents):</p>
+<h3 id="Basic-Expectations">
+<a class="anchor" href="#Basic-Expectations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic Expectations<a class="anchor-link" href="#Basic-Expectations"> </a>
+</h3>
+<p>Libraries (3.14):</p>
+<ul>
+<li>Fill-in-the-blank notes</li>
+<li>Additional notes</li>
+<li>Challenges 1-3 fully completed (see each in the TOC for proof)</li>
+<li>Homework "Option 1" (draws a shape with a given random number of sides with Turtle)</li>
+<li>Homework "Option 2" (finds the difference between two dates, at least one random)</li>
+</ul>
+<p>Random Values (3.15):</p>
+<ul>
+<li>Additional notes</li>
+<li>Fill-in-the-blank random examples list</li>
+<li>Challenge 1 (coin flip function)</li>
+<li>Binary homework</li>
+</ul>
+<h3 id="Extras">
+<a class="anchor" href="#Extras" aria-hidden="true"><span class="octicon octicon-link"></span></a>Extras<a class="anchor-link" href="#Extras"> </a>
+</h3>
+<ul>
+<li>Fully incorporated user input for Libraries Homework "Option 1" and "Option 2"</li>
+<li>Working failsafe code on Libraries Homework "Option 2"</li>
+<li>Random Values Challenge 1 "EXTRA": Card Generator and Royal Flush Detector</li>
+<li>Random Values Homework "EXTRA": Decimal-to-Hexadecimal Converter</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Libraries">
+<a class="anchor" href="#Libraries" aria-hidden="true"><span class="octicon octicon-link"></span></a>Libraries<a class="anchor-link" href="#Libraries"> </a>
+</h2>
+<p>Okay, so we've learned a lot of code, and all of you now can boast that you can code at least some basic programs in python. But, what about more advanced stuff? What if there's a more advanced program you don't know how to make? Do you need to make it yourself? Well, not always.</p>
+<p>You've already learned about <mark>functions</mark> that you can write to reuse in your code in previous lessons. But,there are many others who code in python just like you. So why would you do again what someone has already done, and is available for any python user?</p>
+<p><mark>Packages</mark> allow a python user to import <mark>methods</mark> from a <mark>library</mark>, and use the methods in their code. Most libraries come with <mark>documentation</mark> on the different methods they entail and how to use them, and they can be found with a quick <mark>Google search</mark>. methods are used with the following:</p>
+<p><strong>Note: a method from a package can only be used after the import statement.</strong></p>
+<p>Some libraries are always installed, such as those with the <mark>list</mark> methods which we have previously discussed. But others require a special python keyword called <mark>`import`</mark>. We will learn different ways to <mark>import</mark> in Challenge 1.</p>
+<p>Sometimes we only need to import a single <mark>method</mark> from the package. We can do that with the word <mark>"from"</mark>, followed by the package name, then the word <mark>"import"</mark>, then the method. This will alllow you to use the method without mentioning the package's name, unlike what we did before, however other methods from that package cannot be used. To get the best of both worlds you can use <mark>"*"</mark>.</p>
+<p>To import a method as an easier name, just do what we did first, add the word <mark>"as"</mark>, and write the name you would like to use that package as.</p>
+<h3 id="Additional-Notes">
+<a class="anchor" href="#Additional-Notes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Additional Notes<a class="anchor-link" href="#Additional-Notes"> </a>
+</h3>
+<p>Here are some extra notes I took for the sake of completion.</p>
+<ul>
+<li>Some libraries need to be installed before use. Some, however, are innate.</li>
+<li>Some libraries require the features of other libraries. For example, Turtle relies on Tkinter features to open a window for a canvas.</li>
+<li>Importing with the format <code>from [library] import *</code> negates the need to specify <code>[library].function()</code> each time.</li>
+</ul>
+<h3 id="Challenge-1:-Basic-Libraries">
+<a class="anchor" href="#Challenge-1:-Basic-Libraries" aria-hidden="true"><span class="octicon octicon-link"></span></a>Challenge 1: Basic Libraries<a class="anchor-link" href="#Challenge-1:-Basic-Libraries"> </a>
+</h3>
+<ol>
+<li>Find a Python package on the internet and import it</li>
+<li>Choose a method from the package and import only the method</li>
+<li>import the package as a more convenient name.</li>
+</ol>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">clear_output</span> <span class="k">as</span> <span class="n">clr</span>
+<span class="c1">#i used them to make an ASCII animation</span>
+<span class="k">def</span> <span class="nf">base</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">" | | "</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"-----"</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">startpos</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"  O  "</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">" /|\ "</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">waveup</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"  O /"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">" /|  "</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">wavemid</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"  O|  "</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">" /|  "</span><span class="p">)</span>
+
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">30</span><span class="p">:</span>
+    <span class="n">clr</span><span class="p">(</span><span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">startpos</span><span class="p">()</span>
+        <span class="n">base</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">wavemid</span><span class="p">()</span>
+            <span class="n">base</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">waveup</span><span class="p">()</span>
+            <span class="n">base</span><span class="p">()</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>  O /
+ /|  
+ | | 
+-----
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For this challenge, I imported the whole <code>time</code> module using <code>*</code>, which allowed me to call <code>sleep()</code> rather than <code>time.sleep()</code>. I also imported <code>clear_output</code> and renamed it "<code>clr</code>" for simplicity. Try copying and running this yourself for a little animation.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Challenge-2:-Turtle">
+<a class="anchor" href="#Challenge-2:-Turtle" aria-hidden="true"><span class="octicon octicon-link"></span></a>Challenge 2: Turtle<a class="anchor-link" href="#Challenge-2:-Turtle"> </a>
+</h3>
+<p>Turtle is a Python <mark>drawing package</mark> which allows you to draw all kinds of different shapes. It's ofter used to teach beginning python learners, but is really cool to use anywhere. Turtle employs a <mark>graphics package</mark> to display what you've done, but unfortunately it's kind of annoying to make work with VSCode.</p>
+<h4 id="My-Image">
+<a class="anchor" href="#My-Image" aria-hidden="true"><span class="octicon octicon-link"></span></a>My Image<a class="anchor-link" href="#My-Image"> </a>
+</h4>
+<p>This is what I created with Turtle. I'm no artist, but I tried to at least show I could use the program from a code perspective.</p>
+<figure>
+  <img src="/realdrew/images/Screen%20Shot%202022-12-12%20at%209.55.19%20PM.png" alt="Didn't load :(" width="600">
+  <figcaption>A smiley face and a little star with Christmas colors</figcaption>
+</figure><p>Here's the code I used for it. See the code comments for where I satisfied the expectations of this challenge.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">turtle</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">getscreen</span><span class="p">()</span>
+<span class="c1"># vvv FOUND THIS ONE MYSELF vvv</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">bgcolor</span><span class="p">(</span><span class="s1">'pink'</span><span class="p">)</span> <span class="c1">#here's me changing a canvas function</span>
+<span class="n">t</span><span class="o">.</span><span class="n">pensize</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1">#here's me changing the pen settings</span>
+<span class="n">t</span><span class="o">.</span><span class="n">speed</span><span class="p">(</span><span class="s1">'fastest'</span><span class="p">)</span> <span class="c1">#more pen/canvas settings</span>
+<span class="n">t</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="s1">'yellow'</span><span class="p">)</span>
+<span class="c1"># vvv FOUND THIS ONE MYSELF vvv</span>
+<span class="n">t</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="mi">65</span><span class="p">)</span> <span class="c1">#here's a unique function i used</span>
+<span class="n">t</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">t</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="s1">'pink'</span><span class="p">)</span>
+<span class="n">t</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">t</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">t</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">t</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">t</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="s1">'black'</span><span class="p">)</span>
+<span class="n">t</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">t</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="s1">'pink'</span><span class="p">)</span>
+<span class="n">t</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">t</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">t</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">t</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="s1">'black'</span><span class="p">)</span>
+<span class="n">t</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">t</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="s1">'pink'</span><span class="p">)</span>
+<span class="n">t</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">t</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">t</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">t</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">70</span><span class="p">)</span>
+<span class="n">t</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="s1">'black'</span><span class="p">)</span>
+<span class="n">t</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">50</span><span class="p">:</span>
+    <span class="n">t</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">t</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="n">t</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="s1">'pink'</span><span class="p">)</span>
+<span class="n">t</span><span class="o">.</span><span class="n">setpos</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">)</span> <span class="c1">#trying out more functions</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">t</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="s1">'green'</span><span class="p">,</span> <span class="s1">'red'</span><span class="p">)</span>
+<span class="c1"># vvv FOUND THIS ONE MYSELF vvv</span>
+<span class="n">t</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">()</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">25</span><span class="p">:</span>
+    <span class="n">t</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">150</span><span class="p">)</span>
+    <span class="n">t</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="mi">130</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="c1"># vvv FOUND THIS ONE MYSELF vvv</span>
+<span class="n">t</span><span class="o">.</span><span class="n">end_fill</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Challenge-3:-Math">
+<a class="anchor" href="#Challenge-3:-Math" aria-hidden="true"><span class="octicon octicon-link"></span></a>Challenge 3: Math<a class="anchor-link" href="#Challenge-3:-Math"> </a>
+</h3>
+<p>The math package allows for some really cool mathematical methods!<br></p>
+<table>
+<thead>
+<tr>
+<th>Methods</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ceil(x)</td>
+<td><mark>rounds to the largest integer greater than or equal to x</mark></td>
+</tr>
+<tr>
+<td><mark>floor(x)</mark></td>
+<td>rounds to largest integer less than or equal to x</td>
+</tr>
+<tr>
+<td>factorial(x)</td>
+<td><mark>takes the factorial of x</mark></td>
+</tr>
+<tr>
+<td><mark>gcd(x,y)</mark></td>
+<td>returns the greatest common denominator of x and y</td>
+</tr>
+<tr>
+<td>lcm(x,y)</td>
+<td><mark>returns the least common multiple of x and y</mark></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Challenge: Create a program which asks for a user input of two numbers, and returns the following:</strong></p>
+<ul>
+<li>each number rounded up</li>
+<li>each number rounded down</li>
+<li>the lcm of the rounded down numbers</li>
+<li>the gcf of the rounded up numbers</li>
+<li>the factorial of each number</li>
+<li>something else using the math package!</li>
+</ul>
+<p>I decided to use <code>sqrt</code>.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="k">def</span> <span class="nf">smorgas</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="n">info</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]:</span>
+        <span class="n">info</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ceil</span><span class="p">(</span><span class="n">num</span><span class="p">))</span> <span class="c1">#rounding x and y up</span>
+        <span class="n">info</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">floor</span><span class="p">(</span><span class="n">num</span><span class="p">))</span> <span class="c1">#rounding x and y down</span>
+    <span class="n">info</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lcm</span><span class="p">(</span><span class="n">floor</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">floor</span><span class="p">(</span><span class="n">y</span><span class="p">)))</span> <span class="c1">#the lcm of x and y rounded down</span>
+    <span class="n">info</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gcd</span><span class="p">(</span><span class="n">ceil</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">ceil</span><span class="p">(</span><span class="n">y</span><span class="p">)))</span> <span class="c1">#the gcd of x and y rounded up</span>
+    <span class="n">info</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">factorial</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="c1">#same as x factorial</span>
+    <span class="n">info</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">factorial</span><span class="p">(</span><span class="n">y</span><span class="p">))</span> <span class="c1">#same as y factorial</span>
+    <span class="n">info</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">floor</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span> <span class="c1">#extra: finding and rounding the square root of x</span>
+    <span class="n">info</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">floor</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">y</span><span class="p">)))</span> <span class="c1">#extra: square root of y</span>
+    <span class="k">return</span> <span class="n">info</span> <span class="c1">#returned as list to be called later</span>
+<span class="n">i1</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">i2</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">info</span> <span class="o">=</span> <span class="n">smorgas</span><span class="p">(</span><span class="n">i1</span><span class="p">,</span> <span class="n">i2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">i1</span><span class="p">,</span> <span class="s2">"rounded up:"</span><span class="p">,</span> <span class="n">info</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">i1</span><span class="p">,</span> <span class="s2">"rounded down:"</span><span class="p">,</span> <span class="n">info</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">i2</span><span class="p">,</span> <span class="s2">"rounded up:"</span><span class="p">,</span> <span class="n">info</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">i2</span><span class="p">,</span> <span class="s2">"rounded down:"</span><span class="p">,</span> <span class="n">info</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Least common multiple of"</span><span class="p">,</span> <span class="n">i1</span><span class="p">,</span> <span class="s2">"and"</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">i2</span><span class="p">)</span> <span class="o">+</span> <span class="s2">":"</span><span class="p">,</span> <span class="n">info</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Greatest common denominator of"</span><span class="p">,</span> <span class="n">i1</span><span class="p">,</span> <span class="s2">"and"</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">i2</span><span class="p">)</span> <span class="o">+</span> <span class="s2">":"</span><span class="p">,</span> <span class="n">info</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Factorial of"</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">i1</span><span class="p">)</span> <span class="o">+</span> <span class="s2">":"</span><span class="p">,</span> <span class="n">info</span><span class="p">[</span><span class="mi">6</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Factorial of"</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">i2</span><span class="p">)</span> <span class="o">+</span> <span class="s2">":"</span><span class="p">,</span> <span class="n">info</span><span class="p">[</span><span class="mi">7</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Rounded square root of"</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">i1</span><span class="p">)</span> <span class="o">+</span> <span class="s2">":"</span><span class="p">,</span> <span class="n">info</span><span class="p">[</span><span class="mi">8</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Rounded square root of"</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">i2</span><span class="p">)</span> <span class="o">+</span> <span class="s2">":"</span><span class="p">,</span> <span class="n">info</span><span class="p">[</span><span class="mi">9</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>3 rounded up: 3
+3 rounded down: 3
+5 rounded up: 5
+5 rounded down: 5
+Least common multiple of 3 and 5: 15
+Greatest common denominator of 3 and 5: 1
+Factorial of 3: 6
+Factorial of 5: 120
+Rounded square root of 3: 1
+Rounded square root of 5: 2
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Homework">
+<a class="anchor" href="#Homework" aria-hidden="true"><span class="octicon octicon-link"></span></a>Homework<a class="anchor-link" href="#Homework"> </a>
+</h3>
+<p>As you can see below, I completed both Option 1 and Option 2.</p>
+<h4 id="Option-1">
+<a class="anchor" href="#Option-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Option 1<a class="anchor-link" href="#Option-1"> </a>
+</h4>
+<p>Here is the Turtle program that generates a polygon with the number of sizes asked by the user.</p>
+<figure>
+  <img src="/realdrew/images/Screen%20Shot%202022-12-12%20at%2010.22.27%20PM.png" alt="Reload the site. There was a problem loading the image." width="600">
+  <figcaption>A very satisfying program to watch. Works for all numbers of sides.</figcaption>
+</figure><p>Here is the isolated code:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">turtle</span>
+
+<span class="k">def</span> <span class="nf">userInp</span><span class="p">():</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">"How many sides do you want on the polygon?"</span><span class="p">)</span>
+  <span class="n">rsp</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Please input an integer."</span><span class="p">)</span>
+  <span class="n">rsp</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">rsp</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">rsp</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>
+<span class="n">t</span><span class="o">.</span><span class="n">speed</span><span class="p">(</span><span class="s1">'fastest'</span><span class="p">)</span>
+
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">sides</span> <span class="o">=</span> <span class="n">userInp</span><span class="p">()</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">sides</span><span class="p">:</span>
+  <span class="n">angle</span> <span class="o">=</span> <span class="mi">180</span> <span class="o">-</span> <span class="p">(((</span><span class="n">sides</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mi">180</span><span class="p">)</span> <span class="o">/</span> <span class="n">sides</span><span class="p">)</span>
+  <span class="n">t</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">360</span><span class="o">/</span><span class="n">sides</span><span class="p">)</span>
+  <span class="n">t</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
+  <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>And here's code that makes a polygon for a random number of sides from 1 to 10. (1 is just a straight line.)</p>
+<figure>
+  <img src="/realdrew/images/Screen%20Shot%202022-12-12%20at%2010.33.26%20PM.png" alt="Reload the site. There was a problem loading the image." width="600">
+  <figcaption>This time, it generates a random number.</figcaption>
+</figure><p>And here's the code again.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">turtle</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>
+<span class="n">t</span><span class="o">.</span><span class="n">speed</span><span class="p">(</span><span class="s1">'fastest'</span><span class="p">)</span>
+
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">sides</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Number of sides on polygon:"</span><span class="p">,</span> <span class="n">sides</span><span class="p">)</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">sides</span><span class="p">:</span>
+  <span class="n">angle</span> <span class="o">=</span> <span class="mi">180</span> <span class="o">-</span> <span class="p">(((</span><span class="n">sides</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mi">180</span><span class="p">)</span> <span class="o">/</span> <span class="n">sides</span><span class="p">)</span>
+  <span class="n">t</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">360</span><span class="o">/</span><span class="n">sides</span><span class="p">)</span>
+  <span class="n">t</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
+  <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id='Option-2-("Libraries-HW")'>
+<a class="anchor" href="#Option-2-(" libraries-hw aria-hidden="true"><span class="octicon octicon-link"></span></a>Option 2 ("Libraries HW")<a class="anchor-link" href="#Option-2-(%22Libraries-HW%22)"> </a>
+</h4>
+<p>Here is the program that finds the distance between two dates using the <code>datetime</code> package. One set of instructions says to use a user input and a random date while the other says to use two completely random dates, so I made both.</p>
+<p>Here's the one that takes one user input and then generates the second randomly:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">days_dictionary</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">6</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">7</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">8</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span>
+    <span class="mi">9</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span><span class="mi">10</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">11</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">12</span><span class="p">:</span> <span class="mi">31</span>
+<span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">getUserDate</span><span class="p">():</span> <span class="c1">#really long because of a bunch of failsafes</span>
+    <span class="n">yr</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">mh</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">dy</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">while</span> <span class="n">yr</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"What year do you want?"</span><span class="p">)</span>
+        <span class="n">useryr</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Input any year. Must be a positive integer."</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">useryr</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">useryr</span><span class="p">))</span>
+            <span class="n">yr</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">'Please input a valid integer.'</span><span class="p">)</span>
+    <span class="k">while</span> <span class="n">mh</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"What month do you want?"</span><span class="p">)</span>
+        <span class="n">usermh</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Input a month. Must be an integer 1 through 12."</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">usermh</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">usermh</span><span class="p">))</span>
+            <span class="k">if</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">usermh</span> <span class="o">&lt;=</span> <span class="mi">12</span><span class="p">:</span>
+                <span class="n">mh</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">'Please input a valid integer within the range.'</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">'Please input a valid integer.'</span><span class="p">)</span>
+    <span class="k">while</span> <span class="n">dy</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"What day do you want?"</span><span class="p">)</span>
+        <span class="n">userdy</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Input a day. Must be within the amount of days per year (Feb. with 28)."</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">userdy</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">userdy</span><span class="p">))</span>
+            <span class="k">if</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">userdy</span> <span class="o">&lt;=</span> <span class="n">days_dictionary</span><span class="p">[</span><span class="n">usermh</span><span class="p">]:</span>
+                <span class="n">dy</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">'Please input a valid day.'</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">'Please input a valid integer.'</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">date</span><span class="p">(</span><span class="n">useryr</span><span class="p">,</span> <span class="n">usermh</span><span class="p">,</span> <span class="n">userdy</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">randomDate</span><span class="p">():</span>
+    <span class="n">randyear</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">1500</span><span class="p">,</span> <span class="mi">3000</span><span class="p">)</span> <span class="c1">#only from the years 1500 to 3000</span>
+    <span class="n">randmonth</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span> <span class="c1">#limited to 1-12, January-December</span>
+    <span class="n">randday</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">days_dictionary</span><span class="p">[</span><span class="n">randmonth</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">date</span><span class="p">(</span><span class="n">randyear</span><span class="p">,</span> <span class="n">randmonth</span><span class="p">,</span> <span class="n">randday</span><span class="p">)</span>
+
+<span class="n">date1</span> <span class="o">=</span> <span class="n">getUserDate</span><span class="p">()</span>
+<span class="n">date2</span> <span class="o">=</span> <span class="n">randomDate</span><span class="p">()</span>
+<span class="n">delta</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">date2</span> <span class="o">-</span> <span class="n">date1</span><span class="p">)</span>
+<span class="n">diff</span> <span class="o">=</span> <span class="n">delta</span><span class="o">.</span><span class="n">days</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"User Date:"</span><span class="p">,</span> <span class="n">date1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Random Date:"</span><span class="p">,</span> <span class="n">date2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'The number of days between these two dates is'</span><span class="p">,</span> <span class="n">diff</span><span class="p">,</span> <span class="s1">'days.'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>What year do you want?
+What month do you want?
+What day do you want?
+User Date: 2022-12-12
+Random Date: 1996-08-24
+The number of days between these two dates is 9606 days.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>And then here's the one that has two random dates:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">date1</span> <span class="o">=</span> <span class="n">randomDate</span><span class="p">()</span>
+<span class="n">date2</span> <span class="o">=</span> <span class="n">randomDate</span><span class="p">()</span>
+<span class="n">delta</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">date2</span> <span class="o">-</span> <span class="n">date1</span><span class="p">)</span>
+<span class="n">diff</span> <span class="o">=</span> <span class="n">delta</span><span class="o">.</span><span class="n">days</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Random Date 1:"</span><span class="p">,</span> <span class="n">date1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Random Date 2:"</span><span class="p">,</span> <span class="n">date2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'The number of days between these two dates is'</span><span class="p">,</span> <span class="n">diff</span><span class="p">,</span> <span class="s1">'days.'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Random Date 1: 2024-08-25
+Random Date 2: 1978-02-26
+The number of days between these two dates is 16982 days.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Random-Values">
+<a class="anchor" href="#Random-Values" aria-hidden="true"><span class="octicon octicon-link"></span></a>Random Values<a class="anchor-link" href="#Random-Values"> </a>
+</h2>
+<p>This is the start of the 3.15 - Random Values notes section.</p>
+<h3 id="Additional-Notes">
+<a class="anchor" href="#Additional-Notes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Additional Notes<a class="anchor-link" href="#Additional-Notes"> </a>
+</h3>
+<ul>
+<li>Good for cryptography and games</li>
+<li>Using the import statements we learned about in the last lesson, you can import Python's <code>random</code> module for various random packages</li>
+<li>Later in the lesson, we can use <code>random</code> to check if a function works in all cases</li>
+<li>There are multiple ways to use <code>random</code>: choose from a list, select an integer in a range, shuffle a list, etc.</li>
+</ul>
+<h3 id="What-are-Random-Values?">
+<a class="anchor" href="#What-are-Random-Values?" aria-hidden="true"><span class="octicon octicon-link"></span></a>What are Random Values?<a class="anchor-link" href="#What-are-Random-Values?"> </a>
+</h3>
+<p>Random Values are a number generated using a large set of numbers and a mathematical algorithm which gives equal probability to all number occuring.</p>
+<p>Each result from randomization is equally likely to occur. Using random number generation in a program means each execution may produce a different result.</p>
+<p>What are examples of (psuedo-)random outputs in the world? Add a few you can think of.</p>
+<ul>
+<li>Marbles</li>
+<li><mark>Card game hands</mark></li>
+<li><mark>Weather</mark></li>
+<li><mark>APCSP teacher grades</mark></li>
+</ul>
+<h3 id="Why-Do-We-Need-Random-Values-for-Code?">
+<a class="anchor" href="#Why-Do-We-Need-Random-Values-for-Code?" aria-hidden="true"><span class="octicon octicon-link"></span></a>Why Do We Need Random Values for Code?<a class="anchor-link" href="#Why-Do-We-Need-Random-Values-for-Code?"> </a>
+</h3>
+<p>Adding elements of randomness helps us to simulate these real-world "random" scenarios.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="n">random_number</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">random_number</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>64
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">randomlist</span><span class="p">():</span>
+    <span class="nb">list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"apple"</span><span class="p">,</span> <span class="s2">"banana"</span><span class="p">,</span> <span class="s2">"cherry"</span><span class="p">,</span> <span class="s2">"blueberry"</span><span class="p">]</span>
+    <span class="n">element</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+<span class="n">randomlist</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>banana
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Here's a code version of a dice roll.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">roll</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Roll "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s2">":"</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">roll</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Roll 1: 4
+Roll 2: 3
+Roll 3: 5
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Challenge-1">
+<a class="anchor" href="#Challenge-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Challenge 1<a class="anchor-link" href="#Challenge-1"> </a>
+</h3>
+<p>I made a function that simulates a coin flip and returns the outcome. You can put it within a print statement (see below) to announce the result.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">coinflip</span><span class="p">():</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s1">'heads'</span><span class="p">,</span> <span class="s1">'tails'</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"The result was... "</span> <span class="o">+</span> <span class="n">coinflip</span><span class="p">()</span> <span class="o">+</span> <span class="s2">"!"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"The result was... "</span> <span class="o">+</span> <span class="n">coinflip</span><span class="p">()</span> <span class="o">+</span> <span class="s2">"!"</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>The result was... tails!
+The result was... heads!
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Extra">
+<a class="anchor" href="#Extra" aria-hidden="true"><span class="octicon octicon-link"></span></a>Extra<a class="anchor-link" href="#Extra"> </a>
+</h4>
+<p>Here's my extra credit function that generates a random hand, then determines if it's a Royal Flush. (Unfortunately, Royal Flushes are incredibly rare, so it's hard to show off what will happen when you get one.)</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="c1">#initializing</span>
+<span class="n">suits</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Hearts'</span><span class="p">,</span> <span class="s1">'Spades'</span><span class="p">,</span> <span class="s1">'Clubs'</span><span class="p">,</span> <span class="s1">'Diamonds'</span><span class="p">]</span>
+<span class="n">cards</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'2'</span><span class="p">,</span> <span class="s1">'3'</span><span class="p">,</span> <span class="s1">'4'</span><span class="p">,</span> <span class="s1">'5'</span><span class="p">,</span> <span class="s1">'6'</span><span class="p">,</span> <span class="s1">'7'</span><span class="p">,</span> <span class="s1">'8'</span><span class="p">,</span> <span class="s1">'9'</span><span class="p">,</span> <span class="s1">'10'</span><span class="p">,</span> <span class="s1">'Jack'</span><span class="p">,</span> <span class="s1">'Queen'</span><span class="p">,</span> <span class="s1">'King'</span><span class="p">,</span> <span class="s1">'Ace'</span><span class="p">]</span>
+<span class="n">deck</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">suit</span> <span class="ow">in</span> <span class="n">suits</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">card</span> <span class="ow">in</span> <span class="n">cards</span><span class="p">:</span>
+        <span class="n">info</span> <span class="o">=</span> <span class="p">((</span><span class="n">card</span> <span class="o">+</span> <span class="s1">' of '</span> <span class="o">+</span> <span class="n">suit</span><span class="p">),</span> <span class="n">card</span><span class="p">,</span> <span class="n">suit</span><span class="p">)</span>
+        <span class="n">deck</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+<span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">deck</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">flush</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">deck</span>
+    <span class="n">flush</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'10'</span><span class="p">,</span> <span class="s1">'Jack'</span><span class="p">,</span> <span class="s1">'Queen'</span><span class="p">,</span> <span class="s1">'King'</span><span class="p">,</span> <span class="s1">'Ace'</span><span class="p">]</span> <span class="c1">#the card conditions for flush</span>
+    <span class="n">hand</span> <span class="o">=</span> <span class="p">[</span><span class="n">deck</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">deck</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">deck</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">deck</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">deck</span><span class="p">[</span><span class="mi">4</span><span class="p">]]</span> <span class="c1">#already shuffled</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Your hand:'</span><span class="p">,</span> <span class="n">hand</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s2">","</span><span class="p">,</span> <span class="n">hand</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span> <span class="s2">","</span><span class="p">,</span> <span class="n">hand</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span> <span class="s2">","</span><span class="p">,</span> <span class="n">hand</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span> <span class="s2">","</span><span class="p">,</span> <span class="n">hand</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">base</span> <span class="o">=</span> <span class="n">hand</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">card</span><span class="p">,</span> <span class="n">suit</span> <span class="ow">in</span> <span class="n">hand</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">suit</span> <span class="o">==</span> <span class="n">base</span><span class="p">:</span> <span class="c1">#if every card has the same suit</span>
+            <span class="k">if</span> <span class="n">card</span> <span class="ow">in</span> <span class="n">flush</span><span class="p">:</span> <span class="c1">#if the card is in a royal flush set</span>
+                <span class="k">pass</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">'Your hand is NOT a Royal Flush!'</span><span class="p">)</span>
+                <span class="k">return</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">'Your hand is NOT a Royal Flush!'</span><span class="p">)</span>
+            <span class="k">return</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Your hand is a Royal Flush!'</span><span class="p">)</span> <span class="c1">#if all conditions pass, it's a flush</span>
+    <span class="k">return</span>
+
+<span class="n">flush</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Your hand: 7 of Diamonds, 10 of Clubs, 3 of Clubs, Ace of Clubs, 8 of Clubs
+Your hand is NOT a Royal Flush!
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Homework">
+<a class="anchor" href="#Homework" aria-hidden="true"><span class="octicon octicon-link"></span></a>Homework<a class="anchor-link" href="#Homework"> </a>
+</h3>
+<p>I decided to do both binary conversion and the extra hexadecimal conversion.</p>
+<h4 id="Binary">
+<a class="anchor" href="#Binary" aria-hidden="true"><span class="octicon octicon-link"></span></a>Binary<a class="anchor-link" href="#Binary"> </a>
+</h4>
+<p>This cell converts <code>x</code>, a random integer within the domain of 8-bit binary, into binary. Which number was selected is shown in the output.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">DecimalToBinary</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">7</span>
+    <span class="n">binary</span> <span class="o">=</span> <span class="s2">""</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">num</span> <span class="o">%</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">i</span><span class="p">)</span> <span class="o">==</span> <span class="n">num</span><span class="p">:</span>
+            <span class="n">binary</span> <span class="o">+=</span> <span class="s2">"0"</span>
+            <span class="n">i</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">binary</span> <span class="o">+=</span> <span class="s2">"1"</span>
+            <span class="n">num</span> <span class="o">-=</span> <span class="mi">2</span><span class="o">**</span><span class="n">i</span>
+            <span class="n">i</span> <span class="o">-=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">binary</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Initial decimal number:"</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Binary conversion:"</span><span class="p">,</span> <span class="n">DecimalToBinary</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Initial decimal number: 161
+Binary conversion: 10100001
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Hexadecimal">
+<a class="anchor" href="#Hexadecimal" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hexadecimal<a class="anchor-link" href="#Hexadecimal"> </a>
+</h4>
+<p>I created a function that converts a random integer <code>y</code> within the domain of 6-bit hexadecimal to hexadecimal. I did it without the built in <code>hex</code> function.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">DecimalToHexa</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="n">hexalist</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'0'</span><span class="p">,</span> <span class="s1">'1'</span><span class="p">,</span> <span class="s1">'2'</span><span class="p">,</span> <span class="s1">'3'</span><span class="p">,</span> <span class="s1">'4'</span><span class="p">,</span> <span class="s1">'5'</span><span class="p">,</span> <span class="s1">'6'</span><span class="p">,</span> <span class="s1">'7'</span><span class="p">,</span> <span class="s1">'8'</span><span class="p">,</span> <span class="s1">'9'</span><span class="p">,</span> <span class="s1">'A'</span><span class="p">,</span> <span class="s1">'B'</span><span class="p">,</span> <span class="s1">'C'</span><span class="p">,</span> <span class="s1">'D'</span><span class="p">,</span> <span class="s1">'E'</span><span class="p">,</span> <span class="s1">'F'</span><span class="p">]</span>
+    <span class="n">hexa</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">hexadec</span> <span class="o">=</span> <span class="s1">''</span>
+    <span class="k">while</span> <span class="n">num</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">num</span><span class="p">,</span> <span class="n">ind</span> <span class="o">=</span> <span class="nb">divmod</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+        <span class="n">hexa</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">hexalist</span><span class="p">[</span><span class="n">ind</span><span class="p">])</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hexa</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">hexadec</span> <span class="o">+=</span> <span class="n">hexa</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">i</span> <span class="o">-=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">hexadec</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">16777215</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Initial decimal number:"</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Binary conversion:"</span><span class="p">,</span> <span class="n">DecimalToHexa</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Initial decimal number: 2530152
+Binary conversion: 269B68
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+</div>
+
+
+
+  </div><a class="u-url" href="/realdrew/sections14-15notes/" hidden></a>
+</article>
+
+<script src="https://utteranc.es/client.js"
+        repo="[ENTER REPO HERE]"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/realdrew/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/realdrew/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/realdrew/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Documentation of my constant progress toward being a master coder (haiyah).</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li>
+  <a rel="me" href="https://github.com/nighthawkcoders" target="_blank" title="github">
+    <svg class="svg-icon grey">
+      <use xlink:href="/realdrew/assets/minima-social-icons.svg#github"></use>
+    </svg>
+  </a>
+</li>
+<li>
+  <a rel="me" href="https://twitter.com/NighthawkCoding" target="_blank" title="twitter">
+    <svg class="svg-icon grey">
+      <use xlink:href="/realdrew/assets/minima-social-icons.svg#twitter"></use>
+    </svg>
+  </a>
+</li>
+<li>
+  <a rel="me" href="https://www.youtube.com/channel/UClIKOsDS5dsfzFA3zveDT3Q" target="_blank" title="youtube">
+    <svg class="svg-icon grey">
+      <use xlink:href="/realdrew/assets/minima-social-icons.svg#youtube"></use>
+    </svg>
+  </a>
+</li>
+</ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
