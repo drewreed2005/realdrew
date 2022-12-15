@@ -4,6 +4,7 @@ description: Based on the notebooks template by Orlando, Jaden, Max and Dylan.
 title: Mathematical Expressions and Strings Lesson Notes
 toc: true
 permalink: /sections3-4notes/
+categories: [Student Teaching]
 nb_path: _notebooks/2022-11-29-expressions-and-strings.ipynb
 layout: notebook
 ---
