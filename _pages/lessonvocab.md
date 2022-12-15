@@ -79,3 +79,49 @@ Arguments: specify the values of the parameters when a procedure is called
 Modularity: separating a program's functions into independent pieces or blocks, each containing all the parts needed to execute a single aspect of the functionality
 
 Procedural Abstraction: providing a name for a process that allows a procedure to be used only knowing WHAT it does, not HOW it does it
+
+### [3.14 Libraries]({{site.baseurl}}/sections14-15notes/#Libraries)
+
+Library: a digital code library full of methods that serve specific purposes, imported through packages
+
+Packages: collections of methods from libraries
+
+Documentation: written explanations of the use of various methods in libraries
+
+### [3.15 Random Values]({{site.baseurl}}/sections14-15notes/#Random-Values)
+
+(no new vocabulary)
+
+### [3.16 Simulations]({{site.baseurl}}/section16notes/)
+
+Simulations: abstractions that mimic more complex objects or phenomena from the real world. (The purpose is drawing inferences without the contraints of the real world.)
+
+Variance: random chance, simulated through random number generation in simulations.
+
+### [3.17 Algorithmic Efficiency]({{site.baseurl}}/sections17-18notes/#3.17-Algorithmic-Efficiency)
+
+(Also found within the notes linked above)
+
+Problem: A general description of a task that can or cannot be solved algorithmically
+
+Decision Problem: A problem with a yes or no answer
+
+Organization Problem: A problem with a goal of finding the best answer
+
+A problem with a specific input
+
+Efficiency: Amount of computing needed to solve a problem
+
+Polynomial Efficiency (Good): More work takes a proportional amount of time (1 job is +2 time)
+
+Exponential Efficiency (Bad): More work takes an exponential amount more time (1 job is 2x time)
+
+Heuristic Approach: When optimal solutions are inefficient, look for a possibly optimal solution that is more efficient
+
+Decidable Problem: A decision problem that has a clear solution that will always make a correct output
+
+Undecidable Problem: A decision problem with no solution that is not gaurenteed to produce the correct output
+
+### [3.18 Undecidable Problems]({{site.baseurl}}/sections17-18notes/#3.18-Undecidable-Problems)
+
+The Halting Problem: the problem of determining whether or not a program should stop trying to run if it will end up running forever
