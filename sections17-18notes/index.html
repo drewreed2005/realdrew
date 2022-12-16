@@ -441,6 +441,7 @@ window.onload = wrap_img;
                 <span class="n">temptime</span> <span class="o">=</span> <span class="n">time</span>
         <span class="n">drivetime</span> <span class="o">+=</span> <span class="n">temptime</span>
         <span class="n">order</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temploc</span><span class="p">)</span>
+    <span class="n">drivetime</span> <span class="o">+=</span> <span class="n">data</span><span class="p">[</span><span class="n">order</span><span class="p">[(</span><span class="nb">len</span><span class="p">(</span><span class="n">order</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)]][</span><span class="n">start</span><span class="p">]</span>
     <span class="n">order</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">start</span><span class="p">)</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">drivetime</span><span class="p">,</span> <span class="n">order</span><span class="p">)</span>
 
@@ -471,7 +472,7 @@ window.onload = wrap_img;
 4. RanchoBernardo
 5. MtCarmel
 6. DelNorte
-Drive Time: 85 minutes
+Drive Time: 105 minutes
 </pre>
 </div>
 </div>
