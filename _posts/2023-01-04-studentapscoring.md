@@ -48,4 +48,4 @@ While I ended up grading things the same, being forced to scrutinize the Create 
 - Store and call information in a list, specifically information that is made more easily accessible by it being in a list.
 - Include a aptly-named method that incorporates sequencing (correctly ordering events chronologically in the function), selection (can be an if statement or other conditional), and iteration (loops, baby).
 - The written portion should contain two distinct, realistic tests that show the functionality of the program.
-- The written portion should 
+- The written portion should include very distinct screenshots of the list, where it is called, the procedure, where it is called, and any other described evidence that is necessary for the grade.
