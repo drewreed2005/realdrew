@@ -29,7 +29,7 @@ This submission allows the user to create a customizable simulation based on the
 ### Grading
 
 | Reporting Category | Student Score | College Board Score | Comments |
-| Program Purpose and Function | 1 | (TBD) | The purpose is stated to be entertainment, and the function is to create a simulation which follows the rules of John Conway's *Game of Life*. There is clear incorporation of input and output with the tiles. |
+| Program Purpose and Function | 1 | 1 | The purpose is stated to be entertainment, and the function is to create a simulation which follows the rules of John Conway's *Game of Life*. There is clear incorporation of input and output with the tiles. |
 | Data Abstraction | 1 | 1 | The data stored in `startGrid`, `currentGrid`, and `nextGrid` is clearly called and relevant throughout the function to depict the state of the thousands of tiles. |
 | Managing Complexity | 1 | 1 | The grid lists very clearly show how complexity is managed, as 10,800 tiles is unreasonable to try to manage with individual variables or unstructured means of data storage. |
 | Procedural Abstraction | 1 | 1 | The intermixing of the `replaceList` and `resetall` functions thorughout the program show their relevance and functionality. Their names clearly describe their functions. The written portion meets all criteria. |
