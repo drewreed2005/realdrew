@@ -29,7 +29,7 @@ This is a program that creates short poems based on a set of words you provide i
 ### Grading
 
 | Reporting Category | Student Score | College Board Score | Comments |
-| Program Purpose and Function | 1 | (TBD) | The purpose is clearly stated to be to explore the user's creativity through poetry. |
+| Program Purpose and Function | 1 | 1 | The purpose is clearly stated to be to explore the user's creativity through poetry. |
 | Data Abstraction | 0 | 1 | `nounList` is shown being defined. However, the procedure in which it is called is not shown, instead showing the base defined procedure for some reason. This is why I didn't give it the point. |
 | Managing Complexity | 1 | 1 | The student clearly describes how using it in a list makes the program less complex, and provides an example of if it wasn't used. |
 | Procedural Abstraction | 1 | 1 | The `createPoem` function is shown, with its importance to the function clearly explained. |
