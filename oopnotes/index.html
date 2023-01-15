@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      8 min read
+      11 min read
     
 </span></p>
 
@@ -129,6 +129,12 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#Hacks">Hacks </a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#New-Attributes-and-Test">New Attributes and Test </a></li>
+<li class="toc-entry toc-h3"><a href="#Cafe-Gato-Objects">Cafe Gato Objects </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#Attributes,-Getters-and-Setters">Attributes, Getters and Setters </a></li>
+<li class="toc-entry toc-h4"><a href="#Tests">Tests </a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul><!--
@@ -297,21 +303,21 @@ window.onload = wrap_img;
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Test 1, find user 3
-name: "Thomas Edison", id: "toby", psw: "sha256$OBp..."
-name: "Nicholas Tesla", id: "nick", psw: "sha256$R6r..."
-* name: "Alexander Graham Bell", id: "lex", psw: "sha256$IZq..."
-name: "Eli Whitney", id: "eli", psw: "sha256$azZ..."
-name: "Hedy Lemarr", id: "hedy", psw: "sha256$Rwh..."
+name: "Thomas Edison", id: "toby", psw: "sha256$Z1N..."
+name: "Nicholas Tesla", id: "nick", psw: "sha256$lmi..."
+* name: "Alexander Graham Bell", id: "lex", psw: "sha256$skw..."
+name: "Eli Whitney", id: "eli", psw: "sha256$z3s..."
+name: "Hedy Lemarr", id: "hedy", psw: "sha256$unQ..."
 Test 2, change user 3
-name: "Thomas Edison", id: "toby", psw: "sha256$OBp..."
-name: "Nicholas Tesla", id: "nick", psw: "sha256$R6r..."
-* name: "John Mortensen", id: "jm1021", psw: "sha256$5Ad..."
-name: "Eli Whitney", id: "eli", psw: "sha256$azZ..."
-name: "Hedy Lemarr", id: "hedy", psw: "sha256$Rwh..."
+name: "Thomas Edison", id: "toby", psw: "sha256$Z1N..."
+name: "Nicholas Tesla", id: "nick", psw: "sha256$lmi..."
+* name: "John Mortensen", id: "jm1021", psw: "sha256$fRT..."
+name: "Eli Whitney", id: "eli", psw: "sha256$z3s..."
+name: "Hedy Lemarr", id: "hedy", psw: "sha256$unQ..."
 Test 3, make a dictionary
-[{"_name": "Thomas Edison", "_uid": "toby", "_password": "sha256$OBpcZysb636f6sFC$310645a4d5489d53415bd2921c42a76f374a95c9e98d0a282fdb3cd36dab18a9"}, {"_name": "Nicholas Tesla", "_uid": "nick", "_password": "sha256$R6rlHbezMnUM6aLn$b3d61cb98e5863db9648a4650efb6e30ed503477c2432296b839f85b15daff87"}, {"_name": "John Mortensen", "_uid": "jm1021", "_password": "sha256$5AdzL82mgLJjYc9N$b30fd2a767493b438e854c1eb8267dd4cb40660f3512581e9320e6c22e9e34eb"}, {"_name": "Eli Whitney", "_uid": "eli", "_password": "sha256$azZX45rSydFejyTy$8ad8520a334893f9edef02a253aa4c0117513ed7f6a0c463309c77b25126cc2c"}, {"_name": "Hedy Lemarr", "_uid": "hedy", "_password": "sha256$RwhxhJofCI7btSdQ$e9bd339405ffce7b196f8d05855f17ffedeb07a191a692c9952f90d1a71fbcca"}]
+[{"_name": "Thomas Edison", "_uid": "toby", "_password": "sha256$Z1NzXec5YjlZqD34$376c6ff4ca05a88823d928ecce732678ad08afb6edf4e244a728b314a7a72319"}, {"_name": "Nicholas Tesla", "_uid": "nick", "_password": "sha256$lmiD42i5byXOIJrh$02d0889e17d1961a3238eab5d70c0eb6a45d3a9f6af965b5046ab9a9adb13aba"}, {"_name": "John Mortensen", "_uid": "jm1021", "_password": "sha256$fRTRHDPqtsZ9wZUf$e8f1a773fc2f8a82ba9355fde0ec1979d444e1275b12ab272b9cc4b575d553a3"}, {"_name": "Eli Whitney", "_uid": "eli", "_password": "sha256$z3sNJVuGtqrRP127$23fff7259b500d92c473a3588fd98889cb16e4ce6bd1616ff7d4981a2b5b32fa"}, {"_name": "Hedy Lemarr", "_uid": "hedy", "_password": "sha256$unQlpwEcj1L9YhZc$7beeec4d8dff0e3eeff6fd2a465fbbcc551889a3bff0cecefa6bb02a66e351f9"}]
 Test 4, make a dictionary
-[{"_name": "Thomas Edison", "_uid": "toby", "_password": "sha256$OBpcZysb636f6sFC$310645a4d5489d53415bd2921c42a76f374a95c9e98d0a282fdb3cd36dab18a9"}, {"_name": "Nicholas Tesla", "_uid": "nick", "_password": "sha256$R6rlHbezMnUM6aLn$b3d61cb98e5863db9648a4650efb6e30ed503477c2432296b839f85b15daff87"}, {"_name": "John Mortensen", "_uid": "jm1021", "_password": "sha256$5AdzL82mgLJjYc9N$b30fd2a767493b438e854c1eb8267dd4cb40660f3512581e9320e6c22e9e34eb"}, {"_name": "Eli Whitney", "_uid": "eli", "_password": "sha256$azZX45rSydFejyTy$8ad8520a334893f9edef02a253aa4c0117513ed7f6a0c463309c77b25126cc2c"}, {"_name": "Hedy Lemarr", "_uid": "hedy", "_password": "sha256$RwhxhJofCI7btSdQ$e9bd339405ffce7b196f8d05855f17ffedeb07a191a692c9952f90d1a71fbcca"}]
+[{"_name": "Thomas Edison", "_uid": "toby", "_password": "sha256$Z1NzXec5YjlZqD34$376c6ff4ca05a88823d928ecce732678ad08afb6edf4e244a728b314a7a72319"}, {"_name": "Nicholas Tesla", "_uid": "nick", "_password": "sha256$lmiD42i5byXOIJrh$02d0889e17d1961a3238eab5d70c0eb6a45d3a9f6af965b5046ab9a9adb13aba"}, {"_name": "John Mortensen", "_uid": "jm1021", "_password": "sha256$fRTRHDPqtsZ9wZUf$e8f1a773fc2f8a82ba9355fde0ec1979d444e1275b12ab272b9cc4b575d553a3"}, {"_name": "Eli Whitney", "_uid": "eli", "_password": "sha256$z3sNJVuGtqrRP127$23fff7259b500d92c473a3588fd98889cb16e4ce6bd1616ff7d4981a2b5b32fa"}, {"_name": "Hedy Lemarr", "_uid": "hedy", "_password": "sha256$unQlpwEcj1L9YhZc$7beeec4d8dff0e3eeff6fd2a465fbbcc551889a3bff0cecefa6bb02a66e351f9"}]
 </pre>
 </div>
 </div>
@@ -421,32 +427,15 @@ Test 4, make a dictionary
     <span class="n">today</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">today</span><span class="o">.</span><span class="n">year</span> <span class="o">-</span> <span class="n">dob</span><span class="o">.</span><span class="n">year</span> <span class="o">-</span> <span class="p">((</span><span class="n">today</span><span class="o">.</span><span class="n">month</span><span class="p">,</span> <span class="n">today</span><span class="o">.</span><span class="n">day</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">dob</span><span class="o">.</span><span class="n">month</span><span class="p">,</span> <span class="n">dob</span><span class="o">.</span><span class="n">day</span><span class="p">))</span>
 
-<span class="c1"># place tester code inside of special if!  This allows include without tester running</span>
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
 
-    <span class="c1"># define user objects</span>
+    <span class="c1"># defining user objects again</span>
     <span class="n">u1</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'Thomas Edison'</span><span class="p">,</span> <span class="n">uid</span><span class="o">=</span><span class="s1">'toby'</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s1">'123toby'</span><span class="p">,</span> <span class="n">classOf</span><span class="o">=</span><span class="s1">'1865'</span><span class="p">,</span> <span class="n">dob</span><span class="o">=</span><span class="p">(</span><span class="mi">1847</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">11</span><span class="p">))</span>
     <span class="n">u2</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'Nicholas Tesla'</span><span class="p">,</span> <span class="n">uid</span><span class="o">=</span><span class="s1">'nick'</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s1">'123nick'</span><span class="p">,</span> <span class="n">classOf</span><span class="o">=</span><span class="s1">'1874'</span><span class="p">,</span> <span class="n">dob</span><span class="o">=</span><span class="p">(</span><span class="mi">1856</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
     <span class="n">u3</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'Alexander Graham Bell'</span><span class="p">,</span> <span class="n">uid</span><span class="o">=</span><span class="s1">'lex'</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s1">'123lex'</span><span class="p">,</span> <span class="n">classOf</span><span class="o">=</span><span class="s1">'1865'</span><span class="p">,</span> <span class="n">dob</span><span class="o">=</span><span class="p">(</span><span class="mi">1847</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
     <span class="n">u4</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'Eli Whitney'</span><span class="p">,</span> <span class="n">uid</span><span class="o">=</span><span class="s1">'eli'</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s1">'123eli'</span><span class="p">,</span> <span class="n">classOf</span><span class="o">=</span><span class="s1">'1783'</span><span class="p">,</span> <span class="n">dob</span><span class="o">=</span><span class="p">(</span><span class="mi">1765</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
     <span class="n">u5</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'Hedy Lemarr'</span><span class="p">,</span> <span class="n">uid</span><span class="o">=</span><span class="s1">'hedy'</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s1">'123hedy'</span><span class="p">,</span> <span class="n">classOf</span><span class="o">=</span><span class="s1">'1932'</span><span class="p">,</span> <span class="n">dob</span><span class="o">=</span><span class="p">(</span><span class="mi">1917</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
     <span class="n">users</span> <span class="o">=</span> <span class="p">[</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">u3</span><span class="p">,</span> <span class="n">u4</span><span class="p">,</span> <span class="n">u5</span><span class="p">]</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Test 1, find user 3"</span><span class="p">)</span>
-    <span class="n">u</span> <span class="o">=</span> <span class="n">tester</span><span class="p">(</span><span class="n">users</span><span class="p">,</span> <span class="n">u3</span><span class="o">.</span><span class="n">uid</span><span class="p">,</span> <span class="s2">"123lex"</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Test 2, change user 3"</span><span class="p">)</span>
-    <span class="n">u</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">"John Mortensen"</span>
-    <span class="n">u</span><span class="o">.</span><span class="n">uid</span> <span class="o">=</span> <span class="s2">"jm1021"</span>
-    <span class="n">u</span><span class="o">.</span><span class="n">set_password</span><span class="p">(</span><span class="s2">"123qwerty"</span><span class="p">)</span>
-    <span class="n">u</span><span class="o">.</span><span class="n">classOf</span> <span class="o">=</span> <span class="s1">'2000'</span>
-    <span class="n">u</span><span class="o">.</span><span class="n">dob</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2000</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="n">u</span> <span class="o">=</span> <span class="n">tester</span><span class="p">(</span><span class="n">users</span><span class="p">,</span> <span class="n">u</span><span class="o">.</span><span class="n">uid</span><span class="p">,</span> <span class="s2">"123qwerty"</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Test 3, make a dictionary"</span><span class="p">)</span>
-    <span class="n">json_string</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">([</span><span class="n">user</span><span class="o">.</span><span class="vm">__dict__</span> <span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">users</span><span class="p">])</span> 
-    <span class="nb">print</span><span class="p">(</span><span class="n">json_string</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Test 4, make a dictionary"</span><span class="p">)</span>
-    <span class="n">json_string</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">([</span><span class="nb">vars</span><span class="p">(</span><span class="n">user</span><span class="p">)</span> <span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">users</span><span class="p">])</span> 
-    <span class="nb">print</span><span class="p">(</span><span class="n">json_string</span><span class="p">)</span>
-
     <span class="c1">#HERE IS THE START OF MY UNIQUE TESTS</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"Test 5, find the oldest user"</span><span class="p">)</span>
     <span class="n">agelist</span> <span class="o">=</span> <span class="p">[]</span>
@@ -458,7 +447,10 @@ Test 4, make a dictionary
     <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">agelist</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="n">max_age</span><span class="p">:</span>
             <span class="n">oldest</span> <span class="o">=</span> <span class="n">index</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"The oldest user is"</span><span class="p">,</span> <span class="n">users</span><span class="p">[</span><span class="n">oldest</span><span class="p">]</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s2">"."</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">user</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">users</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">index</span> <span class="o">==</span> <span class="n">oldest</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"* "</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">_name</span> <span class="o">+</span> <span class="s2">":"</span><span class="p">,</span> <span class="n">agelist</span><span class="p">[</span><span class="n">index</span><span class="p">],</span> <span class="s2">"years old."</span><span class="p">)</span>
     
     <span class="nb">print</span><span class="p">(</span><span class="s2">"Test 6, show user graduation dates"</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">users</span><span class="p">:</span>
@@ -478,28 +470,16 @@ Test 4, make a dictionary
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Test 1, find user 3
-name: "Thomas Edison", id: "toby", psw: "sha256$8by..."
-name: "Nicholas Tesla", id: "nick", psw: "sha256$xSE..."
-* name: "Alexander Graham Bell", id: "lex", psw: "sha256$fPR..."
-name: "Eli Whitney", id: "eli", psw: "sha256$DQ8..."
-name: "Hedy Lemarr", id: "hedy", psw: "sha256$NxL..."
-Test 2, change user 3
-name: "Thomas Edison", id: "toby", psw: "sha256$8by..."
-name: "Nicholas Tesla", id: "nick", psw: "sha256$xSE..."
-* name: "John Mortensen", id: "jm1021", psw: "sha256$JbQ..."
-name: "Eli Whitney", id: "eli", psw: "sha256$DQ8..."
-name: "Hedy Lemarr", id: "hedy", psw: "sha256$NxL..."
-Test 3, make a dictionary
-[{"_name": "Thomas Edison", "_uid": "toby", "_password": "sha256$8bySl4sCtl9uSNZJ$f2db6730095106985beff387945b6439ab72da7e149e4fb625a2f82cff27b00b", "_classOf": "1865", "_dob": [1847, 2, 11]}, {"_name": "Nicholas Tesla", "_uid": "nick", "_password": "sha256$xSE3VVMSoYGsxG0F$b7881e07b045c3423927018b62aa0a456da7ee938db51b2a1c74ea74c3113ea0", "_classOf": "1874", "_dob": [1856, 7, 10]}, {"_name": "John Mortensen", "_uid": "jm1021", "_password": "sha256$JbQK4omkW7ajw51C$66e02e52dd4bd6f5dd47ab988fba78106035a2d3a92379f6cc924c0b13f8df7d", "_classOf": "2000", "_dob": [2000, 1, 1]}, {"_name": "Eli Whitney", "_uid": "eli", "_password": "sha256$DQ861B3BvFcpUimG$003abfb9ffd864b62067fab8b791da92074a0ebbe75dcd459bc86d41a903f9e9", "_classOf": "1783", "_dob": [1765, 12, 8]}, {"_name": "Hedy Lemarr", "_uid": "hedy", "_password": "sha256$NxLOAAl8HXxlPslJ$0405111069d755b27dc6f405a29ab9edbb6611e02a35b7b2259887b81027a310", "_classOf": "1932", "_dob": [1917, 11, 9]}]
-Test 4, make a dictionary
-[{"_name": "Thomas Edison", "_uid": "toby", "_password": "sha256$8bySl4sCtl9uSNZJ$f2db6730095106985beff387945b6439ab72da7e149e4fb625a2f82cff27b00b", "_classOf": "1865", "_dob": [1847, 2, 11]}, {"_name": "Nicholas Tesla", "_uid": "nick", "_password": "sha256$xSE3VVMSoYGsxG0F$b7881e07b045c3423927018b62aa0a456da7ee938db51b2a1c74ea74c3113ea0", "_classOf": "1874", "_dob": [1856, 7, 10]}, {"_name": "John Mortensen", "_uid": "jm1021", "_password": "sha256$JbQK4omkW7ajw51C$66e02e52dd4bd6f5dd47ab988fba78106035a2d3a92379f6cc924c0b13f8df7d", "_classOf": "2000", "_dob": [2000, 1, 1]}, {"_name": "Eli Whitney", "_uid": "eli", "_password": "sha256$DQ861B3BvFcpUimG$003abfb9ffd864b62067fab8b791da92074a0ebbe75dcd459bc86d41a903f9e9", "_classOf": "1783", "_dob": [1765, 12, 8]}, {"_name": "Hedy Lemarr", "_uid": "hedy", "_password": "sha256$NxLOAAl8HXxlPslJ$0405111069d755b27dc6f405a29ab9edbb6611e02a35b7b2259887b81027a310", "_classOf": "1932", "_dob": [1917, 11, 9]}]
-Test 5, find the oldest user
-The oldest user is Eli Whitney.
+<pre>Test 5, find the oldest user
+Thomas Edison: 175 years old.
+Nicholas Tesla: 166 years old.
+Alexander Graham Bell: 175 years old.
+* Eli Whitney: 257 years old.
+Hedy Lemarr: 105 years old.
 Test 6, show user graduation dates
 Thomas Edison graduated in 1865.
 Nicholas Tesla graduated in 1874.
-John Mortensen graduated in 2000.
+Alexander Graham Bell graduated in 1865.
 Eli Whitney graduated in 1783.
 Hedy Lemarr graduated in 1932.
 </pre>
@@ -512,6 +492,242 @@ Hedy Lemarr graduated in 1932.
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Cafe-Gato-Objects">
+<a class="anchor" href="#Cafe-Gato-Objects" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cafe Gato Objects<a class="anchor-link" href="#Cafe-Gato-Objects"> </a>
+</h3>
+<p>Below is an example of using objects for my portion of our group project (<a href="https://drewreed2005.github.io/cafegato/events">linked here</a>). As shown on that page, my use of CRUD mainly involves letting a user create a personal event at the cafe, with details clearly listed in a readable table.</p>
+<p>To go along with that, below, I've created the object <code>Event</code>, which includes all attributes that are also listed on the frontend version.</p>
+<h4 id="Attributes,-Getters-and-Setters">
+<a class="anchor" href="#Attributes,-Getters-and-Setters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Attributes, Getters and Setters<a class="anchor-link" href="#Attributes,-Getters-and-Setters"> </a>
+</h4>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Event</span><span class="p">:</span>    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">event_name</span><span class="p">,</span> <span class="n">event_details</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">start_time</span><span class="p">,</span> <span class="n">end_time</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_email</span> <span class="o">=</span> <span class="n">email</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_event_name</span> <span class="o">=</span> <span class="n">event_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_event_details</span> <span class="o">=</span> <span class="n">event_details</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_date</span> <span class="o">=</span> <span class="n">date</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_start_time</span> <span class="o">=</span> <span class="n">start_time</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_end_time</span> <span class="o">=</span> <span class="n">end_time</span>
+    
+    <span class="c1">#here's the name getter</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span>
+
+    <span class="c1">#here's the name setter</span>
+    <span class="nd">@name</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="n">name</span>
+    
+    <span class="c1">#here's the email getter</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">email</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_email</span>
+    
+    <span class="c1">#here's the email setter</span>
+    <span class="nd">@email</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">email</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">email</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_email</span> <span class="o">=</span> <span class="n">email</span>
+    
+    <span class="c1">#here's the event_name getter</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">event_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_event_name</span>
+    
+    <span class="c1">#here's the event_name setter</span>
+    <span class="nd">@event_name</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">event_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event_name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_event_name</span> <span class="o">=</span> <span class="n">event_name</span>
+    
+    <span class="c1">#here's the event_details getter</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">event_details</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_event_details</span>
+    
+    <span class="c1">#here's the event_details setter</span>
+    <span class="nd">@event_details</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">event_details</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event_details</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_event_details</span> <span class="o">=</span> <span class="n">event_details</span>
+    
+    <span class="c1">#here's the date getter</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">date</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_date</span>
+    
+    <span class="c1">#here's the date setter</span>
+    <span class="nd">@date</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">date</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">date</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_date</span> <span class="o">=</span> <span class="n">date</span>
+
+    <span class="c1">#here's the start_time getter</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">start_time</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_start_time</span>
+    
+    <span class="c1">#here's the start_time setter</span>
+    <span class="nd">@start_time</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">start_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start_time</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_start_time</span> <span class="o">=</span> <span class="n">start_time</span>
+
+    <span class="c1">#here's the end_time getter</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">end_time</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_end_time</span>
+    
+    <span class="c1">#here's the end_time setter</span>
+    <span class="nd">@end_time</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">end_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">end_time</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_end_time</span> <span class="o">=</span> <span class="n">end_time</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Tests">
+<a class="anchor" href="#Tests" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tests<a class="anchor-link" href="#Tests"> </a>
+</h4>
+<p>Here are two tests that are applicable with our site.</p>
+<p>(The <code>date</code> attribute is formatted as a string in the <code>"mm/dd/yyyy"</code> format and the <code>start_time</code> and <code>end_time</code> attributes are both formatted as <code>"hh/mm"</code>, with hours in military time. This is due to how the <code>&lt;input type="date"&gt;</code> and <code>&lt;input type="time"&gt;</code> tags format their values. With that in mind, the tests are...)</p>
+<ol>
+<li>A test that lists the dates of the events and identifies the earliest.</li>
+<li>A test that lists the start and end time of each event (in AM/PM format) and identifies whether or not the event occurs at a valid time for the day of the week it takes place in.</li>
+</ol>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="c1">#defining the three events for testing</span>
+    <span class="n">e1</span> <span class="o">=</span> <span class="n">Event</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"Thomas Edison"</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s2">"tedison@lightbulb.edu"</span><span class="p">,</span>
+        <span class="n">event_name</span><span class="o">=</span><span class="s2">"The Edison Troupe Meet"</span><span class="p">,</span>
+        <span class="n">event_details</span><span class="o">=</span><span class="s2">"We 10 selected geniuses will meet in the events room for a convergence."</span><span class="p">,</span>
+        <span class="n">date</span><span class="o">=</span><span class="s2">"02/23/2023"</span><span class="p">,</span> <span class="n">start_time</span><span class="o">=</span><span class="s2">"13:00"</span><span class="p">,</span> <span class="n">end_time</span><span class="o">=</span><span class="s2">"14:00"</span><span class="p">)</span>
+    <span class="n">e2</span> <span class="o">=</span> <span class="n">Event</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"John Mortensen"</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s2">"jmortensen@powayusd.com"</span><span class="p">,</span>
+        <span class="n">event_name</span><span class="o">=</span><span class="s2">"Extra Credit Code Meetup"</span><span class="p">,</span>
+        <span class="n">event_details</span><span class="o">=</span><span class="s2">"Come to work on ideation and any confusion with the Full Stack CPT project. No phones."</span><span class="p">,</span>
+        <span class="n">date</span><span class="o">=</span><span class="s2">"02/25/2023"</span><span class="p">,</span> <span class="n">start_time</span><span class="o">=</span><span class="s2">"09:00"</span><span class="p">,</span> <span class="n">end_time</span><span class="o">=</span><span class="s2">"11:00"</span><span class="p">)</span>
+    <span class="n">e3</span> <span class="o">=</span> <span class="n">Event</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"Karl Giant"</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s2">"giantrichguy@wallstreet.org"</span><span class="p">,</span>
+        <span class="n">event_name</span><span class="o">=</span><span class="s2">"Karl and Cats"</span><span class="p">,</span>
+        <span class="n">event_details</span><span class="o">=</span><span class="s2">"Karl would like to see cats with friends (if he can fit in the building)."</span><span class="p">,</span>
+        <span class="n">date</span><span class="o">=</span><span class="s2">"02/26/2023"</span><span class="p">,</span> <span class="n">start_time</span><span class="o">=</span><span class="s2">"16:00"</span><span class="p">,</span> <span class="n">end_time</span><span class="o">=</span><span class="s2">"17:00"</span><span class="p">)</span>
+    <span class="n">events</span> <span class="o">=</span> <span class="p">[</span><span class="n">e1</span><span class="p">,</span> <span class="n">e2</span><span class="p">,</span> <span class="n">e3</span><span class="p">]</span>
+
+    <span class="c1"># START OF TEST 1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"TEST 1 BELOW:"</span><span class="p">)</span>
+    <span class="n">datelist</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">events</span><span class="p">:</span>
+        <span class="n">datelist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">date</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">_date</span><span class="p">[</span><span class="mi">6</span><span class="p">:</span><span class="mi">10</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">_date</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">_date</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">5</span><span class="p">])))</span>
+    <span class="n">soonest</span> <span class="o">=</span> <span class="n">datelist</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">date</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">datelist</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">date</span> <span class="o">&lt;=</span> <span class="n">soonest</span><span class="p">:</span>
+            <span class="n">soonest</span> <span class="o">=</span> <span class="n">date</span>
+            <span class="n">soonind</span> <span class="o">=</span> <span class="n">index</span>
+    <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">event</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">events</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">index</span> <span class="o">==</span> <span class="n">soonind</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"* "</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">_event_name</span> <span class="o">+</span> <span class="s2">":"</span><span class="p">,</span> <span class="n">event</span><span class="o">.</span><span class="n">_date</span><span class="p">)</span>
+    
+    <span class="c1"># START OF TEST 2</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">TEST 2 BELOW:"</span><span class="p">)</span>
+    <span class="n">startlist</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">endlist</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">events</span><span class="p">:</span>
+        <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="nb">int</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">_start_time</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mi">12</span><span class="p">:</span>
+            <span class="n">startlist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">_start_time</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]))</span> <span class="o">+</span> <span class="s2">":"</span> <span class="o">+</span> <span class="n">event</span><span class="o">.</span><span class="n">_start_time</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="o">+</span> <span class="s2">" AM"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">int</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">_start_time</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">12</span><span class="p">:</span>
+            <span class="n">startlist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">_start_time</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span> <span class="o">-</span> <span class="mi">12</span><span class="p">)</span> <span class="o">+</span> <span class="n">event</span><span class="o">.</span><span class="n">_start_time</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="o">+</span> <span class="s2">" PM"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">int</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">_start_time</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span> <span class="o">==</span> <span class="mi">12</span><span class="p">:</span>
+            <span class="n">startlist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"12:"</span> <span class="o">+</span> <span class="n">event</span><span class="o">.</span><span class="n">_start_time</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="o">+</span> <span class="s2">" PM"</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">startlist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"12:"</span> <span class="o">+</span> <span class="n">event</span><span class="o">.</span><span class="n">_start_time</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="o">+</span> <span class="s2">" AM"</span><span class="p">)</span>
+        <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="nb">int</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">_end_time</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mi">12</span><span class="p">:</span>
+            <span class="n">endlist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">_end_time</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]))</span> <span class="o">+</span> <span class="s2">":"</span> <span class="o">+</span> <span class="n">event</span><span class="o">.</span><span class="n">_end_time</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="o">+</span> <span class="s2">" AM"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">int</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">_end_time</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">12</span><span class="p">:</span>
+            <span class="n">endlist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">_end_time</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span> <span class="o">-</span> <span class="mi">12</span><span class="p">)</span> <span class="o">+</span> <span class="n">event</span><span class="o">.</span><span class="n">_end_time</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="o">+</span> <span class="s2">" PM"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">int</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">_start_time</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span> <span class="o">==</span> <span class="mi">12</span><span class="p">:</span>
+            <span class="n">endlist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"12:"</span> <span class="o">+</span> <span class="n">event</span><span class="o">.</span><span class="n">_end_time</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="o">+</span> <span class="s2">" PM"</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">endlist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"12:"</span> <span class="o">+</span> <span class="n">event</span><span class="o">.</span><span class="n">_end_time</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="o">+</span> <span class="s2">" AM"</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">event</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">events</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">datetime</span><span class="o">.</span><span class="n">weekday</span><span class="p">(</span><span class="n">datelist</span><span class="p">[</span><span class="n">index</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="mi">8</span> <span class="o">&lt;=</span> <span class="nb">int</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">_start_time</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mi">17</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="mi">8</span> <span class="o">&lt;</span> <span class="nb">int</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">_end_time</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span> <span class="o">&lt;=</span> <span class="mi">17</span><span class="p">):</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">"Valid: "</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">"Invalid: "</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="mi">10</span> <span class="o">&lt;=</span> <span class="nb">int</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">_start_time</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mi">18</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="mi">10</span> <span class="o">&lt;</span> <span class="nb">int</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">_end_time</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span> <span class="o">&lt;=</span> <span class="mi">18</span><span class="p">):</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">"Valid: "</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">"Invalid: "</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">_event_name</span><span class="p">,</span> <span class="s2">"("</span> <span class="o">+</span> <span class="n">startlist</span><span class="p">[</span><span class="n">index</span><span class="p">],</span> <span class="s2">"to"</span><span class="p">,</span> <span class="n">endlist</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">+</span> <span class="s2">")"</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>TEST 1 BELOW:
+* The Edison Troupe Meet: 02/23/2023
+Extra Credit Code Meetup: 02/25/2023
+Karl and Cats: 02/26/2023
+
+TEST 2 BELOW:
+Valid: The Edison Troupe Meet (1:00 PM to 2:00 PM)
+Invalid: Extra Credit Code Meetup (9:00 AM to 11:00 AM)
+Valid: Karl and Cats (4:00 PM to 5:00 PM)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(The "Extra Credit Code Meetup" was invalid because it was scheduled for 9:00 AM on a Saturday. According to the cafe hours, they open at 10:00 AM on Saturdays, meaning the event is scheduled for before opening. This makes it invalid.)</p>
+
+</div>
+</div>
+</div>
 </div>
 
 
