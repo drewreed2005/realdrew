@@ -64,9 +64,10 @@ This is a game that simulates catching fish from a boat in a high-speed situatio
 | Algorithm Implementation | 1 | 1 | Sequencing, selection, and iteration are all used in the procedure above. |
 | Testing | 0 | 0 | The tests do not show multiple arguments being used to alter the output/behavior of the given procedure; they instead just show two completely different code segments that can be called. |
 
-## Reflection
+## Final Reflection
 
-Here's what I can learn from the mistakes these people made:
+Here's what I can learn from the mistakes these students, in all three of the grading notes, made:
+- Though this problem wasn't as present in this set of examples, make *sure* that the "Purpose" is stated to be **why** the function of the program even matters, or what that function **does** for the user. DO NOT just state what the program literally does as the "Purpose."
 - Make sure that the use of a list is genuinely important to the complexity of the program. I probably won't have to worry about this, but don't just use one because you feel like it when variables would work just as well.
 - Make SURE that the selected procedure for Procedural Abstraction has at least one parameter.
     - Not having at least one ruins both Procedural Abstraction and Testing, as you need to call the procedure with two different arguments for the point. Speaking of which...
