@@ -61,7 +61,7 @@ Many of the other problems, however, weren't as easy to solve because they essen
 It took a lot of reading to understand this one.
 
 <figure>
-  <img src="{{site.baseurl}}/images/Screen Shot 2023-01-23 at 10.19.21 PM.png" alt="CB Q22" width="600"/>
+  <img src="{{site.baseurl}}/images/Screen Shot 2023-01-23 at 10.23.43 PM.png" alt="CB Q22" width="600"/>
   <figcaption>This one was just confusing.</figcaption>
 </figure>
 
