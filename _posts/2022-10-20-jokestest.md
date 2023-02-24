@@ -1,6 +1,6 @@
 ---
 title: Alarm API
-layout: default
+layout: base
 description: VOTE NOW!
 permalink: /data/alarms
 categories: [C4.7, javascript]
