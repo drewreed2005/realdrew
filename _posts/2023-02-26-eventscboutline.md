@@ -12,8 +12,6 @@ permalink: /eventscboutline
 
 My portion of our group project, Cafe Gato (an online marketing campaign for a hypothetical cat cafe), is an events database. A user can use a frontend endpoint to create an event (provided it passes validation requirements) and view other events read from a backend endpoint. This data can be filtered by various attributes on the frontend.
 
-Below, I go over how I will meet the College Board expectations.
-
 ### Purpose and Function
 
 The purpose of the program is to promote community interaction and cat cafe business consistency through user-created events hosted by the cat cafe. Another purpose of the program is to aid a given cat cafe business in validating and organizing the events that will be hosted at their location.
