@@ -31,7 +31,7 @@ The input of the program is various written event attributes in the form of text
 The list `sorted_List` is shown being formed based on the values of the sort input windows. In order either soonest to latest or latest to soonest (based on the frontend input windows), events are pushed to `sorted_List`.
 
 <figure>
-  <img src="{{site.baseurl}}/images/sortedlistcreated2.png" alt="Code segment shows list being finished and used" width="600"/>
+  <img src="{{site.baseurl}}/images/sottedlistcreated2.png" alt="Code segment shows list being finished and used" width="600"/>
 </figure>
 
 The list `sorted_List` is shown being finished here and, at the end, the list is used as a reference for the formation of the `final_List` variable, which is formed with only entries from the given month.
