@@ -55,59 +55,59 @@ This list helps the programs because it allows the program to take advantage of 
 ### Procedural Abstraction
 
 ```
-    function table_Make(list) {
-        table.innerHTML = "";
-        list.forEach(user => {
-                // build a row for each user
-                const tr = document.createElement("tr");
+function table_Make(list) {
+    table.innerHTML = "";
+    list.forEach(user => {
+        // build a row for each user
+        const tr = document.createElement("tr");
 
-                // td's to build out each column of data
-                const name = document.createElement("td");
-                const email = document.createElement("td");
-                const event_name = document.createElement("td");
-                const event_details = document.createElement("td");
-                const date = document.createElement("td");
-                const start_time = document.createElement("td");
-                const end_time = document.createElement("td");
-                    
-                // filter times
-                var temp_stime = user.start_time;
-                var temp_etime = user.end_time;
-                if (Number(temp_stime.substring(0, 2)) > 12) {
-                    var temp_shr = Number(temp_stime.substring(0, 2)) - 12;
-                    var new_stime = String(temp_shr) + temp_stime.substring(2, 5) + " PM";
-                } else {
-                    var new_stime = temp_stime + " AM"
-                }
-                if (Number(temp_etime.substring(0, 2)) > 12) {
-                    var temp_ehr = Number(temp_etime.substring(0, 2)) - 12;
-                    var new_etime = String(temp_ehr) + temp_etime.substring(2, 5) + " PM";
-                } else {
-                    var new_etime = temp_etime + " AM"
-                }
+        // td's to build out each column of data
+        const name = document.createElement("td");
+        const email = document.createElement("td");
+        const event_name = document.createElement("td");
+        const event_details = document.createElement("td");
+        const date = document.createElement("td");
+        const start_time = document.createElement("td");
+        const end_time = document.createElement("td");
+            
+        // filter times
+        var temp_stime = user.start_time;
+        var temp_etime = user.end_time;
+        if (Number(temp_stime.substring(0, 2)) > 12) {
+            var temp_shr = Number(temp_stime.substring(0, 2)) - 12;
+            var new_stime = String(temp_shr) + temp_stime.substring(2, 5) + " PM";
+        } else {
+            var new_stime = temp_stime + " AM"
+        }
+        if (Number(temp_etime.substring(0, 2)) > 12) {
+            var temp_ehr = Number(temp_etime.substring(0, 2)) - 12;
+            var new_etime = String(temp_ehr) + temp_etime.substring(2, 5) + " PM";
+        } else {
+            var new_etime = temp_etime + " AM"
+        }
 
-                // add content from user data          
-                name.innerHTML = user.name; 
-                email.innerHTML = user.email; 
-                event_name.innerHTML = user.event_name; 
-                event_details.innerHTML = user.event_details;
-                date.innerHTML = user.date; 
-                start_time.innerHTML = new_stime; 
-                end_time.innerHTML = new_etime;
+        // add content from user data          
+        name.innerHTML = user.name; 
+        email.innerHTML = user.email; 
+        event_name.innerHTML = user.event_name; 
+        event_details.innerHTML = user.event_details;
+        date.innerHTML = user.date; 
+        start_time.innerHTML = new_stime; 
+        end_time.innerHTML = new_etime;
 
-                // add data to row
-                tr.appendChild(name);
-                tr.appendChild(email);
-                tr.appendChild(event_name);
-                tr.appendChild(event_details);
-                tr.appendChild(date);
-                tr.appendChild(start_time);
-                tr.appendChild(end_time);
+        // add data to row
+        tr.appendChild(name);
+        tr.appendChild(email);
+        tr.appendChild(event_name);
+        tr.appendChild(event_details);
+        tr.appendChild(date);
+        tr.appendChild(start_time);
+        tr.appendChild(end_time);
 
-                // add row to table
-                table.appendChild(tr);
-        });
-    };
+        // add row to table
+        table.appendChild(tr);
+    });
+};
 ```
 
 This code shows the algorithm behind the function `table_Make`.
@@ -148,29 +148,9 @@ The first call of `table_Make` has the parameter `list` expressed as the followi
         "event_name": "Beginning of March Celebration",
         "name": "Lucky Leprechaun",
         "start_time": "13:00"
-    },
-    {
-        "date": "03/07/2023",
-        "email": "downer@icloud.com",
-        "end_time": "13:45",
-        "event_details": "We're gonna break it down!",
-        "event_name": "The Down Breaker Clowns",
-        "name": "Breaker Downer",
-        "start_time": "12:37"
-    },
-    {
-        "date": "03/13/2023",
-        "email": "fixer@icloud.com",
-        "end_time": "13:00",
-        "event_details": "We're gonna fix it!",
-        "event_name": "The Fix Mix Flicks",
-        "name": "Fixer Upper",
-        "start_time": "11:50"
     }
 ]
 ```
-
-As you can see, the events are listed in chronological order from soonest to latest.
 
 The second test defines the parameter as the following:
 
@@ -184,40 +164,26 @@ The second test defines the parameter as the following:
         "event_name": "The Fix Mix Flicks",
         "name": "Fixer Upper",
         "start_time": "11:50"
-    },
-    {
-        "date": "03/01/2023",
-        "email": "lucky@magic.com",
-        "end_time": "15:00",
-        "event_details": "This is the month that St. Patrick's Day takes place, so we're celebrating.",
-        "event_name": "Beginning of March Celebration",
-        "name": "Lucky Leprechaun",
-        "start_time": "13:00"
-    },
-    {
-        "date": "03/07/2023",
-        "email": "downer@icloud.com",
-        "end_time": "13:45",
-        "event_details": "We're gonna break it down!",
-        "event_name": "The Down Breaker Clowns",
-        "name": "Breaker Downer",
-        "start_time": "12:37"
     }
 ]
 ```
 
 #### Test Outputs
 
-The outputs of the tests produce different tables.
+The outputs of the tests produce different tables and rely on different parts of the code (the selection `if` statement specifically) for their outputs. See the explanations below.
 
 ##### Test 1
 
 <figure>
-  <img src="{{site.baseurl}}/images/Screen Shot 2023-02-26 at 7.44.38 PM.png" alt="table_Make function being called" width="600"/>
+  <img src="{{site.baseurl}}/images/Screen Shot 2023-02-27 at 10.41.21 PM.png" alt="table_Make function being called" width="600"/>
 </figure>
+
+For both the start and end time, the procedure relied on the `if (Number(temp_(e or s)time.substring(0, 2)) > 12)` because both times were PM times.
 
 ##### Test 2
 
 <figure>
-  <img src="{{site.baseurl}}/images/Screen Shot 2023-02-26 at 7.43.11 PM.png" alt="table_Make function being called" width="600"/>
+  <img src="{{site.baseurl}}/images/Screen Shot 2023-02-27 at 10.40.26 PM.png" alt="table_Make function being called" width="600"/>
 </figure>
+
+While the end time for this one still called on the `if` condition, since the start time "11:50" is an AM time, it called on the `else` condition which instead concatenated `"AM"` to the unchanged time data string.
