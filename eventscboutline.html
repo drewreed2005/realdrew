@@ -172,59 +172,59 @@ window.onload = wrap_img;
 <h3 id="procedural-abstraction">
 <a class="anchor" href="#procedural-abstraction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Procedural Abstraction</h3>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    function table_Make(list) {
-        table.innerHTML = "";
-        list.forEach(user =&gt; {
-                // build a row for each user
-                const tr = document.createElement("tr");
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>function table_Make(list) {
+    table.innerHTML = "";
+    list.forEach(user =&gt; {
+        // build a row for each user
+        const tr = document.createElement("tr");
 
-                // td's to build out each column of data
-                const name = document.createElement("td");
-                const email = document.createElement("td");
-                const event_name = document.createElement("td");
-                const event_details = document.createElement("td");
-                const date = document.createElement("td");
-                const start_time = document.createElement("td");
-                const end_time = document.createElement("td");
-                    
-                // filter times
-                var temp_stime = user.start_time;
-                var temp_etime = user.end_time;
-                if (Number(temp_stime.substring(0, 2)) &gt; 12) {
-                    var temp_shr = Number(temp_stime.substring(0, 2)) - 12;
-                    var new_stime = String(temp_shr) + temp_stime.substring(2, 5) + " PM";
-                } else {
-                    var new_stime = temp_stime + " AM"
-                }
-                if (Number(temp_etime.substring(0, 2)) &gt; 12) {
-                    var temp_ehr = Number(temp_etime.substring(0, 2)) - 12;
-                    var new_etime = String(temp_ehr) + temp_etime.substring(2, 5) + " PM";
-                } else {
-                    var new_etime = temp_etime + " AM"
-                }
+        // td's to build out each column of data
+        const name = document.createElement("td");
+        const email = document.createElement("td");
+        const event_name = document.createElement("td");
+        const event_details = document.createElement("td");
+        const date = document.createElement("td");
+        const start_time = document.createElement("td");
+        const end_time = document.createElement("td");
+            
+        // filter times
+        var temp_stime = user.start_time;
+        var temp_etime = user.end_time;
+        if (Number(temp_stime.substring(0, 2)) &gt; 12) {
+            var temp_shr = Number(temp_stime.substring(0, 2)) - 12;
+            var new_stime = String(temp_shr) + temp_stime.substring(2, 5) + " PM";
+        } else {
+            var new_stime = temp_stime + " AM"
+        }
+        if (Number(temp_etime.substring(0, 2)) &gt; 12) {
+            var temp_ehr = Number(temp_etime.substring(0, 2)) - 12;
+            var new_etime = String(temp_ehr) + temp_etime.substring(2, 5) + " PM";
+        } else {
+            var new_etime = temp_etime + " AM"
+        }
 
-                // add content from user data          
-                name.innerHTML = user.name; 
-                email.innerHTML = user.email; 
-                event_name.innerHTML = user.event_name; 
-                event_details.innerHTML = user.event_details;
-                date.innerHTML = user.date; 
-                start_time.innerHTML = new_stime; 
-                end_time.innerHTML = new_etime;
+        // add content from user data          
+        name.innerHTML = user.name; 
+        email.innerHTML = user.email; 
+        event_name.innerHTML = user.event_name; 
+        event_details.innerHTML = user.event_details;
+        date.innerHTML = user.date; 
+        start_time.innerHTML = new_stime; 
+        end_time.innerHTML = new_etime;
 
-                // add data to row
-                tr.appendChild(name);
-                tr.appendChild(email);
-                tr.appendChild(event_name);
-                tr.appendChild(event_details);
-                tr.appendChild(date);
-                tr.appendChild(start_time);
-                tr.appendChild(end_time);
+        // add data to row
+        tr.appendChild(name);
+        tr.appendChild(email);
+        tr.appendChild(event_name);
+        tr.appendChild(event_details);
+        tr.appendChild(date);
+        tr.appendChild(start_time);
+        tr.appendChild(end_time);
 
-                // add row to table
-                table.appendChild(tr);
-        });
-    };
+        // add row to table
+        table.appendChild(tr);
+    });
+};
 </code></pre></div></div>
 
 <p>This code shows the algorithm behind the function <code class="language-plaintext highlighter-rouge">table_Make</code>.</p>
@@ -267,29 +267,9 @@ window.onload = wrap_img;
         "event_name": "Beginning of March Celebration",
         "name": "Lucky Leprechaun",
         "start_time": "13:00"
-    },
-    {
-        "date": "03/07/2023",
-        "email": "downer@icloud.com",
-        "end_time": "13:45",
-        "event_details": "We're gonna break it down!",
-        "event_name": "The Down Breaker Clowns",
-        "name": "Breaker Downer",
-        "start_time": "12:37"
-    },
-    {
-        "date": "03/13/2023",
-        "email": "fixer@icloud.com",
-        "end_time": "13:00",
-        "event_details": "We're gonna fix it!",
-        "event_name": "The Fix Mix Flicks",
-        "name": "Fixer Upper",
-        "start_time": "11:50"
     }
 ]
 </code></pre></div></div>
-
-<p>As you can see, the events are listed in chronological order from soonest to latest.</p>
 
 <p>The second test defines the parameter as the following:</p>
 
@@ -302,24 +282,6 @@ window.onload = wrap_img;
         "event_name": "The Fix Mix Flicks",
         "name": "Fixer Upper",
         "start_time": "11:50"
-    },
-    {
-        "date": "03/01/2023",
-        "email": "lucky@magic.com",
-        "end_time": "15:00",
-        "event_details": "This is the month that St. Patrick's Day takes place, so we're celebrating.",
-        "event_name": "Beginning of March Celebration",
-        "name": "Lucky Leprechaun",
-        "start_time": "13:00"
-    },
-    {
-        "date": "03/07/2023",
-        "email": "downer@icloud.com",
-        "end_time": "13:45",
-        "event_details": "We're gonna break it down!",
-        "event_name": "The Down Breaker Clowns",
-        "name": "Breaker Downer",
-        "start_time": "12:37"
     }
 ]
 </code></pre></div></div>
@@ -327,21 +289,25 @@ window.onload = wrap_img;
 <h4 id="test-outputs">
 <a class="anchor" href="#test-outputs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Test Outputs</h4>
 
-<p>The outputs of the tests produce different tables.</p>
+<p>The outputs of the tests produce different tables and rely on different parts of the code (the selection <code class="language-plaintext highlighter-rouge">if</code> statement specifically) for their outputs. See the explanations below.</p>
 
 <h5 id="test-1">
 <a class="anchor" href="#test-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Test 1</h5>
 
 <figure>
-  <img src="/realdrew/images/Screen%20Shot%202023-02-26%20at%207.44.38%20PM.png" alt="table_Make function being called" width="600">
+  <img src="/realdrew/images/Screen%20Shot%202023-02-27%20at%2010.41.21%20PM.png" alt="table_Make function being called" width="600">
 </figure>
+
+<p>For both the start and end time, the procedure relied on the <code class="language-plaintext highlighter-rouge">if (Number(temp_(e or s)time.substring(0, 2)) &gt; 12)</code> because both times were PM times.</p>
 
 <h5 id="test-2">
 <a class="anchor" href="#test-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Test 2</h5>
 
 <figure>
-  <img src="/realdrew/images/Screen%20Shot%202023-02-26%20at%207.43.11%20PM.png" alt="table_Make function being called" width="600">
+  <img src="/realdrew/images/Screen%20Shot%202023-02-27%20at%2010.40.26%20PM.png" alt="table_Make function being called" width="600">
 </figure>
+
+<p>While the end time for this one still called on the <code class="language-plaintext highlighter-rouge">if</code> condition, since the start time “11:50” is an AM time, it called on the <code class="language-plaintext highlighter-rouge">else</code> condition which instead concatenated <code class="language-plaintext highlighter-rouge">"AM"</code> to the unchanged time data string.</p>
 
   </div><a class="u-url" href="/realdrew/eventscboutline" hidden></a>
 </article>
