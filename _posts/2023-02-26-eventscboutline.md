@@ -52,6 +52,8 @@ In terms of purpose, this list allows users to see events in date order, meaning
 
 This list helps the programs because it allows the program to take advantage of the way that indexes can represent a chronological organization of data. That chronological organization means that, with just a basic for loop which increments the index value of `i` by one, adding to the `final_List` list variable with the `push` function allows it to remain in in chronological order despite removing specific entries.
 
+If, for example, the data was defined as a bunch of individual variables, this would make the program far more complex because the data would be numerous and uncollected. Having it in the form of a list allows it to efficiently represent both its data and is chronological placement relative to the date sort prompt.
+
 ### Procedural Abstraction
 
 ```
