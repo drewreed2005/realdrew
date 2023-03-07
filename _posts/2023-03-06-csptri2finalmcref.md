@@ -72,3 +72,6 @@ I've never seen a set of nested Boolean expressions that contain `AND`, `OR`, AN
 Here are some things to remember from what I struggled with on this MCQ:
 
 - All the stuff about privacy and security from Big Idea 5 (cookies and keys especially)
+- `NOT`, `AND` and `OR` expressions
+- I got a simulation problem wrong, so I would say look at those. I really think I understand them fine, though.
+- Otherwise, I would just look through these problems to see which answers were correct and to look at how they choose incorrect answers so that I know if I'm being tricked.
