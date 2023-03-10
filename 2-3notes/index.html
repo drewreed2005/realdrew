@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      15 min read
+      26 min read
     
 </span></p>
 
@@ -142,6 +142,18 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h1"><a href="#APIs-are-a-Source-for-Writing-Programs-with-Data">APIs are a Source for Writing Programs with Data </a></li>
 <li class="toc-entry toc-h1"><a href="#Hacks">Hacks </a>
 <ul>
+<li class="toc-entry toc-h2"><a href="#2.3-Practice-Problems">2.3 Practice Problems </a></li>
+<li class="toc-entry toc-h2"><a href="#Personal-Dataset-Work">Personal Dataset Work </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Date-Sorting">Date Sorting </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#Earliest">Earliest </a></li>
+<li class="toc-entry toc-h4"><a href="#Latest">Latest </a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#Other-Online-Data">Other Online Data </a></li>
 <li class="toc-entry toc-h2"><a href="#Hack-Helpers">Hack Helpers </a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#Titanic-Data">Titanic Data </a></li>
@@ -674,7 +686,7 @@ Name: day1, dtype: int64
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">())</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">())</span> <span class="c1">#prints with new data set in mind</span>
 </pre></div>
 
     </div>
@@ -688,14 +700,14 @@ Name: day1, dtype: int64
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>&lt;class 'pandas.core.frame.DataFrame'&gt;
-Index: 3 entries, day1 to day3
+Index: 4 entries, day1 to day4
 Data columns (total 2 columns):
  #   Column    Non-Null Count  Dtype
 ---  ------    --------------  -----
- 0   calories  3 non-null      int64
- 1   duration  3 non-null      int64
+ 0   calories  4 non-null      int64
+ 1   duration  4 non-null      int64
 dtypes: int64(2)
-memory usage: 180.0+ bytes
+memory usage: 268.0+ bytes
 None
 </pre>
 </div>
@@ -857,15 +869,19 @@ None
 </h1>
 <blockquote>
 <p>Early Seed award</p>
-<ul>
-<li>Add this Blog to you own Blogging site.</li>
-<li>Have all lecture files saved to your files directory before Tech Talk starts. Have data.csv open in vscode. Don't tell anyone. Show to Teacher.</li>
-</ul>
+</blockquote>
+<p>I hope you saw it during class.</p>
+<blockquote>
 <p>AP Prep</p>
-<ul>
-<li>Add this Blog to you own Blogging site.  In the Blog add notes and observations on each code cell.</li>
-<li>In blog add College Board practice problems for 2.3.</li>
-</ul>
+</blockquote>
+<h2 id="2.3-Practice-Problems">
+<a class="anchor" href="#2.3-Practice-Problems" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.3 Practice Problems<a class="anchor-link" href="#2.3-Practice-Problems"> </a>
+</h2>
+<p>[fill in here]</p>
+<h2 id="Personal-Dataset-Work">
+<a class="anchor" href="#Personal-Dataset-Work" aria-hidden="true"><span class="octicon octicon-link"></span></a>Personal Dataset Work<a class="anchor-link" href="#Personal-Dataset-Work"> </a>
+</h2>
+<blockquote>
 <p>The next 4 weeks, Teachers want you to improve your understanding of data.  Look at the blog and others on Unit 2.  Your intention is to find some things to differentiate your individual College Board project.</p>
 </blockquote>
 <ul>
@@ -886,6 +902,324 @@ None
 <p>Continue this Blog using Pandas extract info from that dataset (ex. max, min, mean, median, mode, etc.)</p>
 </li>
 </ul>
+<p>I decided to try applying Pandas sorting methods to my events database from the Cafe Gato project.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="sd">'''Pandas can be used to analyze data'''</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="k">def</span> <span class="nf">fetch</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">eventdf</span>
+    <span class="sd">'''Obtain data from an endpoint'''</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s2">"https://cgato.duckdns.org/api/events/"</span>
+    <span class="n">fetch</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">json</span> <span class="o">=</span> <span class="n">fetch</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+    <span class="c1"># filter data for requirement</span>
+    <span class="n">eventdf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">json</span><span class="p">)</span>  <span class="c1"># filter endpoint for country stats</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">eventdf</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="s1">'date'</span><span class="p">:</span><span class="s1">'name'</span><span class="p">])</span> <span class="c1"># show row 0 through 5 and columns country_name through deaths</span>
+    
+<span class="n">fetch</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>         date                email end_time  \
+0  03/13/2023     fixer@icloud.com    13:00   
+1  03/01/2023      lucky@magic.com    15:00   
+2  03/07/2023    downer@icloud.com    13:45   
+3  02/28/2023        cat@gmail.com    14:00   
+4  03/04/2023  drewdafox@gmail.com    14:00   
+
+                                       event_details  \
+0                                We're gonna fix it!   
+1  This is the month that St. Patrick's Day takes...   
+2                         We're gonna break it down!   
+3                                           adsfasdf   
+4                                 Test for the class   
+
+                       event_name  id              name  
+0              The Fix Mix Flicks   3       Fixer Upper  
+1  Beginning of March Celebration   5  Lucky Leprechaun  
+2         The Down Breaker Clowns   6    Breaker Downer  
+3                             cat   7               cat  
+4              Test Day for APCSP   8         Drew Reed  
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>I decided to use Pandas for a process I spent a lot of time and effort on in the frontend...</p>
+<h3 id="Date-Sorting">
+<a class="anchor" href="#Date-Sorting" aria-hidden="true"><span class="octicon octicon-link"></span></a>Date Sorting<a class="anchor-link" href="#Date-Sorting"> </a>
+</h3>
+<p>Below, I've sorted the data both by soonest and by latest.</p>
+<h4 id="Earliest">
+<a class="anchor" href="#Earliest" aria-hidden="true"><span class="octicon octicon-link"></span></a>Earliest<a class="anchor-link" href="#Earliest"> </a>
+</h4>
+<p>Below is sorted by earliest, plus only shows certain columns to save space.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">eventdf</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="s1">'date'</span><span class="p">:</span><span class="s1">'event_name'</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">'date'</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>         date                email end_time  \
+3  02/28/2023        cat@gmail.com    14:00   
+1  03/01/2023      lucky@magic.com    15:00   
+4  03/04/2023  drewdafox@gmail.com    14:00   
+2  03/07/2023    downer@icloud.com    13:45   
+0  03/13/2023     fixer@icloud.com    13:00   
+
+                                       event_details  \
+3                                           adsfasdf   
+1  This is the month that St. Patrick's Day takes...   
+4                                 Test for the class   
+2                         We're gonna break it down!   
+0                                We're gonna fix it!   
+
+                       event_name  
+3                             cat  
+1  Beginning of March Celebration  
+4              Test Day for APCSP  
+2         The Down Breaker Clowns  
+0              The Fix Mix Flicks  
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Latest">
+<a class="anchor" href="#Latest" aria-hidden="true"><span class="octicon octicon-link"></span></a>Latest<a class="anchor-link" href="#Latest"> </a>
+</h4>
+<p>Below, the data is sorted by latest.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">eventdf</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="s1">'date'</span><span class="p">:</span><span class="s1">'event_name'</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">'date'</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>         date                email end_time  \
+0  03/13/2023     fixer@icloud.com    13:00   
+2  03/07/2023    downer@icloud.com    13:45   
+4  03/04/2023  drewdafox@gmail.com    14:00   
+1  03/01/2023      lucky@magic.com    15:00   
+3  02/28/2023        cat@gmail.com    14:00   
+
+                                       event_details  \
+0                                We're gonna fix it!   
+2                         We're gonna break it down!   
+4                                 Test for the class   
+1  This is the month that St. Patrick's Day takes...   
+3                                           adsfasdf   
+
+                       event_name  
+0              The Fix Mix Flicks  
+2         The Down Breaker Clowns  
+4              Test Day for APCSP  
+1  Beginning of March Celebration  
+3                             cat  
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Other-Online-Data">
+<a class="anchor" href="#Other-Online-Data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Other Online Data<a class="anchor-link" href="#Other-Online-Data"> </a>
+</h2>
+<p>I decided to use a free health statistics API from RapidAPI and try to see things about it with Pandas.</p>
+<p>It's a fairly complicated data set, so I ended up spending a while just trying to isolate important data. Below, you can see that I managed to isolate the nutrition information.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="c1"># GET code</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">"https://edamam-food-and-grocery-database.p.rapidapi.com/parser"</span>
+
+<span class="n">querystring</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"ingr"</span><span class="p">:</span><span class="s2">"apple"</span><span class="p">}</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="s2">"X-RapidAPI-Key"</span><span class="p">:</span> <span class="s2">"f9dc4c060fmsh192fef0e86699c6p109981jsn882369c51285"</span><span class="p">,</span>
+	<span class="s2">"X-RapidAPI-Host"</span><span class="p">:</span> <span class="s2">"edamam-food-and-grocery-database.p.rapidapi.com"</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s2">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">querystring</span><span class="p">)</span>
+<span class="n">json</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">nutrients</span> <span class="o">=</span> <span class="n">json</span><span class="p">[</span><span class="s1">'parsed'</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">'food'</span><span class="p">][</span><span class="s1">'nutrients'</span><span class="p">]</span>
+<span class="c1">#fooddf = pd.DataFrame(json[1]['nutrients'])</span>
+
+<span class="c1">#print(fooddf)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">nutrients</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>{'ENERC_KCAL': 52.0, 'PROCNT': 0.26, 'FAT': 0.17, 'CHOCDF': 13.81, 'FIBTG': 2.4}
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The data above is only for "apple," however. I decided to try to expand the amount of data by removing the <code>querystring</code>.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="c1"># GET code</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">"https://edamam-food-and-grocery-database.p.rapidapi.com/parser"</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="s2">"X-RapidAPI-Key"</span><span class="p">:</span> <span class="s2">"f9dc4c060fmsh192fef0e86699c6p109981jsn882369c51285"</span><span class="p">,</span>
+	<span class="s2">"X-RapidAPI-Host"</span><span class="p">:</span> <span class="s2">"edamam-food-and-grocery-database.p.rapidapi.com"</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s2">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="n">json</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="c1">#nutrients = json['parsed'][0]['food']['nutrients']</span>
+<span class="c1">#fooddf = pd.DataFrame(json[1]['nutrients'])</span>
+
+<span class="c1">#print(fooddf)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>{'text': '', 'parsed': [], 'hints': [{'food': {'foodId': 'food_bwrgmmqau78xrdazxx79obeezumz', 'uri': 'http://www.edamam.com/ontologies/edamam.owl#Food_01001', 'label': 'Butter, Salted', 'nutrients': {'ENERC_KCAL': 717.0, 'PROCNT': 0.85, 'FAT': 81.11, 'CHOCDF': 0.06, 'FIBTG': 0.0}, 'category': 'Generic foods', 'categoryLabel': 'food', 'image': 'https://www.edamam.com/food-img/515/515af390107678fce1533a31ee4cc35b.jpeg'}, 'measures': [{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_tablespoon', 'label': 'Tablespoon'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cup', 'label': 'Cup'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_stick', 'label': 'Stick'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_gram', 'label': 'Gram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_ounce', 'label': 'Ounce'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_pound', 'label': 'Pound'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_unit', 'label': 'Whole'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_pat', 'label': 'Pat'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_serving', 'label': 'Serving'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram', 'label': 'Kilogram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_default'}]}, {'food': {'foodId': 'food_blrpqo1bp94h17apq4prgbhcuhex', 'uri': 'http://www.edamam.com/ontologies/edamam.owl#Food_01002', 'label': 'Butter, Whipped, With Salt', 'nutrients': {'ENERC_KCAL': 717.0, 'PROCNT': 0.85, 'FAT': 81.11, 'CHOCDF': 0.06, 'FIBTG': 0.0}, 'category': 'Generic foods', 'categoryLabel': 'food', 'image': 'https://www.edamam.com/food-img/ec6/ec68f0d43ed9b399c8464481f89eb225.jpg'}, 'measures': [{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_stick', 'label': 'Stick'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_serving', 'label': 'Serving'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_pat', 'label': 'Pat'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_gram', 'label': 'Gram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_ounce', 'label': 'Ounce'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_pound', 'label': 'Pound'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram', 'label': 'Kilogram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_tablespoon', 'label': 'Tablespoon'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cup', 'label': 'Cup'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_default'}]}, {'food': {'foodId': 'food_bzaenytbm02cd4br159f4biv49jc', 'uri': 'http://www.edamam.com/ontologies/edamam.owl#Food_01003', 'label': 'Butter Oil, Anhydrous', 'nutrients': {'ENERC_KCAL': 876.0, 'PROCNT': 0.28, 'FAT': 99.48, 'CHOCDF': 0.0, 'FIBTG': 0.0}, 'category': 'Generic foods', 'categoryLabel': 'food', 'image': 'https://www.edamam.com/food-img/2b5/2b504c036c64481b224c9d74cc4a82e0.jpg'}, 'measures': [{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_tablespoon', 'label': 'Tablespoon'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cup', 'label': 'Cup'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_gram', 'label': 'Gram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_ounce', 'label': 'Ounce'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_pound', 'label': 'Pound'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_serving', 'label': 'Serving'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram', 'label': 'Kilogram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_default'}]}, {'food': {'foodId': 'food_aqptx2cauhjjzubmplnjna81ev33', 'uri': 'http://www.edamam.com/ontologies/edamam.owl#Food_01004', 'label': 'Cheese, Blue', 'nutrients': {'ENERC_KCAL': 353.0, 'PROCNT': 21.4, 'FAT': 28.74, 'CHOCDF': 2.34, 'FIBTG': 0.0}, 'category': 'Generic foods', 'categoryLabel': 'food', 'image': 'https://www.edamam.com/food-img/b44/b442cfc174a1a691dca574c9b7dcb47a.jpg'}, 'measures': [{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cup', 'label': 'Cup', 'qualified': [[{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Qualifier_crumbled', 'label': 'crumbled'}]]}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_ounce', 'label': 'Ounce'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_gram', 'label': 'Gram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_pound', 'label': 'Pound'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_unit', 'label': 'Whole'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_slice', 'label': 'Slice'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_wedge', 'label': 'Wedge'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_piece', 'label': 'Piece'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_serving', 'label': 'Serving'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_round', 'label': 'Round'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram', 'label': 'Kilogram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cubic_inch', 'label': 'Cubic inch'}]}, {'food': {'foodId': 'food_au4tus5b092owgbiu8yama5yupfp', 'uri': 'http://www.edamam.com/ontologies/edamam.owl#Food_01005', 'label': 'Cheese, Brick', 'nutrients': {'ENERC_KCAL': 371.0, 'PROCNT': 23.24, 'FAT': 29.68, 'CHOCDF': 2.79, 'FIBTG': 0.0}, 'category': 'Generic foods', 'categoryLabel': 'food', 'image': 'https://www.edamam.com/food-img/702/7023ac63ef897bab1f6ea399316748d7.png'}, 'measures': [{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_ounce', 'label': 'Ounce'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_slice', 'label': 'Slice'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cup', 'label': 'Cup', 'qualified': [[{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Qualifier_diced', 'label': 'diced'}], [{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Qualifier_shredded', 'label': 'shredded'}]]}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_serving', 'label': 'Serving'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_gram', 'label': 'Gram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_pound', 'label': 'Pound'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram', 'label': 'Kilogram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cubic_inch', 'label': 'Cubic inch'}]}, {'food': {'foodId': 'food_a06hreabh7agoeazgrtiobunge7b', 'uri': 'http://www.edamam.com/ontologies/edamam.owl#Food_01006', 'label': 'Cheese, Brie', 'nutrients': {'ENERC_KCAL': 334.0, 'PROCNT': 20.75, 'FAT': 27.68, 'CHOCDF': 0.45, 'FIBTG': 0.0}, 'category': 'Generic foods', 'categoryLabel': 'food', 'image': 'https://www.edamam.com/food-img/f53/f5340600239cf508f17b167265c6a1cf.jpg'}, 'measures': [{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_ounce', 'label': 'Ounce'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_unit', 'label': 'Whole'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_pound', 'label': 'Pound'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_slice', 'label': 'Slice'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_gram', 'label': 'Gram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_round', 'label': 'Round'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cup', 'label': 'Cup', 'qualified': [[{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Qualifier_melted', 'label': 'melted'}], [{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Qualifier_sliced', 'label': 'sliced'}]]}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_package', 'label': 'Package'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_piece', 'label': 'Piece'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_serving', 'label': 'Serving'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram', 'label': 'Kilogram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cubic_inch', 'label': 'Cubic inch'}]}, {'food': {'foodId': 'food_bq1kaa2anb8wmsaj3in43bxxsjyh', 'uri': 'http://www.edamam.com/ontologies/edamam.owl#Food_01007', 'label': 'Cheese, Camembert', 'nutrients': {'ENERC_KCAL': 300.0, 'PROCNT': 19.8, 'FAT': 24.26, 'CHOCDF': 0.46, 'FIBTG': 0.0}, 'category': 'Generic foods', 'categoryLabel': 'food', 'image': 'https://www.edamam.com/food-img/419/419fc950e8f2a589a11d63efb28b8bef.jpg'}, 'measures': [{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_ounce', 'label': 'Ounce'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_gram', 'label': 'Gram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_unit', 'label': 'Whole'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_pound', 'label': 'Pound'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_slice', 'label': 'Slice'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cup', 'label': 'Cup'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_wedge', 'label': 'Wedge'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_piece', 'label': 'Piece'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_serving', 'label': 'Serving'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram', 'label': 'Kilogram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cubic_inch', 'label': 'Cubic inch'}]}, {'food': {'foodId': 'food_a8q8p7tahfewtuajrmgcrbpxtti8', 'uri': 'http://www.edamam.com/ontologies/edamam.owl#Food_01008', 'label': 'Cheese, Caraway', 'nutrients': {'ENERC_KCAL': 376.0, 'PROCNT': 25.18, 'FAT': 29.2, 'CHOCDF': 3.06, 'FIBTG': 0.0}, 'category': 'Generic foods', 'categoryLabel': 'food', 'image': 'https://www.edamam.com/food-img/541/541e46e44ba61aec8bcd599df94c0eed.jpg'}, 'measures': [{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_serving', 'label': 'Serving'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_gram', 'label': 'Gram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_ounce', 'label': 'Ounce'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_pound', 'label': 'Pound'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram', 'label': 'Kilogram'}]}, {'food': {'foodId': 'food_a2b3q33bnje4iual2pba2at89tzi', 'uri': 'http://www.edamam.com/ontologies/edamam.owl#Food_01009', 'label': 'Cheese, Cheddar', 'nutrients': {'ENERC_KCAL': 406.0, 'PROCNT': 24.04, 'FAT': 33.82, 'CHOCDF': 1.33, 'FIBTG': 0.0}, 'category': 'Generic foods', 'categoryLabel': 'food'}, 'measures': [{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cup', 'label': 'Cup', 'qualified': [[{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Qualifier_diced', 'label': 'diced'}], [{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Qualifier_shredded', 'label': 'shredded'}], [{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Qualifier_melted', 'label': 'melted'}]]}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_ounce', 'label': 'Ounce'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_slice', 'label': 'Slice'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_gram', 'label': 'Gram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_pound', 'label': 'Pound'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_unit', 'label': 'Whole'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_package', 'label': 'Package'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_block', 'label': 'Block'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_piece', 'label': 'Piece'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_chip', 'label': 'Chip'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram', 'label': 'Kilogram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_serving', 'label': 'Serving'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cubic_inch', 'label': 'Cubic inch'}]}, {'food': {'foodId': 'food_b4g9w0dboo05sdaxwu1n9a3b4emv', 'uri': 'http://www.edamam.com/ontologies/edamam.owl#Food_01010', 'label': 'Cheese, Cheshire', 'nutrients': {'ENERC_KCAL': 387.0, 'PROCNT': 23.37, 'FAT': 30.6, 'CHOCDF': 4.78, 'FIBTG': 0.0}, 'category': 'Generic foods', 'categoryLabel': 'food', 'image': 'https://www.edamam.com/food-img/9e4/9e4ffc57473590221cb97ccf5354e42b.jpg'}, 'measures': [{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_gram', 'label': 'Gram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_ounce', 'label': 'Ounce'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_serving', 'label': 'Serving'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_pound', 'label': 'Pound'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram', 'label': 'Kilogram'}]}, {'food': {'foodId': 'food_a5ylefeb5r30eibjj4mqubdc09z1', 'uri': 'http://www.edamam.com/ontologies/edamam.owl#Food_01011', 'label': 'Cheese, Colby', 'nutrients': {'ENERC_KCAL': 394.0, 'PROCNT': 23.76, 'FAT': 32.11, 'CHOCDF': 2.57, 'FIBTG': 0.0}, 'category': 'Generic foods', 'categoryLabel': 'food', 'image': 'https://www.edamam.com/food-img/a6a/a6a3cb346882b674c5b5086352644ec5.jpg'}, 'measures': [{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cup', 'label': 'Cup', 'qualified': [[{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Qualifier_shredded', 'label': 'shredded'}], [{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Qualifier_diced', 'label': 'diced'}]]}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_ounce', 'label': 'Ounce'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_slice', 'label': 'Slice'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_pound', 'label': 'Pound'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_unit', 'label': 'Whole'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_gram', 'label': 'Gram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram', 'label': 'Kilogram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cubic_inch', 'label': 'Cubic inch'}]}, {'food': {'foodId': 'food_abw09jebwny3g6bb7jvn0bbalare', 'uri': 'http://www.edamam.com/ontologies/edamam.owl#Food_01012', 'label': 'Cheese, Cottage, Creamed, Large or Small Curd', 'nutrients': {'ENERC_KCAL': 98.0, 'PROCNT': 11.12, 'FAT': 4.3, 'CHOCDF': 3.38, 'FIBTG': 0.0}, 'category': 'Generic foods', 'categoryLabel': 'food', 'image': 'https://www.edamam.com/food-img/8ee/8ee7b75071fc907cce2819031a9ae563.jpg'}, 'measures': [{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cup', 'label': 'Cup', 'qualified': [[{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Qualifier_large', 'label': 'large'}], [{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Qualifier_small', 'label': 'small'}]]}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_ounce', 'label': 'Ounce'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_gram', 'label': 'Gram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_tablespoon', 'label': 'Tablespoon'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_pound', 'label': 'Pound'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram', 'label': 'Kilogram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_serving', 'label': 'Serving'}]}, {'food': {'foodId': 'food_apqi15daozoc8oacpl41rallrou9', 'uri': 'http://www.edamam.com/ontologies/edamam.owl#Food_01013', 'label': 'Cheese, Cottage, Creamed, With Fruit', 'nutrients': {'ENERC_KCAL': 97.0, 'PROCNT': 10.69, 'FAT': 3.85, 'CHOCDF': 4.61, 'FIBTG': 0.2}, 'category': 'Generic foods', 'categoryLabel': 'food', 'image': 'https://www.edamam.com/food-img/6a3/6a34798287bc5e41e2328a5973695f38.jpg'}, 'measures': [{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_gram', 'label': 'Gram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_ounce', 'label': 'Ounce'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_pound', 'label': 'Pound'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram', 'label': 'Kilogram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cup', 'label': 'Cup'}]}, {'food': {'foodId': 'food_b0nmp6gaermj0aad3mf7iararumu', 'uri': 'http://www.edamam.com/ontologies/edamam.owl#Food_01014', 'label': 'Cheese, Cottage, Nonfat, Uncreamed, Dry, Large or Small Curd', 'nutrients': {'ENERC_KCAL': 72.0, 'PROCNT': 10.34, 'FAT': 0.29, 'CHOCDF': 6.66, 'FIBTG': 0.0}, 'category': 'Generic foods', 'categoryLabel': 'food', 'image': 'https://www.edamam.com/food-img/f28/f28c23a0ce83d037a5c27401e4ce41e9.jpg'}, 'measures': [{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cup', 'label': 'Cup'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_ounce', 'label': 'Ounce'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_serving', 'label': 'Serving'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_gram', 'label': 'Gram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_pound', 'label': 'Pound'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram', 'label': 'Kilogram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_tablespoon', 'label': 'Tablespoon'}]}, {'food': {'foodId': 'food_a78om83aro60t5a4wpm8hbf3239s', 'uri': 'http://www.edamam.com/ontologies/edamam.owl#Food_01015', 'label': 'Cheese, Cottage, Lowfat, 2% Milkfat', 'nutrients': {'ENERC_KCAL': 81.0, 'PROCNT': 10.45, 'FAT': 2.27, 'CHOCDF': 4.76, 'FIBTG': 0.0}, 'category': 'Generic foods', 'categoryLabel': 'food', 'image': 'https://www.edamam.com/food-img/046/046c46348bde2b7af7da40196a1c942e.jpg'}, 'measures': [{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cup', 'label': 'Cup'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_ounce', 'label': 'Ounce'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_tablespoon', 'label': 'Tablespoon'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_gram', 'label': 'Gram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_pound', 'label': 'Pound'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_serving', 'label': 'Serving'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram', 'label': 'Kilogram'}]}, {'food': {'foodId': 'food_bowtx9kb5cpt8yb6qswcga80ycli', 'uri': 'http://www.edamam.com/ontologies/edamam.owl#Food_01016', 'label': 'Cheese, Cottage, Lowfat, 1% Milkfat', 'nutrients': {'ENERC_KCAL': 72.0, 'PROCNT': 12.39, 'FAT': 1.02, 'CHOCDF': 2.72, 'FIBTG': 0.0}, 'category': 'Generic foods', 'categoryLabel': 'food', 'image': 'https://www.edamam.com/food-img/c18/c18b96dafd232cbddb9bbb05c2ab8e3b.jpg'}, 'measures': [{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cup', 'label': 'Cup'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_ounce', 'label': 'Ounce'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_gram', 'label': 'Gram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_pound', 'label': 'Pound'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram', 'label': 'Kilogram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_tablespoon', 'label': 'Tablespoon'}]}, {'food': {'foodId': 'food_a5oa9cnaawyx9uang44bka8467or', 'uri': 'http://www.edamam.com/ontologies/edamam.owl#Food_01017', 'label': 'Cheese, Cream', 'nutrients': {'ENERC_KCAL': 342.0, 'PROCNT': 5.93, 'FAT': 34.24, 'CHOCDF': 4.07, 'FIBTG': 0.0}, 'category': 'Generic foods', 'categoryLabel': 'food', 'image': 'https://www.edamam.com/food-img/ddd/dddce306e7ee41e8e07dc62e28cab94b.jpg'}, 'measures': [{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_ounce', 'label': 'Ounce'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cup', 'label': 'Cup'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_unit', 'label': 'Whole', 'qualified': [[{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Qualifier_small', 'label': 'small'}]]}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_gram', 'label': 'Gram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_tablespoon', 'label': 'Tablespoon', 'qualified': [[{'uri': 'http://www.edamam.com/ontologies/edamam.owl#LanguaL_H0358', 'label': 'AERATED BY WHIPPING'}]]}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_pound', 'label': 'Pound'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_package', 'label': 'Package', 'qualified': [[{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Qualifier_small', 'label': 'small'}]]}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram', 'label': 'Kilogram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_serving', 'label': 'Serving'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_slab', 'label': 'Slab'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cubic_inch', 'label': 'Cubic inch'}]}, {'food': {'foodId': 'food_ax6ocbjas0levpb3nl0n7auzwy0i', 'uri': 'http://www.edamam.com/ontologies/edamam.owl#Food_01018', 'label': 'Cheese, Edam', 'nutrients': {'ENERC_KCAL': 357.0, 'PROCNT': 24.99, 'FAT': 27.8, 'CHOCDF': 1.43, 'FIBTG': 0.0}, 'category': 'Generic foods', 'categoryLabel': 'food', 'image': 'https://www.edamam.com/food-img/2df/2dfa711cc6aff6e4d3bfefb4814f4cb4.jpg'}, 'measures': [{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_gram', 'label': 'Gram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_ounce', 'label': 'Ounce'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_serving', 'label': 'Serving'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_package', 'label': 'Package'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_pound', 'label': 'Pound'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram', 'label': 'Kilogram'}]}, {'food': {'foodId': 'food_ba6vmpsbtteeyabi8t2i8bwzl13d', 'uri': 'http://www.edamam.com/ontologies/edamam.owl#Food_01019', 'label': 'Cheese, Feta', 'nutrients': {'ENERC_KCAL': 264.0, 'PROCNT': 14.21, 'FAT': 21.28, 'CHOCDF': 4.09, 'FIBTG': 0.0}, 'category': 'Generic foods', 'categoryLabel': 'food', 'image': 'https://www.edamam.com/food-img/37e/37ef3e404b1c02bf4707cb82010732b8.jpg'}, 'measures': [{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cup', 'label': 'Cup', 'qualified': [[{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Qualifier_crumbled', 'label': 'crumbled'}]]}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_ounce', 'label': 'Ounce'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_gram', 'label': 'Gram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_pound', 'label': 'Pound'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_unit', 'label': 'Whole'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_slice', 'label': 'Slice'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_package', 'label': 'Package'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cube', 'label': 'Cube'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_piece', 'label': 'Piece'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram', 'label': 'Kilogram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_serving', 'label': 'Serving'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_wedge', 'label': 'Wedge'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cubic_inch', 'label': 'Cubic inch'}]}, {'food': {'foodId': 'food_a9n6dlcb168fzqb5qrkp9a7oy4jp', 'uri': 'http://www.edamam.com/ontologies/edamam.owl#Food_01020', 'label': 'Cheese, Fontina', 'nutrients': {'ENERC_KCAL': 389.0, 'PROCNT': 25.6, 'FAT': 31.14, 'CHOCDF': 1.55, 'FIBTG': 0.0}, 'category': 'Generic foods', 'categoryLabel': 'food', 'image': 'https://www.edamam.com/food-img/0ac/0acf62d2ccdf71b1c03e13115f6cc002.jpg'}, 'measures': [{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cup', 'label': 'Cup', 'qualified': [[{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Qualifier_diced', 'label': 'diced'}], [{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Qualifier_shredded', 'label': 'shredded'}]]}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_ounce', 'label': 'Ounce'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_pound', 'label': 'Pound'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_slice', 'label': 'Slice'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_gram', 'label': 'Gram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_unit', 'label': 'Whole'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cube', 'label': 'Cube'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_piece', 'label': 'Piece'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_serving', 'label': 'Serving'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_round', 'label': 'Round'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_package', 'label': 'Package'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram', 'label': 'Kilogram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cubic_inch', 'label': 'Cubic inch'}]}], '_links': {'next': {'title': 'Next page', 'href': 'https://api.edamam.com/api/food-database/parser?session=40&amp;app_id=85b409cf&amp;app_key=69d004c3e3c5b967261e625baea627fc'}}}
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Hack-Helpers">
 <a class="anchor" href="#Hack-Helpers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hack Helpers<a class="anchor-link" href="#Hack-Helpers"> </a>
 </h2>
@@ -982,6 +1316,15 @@ None
 
 <div class="output_wrapper">
 <div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>Matplotlib is building the font cache; this may take a moment.
+Fontconfig warning: ignoring UTF-8: not a valid region tag
+</pre>
+</div>
+</div>
 
 <div class="output_area">
 
@@ -1376,7 +1719,7 @@ dtype: float64
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>DecisionTreeClassifier Accuracy: 0.7705882352941177
+<pre>DecisionTreeClassifier Accuracy: 0.7647058823529411
 LogisticRegression Accuracy: 0.788235294117647
 </pre>
 </div>
@@ -1385,7 +1728,7 @@ LogisticRegression Accuracy: 0.788235294117647
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>/Users/johnmortensen/opt/anaconda3/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:814: ConvergenceWarning: lbfgs failed to converge (status=1):
+<pre>/Users/mister_dew/opt/anaconda3/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:814: ConvergenceWarning: lbfgs failed to converge (status=1):
 STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
 
 Increase the number of iterations (max_iter) or scale the data as shown in:
