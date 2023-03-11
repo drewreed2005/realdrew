@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      26 min read
+      11 min read
     
 </span></p>
 
@@ -142,7 +142,11 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h1"><a href="#APIs-are-a-Source-for-Writing-Programs-with-Data">APIs are a Source for Writing Programs with Data </a></li>
 <li class="toc-entry toc-h1"><a href="#Hacks">Hacks </a>
 <ul>
-<li class="toc-entry toc-h2"><a href="#2.3-Practice-Problems">2.3 Practice Problems </a></li>
+<li class="toc-entry toc-h2"><a href="#AP-Prep">AP Prep </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#2.3-College-Board-Practice-Problems">2.3 College Board Practice Problems </a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h2"><a href="#Personal-Dataset-Work">Personal Dataset Work </a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#Date-Sorting">Date Sorting </a>
@@ -154,12 +158,7 @@ window.onload = wrap_img;
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#Other-Online-Data">Other Online Data </a></li>
-<li class="toc-entry toc-h2"><a href="#Hack-Helpers">Hack Helpers </a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#Titanic-Data">Titanic Data </a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h2"><a href="#Machine-Learning-Visit-Tutorials-Point">Machine Learning Visit Tutorials Point </a></li>
+<li class="toc-entry toc-h2"><a href="#Hack-Helpers">Hack Helpers </a></li>
 </ul>
 </li>
 </ul><!--
@@ -871,13 +870,18 @@ None
 <p>Early Seed award</p>
 </blockquote>
 <p>I hope you saw it during class.</p>
-<blockquote>
-<p>AP Prep</p>
-</blockquote>
-<h2 id="2.3-Practice-Problems">
-<a class="anchor" href="#2.3-Practice-Problems" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.3 Practice Problems<a class="anchor-link" href="#2.3-Practice-Problems"> </a>
+<h2 id="AP-Prep">
+<a class="anchor" href="#AP-Prep" aria-hidden="true"><span class="octicon octicon-link"></span></a>AP Prep<a class="anchor-link" href="#AP-Prep"> </a>
 </h2>
-<p>[fill in here]</p>
+<p>I didn't make my own questions this time because I learned that we weren't really intended to do that. I did take the College Board practice quiz, though.</p>
+<h3 id="2.3-College-Board-Practice-Problems">
+<a class="anchor" href="#2.3-College-Board-Practice-Problems" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.3 College Board Practice Problems<a class="anchor-link" href="#2.3-College-Board-Practice-Problems"> </a>
+</h3>
+<p>Here are the results of the 2.3 practice questions.</p>
+<figure>
+  <img src="/realdrew/images/Screen%20Shot%202023-03-11%20at%203.19.14%20PM.png" alt="6/6" width="800">
+  <figcaption>I got 6/6.</figcaption>
+</figure><p>All of the questions had very clear answers, so I don't have a lot to reflect on. They were common sense questions above all else.</p>
 <h2 id="Personal-Dataset-Work">
 <a class="anchor" href="#Personal-Dataset-Work" aria-hidden="true"><span class="octicon octicon-link"></span></a>Personal Dataset Work<a class="anchor-link" href="#Personal-Dataset-Work"> </a>
 </h2>
@@ -1105,7 +1109,7 @@ None
 <h2 id="Other-Online-Data">
 <a class="anchor" href="#Other-Online-Data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Other Online Data<a class="anchor-link" href="#Other-Online-Data"> </a>
 </h2>
-<p>I decided to use a free health statistics API from RapidAPI and try to see things about it with Pandas.</p>
+<p>I decided to use a free health statistics API from RapidAPI and try to see things about it with Pandas. It mostly covers the basic health information of servings of common ingredients (so not full recipe details).</p>
 <p>It's a fairly complicated data set, so I ended up spending a while just trying to isolate important data. Below, you can see that I managed to isolate the nutrition information.</p>
 
 </div>
@@ -1165,6 +1169,7 @@ None
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The data above is only for "apple," however. I decided to try to expand the amount of data by removing the <code>querystring</code>.</p>
+<p>In order to translate the acronyms, I had to look at the <a href="https://developer.edamam.com/edamam-docs-recipe-api#/">documentation for the API</a> to correctly label it.</p>
 
 </div>
 </div>
@@ -1187,13 +1192,47 @@ None
 	<span class="s2">"X-RapidAPI-Host"</span><span class="p">:</span> <span class="s2">"edamam-food-and-grocery-database.p.rapidapi.com"</span>
 <span class="p">}</span>
 
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s2">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s2">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span> <span class="c1">#fetch with no query</span>
 <span class="n">json</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-<span class="c1">#nutrients = json['parsed'][0]['food']['nutrients']</span>
-<span class="c1">#fooddf = pd.DataFrame(json[1]['nutrients'])</span>
 
+<span class="n">fooddata</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#for appending data here</span>
+<span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">json</span><span class="p">[</span><span class="s1">'hints'</span><span class="p">]:</span> <span class="c1">#reformatting the information for the pandas table</span>
+	<span class="n">newdict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'Name'</span><span class="p">:</span><span class="n">data</span><span class="p">[</span><span class="s1">'food'</span><span class="p">][</span><span class="s1">'label'</span><span class="p">],</span>
+		<span class="s1">'Calories'</span><span class="p">:</span><span class="n">data</span><span class="p">[</span><span class="s1">'food'</span><span class="p">][</span><span class="s1">'nutrients'</span><span class="p">][</span><span class="s1">'ENERC_KCAL'</span><span class="p">],</span>
+		<span class="s1">'Protein (g)'</span><span class="p">:</span><span class="n">data</span><span class="p">[</span><span class="s1">'food'</span><span class="p">][</span><span class="s1">'nutrients'</span><span class="p">][</span><span class="s1">'PROCNT'</span><span class="p">],</span>
+		<span class="s1">'Fat (g)'</span><span class="p">:</span><span class="n">data</span><span class="p">[</span><span class="s1">'food'</span><span class="p">][</span><span class="s1">'nutrients'</span><span class="p">][</span><span class="s1">'FAT'</span><span class="p">],</span>
+		<span class="s1">'Carbohydrates (g)'</span><span class="p">:</span><span class="n">data</span><span class="p">[</span><span class="s1">'food'</span><span class="p">][</span><span class="s1">'nutrients'</span><span class="p">][</span><span class="s1">'CHOCDF'</span><span class="p">],</span>
+		<span class="s1">'Fiber (g)'</span><span class="p">:</span><span class="n">data</span><span class="p">[</span><span class="s1">'food'</span><span class="p">][</span><span class="s1">'nutrients'</span><span class="p">][</span><span class="s1">'FIBTG'</span><span class="p">]}</span>
+	<span class="n">fooddata</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">newdict</span><span class="p">)</span>
+
+<span class="n">fooddf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">fooddata</span><span class="p">)</span>
 <span class="c1">#print(fooddf)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Since that prints a whole lot of data, I decided to narrow it to the top five.</p>
+<p>Here is the top five most protein-rich ingredients in the list. So that it would stay within one line, I made it cut off at <code>'Fat (g)'</code>.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">fooddf</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="s1">'Name'</span><span class="p">:</span><span class="s1">'Fat (g)'</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">'Protein (g)'</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
 </pre></div>
 
     </div>
@@ -1206,7 +1245,13 @@ None
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>{'text': '', 'parsed': [], 'hints': [{'food': {'foodId': 'food_bwrgmmqau78xrdazxx79obeezumz', 'uri': 'http://www.edamam.com/ontologies/edamam.owl#Food_01001', 'label': 'Butter, Salted', 'nutrients': {'ENERC_KCAL': 717.0, 'PROCNT': 0.85, 'FAT': 81.11, 'CHOCDF': 0.06, 'FIBTG': 0.0}, 'category': 'Generic foods', 'categoryLabel': 'food', 'image': 'https://www.edamam.com/food-img/515/515af390107678fce1533a31ee4cc35b.jpeg'}, 'measures': [{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_tablespoon', 'label': 'Tablespoon'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cup', 'label': 'Cup'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_stick', 'label': 'Stick'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_gram', 'label': 'Gram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_ounce', 'label': 'Ounce'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_pound', 'label': 'Pound'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_unit', 'label': 'Whole'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_pat', 'label': 'Pat'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_serving', 'label': 'Serving'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram', 'label': 'Kilogram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_default'}]}, {'food': {'foodId': 'food_blrpqo1bp94h17apq4prgbhcuhex', 'uri': 'http://www.edamam.com/ontologies/edamam.owl#Food_01002', 'label': 'Butter, Whipped, With Salt', 'nutrients': {'ENERC_KCAL': 717.0, 'PROCNT': 0.85, 'FAT': 81.11, 'CHOCDF': 0.06, 'FIBTG': 0.0}, 'category': 'Generic foods', 'categoryLabel': 'food', 'image': 'https://www.edamam.com/food-img/ec6/ec68f0d43ed9b399c8464481f89eb225.jpg'}, 'measures': [{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_stick', 'label': 'Stick'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_serving', 'label': 'Serving'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_pat', 'label': 'Pat'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_gram', 'label': 'Gram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_ounce', 'label': 'Ounce'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_pound', 'label': 'Pound'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram', 'label': 'Kilogram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_tablespoon', 'label': 'Tablespoon'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cup', 'label': 'Cup'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_default'}]}, {'food': {'foodId': 'food_bzaenytbm02cd4br159f4biv49jc', 'uri': 'http://www.edamam.com/ontologies/edamam.owl#Food_01003', 'label': 'Butter Oil, Anhydrous', 'nutrients': {'ENERC_KCAL': 876.0, 'PROCNT': 0.28, 'FAT': 99.48, 'CHOCDF': 0.0, 'FIBTG': 0.0}, 'category': 'Generic foods', 'categoryLabel': 'food', 'image': 'https://www.edamam.com/food-img/2b5/2b504c036c64481b224c9d74cc4a82e0.jpg'}, 'measures': [{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_tablespoon', 'label': 'Tablespoon'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cup', 'label': 'Cup'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_gram', 'label': 'Gram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_ounce', 'label': 'Ounce'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_pound', 'label': 'Pound'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_serving', 'label': 'Serving'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram', 'label': 'Kilogram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_default'}]}, {'food': {'foodId': 'food_aqptx2cauhjjzubmplnjna81ev33', 'uri': 'http://www.edamam.com/ontologies/edamam.owl#Food_01004', 'label': 'Cheese, Blue', 'nutrients': {'ENERC_KCAL': 353.0, 'PROCNT': 21.4, 'FAT': 28.74, 'CHOCDF': 2.34, 'FIBTG': 0.0}, 'category': 'Generic foods', 'categoryLabel': 'food', 'image': 'https://www.edamam.com/food-img/b44/b442cfc174a1a691dca574c9b7dcb47a.jpg'}, 'measures': [{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cup', 'label': 'Cup', 'qualified': [[{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Qualifier_crumbled', 'label': 'crumbled'}]]}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_ounce', 'label': 'Ounce'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_gram', 'label': 'Gram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_pound', 'label': 'Pound'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_unit', 'label': 'Whole'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_slice', 'label': 'Slice'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_wedge', 'label': 'Wedge'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_piece', 'label': 'Piece'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_serving', 'label': 'Serving'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_round', 'label': 'Round'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram', 'label': 'Kilogram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cubic_inch', 'label': 'Cubic inch'}]}, {'food': {'foodId': 'food_au4tus5b092owgbiu8yama5yupfp', 'uri': 'http://www.edamam.com/ontologies/edamam.owl#Food_01005', 'label': 'Cheese, Brick', 'nutrients': {'ENERC_KCAL': 371.0, 'PROCNT': 23.24, 'FAT': 29.68, 'CHOCDF': 2.79, 'FIBTG': 0.0}, 'category': 'Generic foods', 'categoryLabel': 'food', 'image': 'https://www.edamam.com/food-img/702/7023ac63ef897bab1f6ea399316748d7.png'}, 'measures': [{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_ounce', 'label': 'Ounce'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_slice', 'label': 'Slice'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cup', 'label': 'Cup', 'qualified': [[{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Qualifier_diced', 'label': 'diced'}], [{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Qualifier_shredded', 'label': 'shredded'}]]}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_serving', 'label': 'Serving'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_gram', 'label': 'Gram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_pound', 'label': 'Pound'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram', 'label': 'Kilogram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cubic_inch', 'label': 'Cubic inch'}]}, {'food': {'foodId': 'food_a06hreabh7agoeazgrtiobunge7b', 'uri': 'http://www.edamam.com/ontologies/edamam.owl#Food_01006', 'label': 'Cheese, Brie', 'nutrients': {'ENERC_KCAL': 334.0, 'PROCNT': 20.75, 'FAT': 27.68, 'CHOCDF': 0.45, 'FIBTG': 0.0}, 'category': 'Generic foods', 'categoryLabel': 'food', 'image': 'https://www.edamam.com/food-img/f53/f5340600239cf508f17b167265c6a1cf.jpg'}, 'measures': [{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_ounce', 'label': 'Ounce'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_unit', 'label': 'Whole'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_pound', 'label': 'Pound'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_slice', 'label': 'Slice'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_gram', 'label': 'Gram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_round', 'label': 'Round'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cup', 'label': 'Cup', 'qualified': [[{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Qualifier_melted', 'label': 'melted'}], [{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Qualifier_sliced', 'label': 'sliced'}]]}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_package', 'label': 'Package'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_piece', 'label': 'Piece'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_serving', 'label': 'Serving'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram', 'label': 'Kilogram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cubic_inch', 'label': 'Cubic inch'}]}, {'food': {'foodId': 'food_bq1kaa2anb8wmsaj3in43bxxsjyh', 'uri': 'http://www.edamam.com/ontologies/edamam.owl#Food_01007', 'label': 'Cheese, Camembert', 'nutrients': {'ENERC_KCAL': 300.0, 'PROCNT': 19.8, 'FAT': 24.26, 'CHOCDF': 0.46, 'FIBTG': 0.0}, 'category': 'Generic foods', 'categoryLabel': 'food', 'image': 'https://www.edamam.com/food-img/419/419fc950e8f2a589a11d63efb28b8bef.jpg'}, 'measures': [{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_ounce', 'label': 'Ounce'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_gram', 'label': 'Gram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_unit', 'label': 'Whole'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_pound', 'label': 'Pound'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_slice', 'label': 'Slice'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cup', 'label': 'Cup'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_wedge', 'label': 'Wedge'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_piece', 'label': 'Piece'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_serving', 'label': 'Serving'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram', 'label': 'Kilogram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cubic_inch', 'label': 'Cubic inch'}]}, {'food': {'foodId': 'food_a8q8p7tahfewtuajrmgcrbpxtti8', 'uri': 'http://www.edamam.com/ontologies/edamam.owl#Food_01008', 'label': 'Cheese, Caraway', 'nutrients': {'ENERC_KCAL': 376.0, 'PROCNT': 25.18, 'FAT': 29.2, 'CHOCDF': 3.06, 'FIBTG': 0.0}, 'category': 'Generic foods', 'categoryLabel': 'food', 'image': 'https://www.edamam.com/food-img/541/541e46e44ba61aec8bcd599df94c0eed.jpg'}, 'measures': [{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_serving', 'label': 'Serving'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_gram', 'label': 'Gram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_ounce', 'label': 'Ounce'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_pound', 'label': 'Pound'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram', 'label': 'Kilogram'}]}, {'food': {'foodId': 'food_a2b3q33bnje4iual2pba2at89tzi', 'uri': 'http://www.edamam.com/ontologies/edamam.owl#Food_01009', 'label': 'Cheese, Cheddar', 'nutrients': {'ENERC_KCAL': 406.0, 'PROCNT': 24.04, 'FAT': 33.82, 'CHOCDF': 1.33, 'FIBTG': 0.0}, 'category': 'Generic foods', 'categoryLabel': 'food'}, 'measures': [{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cup', 'label': 'Cup', 'qualified': [[{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Qualifier_diced', 'label': 'diced'}], [{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Qualifier_shredded', 'label': 'shredded'}], [{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Qualifier_melted', 'label': 'melted'}]]}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_ounce', 'label': 'Ounce'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_slice', 'label': 'Slice'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_gram', 'label': 'Gram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_pound', 'label': 'Pound'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_unit', 'label': 'Whole'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_package', 'label': 'Package'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_block', 'label': 'Block'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_piece', 'label': 'Piece'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_chip', 'label': 'Chip'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram', 'label': 'Kilogram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_serving', 'label': 'Serving'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cubic_inch', 'label': 'Cubic inch'}]}, {'food': {'foodId': 'food_b4g9w0dboo05sdaxwu1n9a3b4emv', 'uri': 'http://www.edamam.com/ontologies/edamam.owl#Food_01010', 'label': 'Cheese, Cheshire', 'nutrients': {'ENERC_KCAL': 387.0, 'PROCNT': 23.37, 'FAT': 30.6, 'CHOCDF': 4.78, 'FIBTG': 0.0}, 'category': 'Generic foods', 'categoryLabel': 'food', 'image': 'https://www.edamam.com/food-img/9e4/9e4ffc57473590221cb97ccf5354e42b.jpg'}, 'measures': [{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_gram', 'label': 'Gram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_ounce', 'label': 'Ounce'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_serving', 'label': 'Serving'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_pound', 'label': 'Pound'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram', 'label': 'Kilogram'}]}, {'food': {'foodId': 'food_a5ylefeb5r30eibjj4mqubdc09z1', 'uri': 'http://www.edamam.com/ontologies/edamam.owl#Food_01011', 'label': 'Cheese, Colby', 'nutrients': {'ENERC_KCAL': 394.0, 'PROCNT': 23.76, 'FAT': 32.11, 'CHOCDF': 2.57, 'FIBTG': 0.0}, 'category': 'Generic foods', 'categoryLabel': 'food', 'image': 'https://www.edamam.com/food-img/a6a/a6a3cb346882b674c5b5086352644ec5.jpg'}, 'measures': [{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cup', 'label': 'Cup', 'qualified': [[{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Qualifier_shredded', 'label': 'shredded'}], [{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Qualifier_diced', 'label': 'diced'}]]}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_ounce', 'label': 'Ounce'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_slice', 'label': 'Slice'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_pound', 'label': 'Pound'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_unit', 'label': 'Whole'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_gram', 'label': 'Gram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram', 'label': 'Kilogram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cubic_inch', 'label': 'Cubic inch'}]}, {'food': {'foodId': 'food_abw09jebwny3g6bb7jvn0bbalare', 'uri': 'http://www.edamam.com/ontologies/edamam.owl#Food_01012', 'label': 'Cheese, Cottage, Creamed, Large or Small Curd', 'nutrients': {'ENERC_KCAL': 98.0, 'PROCNT': 11.12, 'FAT': 4.3, 'CHOCDF': 3.38, 'FIBTG': 0.0}, 'category': 'Generic foods', 'categoryLabel': 'food', 'image': 'https://www.edamam.com/food-img/8ee/8ee7b75071fc907cce2819031a9ae563.jpg'}, 'measures': [{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cup', 'label': 'Cup', 'qualified': [[{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Qualifier_large', 'label': 'large'}], [{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Qualifier_small', 'label': 'small'}]]}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_ounce', 'label': 'Ounce'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_gram', 'label': 'Gram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_tablespoon', 'label': 'Tablespoon'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_pound', 'label': 'Pound'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram', 'label': 'Kilogram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_serving', 'label': 'Serving'}]}, {'food': {'foodId': 'food_apqi15daozoc8oacpl41rallrou9', 'uri': 'http://www.edamam.com/ontologies/edamam.owl#Food_01013', 'label': 'Cheese, Cottage, Creamed, With Fruit', 'nutrients': {'ENERC_KCAL': 97.0, 'PROCNT': 10.69, 'FAT': 3.85, 'CHOCDF': 4.61, 'FIBTG': 0.2}, 'category': 'Generic foods', 'categoryLabel': 'food', 'image': 'https://www.edamam.com/food-img/6a3/6a34798287bc5e41e2328a5973695f38.jpg'}, 'measures': [{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_gram', 'label': 'Gram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_ounce', 'label': 'Ounce'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_pound', 'label': 'Pound'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram', 'label': 'Kilogram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cup', 'label': 'Cup'}]}, {'food': {'foodId': 'food_b0nmp6gaermj0aad3mf7iararumu', 'uri': 'http://www.edamam.com/ontologies/edamam.owl#Food_01014', 'label': 'Cheese, Cottage, Nonfat, Uncreamed, Dry, Large or Small Curd', 'nutrients': {'ENERC_KCAL': 72.0, 'PROCNT': 10.34, 'FAT': 0.29, 'CHOCDF': 6.66, 'FIBTG': 0.0}, 'category': 'Generic foods', 'categoryLabel': 'food', 'image': 'https://www.edamam.com/food-img/f28/f28c23a0ce83d037a5c27401e4ce41e9.jpg'}, 'measures': [{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cup', 'label': 'Cup'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_ounce', 'label': 'Ounce'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_serving', 'label': 'Serving'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_gram', 'label': 'Gram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_pound', 'label': 'Pound'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram', 'label': 'Kilogram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_tablespoon', 'label': 'Tablespoon'}]}, {'food': {'foodId': 'food_a78om83aro60t5a4wpm8hbf3239s', 'uri': 'http://www.edamam.com/ontologies/edamam.owl#Food_01015', 'label': 'Cheese, Cottage, Lowfat, 2% Milkfat', 'nutrients': {'ENERC_KCAL': 81.0, 'PROCNT': 10.45, 'FAT': 2.27, 'CHOCDF': 4.76, 'FIBTG': 0.0}, 'category': 'Generic foods', 'categoryLabel': 'food', 'image': 'https://www.edamam.com/food-img/046/046c46348bde2b7af7da40196a1c942e.jpg'}, 'measures': [{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cup', 'label': 'Cup'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_ounce', 'label': 'Ounce'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_tablespoon', 'label': 'Tablespoon'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_gram', 'label': 'Gram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_pound', 'label': 'Pound'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_serving', 'label': 'Serving'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram', 'label': 'Kilogram'}]}, {'food': {'foodId': 'food_bowtx9kb5cpt8yb6qswcga80ycli', 'uri': 'http://www.edamam.com/ontologies/edamam.owl#Food_01016', 'label': 'Cheese, Cottage, Lowfat, 1% Milkfat', 'nutrients': {'ENERC_KCAL': 72.0, 'PROCNT': 12.39, 'FAT': 1.02, 'CHOCDF': 2.72, 'FIBTG': 0.0}, 'category': 'Generic foods', 'categoryLabel': 'food', 'image': 'https://www.edamam.com/food-img/c18/c18b96dafd232cbddb9bbb05c2ab8e3b.jpg'}, 'measures': [{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cup', 'label': 'Cup'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_ounce', 'label': 'Ounce'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_gram', 'label': 'Gram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_pound', 'label': 'Pound'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram', 'label': 'Kilogram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_tablespoon', 'label': 'Tablespoon'}]}, {'food': {'foodId': 'food_a5oa9cnaawyx9uang44bka8467or', 'uri': 'http://www.edamam.com/ontologies/edamam.owl#Food_01017', 'label': 'Cheese, Cream', 'nutrients': {'ENERC_KCAL': 342.0, 'PROCNT': 5.93, 'FAT': 34.24, 'CHOCDF': 4.07, 'FIBTG': 0.0}, 'category': 'Generic foods', 'categoryLabel': 'food', 'image': 'https://www.edamam.com/food-img/ddd/dddce306e7ee41e8e07dc62e28cab94b.jpg'}, 'measures': [{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_ounce', 'label': 'Ounce'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cup', 'label': 'Cup'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_unit', 'label': 'Whole', 'qualified': [[{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Qualifier_small', 'label': 'small'}]]}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_gram', 'label': 'Gram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_tablespoon', 'label': 'Tablespoon', 'qualified': [[{'uri': 'http://www.edamam.com/ontologies/edamam.owl#LanguaL_H0358', 'label': 'AERATED BY WHIPPING'}]]}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_pound', 'label': 'Pound'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_package', 'label': 'Package', 'qualified': [[{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Qualifier_small', 'label': 'small'}]]}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram', 'label': 'Kilogram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_serving', 'label': 'Serving'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_slab', 'label': 'Slab'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cubic_inch', 'label': 'Cubic inch'}]}, {'food': {'foodId': 'food_ax6ocbjas0levpb3nl0n7auzwy0i', 'uri': 'http://www.edamam.com/ontologies/edamam.owl#Food_01018', 'label': 'Cheese, Edam', 'nutrients': {'ENERC_KCAL': 357.0, 'PROCNT': 24.99, 'FAT': 27.8, 'CHOCDF': 1.43, 'FIBTG': 0.0}, 'category': 'Generic foods', 'categoryLabel': 'food', 'image': 'https://www.edamam.com/food-img/2df/2dfa711cc6aff6e4d3bfefb4814f4cb4.jpg'}, 'measures': [{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_gram', 'label': 'Gram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_ounce', 'label': 'Ounce'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_serving', 'label': 'Serving'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_package', 'label': 'Package'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_pound', 'label': 'Pound'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram', 'label': 'Kilogram'}]}, {'food': {'foodId': 'food_ba6vmpsbtteeyabi8t2i8bwzl13d', 'uri': 'http://www.edamam.com/ontologies/edamam.owl#Food_01019', 'label': 'Cheese, Feta', 'nutrients': {'ENERC_KCAL': 264.0, 'PROCNT': 14.21, 'FAT': 21.28, 'CHOCDF': 4.09, 'FIBTG': 0.0}, 'category': 'Generic foods', 'categoryLabel': 'food', 'image': 'https://www.edamam.com/food-img/37e/37ef3e404b1c02bf4707cb82010732b8.jpg'}, 'measures': [{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cup', 'label': 'Cup', 'qualified': [[{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Qualifier_crumbled', 'label': 'crumbled'}]]}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_ounce', 'label': 'Ounce'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_gram', 'label': 'Gram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_pound', 'label': 'Pound'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_unit', 'label': 'Whole'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_slice', 'label': 'Slice'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_package', 'label': 'Package'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cube', 'label': 'Cube'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_piece', 'label': 'Piece'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram', 'label': 'Kilogram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_serving', 'label': 'Serving'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_wedge', 'label': 'Wedge'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cubic_inch', 'label': 'Cubic inch'}]}, {'food': {'foodId': 'food_a9n6dlcb168fzqb5qrkp9a7oy4jp', 'uri': 'http://www.edamam.com/ontologies/edamam.owl#Food_01020', 'label': 'Cheese, Fontina', 'nutrients': {'ENERC_KCAL': 389.0, 'PROCNT': 25.6, 'FAT': 31.14, 'CHOCDF': 1.55, 'FIBTG': 0.0}, 'category': 'Generic foods', 'categoryLabel': 'food', 'image': 'https://www.edamam.com/food-img/0ac/0acf62d2ccdf71b1c03e13115f6cc002.jpg'}, 'measures': [{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cup', 'label': 'Cup', 'qualified': [[{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Qualifier_diced', 'label': 'diced'}], [{'uri': 'http://www.edamam.com/ontologies/edamam.owl#Qualifier_shredded', 'label': 'shredded'}]]}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_ounce', 'label': 'Ounce'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_pound', 'label': 'Pound'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_slice', 'label': 'Slice'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_gram', 'label': 'Gram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_unit', 'label': 'Whole'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cube', 'label': 'Cube'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_piece', 'label': 'Piece'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_serving', 'label': 'Serving'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_round', 'label': 'Round'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_package', 'label': 'Package'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram', 'label': 'Kilogram'}, {'uri': 'http://www.edamam.com/ontologies/edamam.owl#Measure_cubic_inch', 'label': 'Cubic inch'}]}], '_links': {'next': {'title': 'Next page', 'href': 'https://api.edamam.com/api/food-database/parser?session=40&amp;app_id=85b409cf&amp;app_key=69d004c3e3c5b967261e625baea627fc'}}}
+<pre>                         Name  Calories  Protein (g)  Fat (g)
+4               Cheese, Brick     371.0        23.24    29.68
+3                Cheese, Blue     353.0        21.40    28.74
+5                Cheese, Brie     334.0        20.75    27.68
+0              Butter, Salted     717.0         0.85    81.11
+1  Butter, Whipped, With Salt     717.0         0.85    81.11
+2       Butter Oil, Anhydrous     876.0         0.28    99.48
 </pre>
 </div>
 </div>
@@ -1217,535 +1262,25 @@ None
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The data that it's letting me pull is usually at the start of the aphabet. There may be more with the full, paid version of the API. This shows that some variations of cheeses have more protein than others in the full list.</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Hack-Helpers">
 <a class="anchor" href="#Hack-Helpers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hack Helpers<a class="anchor-link" href="#Hack-Helpers"> </a>
 </h2>
-<blockquote>
-<p>Here is how Mort started on this assignment by asking ChatGPT  ... Regarding Python Pandas, what are some data sets that would be good for learning Pandas?</p>
-</blockquote>
-<ul>
-<li>
-<p>There are many data sets that are suitable for learning pandas, depending on your interests and the skills you want to develop.</p>
-<p>Here are some suggestions...</p>
-<ul>
-<li>Titanic Dataset:This is a classic dataset for data analysis and machine learning, and is often used as an introduction to pandas. The dataset contains information about passengers on the Titanic, including their demographics, ticket class, and survival status.</li>
-<li>
-<p>Iris Dataset: This is another classic dataset that is often used in machine learning and data analysis courses. The dataset contains information about iris flowers, including their sepal length, sepal width, petal length, and petal width.</p>
-</li>
-<li>
-<p>NBA Player Stats: This dataset contains information about NBA players, including their stats for various games, their positions, and their salaries. It is a great dataset for learning how to clean and manipulate data using pandas.</p>
-</li>
-<li>
-<p>Housing Prices Dataset: This dataset contains information about housing prices in a particular city or region, including variables such as the number of bedrooms, square footage, and price. It is a great dataset for learning how to manipulate and analyze numerical data using pandas.</p>
-</li>
-<li>
-<p>COVID-19 Dataset: This dataset contains information about the COVID-19 pandemic, including the number of cases, deaths, and recoveries in various countries and regions. It is a great dataset for learning how to manipulate and analyze time-series data using pandas.</p>
-</li>
-<li>
-<p>World Bank Dataset: This dataset contains information about economic indicators from various countries, such as GDP, population, and poverty rates. It is a great dataset for learning how to manipulate and analyze large datasets using pandas.</p>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>
-<p>These are just a few examples of the many datasets that are suitable for learning pandas. The best dataset for you will depend on your interests and the specific skills you want to develop.</p>
-<blockquote>
-<p>Follow up question, "where can I find Titanic data set?"</p>
-</blockquote>
-</li>
-<li>
-<p>The Titanic dataset is a popular dataset for data analysis and machine learning, and it can be found on various websites and data repositories. Here are a few places where you can find the Titanic dataset...</p>
-<ul>
-<li>Kaggle:The Titanic dataset is available on Kaggle, which is a popular platform for data scientists and machine learning enthusiasts. You can download the dataset from the Kaggle website after creating an account.</li>
-<li>
-<p>UCI Machine Learning Repository: The Titanic dataset is also available on the UCI Machine Learning Repository, which is a collection of datasets that are commonly used for machine learning research. You can download the dataset from the UCI Machine Learning Repository website.</p>
-</li>
-<li>
-<p>Seaborn library: If you have the Seaborn library installed in your Python environment, you can load the Titanic dataset directly from the library using the following code:</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="n">titanic_data</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">'titanic'</span><span class="p">)</span>
-</pre></div>
-</li>
-</ul>
-</li>
-</ul>
+<p>To declutter my blog, I decided to delete this section since it's in the source article anyway. For my own personal reference, it can be found <a href="https://nighthawkcoders.github.io/APCSP//2023/03/09/AP-unit2-3.html#Hack-Helpers">here</a>.</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Titanic-Data">
-<a class="anchor" href="#Titanic-Data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Titanic Data<a class="anchor-link" href="#Titanic-Data"> </a>
-</h3>
-<blockquote>
-<p>Look at a sample of data.</p>
-</blockquote>
-
-</div>
-</div>
-</div>
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-
-<span class="c1"># Load the titanic dataset</span>
-<span class="n">titanic_data</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">'titanic'</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Titanic Data"</span><span class="p">)</span>
-
-
-<span class="nb">print</span><span class="p">(</span><span class="n">titanic_data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span> <span class="c1"># titanic data set</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">titanic_data</span><span class="p">[[</span><span class="s1">'survived'</span><span class="p">,</span><span class="s1">'pclass'</span><span class="p">,</span> <span class="s1">'sex'</span><span class="p">,</span> <span class="s1">'age'</span><span class="p">,</span> <span class="s1">'sibsp'</span><span class="p">,</span> <span class="s1">'parch'</span><span class="p">,</span> <span class="s1">'class'</span><span class="p">,</span> <span class="s1">'fare'</span><span class="p">,</span> <span class="s1">'embark_town'</span><span class="p">]])</span> <span class="c1"># look at selected columns</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>Matplotlib is building the font cache; this may take a moment.
-Fontconfig warning: ignoring UTF-8: not a valid region tag
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Titanic Data
-Index(['survived', 'pclass', 'sex', 'age', 'sibsp', 'parch', 'fare',
-       'embarked', 'class', 'who', 'adult_male', 'deck', 'embark_town',
-       'alive', 'alone'],
-      dtype='object')
-     survived  pclass     sex   age  sibsp  parch   class     fare  \
-0           0       3    male  22.0      1      0   Third   7.2500   
-1           1       1  female  38.0      1      0   First  71.2833   
-2           1       3  female  26.0      0      0   Third   7.9250   
-3           1       1  female  35.0      1      0   First  53.1000   
-4           0       3    male  35.0      0      0   Third   8.0500   
-..        ...     ...     ...   ...    ...    ...     ...      ...   
-886         0       2    male  27.0      0      0  Second  13.0000   
-887         1       1  female  19.0      0      0   First  30.0000   
-888         0       3  female   NaN      1      2   Third  23.4500   
-889         1       1    male  26.0      0      0   First  30.0000   
-890         0       3    male  32.0      0      0   Third   7.7500   
-
-     embark_town  
-0    Southampton  
-1      Cherbourg  
-2    Southampton  
-3    Southampton  
-4    Southampton  
-..           ...  
-886  Southampton  
-887  Southampton  
-888  Southampton  
-889    Cherbourg  
-890   Queenstown  
-
-[891 rows x 9 columns]
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-    
-
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<blockquote>
-<p>Use Pandas to clean the data.  Most analysis, like Machine Learning or even Pandas in general like data to be in standardized format.  This is called 'Training' or 'Cleaning' data.</p>
-</blockquote>
-
-</div>
-</div>
-</div>
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Preprocess the data</span>
-<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">OneHotEncoder</span>
-
-
-<span class="n">td</span> <span class="o">=</span> <span class="n">titanic_data</span>
-<span class="n">td</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">'alive'</span><span class="p">,</span> <span class="s1">'who'</span><span class="p">,</span> <span class="s1">'adult_male'</span><span class="p">,</span> <span class="s1">'class'</span><span class="p">,</span> <span class="s1">'embark_town'</span><span class="p">,</span> <span class="s1">'deck'</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">td</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">td</span><span class="p">[</span><span class="s1">'sex'</span><span class="p">]</span> <span class="o">=</span> <span class="n">td</span><span class="p">[</span><span class="s1">'sex'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="s1">'male'</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">td</span><span class="p">[</span><span class="s1">'alone'</span><span class="p">]</span> <span class="o">=</span> <span class="n">td</span><span class="p">[</span><span class="s1">'alone'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="kc">True</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
-
-<span class="c1"># Encode categorical variables</span>
-<span class="n">enc</span> <span class="o">=</span> <span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">handle_unknown</span><span class="o">=</span><span class="s1">'ignore'</span><span class="p">)</span>
-<span class="n">enc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">td</span><span class="p">[[</span><span class="s1">'embarked'</span><span class="p">]])</span>
-<span class="n">onehot</span> <span class="o">=</span> <span class="n">enc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">td</span><span class="p">[[</span><span class="s1">'embarked'</span><span class="p">]])</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
-<span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'embarked_'</span> <span class="o">+</span> <span class="n">val</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">enc</span><span class="o">.</span><span class="n">categories_</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
-<span class="n">td</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">onehot</span><span class="p">)</span>
-<span class="n">td</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">'embarked'</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">td</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">td</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>     survived  pclass  sex   age  sibsp  parch      fare  alone  embarked_C  \
-0           0       3    1  22.0      1      0    7.2500      0         0.0   
-1           1       1    0  38.0      1      0   71.2833      0         1.0   
-2           1       3    0  26.0      0      0    7.9250      1         0.0   
-3           1       1    0  35.0      1      0   53.1000      0         0.0   
-4           0       3    1  35.0      0      0    8.0500      1         0.0   
-..        ...     ...  ...   ...    ...    ...       ...    ...         ...   
-705         0       2    1  39.0      0      0   26.0000      1         0.0   
-706         1       2    0  45.0      0      0   13.5000      1         0.0   
-707         1       1    1  42.0      0      0   26.2875      1         0.0   
-708         1       1    0  22.0      0      0  151.5500      1         0.0   
-710         1       1    0  24.0      0      0   49.5042      1         1.0   
-
-     embarked_Q  embarked_S  
-0           0.0         1.0  
-1           0.0         0.0  
-2           0.0         1.0  
-3           0.0         1.0  
-4           0.0         1.0  
-..          ...         ...  
-705         0.0         1.0  
-706         0.0         1.0  
-707         1.0         0.0  
-708         0.0         1.0  
-710         0.0         0.0  
-
-[564 rows x 11 columns]
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-    
-
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<blockquote>
-<p>The result of 'Training' data is making it easier to analyze or make conclusions.  In looking at the Titanic, as you clean you would probably want to make assumptions on likely chance of survival.</p>
-</blockquote>
-<p>This would involve analyzing various factors (such as age, gender, class, etc.) that may have affected a person's chances of survival, and using that information to make predictions about whether an individual would have survived or not.</p>
-<ul>
-<li>
-<p>Data description:- Survival - Survival (0 = No; 1 = Yes). Not included in test.csv file.    - Pclass - Passenger Class (1 = 1st; 2 = 2nd; 3 = 3rd)</p>
-<ul>
-<li>Name - Name</li>
-<li>Sex - Sex</li>
-<li>Age - Age</li>
-<li>Sibsp - Number of Siblings/Spouses Aboard</li>
-<li>Parch - Number of Parents/Children Aboard</li>
-<li>Ticket - Ticket Number</li>
-<li>Fare - Passenger Fare</li>
-<li>Cabin - Cabin</li>
-<li>Embarked - Port of Embarkation (C = Cherbourg; Q = Queenstown; S = Southampton)</li>
-</ul>
-</li>
-<li>
-<p>Perished Mean/Average</p>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">titanic_data</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">"survived == 0"</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>survived       0.000000
-pclass         2.464072
-sex            0.844311
-age           31.073353
-sibsp          0.562874
-parch          0.398204
-fare          24.835902
-alone          0.616766
-embarked_C     0.185629
-embarked_Q     0.038922
-embarked_S     0.775449
-dtype: float64
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-    
-
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Survived Mean/Average</li>
-</ul>
-
-</div>
-</div>
-</div>
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">td</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">"survived == 1"</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>survived       1.000000
-pclass         1.878261
-sex            0.326087
-age           28.481522
-sibsp          0.504348
-parch          0.508696
-fare          50.188806
-alone          0.456522
-embarked_C     0.152174
-embarked_Q     0.034783
-embarked_S     0.813043
-dtype: float64
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-    
-
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<blockquote>
-<p>Survived Max and Min Stats</p>
-</blockquote>
-
-</div>
-</div>
-</div>
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">td</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">"survived == 1"</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">td</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">"survived == 1"</span><span class="p">)</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>survived        1.0000
-pclass          3.0000
-sex             1.0000
-age            80.0000
-sibsp           4.0000
-parch           5.0000
-fare          512.3292
-alone           1.0000
-embarked_C      1.0000
-embarked_Q      1.0000
-embarked_S      1.0000
-dtype: float64
-survived      1.00
-pclass        1.00
-sex           0.00
-age           0.75
-sibsp         0.00
-parch         0.00
-fare          0.00
-alone         0.00
-embarked_C    0.00
-embarked_Q    0.00
-embarked_S    0.00
-dtype: float64
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-    
-
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Machine-Learning-Visit-Tutorials-Point">
-<a class="anchor" href="#Machine-Learning-Visit-Tutorials-Point" aria-hidden="true"><span class="octicon octicon-link"></span></a>Machine Learning <a href="https://www.tutorialspoint.com/scikit_learn/scikit_learn_introduction.htm#:~:text=Scikit%2Dlearn%20(Sklearn)%20is,a%20consistence%20interface%20in%20Python">Visit Tutorials Point</a><a class="anchor-link" href="#Machine-Learning-Visit-Tutorials-Point"> </a>
-</h2>
-<blockquote>
-<p>Scikit-learn (Sklearn) is the most useful and robust library for machine learning in Python. It provides a selection of efficient tools for machine learning and statistical modeling including classification, regression, clustering and dimensionality reduction via a consistence interface in Python.</p>
-</blockquote>
-<ul>
-<li>
-<p>Description from ChatGPT. The Titanic dataset is a popular dataset for data analysis and machine learning. In the context of machine learning, accuracy refers to the percentage of correctly classified instances in a set of predictions. In this case, the testing data is a subset of the original Titanic dataset that the decision tree model has not seen during training......After training the decision tree model on the training data, we can evaluate its performance on the testing data by making predictions on the testing data and comparing them to the actual outcomes. The accuracy of the decision tree classifier on the testing data tells us how well the model generalizes to new data that it hasn't seen before......For example, if the accuracy of the decision tree classifier on the testing data is 0.8 (or 80%), this means that 80% of the predictions made by the model on the testing data were correct....Chance of survival could be done using various machine learning techniques, including decision trees, logistic regression, or support vector machines, among others.</p>
-</li>
-<li>
-<p>Code Below prepares data for further analysis and provides an Accuracy.  IMO, you would insert a new passenger and predict survival.  Datasets could be used on various factors like prediction if a player will hit a Home Run, or a Stock will go up or down.</p>
-<ul>
-<li>
-<a href="https://scikit-learn.org/stable/modules/tree.html#tree">Decision Trees</a>, prediction by a piecewise constant approximation.    </li>
-<li>
-<a href="https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression">Logistic Regression</a>, the probabilities describing the possible outcomes.</li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
-<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
-<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
-
-<span class="c1"># Split arrays or matrices into random train and test subsets.</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">td</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">'survived'</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">td</span><span class="p">[</span><span class="s1">'survived'</span><span class="p">]</span>
-<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
-
-<span class="c1"># Train a decision tree classifier</span>
-<span class="n">dt</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">()</span>
-<span class="n">dt</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-
-<span class="c1"># Test the model</span>
-<span class="n">y_pred</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-<span class="n">accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">'DecisionTreeClassifier Accuracy:'</span><span class="p">,</span> <span class="n">accuracy</span><span class="p">)</span>
-
-<span class="c1"># Train a logistic regression model</span>
-<span class="n">logreg</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
-<span class="n">logreg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-
-<span class="c1"># Test the model</span>
-<span class="n">y_pred</span> <span class="o">=</span> <span class="n">logreg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-<span class="n">accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">'LogisticRegression Accuracy:'</span><span class="p">,</span> <span class="n">accuracy</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>DecisionTreeClassifier Accuracy: 0.7647058823529411
-LogisticRegression Accuracy: 0.788235294117647
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>/Users/mister_dew/opt/anaconda3/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:814: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
-
-Increase the number of iterations (max_iter) or scale the data as shown in:
-    https://scikit-learn.org/stable/modules/preprocessing.html
-Please also refer to the documentation for alternative solver options:
-    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
-  n_iter_i = _check_optimize_result(
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-    
-
 </div>
 
 
