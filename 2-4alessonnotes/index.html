@@ -4,9 +4,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Unit 2.4a Using Programs with Data, SQLAlchemy | Drew’s Big Fastpages Blog</title>
+<title>Unit 2.4a (Using Programs with Data, SQLAlchemy) Notes | Drew’s Big Fastpages Blog</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="Unit 2.4a Using Programs with Data, SQLAlchemy" />
+<meta property="og:title" content="Unit 2.4a (Using Programs with Data, SQLAlchemy) Notes" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Using Programs with Data is focused on SQL and database actions. Part A focuses on SQLAlchemy and an OOP programming style," />
 <meta property="og:description" content="Using Programs with Data is focused on SQL and database actions. Part A focuses on SQLAlchemy and an OOP programming style," />
@@ -16,9 +16,9 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2023-03-14T00:00:00-05:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Unit 2.4a Using Programs with Data, SQLAlchemy" />
+<meta property="twitter:title" content="Unit 2.4a (Using Programs with Data, SQLAlchemy) Notes" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-03-14T00:00:00-05:00","datePublished":"2023-03-14T00:00:00-05:00","description":"Using Programs with Data is focused on SQL and database actions. Part A focuses on SQLAlchemy and an OOP programming style,","headline":"Unit 2.4a Using Programs with Data, SQLAlchemy","mainEntityOfPage":{"@type":"WebPage","@id":"https://drewreed2005.github.io/realdrew/2-4alessonnotes/"},"url":"https://drewreed2005.github.io/realdrew/2-4alessonnotes/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-03-14T00:00:00-05:00","datePublished":"2023-03-14T00:00:00-05:00","description":"Using Programs with Data is focused on SQL and database actions. Part A focuses on SQLAlchemy and an OOP programming style,","headline":"Unit 2.4a (Using Programs with Data, SQLAlchemy) Notes","mainEntityOfPage":{"@type":"WebPage","@id":"https://drewreed2005.github.io/realdrew/2-4alessonnotes/"},"url":"https://drewreed2005.github.io/realdrew/2-4alessonnotes/"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/realdrew/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://drewreed2005.github.io/realdrew/feed.xml" title="Drew's Big Fastpages Blog" /><link rel="shortcut icon" type="image/x-icon" href="/realdrew/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -73,7 +73,7 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Unit 2.4a Using Programs with Data, SQLAlchemy</h1><p class="page-description">Using Programs with Data is focused on SQL and database actions.  Part A focuses on SQLAlchemy and an OOP programming style,</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2023-03-14T00:00:00-05:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">Unit 2.4a (Using Programs with Data, SQLAlchemy) Notes</h1><p class="page-description">Using Programs with Data is focused on SQL and database actions.  Part A focuses on SQLAlchemy and an OOP programming style,</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2023-03-14T00:00:00-05:00" itemprop="datePublished">
         Mar 14, 2023
       </time>
        • <span class="read-time" title="Estimated read time">
@@ -410,7 +410,6 @@ window.onload = wrap_img;
         <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
         <span class="k">return</span> <span class="kc">None</span>
-    
 </pre></div>
 
     </div>
@@ -796,6 +795,10 @@ Created new uid raven
     <span class="c1"># create new User attributes</span>
     <span class="n">newname</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Enter your name."</span><span class="p">)</span>
     <span class="n">newuid</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Input a user ID. It can be a new one if you'd like."</span><span class="p">)</span>
+    <span class="n">check</span> <span class="o">=</span> <span class="n">find_by_uid</span><span class="p">(</span><span class="n">newuid</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">check</span> <span class="o">!=</span> <span class="s2">"None"</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">check</span> <span class="o">!=</span> <span class="n">uid</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"The user ID </span><span class="si">{</span><span class="n">newuid</span><span class="si">}</span><span class="s2"> is already being used by another user."</span><span class="p">)</span>
+        <span class="k">return</span>
     <span class="n">newps</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Input a password. It can be a new one if you'd like."</span><span class="p">)</span>
     <span class="n">newdob</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Enter your date of birth in 'YYYY-MM-DD' format."</span><span class="p">)</span>
     <span class="k">try</span><span class="p">:</span>
