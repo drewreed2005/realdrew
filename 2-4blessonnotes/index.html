@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      8 min read
+      18 min read
     
 </span></p>
 
@@ -131,9 +131,17 @@ window.onload = wrap_img;
 <ul>
 <li class="toc-entry toc-h2"><a href="#My-Own-Database">My Own Database </a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#Initializing">Initializing </a></li>
+<li class="toc-entry toc-h3"><a href="#Features">Features </a></li>
+<li class="toc-entry toc-h3"><a href="#Initializing-and-Creating-the-Database">Initializing and Creating the Database </a></li>
+<li class="toc-entry toc-h3"><a href="#Read-Function">Read Function </a></li>
+<li class="toc-entry toc-h3"><a href="#Code-for-Adding-Comments">Code for Adding Comments </a></li>
+<li class="toc-entry toc-h3"><a href="#Connecting-to-the-Users-Database">Connecting to the Users Database </a></li>
+<li class="toc-entry toc-h3"><a href="#Testing-Functionality">Testing Functionality </a></li>
+<li class="toc-entry toc-h3"><a href="#Displaying-Comments-for-a-Certain-Enemy">Displaying Comments for a Certain Enemy </a></li>
+<li class="toc-entry toc-h3"><a href="#Reflection">Reflection </a></li>
 </ul>
 </li>
+<li class="toc-entry toc-h2"><a href="#Procedural-Abstraction-Question">Procedural Abstraction Question </a></li>
 </ul>
 </li>
 </ul><!--
@@ -641,20 +649,566 @@ window.onload = wrap_img;
 <h1 id="Hacks">
 <a class="anchor" href="#Hacks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hacks<a class="anchor-link" href="#Hacks"> </a>
 </h1>
-<p>REMEMERB</p>
-<ul>
-<li>In implementation in previous bullet, do you see procedural abstraction?</li>
-</ul>
 <h2 id="My-Own-Database">
 <a class="anchor" href="#My-Own-Database" aria-hidden="true"><span class="octicon octicon-link"></span></a>My Own Database<a class="anchor-link" href="#My-Own-Database"> </a>
 </h2>
 <p>I decided to use the object oriented form of database because I prefer the orderliness that it affords me.</p>
-<p>Because I've been working with Gamemaker recently to try to make an RPG game (mainly for fun, but also to try applying what I'm learning in different ways), I decided to make a database with various (fake) video game bosses, with attributes for their stats, weaknesses, attacks, etc.</p>
-<p>To add a twist on the easier databases we've been working with recently, I decided to make it like a user forum. Each character in the database has room for users to add their strategies on how to beat it.</p>
-<h3 id="Initializing">
-<a class="anchor" href="#Initializing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Initializing<a class="anchor-link" href="#Initializing"> </a>
+<h3 id="Features">
+<a class="anchor" href="#Features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features<a class="anchor-link" href="#Features"> </a>
 </h3>
-<p>The big code block below initializes the database.</p>
+<p>Because I've been working with Gamemaker recently to try to make an RPG game (mainly for fun, but also to try applying what I'm learning in different ways), I decided to make a database with various (fake) video game bosses, with attributes for their stats, weaknesses, descriptions, etc.</p>
+<p>To add a twist on the easier databases we've been working with recently, I decided to make it like a user forum. Each character in the database has room for users to add their strategies on how to beat it.</p>
+<p>On top of that, to leave a forum comment, I decided to make it based on the user database from 2.4a. You'll have to connect to one of the users in the original database using your username and password. This connection uses the other type we worked on today.</p>
+<h3 id="Initializing-and-Creating-the-Database">
+<a class="anchor" href="#Initializing-and-Creating-the-Database" aria-hidden="true"><span class="octicon octicon-link"></span></a>Initializing and Creating the Database<a class="anchor-link" href="#Initializing-and-Creating-the-Database"> </a>
+</h3>
+<p>The big code block below initializes and creates the database.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
+<span class="kn">from</span> <span class="nn">flask_sqlalchemy</span> <span class="kn">import</span> <span class="n">SQLAlchemy</span>
+
+<span class="c1"># Setup of key Flask object (app)</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="c1"># Setup SQLAlchemy object and properties for the database (db)</span>
+<span class="n">database</span> <span class="o">=</span> <span class="s1">'sqlite:///vgenemy.db'</span>  <span class="c1"># path and filename of database</span>
+<span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">'SQLALCHEMY_TRACK_MODIFICATIONS'</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">'SQLALCHEMY_DATABASE_URI'</span><span class="p">]</span> <span class="o">=</span> <span class="n">database</span>
+<span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">'SECRET_KEY'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'SECRET_KEY'</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">SQLAlchemy</span><span class="p">()</span>
+
+<span class="c1"># This belongs in place where it runs once per project</span>
+<span class="n">db</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+
+<span class="sd">""" database dependencies to support sqlite examples """</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">from</span> <span class="nn">sqlalchemy.exc</span> <span class="kn">import</span> <span class="n">IntegrityError</span>
+
+<span class="k">class</span> <span class="nc">Comment</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s1">'comments'</span>
+
+    <span class="c1"># Define the Notes schema</span>
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">note</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span> <span class="n">unique</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">userID</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span> <span class="n">unique</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">monsterID</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">db</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s1">'enemies.id'</span><span class="p">))</span>
+
+    <span class="c1"># Constructor of a Notes object, initializes of instance variables within object</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">note</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">userID</span> <span class="o">=</span> <span class="n">uid</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">note</span> <span class="o">=</span> <span class="n">note</span>
+
+    <span class="c1"># Returns a string representation of the Notes object, similar to java toString()</span>
+    <span class="c1"># returns string</span>
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">"Notes("</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span> <span class="o">+</span> <span class="s2">","</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">note</span> <span class="o">+</span> <span class="s2">","</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">userID</span><span class="p">)</span> <span class="o">+</span> <span class="s2">")"</span>
+
+    <span class="c1"># CRUD create, adds a new record to the Notes table</span>
+    <span class="c1"># returns the object added or None in case of an error</span>
+    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># creates a Notes object from Notes(db.Model) class, passes initializers</span>
+            <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>  <span class="c1"># add prepares to persist person object to Notes table</span>
+            <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>  <span class="c1"># SqlAlchemy "unit of work pattern" requires a manual commit</span>
+            <span class="k">return</span> <span class="bp">self</span>
+        <span class="k">except</span> <span class="n">IntegrityError</span><span class="p">:</span>
+            <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="c1"># CRUD read, returns dictionary representation of Notes object</span>
+    <span class="c1"># returns dictionary</span>
+    <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">"id"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+            <span class="s2">"userID"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">userID</span><span class="p">,</span>
+            <span class="s2">"note"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">note</span><span class="p">,</span>
+            <span class="s2">"monsterID"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">monsterID</span>
+        <span class="p">}</span>
+
+<span class="k">class</span> <span class="nc">Enemy</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s1">'enemies'</span>  <span class="c1"># table name is plural, class name is singular</span>
+    <span class="c1"># Define the User schema with "vars" from object</span>
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">_name</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span> <span class="n">unique</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">_desc</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span> <span class="n">unique</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">_att</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">unique</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">_mag</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">unique</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">_dfs</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">unique</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">_spd</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">unique</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">_comments</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">relationship</span><span class="p">(</span><span class="s1">'Comment'</span><span class="p">,</span> <span class="n">backref</span><span class="o">=</span><span class="s1">'enemies'</span><span class="p">,</span> <span class="n">lazy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="c1"># constructor of a User object, initializes the instance variables within object (self)</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">desc</span><span class="p">,</span> <span class="n">att</span><span class="p">,</span> <span class="n">mag</span><span class="p">,</span> <span class="n">dfs</span><span class="p">,</span> <span class="n">spd</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="n">name</span>    <span class="c1"># variables with self prefix become part of the object, </span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_desc</span> <span class="o">=</span> <span class="n">desc</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_att</span> <span class="o">=</span> <span class="n">att</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_mag</span> <span class="o">=</span> <span class="n">mag</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dfs</span> <span class="o">=</span> <span class="n">dfs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_spd</span> <span class="o">=</span> <span class="n">spd</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span>
+    <span class="nd">@name</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="n">name</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">desc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_desc</span>
+    <span class="nd">@desc</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">desc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">desc</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_desc</span> <span class="o">=</span> <span class="n">desc</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">att</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_att</span>
+    <span class="nd">@att</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">att</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">att</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_att</span> <span class="o">=</span> <span class="n">att</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">mag</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mag</span>
+    <span class="nd">@mag</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">mag</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mag</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_mag</span> <span class="o">=</span> <span class="n">mag</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">dfs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dfs</span>
+    <span class="nd">@dfs</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">dfs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dfs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dfs</span> <span class="o">=</span> <span class="n">dfs</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">spd</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_spd</span>
+    <span class="nd">@spd</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">spd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spd</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_spd</span> <span class="o">=</span> <span class="n">spd</span>
+    
+    <span class="c1"># output content using str(object) in human readable form, uses getter</span>
+    <span class="c1"># output content using json dumps, this is ready for API response</span>
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+
+    <span class="c1"># CRUD create/add a new record to the table</span>
+    <span class="c1"># returns self or None on error</span>
+    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># creates a person object from Enemy(db.Model) class, passes initializers</span>
+            <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>  <span class="c1"># add prepares to persist person object to enemies table</span>
+            <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>  <span class="c1"># SqlAlchemy "unit of work pattern" requires a manual commit</span>
+            <span class="k">return</span> <span class="bp">self</span>
+        <span class="k">except</span> <span class="n">IntegrityError</span><span class="p">:</span>
+            <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span>
+            <span class="k">return</span> <span class="kc">None</span>
+    <span class="c1"># CRUD read converts self to dictionary</span>
+    <span class="c1"># returns dictionary</span>
+    <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">"id"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+            <span class="s2">"name"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+            <span class="s2">"desc"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">desc</span><span class="p">,</span>
+            <span class="s2">"att"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">att</span><span class="p">,</span>
+            <span class="s2">"mag"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">mag</span><span class="p">,</span>
+            <span class="s2">"dfs"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">dfs</span><span class="p">,</span>
+            <span class="s2">"spd"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">spd</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="c1"># CRUD update: updates all values</span>
+    <span class="c1"># returns self</span>
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">att</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">mag</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">dfs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">spd</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        <span class="sd">"""only updates values with length"""</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">desc</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">desc</span> <span class="o">=</span> <span class="n">desc</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">att</span> <span class="o">=</span> <span class="n">att</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mag</span> <span class="o">=</span> <span class="n">mag</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dfs</span> <span class="o">=</span> <span class="n">dfs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">spd</span> <span class="o">=</span> <span class="n">spd</span>
+        <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="c1"># CRUD delete: remove self</span>
+    <span class="c1"># None</span>
+    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+<span class="sd">"""Database Creation and Testing """</span>
+
+
+<span class="c1"># Builds working data for testing</span>
+<span class="k">def</span> <span class="nf">initEnemies</span><span class="p">():</span>
+    <span class="k">with</span> <span class="n">app</span><span class="o">.</span><span class="n">app_context</span><span class="p">():</span>
+        <span class="sd">"""Create database and tables"""</span>
+        <span class="n">db</span><span class="o">.</span><span class="n">create_all</span><span class="p">()</span>
+        <span class="sd">"""Tester data for table"""</span>
+        <span class="n">e1</span> <span class="o">=</span> <span class="n">Enemy</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'Forest Guardian'</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s1">'A lumbering green beast with sharp horns.'</span><span class="p">,</span> <span class="n">att</span><span class="o">=</span><span class="mi">85</span><span class="p">,</span> <span class="n">mag</span><span class="o">=</span><span class="mi">70</span><span class="p">,</span> <span class="n">dfs</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">spd</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+        <span class="n">e2</span> <span class="o">=</span> <span class="n">Enemy</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'Sea Guardian'</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s1">'A strange, unpredictable fish with long whiskers.'</span><span class="p">,</span> <span class="n">att</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">mag</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">dfs</span><span class="o">=</span><span class="mi">85</span><span class="p">,</span> <span class="n">spd</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+        <span class="n">e3</span> <span class="o">=</span> <span class="n">Enemy</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'Terra Guardian'</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s1">'A keen, sharp-clawed mole with a drill tail.'</span><span class="p">,</span> <span class="n">att</span><span class="o">=</span><span class="mi">110</span><span class="p">,</span> <span class="n">mag</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">dfs</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">spd</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+        <span class="n">e4</span> <span class="o">=</span> <span class="n">Enemy</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'Molten Guardian'</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s1">'A giant lava monster with metal accessories.'</span><span class="p">,</span> <span class="n">att</span><span class="o">=</span><span class="mi">85</span><span class="p">,</span> <span class="n">mag</span><span class="o">=</span><span class="mi">115</span><span class="p">,</span> <span class="n">dfs</span><span class="o">=</span><span class="mi">85</span><span class="p">,</span> <span class="n">spd</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+        <span class="n">e5</span> <span class="o">=</span> <span class="n">Enemy</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'Sky Guardian'</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s1">'A valiant, flying knight bird with armor.'</span><span class="p">,</span> <span class="n">att</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">mag</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">dfs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">spd</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+        <span class="n">enemies</span> <span class="o">=</span> <span class="p">[</span><span class="n">e1</span><span class="p">,</span> <span class="n">e2</span><span class="p">,</span> <span class="n">e3</span><span class="p">,</span> <span class="n">e4</span><span class="p">,</span> <span class="n">e5</span><span class="p">]</span>
+
+        <span class="sd">"""Builds sample user/note(s) data"""</span>
+        <span class="k">for</span> <span class="n">enemy</span> <span class="ow">in</span> <span class="n">enemies</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">comment</span> <span class="o">=</span> <span class="s2">"Share your strategies here!"</span>
+                <span class="n">enemy</span><span class="o">.</span><span class="n">_comments</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Comment</span><span class="p">(</span><span class="s2">"Admin"</span><span class="p">,</span> <span class="n">comment</span><span class="p">))</span>
+                <span class="sd">'''add user to table'''</span>
+                <span class="nb">object</span> <span class="o">=</span> <span class="n">enemy</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Created new enemy "</span><span class="si">{</span><span class="nb">object</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1">".'</span><span class="p">)</span>
+            <span class="k">except</span><span class="p">:</span>  <span class="c1"># error raised if object nit created</span>
+                <span class="sd">'''fails with bad or duplicate data'''</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Error creating </span><span class="si">{</span><span class="n">enemy</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> data."</span><span class="p">)</span>
+                
+<span class="n">initEnemies</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Created new enemy "Forest Guardian".
+Created new enemy "Sea Guardian".
+Created new enemy "Terra Guardian".
+Created new enemy "Molten Guardian".
+Created new enemy "Sky Guardian".
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Read-Function">
+<a class="anchor" href="#Read-Function" aria-hidden="true"><span class="octicon octicon-link"></span></a>Read Function<a class="anchor-link" href="#Read-Function"> </a>
+</h3>
+<p>A read function is nice to have for future use in the commenting code.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">e_read</span><span class="p">():</span>
+    <span class="k">with</span> <span class="n">app</span><span class="o">.</span><span class="n">app_context</span><span class="p">():</span>
+        <span class="n">table</span> <span class="o">=</span> <span class="n">Enemy</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="n">json_ready</span> <span class="o">=</span> <span class="p">[</span><span class="n">enemy</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> <span class="k">for</span> <span class="n">enemy</span> <span class="ow">in</span> <span class="n">table</span><span class="p">]</span> <span class="c1"># each user adds user.read() to list</span>
+    <span class="k">return</span> <span class="n">json_ready</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The code above successfully creates all five of the template enemies.</p>
+<h3 id="Code-for-Adding-Comments">
+<a class="anchor" href="#Code-for-Adding-Comments" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code for Adding Comments<a class="anchor-link" href="#Code-for-Adding-Comments"> </a>
+</h3>
+<p>Now that the enemies have been made in the database, I created a function below that lets the user comment on a specific monster. The parameters correspond to code in the <code>verify</code> function found later.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">make_comment</span><span class="p">(</span><span class="n">userID</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">app</span><span class="o">.</span><span class="n">app_context</span><span class="p">():</span>
+        <span class="n">id_inp</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Please input the number corresponding to the enemy you would like to comment on."</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">id_sel</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">id_inp</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Please input an integer corresponding to an enemy."</span><span class="p">)</span>
+            <span class="n">make_comment</span><span class="p">(</span><span class="n">userID</span><span class="p">)</span>
+        <span class="n">enemy</span> <span class="o">=</span> <span class="n">Enemy</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">id_sel</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">enemy</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Enemy found. Please enter a comment."</span><span class="p">)</span>
+            <span class="n">c_enter</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Please discuss your thoughts on/strategies for this enemy."</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Your comment will look like this:"</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">userID</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">c_enter</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Is this alright?"</span><span class="p">)</span>
+            <span class="n">consent</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">'Enter "y" for YES and "n" for NO.'</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">consent</span> <span class="o">==</span> <span class="s2">"y"</span><span class="p">:</span>
+                <span class="c1"># Connect to the database file</span>
+                <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">'instance/vgenemy.db'</span><span class="p">)</span>
+                <span class="c1"># Create a cursor object to execute SQL commands</span>
+                <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="c1"># Execute an SQL command to insert data into a table</span>
+                    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">"INSERT INTO comments (note, userID, monsterID) VALUES (?, ?, ?)"</span><span class="p">,</span> <span class="p">(</span><span class="n">c_enter</span><span class="p">,</span> <span class="n">userID</span><span class="p">,</span> <span class="n">id_sel</span><span class="p">))</span>
+                    <span class="c1"># Commit the changes to the database</span>
+                    <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+                <span class="k">except</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">Error</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">"Error while executing the INSERT:"</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span>
+                <span class="c1"># Close the cursor and connection objects</span>
+                <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+                <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">"Comment posted successfully!"</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">make_comment</span><span class="p">(</span><span class="n">userID</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Enemy not found."</span><span class="p">)</span>
+            <span class="n">make_comment</span><span class="p">(</span><span class="n">userID</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Connecting-to-the-Users-Database">
+<a class="anchor" href="#Connecting-to-the-Users-Database" aria-hidden="true"><span class="octicon octicon-link"></span></a>Connecting to the Users Database<a class="anchor-link" href="#Connecting-to-the-Users-Database"> </a>
+</h3>
+<p>The code below uses the <code>sqlite3</code> library to connect to the User database and verify the user with a user ID and password input.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sqlite3</span>
+
+<span class="n">udb</span> <span class="o">=</span> <span class="s1">'instance/sqlite.db'</span> <span class="c1"># this is location of database</span>
+
+<span class="k">def</span> <span class="nf">verify</span><span class="p">():</span>
+    <span class="c1"># Connect to the database file</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">udb</span><span class="p">)</span>
+
+    <span class="c1"># Create a cursor object to execute SQL queries</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    
+    <span class="c1"># get user input</span>
+    <span class="n">uid</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Enter your user ID: "</span><span class="p">)</span>
+    <span class="n">password</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Enter your password: "</span><span class="p">)</span>
+
+    <span class="c1"># Execute a SELECT statement to retrieve data from the table</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">"SELECT * FROM users WHERE _uid = ? AND _password = ?"</span><span class="p">,</span> <span class="p">(</span><span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">))</span>
+
+    <span class="c1"># fetch the first matching row</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+
+    <span class="c1">#closing cursor</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    
+    <span class="c1">#checking if user with matching data exists</span>
+    <span class="k">if</span> <span class="n">user</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Welcome, </span><span class="si">{</span><span class="n">user</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">!"</span><span class="p">)</span>
+        <span class="n">uid</span> <span class="o">=</span> <span class="n">user</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">enemy</span> <span class="ow">in</span> <span class="n">e_read</span><span class="p">():</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">enemy</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]</span><span class="si">}</span><span class="s1">. </span><span class="si">{</span><span class="n">enemy</span><span class="p">[</span><span class="s2">"name"</span><span class="p">]</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+        <span class="n">make_comment</span><span class="p">(</span><span class="n">uid</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'User with ID "</span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s1">" and password "</span><span class="si">{</span><span class="n">password</span><span class="si">}</span><span class="s1">" not found.'</span><span class="p">)</span>
+        <span class="k">return</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Testing-Functionality">
+<a class="anchor" href="#Testing-Functionality" aria-hidden="true"><span class="octicon octicon-link"></span></a>Testing Functionality<a class="anchor-link" href="#Testing-Functionality"> </a>
+</h3>
+<p>Here's a test to show the process of adding a comment.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">verify</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Welcome, Drew Reed!
+1. Forest Guardian
+2. Sea Guardian
+3. Terra Guardian
+4. Molten Guardian
+5. Sky Guardian
+Enemy found. Please enter a comment.
+Your comment will look like this:
+mrdew: He always charges up strong attacks, so guard after he does! He is weak to fire magic.
+Is this alright?
+Comment posted successfully!
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Displaying-Comments-for-a-Certain-Enemy">
+<a class="anchor" href="#Displaying-Comments-for-a-Certain-Enemy" aria-hidden="true"><span class="octicon octicon-link"></span></a>Displaying Comments for a Certain Enemy<a class="anchor-link" href="#Displaying-Comments-for-a-Certain-Enemy"> </a>
+</h3>
+<p>Now that I have successfully created code to comment on the enemies in the database, it's time to create some code to display the information and comments on a certain enemy.</p>
+<p>I did so in the function below.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">clear_output</span>
+
+<span class="k">def</span> <span class="nf">forum</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">enemy</span> <span class="ow">in</span> <span class="n">e_read</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">enemy</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]</span><span class="si">}</span><span class="s1">. </span><span class="si">{</span><span class="n">enemy</span><span class="p">[</span><span class="s2">"name"</span><span class="p">]</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+    <span class="n">id_inp</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Please input the number corresponding to the enemy you would like to comment on."</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">id_sel</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">id_inp</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Please input an integer corresponding to an enemy."</span><span class="p">)</span>
+        <span class="n">forum</span><span class="p">()</span>
+    <span class="k">with</span> <span class="n">app</span><span class="o">.</span><span class="n">app_context</span><span class="p">():</span>
+        <span class="n">enemy</span> <span class="o">=</span> <span class="n">Enemy</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">id_sel</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">enemy</span><span class="p">:</span>
+            <span class="n">table</span> <span class="o">=</span> <span class="n">Comment</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+            <span class="n">comments</span> <span class="o">=</span> <span class="p">[</span><span class="n">comment</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> <span class="k">for</span> <span class="n">comment</span> <span class="ow">in</span> <span class="n">table</span><span class="p">]</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span> <span class="n">enemy</span><span class="o">.</span><span class="n">_name</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">'Base Stats:'</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Attack: </span><span class="si">{</span><span class="n">enemy</span><span class="o">.</span><span class="n">_att</span><span class="si">}</span><span class="s1"> | Magic: </span><span class="si">{</span><span class="n">enemy</span><span class="o">.</span><span class="n">_mag</span><span class="si">}</span><span class="s1"> | Defense: </span><span class="si">{</span><span class="n">enemy</span><span class="o">.</span><span class="n">_dfs</span><span class="si">}</span><span class="s1"> | Speed: </span><span class="si">{</span><span class="n">enemy</span><span class="o">.</span><span class="n">_spd</span><span class="si">}</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">'Comments:'</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">comment</span> <span class="ow">in</span> <span class="n">comments</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">comment</span><span class="p">[</span><span class="s2">"monsterID"</span><span class="p">]</span> <span class="o">==</span> <span class="n">id_sel</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">comment</span><span class="p">[</span><span class="s2">"userID"</span><span class="p">]</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">comment</span><span class="p">[</span><span class="s2">"note"</span><span class="p">]</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Enemy not found. Make sure to input a corresponding integer."</span><span class="p">)</span>
+
+<span class="n">forum</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1. Forest Guardian
+2. Sea Guardian
+3. Terra Guardian
+4. Molten Guardian
+5. Sky Guardian
+
+Forest Guardian
+
+Base Stats:
+Attack: 85 | Magic: 70 | Defense: 80 | Speed: 50
+
+Comments:
+Admin: Share your strategies here!
+mrdew: He always charges up strong attacks, so guard after he does! He is weak to fire magic.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As you can see, the comment it showed me adding earlier on in the document is able to be fetched.</p>
+<h3 id="Reflection">
+<a class="anchor" href="#Reflection" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reflection<a class="anchor-link" href="#Reflection"> </a>
+</h3>
+<p>I had never worked with parent-child objects before this, nor had I understood how to use <code>ForeignKey</code> attributes before this, but I worked on it for a very long time and eventually still got it to work.</p>
+<p>Doing this made me realize that sometimes, the procedural, non-object-oriented method we learned in class today is just easier. The classes were a lot to juggle, and I found myself really struggling to jump between the two different methods.</p>
+<p>At the same time, I was doing that to demonstrate knowledge. If I didn't have to do any of that, I could have more easily used two separate sqlite tables together.</p>
+<h2 id="Procedural-Abstraction-Question">
+<a class="anchor" href="#Procedural-Abstraction-Question" aria-hidden="true"><span class="octicon octicon-link"></span></a>Procedural Abstraction Question<a class="anchor-link" href="#Procedural-Abstraction-Question"> </a>
+</h2>
+<p>We were tasked to answer where procedural abstraction can be seen in our new databases. In mine, it can very easily be seen all throughout the process, starting with the <code>Comment</code> and <code>Enemy</code> class functions and ending with the <code>forum</code> function. In each case, I created new functions to prevent other functions from becoming too bulky or difficult to understand.</p>
+<p>For example, I made sure that the primary focus of <code>verify</code> was to log the user in before making a comment. Then, I had it transition into the <code>make_comment</code> function when it was time for that step in the process.</p>
+<p>I also used it for <code>e_read</code> so that I could grab the up-to-date enemy table data in an easy-to-manipulate JSON format whenever I needed to in other functions, including <code>make_comment</code> and <code>forum</code>. I think this was some pretty valuable foresight.</p>
 
 </div>
 </div>
