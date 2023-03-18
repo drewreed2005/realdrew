@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      24 min read
+      25 min read
     
 </span></p>
 
@@ -280,20 +280,29 @@ window.onload = wrap_img;
 <ul>
 <li>What is a connection object?  After you Google it, what do you think it does?</li>
 </ul>
-<p>Google described it very confusingly. However, from what I understand, a connection object is basically an object that is used to connect to a database and interact with it using various code functions. It essentially does what you could do manually through the terminal with sqlite3, for example.</p>
-<ul>
+<p>From what I understand, a connection object is basically an object that is used to connect to a database so that you can interact with it with various other functions such as the cursor object below. To use it, the argument is a string with the path to the database.</p>
+<figure>
+  <img src="/realdrew/images/Screen%20Shot%202023-03-17%20at%207.27.15%20PM.png" alt="connectino object" width="650">
+  <figcaption>The attributes of the connection object.</figcaption>
+</figure><ul>
 <li>Same for cursor object?</li>
 </ul>
-<p>The cursor object can select data and execute code within the database after connecting.</p>
-<ul>
+<p>The cursor object can select data and execute code within the database after connecting. It essentially allows you to do what you would otherwise do with <code>sqlite3</code> in the terminal.</p>
+<figure>
+  <img src="/realdrew/images/Screen%20Shot%202023-03-17%20at%207.27.41%20PM.png" alt="cursor object" width="650">
+  <figcaption>The attributes of the cursor object.</figcaption>
+</figure><ul>
 <li>Look at conn object and cursor object in VSCode debugger.  What attributes are in the object?</li>
 </ul>
 <p>There are many special variables, function variables, and class variables in both. The unique attributes that I'm seeing are <code>in_transaction:False</code>, <code>isolation_level: ''</code>, <code>row_factory: None</code>, and <code>total_changes: 0</code> in the <code>conn</code> object and <code>arraysize</code>, <code>lastrowid</code>, <code>row_factory</code>, and <code>rowcount</code>.</p>
 <ul>
 <li>Is "results" an object?  How do you know?</li>
 </ul>
-<p>It <strong>is</strong> an object because we can see that it has attributes, where are exclusive to objects.</p>
-
+<p>It <strong>is</strong> an object because we can see that it has attributes, which are exclusive to objects.</p>
+<figure>
+  <img src="/realdrew/images/Screen%20Shot%202023-03-17%20at%207.28.21%20PM.png" alt="results object" width="650">
+  <figcaption>The attributes of the object saved under the variable 'results'.</figcaption>
+</figure>
 </div>
 </div>
 </div>
@@ -346,6 +355,7 @@ window.onload = wrap_img;
 (5, 'Indiana Jones', 'indi', 'sha256$EA4t5WiMqOeqQtXC$243329b57d674ca11a23b0a7840f828a064414091eec0264a1272a5a7780821b', '1920-10-21')
 (6, 'Marion Ravenwood', 'raven', 'sha256$QwKSrtvysyLsWTTm$5da65ce9a81bd379ec5d653bee364838f3a3c9ca3e8aa11faa11d24db208ba29', '1921-10-21')
 (7, 'AJ Ruiz', 'kkcbal', 'sha256$RN6Q5qWnLZldKoAN$c684956f996a55f5ecd847c984d5f037d2289a0afb5adc09ba7f0fbd3124a7dd', '2006-05-18')
+(8, 'Drew Reed', 'mrdew', 'budthefox', '2005-11-07')
 </pre>
 </div>
 </div>
