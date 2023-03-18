@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      18 min read
+      24 min read
     
 </span></p>
 
@@ -133,15 +133,26 @@ window.onload = wrap_img;
 <ul>
 <li class="toc-entry toc-h3"><a href="#Features">Features </a></li>
 <li class="toc-entry toc-h3"><a href="#Initializing-and-Creating-the-Database">Initializing and Creating the Database </a></li>
-<li class="toc-entry toc-h3"><a href="#Read-Function">Read Function </a></li>
-<li class="toc-entry toc-h3"><a href="#Code-for-Adding-Comments">Code for Adding Comments </a></li>
+<li class="toc-entry toc-h3"><a href="#Enemy-Read-Function">Enemy Read Function </a></li>
+<li class="toc-entry toc-h3"><a href="#Code-for-Adding-Comments-(Create)">Code for Adding Comments (Create) </a></li>
 <li class="toc-entry toc-h3"><a href="#Connecting-to-the-Users-Database">Connecting to the Users Database </a></li>
 <li class="toc-entry toc-h3"><a href="#Testing-Functionality">Testing Functionality </a></li>
 <li class="toc-entry toc-h3"><a href="#Displaying-Comments-for-a-Certain-Enemy">Displaying Comments for a Certain Enemy </a></li>
-<li class="toc-entry toc-h3"><a href="#Reflection">Reflection </a></li>
+<li class="toc-entry toc-h3"><a href="#Finishing-the-Comments-CRUD">Finishing the Comments CRUD </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#Read">Read </a></li>
+<li class="toc-entry toc-h4"><a href="#Update">Update </a></li>
+<li class="toc-entry toc-h4"><a href="#Delete">Delete </a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#Procedural-Abstraction-Question">Procedural Abstraction Question </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#Menu-with-CRUD-Procedures">Menu with CRUD Procedures </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Reflection">Reflection </a></li>
+<li class="toc-entry toc-h3"><a href="#Procedural-Abstraction-Question">Procedural Abstraction Question </a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul><!--
@@ -903,10 +914,10 @@ Created new enemy "Sky Guardian".
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Read-Function">
-<a class="anchor" href="#Read-Function" aria-hidden="true"><span class="octicon octicon-link"></span></a>Read Function<a class="anchor-link" href="#Read-Function"> </a>
+<h3 id="Enemy-Read-Function">
+<a class="anchor" href="#Enemy-Read-Function" aria-hidden="true"><span class="octicon octicon-link"></span></a>Enemy Read Function<a class="anchor-link" href="#Enemy-Read-Function"> </a>
 </h3>
-<p>A read function is nice to have for future use in the commenting code.</p>
+<p>A read function is nice to have for future use in the commenting code. This is the code corresponding to the enemy database, however; it will not have full CRUD code because the list of monsters is simply there for reference. I made it a corresponding parent database for simplicity.</p>
 
 </div>
 </div>
@@ -936,8 +947,8 @@ Created new enemy "Sky Guardian".
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The code above successfully creates all five of the template enemies.</p>
-<h3 id="Code-for-Adding-Comments">
-<a class="anchor" href="#Code-for-Adding-Comments" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code for Adding Comments<a class="anchor-link" href="#Code-for-Adding-Comments"> </a>
+<h3 id="Code-for-Adding-Comments-(Create)">
+<a class="anchor" href="#Code-for-Adding-Comments-(Create)" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code for Adding Comments (Create)<a class="anchor-link" href="#Code-for-Adding-Comments-(Create)"> </a>
 </h3>
 <p>Now that the enemies have been made in the database, I created a function below that lets the user comment on a specific monster. The parameters correspond to code in the <code>verify</code> function found later.</p>
 
@@ -1196,19 +1207,322 @@ mrdew: He always charges up strong attacks, so guard after he does! He is weak t
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>As you can see, the comment it showed me adding earlier on in the document is able to be fetched.</p>
+<h3 id="Finishing-the-Comments-CRUD">
+<a class="anchor" href="#Finishing-the-Comments-CRUD" aria-hidden="true"><span class="octicon octicon-link"></span></a>Finishing the Comments CRUD<a class="anchor-link" href="#Finishing-the-Comments-CRUD"> </a>
+</h3>
+<p>I already made the <code>make_comment</code> function that essentially acts like a create function. The grading standards got changed to include the necessity to make a menu with create, read, update and delete, so I decided to go through and make the three remaining functions for the comments.</p>
+<h4 id="Read">
+<a class="anchor" href="#Read" aria-hidden="true"><span class="octicon octicon-link"></span></a>Read<a class="anchor-link" href="#Read"> </a>
+</h4>
+<p>I don't have a formal <code>read</code> function for comments, so I made it below.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sqlite3</span>
+
+<span class="k">def</span> <span class="nf">c_read</span><span class="p">():</span>
+    <span class="k">with</span> <span class="n">app</span><span class="o">.</span><span class="n">app_context</span><span class="p">():</span>
+        <span class="n">table</span> <span class="o">=</span> <span class="n">Comment</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="n">json_ready</span> <span class="o">=</span> <span class="p">[</span><span class="n">comment</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> <span class="k">for</span> <span class="n">comment</span> <span class="ow">in</span> <span class="n">table</span><span class="p">]</span> <span class="c1"># each user adds user.read() to list</span>
+    <span class="k">return</span> <span class="n">json_ready</span>
+    
+<span class="n">c_read</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Update">
+<a class="anchor" href="#Update" aria-hidden="true"><span class="octicon octicon-link"></span></a>Update<a class="anchor-link" href="#Update"> </a>
+</h4>
+<p>This one is less self-explanatory and a bit more difficult, so I describe how it works below the code.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cdb</span> <span class="o">=</span> <span class="s1">'instance/vgenemy.db'</span>
+
+<span class="k">def</span> <span class="nf">c_update</span><span class="p">(</span><span class="n">userID</span><span class="p">):</span>
+    <span class="c1"># Printing all of the user's comments</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">u_comments</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">comment</span> <span class="ow">in</span> <span class="n">c_read</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">comment</span><span class="p">[</span><span class="s1">'userID'</span><span class="p">]</span> <span class="o">==</span> <span class="n">userID</span><span class="p">:</span>
+            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="sa">f</span><span class="s1">'. </span><span class="si">{</span><span class="n">comment</span><span class="p">[</span><span class="s2">"userID"</span><span class="p">]</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">comment</span><span class="p">[</span><span class="s2">"note"</span><span class="p">]</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+            <span class="n">u_comments</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">comment</span><span class="p">)</span>
+    <span class="n">e_comment</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Which comment would you like to edit?"</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">c_sel</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">e_comment</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span> <span class="c1"># using user input as index</span>
+        <span class="n">chosen_c</span> <span class="o">=</span> <span class="n">u_comments</span><span class="p">[</span><span class="n">c_sel</span><span class="p">]</span>
+        <span class="k">pass</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Invalid input. Enter an integer corresponding to a listed comment."</span><span class="p">)</span>
+        <span class="n">c_update</span><span class="p">(</span><span class="n">userID</span><span class="p">)</span>
+    <span class="n">new_note</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"What would you like your comment to say instead?"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Your comment will look like this:"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">userID</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">new_note</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Is this alright?"</span><span class="p">)</span>
+    <span class="n">consent</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">'Enter "y" for YES and "n" for NO.'</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">consent</span> <span class="o">==</span> <span class="s2">"y"</span><span class="p">:</span>
+        <span class="c1"># Connect to the database file</span>
+        <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">cdb</span><span class="p">)</span>
+        <span class="c1"># Create a cursor object to execute SQL commands</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># Execute an SQL command to update data in a table</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">"UPDATE comments SET note = ? WHERE id = ?"</span><span class="p">,</span> <span class="p">(</span><span class="n">new_note</span><span class="p">,</span> <span class="n">chosen_c</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]))</span>
+            <span class="k">if</span> <span class="n">cursor</span><span class="o">.</span><span class="n">rowcount</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="c1"># The uid was not found in the table</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"No ID </span><span class="si">{</span><span class="n">chosen_c</span><span class="p">[</span><span class="s1">'id'</span><span class="p">]</span><span class="si">}</span><span class="s2"> was not found in the table."</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">"Your comment has been updated successfully!"</span><span class="p">)</span>
+                <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="k">except</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">Error</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Error while executing the UPDATE:"</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span>
+        <span class="c1"># Close the cursor and connection objects</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1. mrdew: He always charges up strong attacks, so guard after he does! He is weak to fire magic.
+Your comment will look like this:
+mrdew: He always charges up strong attacks, so guard after he does. He takes more damage from magic attacks, so try setting up weather if you can!
+Is this alright?
+Your comment has been updated successfully!
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>I left a sample of it running with my username above. It works by first printing out all of the comments created by the logged-in user. The user then selects a comment to be edited based on the number associated with it. That number corresponds to the index of one of the listed comments, which the user can then change by inputting a new comment. That new comment replaces the old one with the execute function.</p>
+<h4 id="Delete">
+<a class="anchor" href="#Delete" aria-hidden="true"><span class="octicon octicon-link"></span></a>Delete<a class="anchor-link" href="#Delete"> </a>
+</h4>
+<p>The delete code borrows a lot from the update code, so most of how that one worked applies to this one. The main difference is the execute code.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">c_delete</span><span class="p">(</span><span class="n">userID</span><span class="p">):</span>
+    <span class="c1"># Printing all of the user's comments</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">u_comments</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">comment</span> <span class="ow">in</span> <span class="n">c_read</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">comment</span><span class="p">[</span><span class="s1">'userID'</span><span class="p">]</span> <span class="o">==</span> <span class="n">userID</span><span class="p">:</span>
+            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="sa">f</span><span class="s1">'. </span><span class="si">{</span><span class="n">comment</span><span class="p">[</span><span class="s2">"userID"</span><span class="p">]</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">comment</span><span class="p">[</span><span class="s2">"note"</span><span class="p">]</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+            <span class="n">u_comments</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">comment</span><span class="p">)</span>
+    <span class="n">d_comment</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Which comment would you like to delete?"</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">c_sel</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">d_comment</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span> <span class="c1"># using user input as index</span>
+        <span class="n">chosen_c</span> <span class="o">=</span> <span class="n">u_comments</span><span class="p">[</span><span class="n">c_sel</span><span class="p">]</span>
+        <span class="k">pass</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Invalid input. Enter an integer corresponding to a listed comment."</span><span class="p">)</span>
+        <span class="n">update</span><span class="p">(</span><span class="n">userID</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Your comment will be permanently deleted. Is that alright?"</span><span class="p">)</span>
+    <span class="n">consent</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">'Enter "y" for YES and "n" for NO.'</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">consent</span> <span class="o">==</span> <span class="s2">"y"</span><span class="p">:</span>
+        <span class="c1"># Connect to the database file</span>
+        <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">cdb</span><span class="p">)</span>
+        <span class="c1"># Create a cursor object to execute SQL commands</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># Execute an SQL command to update data in a table</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">"DELETE FROM comments WHERE id = ?"</span><span class="p">,</span> <span class="p">(</span><span class="n">chosen_c</span><span class="p">[</span><span class="s1">'id'</span><span class="p">],))</span>
+            <span class="k">if</span> <span class="n">cursor</span><span class="o">.</span><span class="n">rowcount</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="c1"># The uid was not found in the table</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"No ID </span><span class="si">{</span><span class="n">chosen_c</span><span class="p">[</span><span class="s1">'id'</span><span class="p">]</span><span class="si">}</span><span class="s2"> was not found in the table."</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">"Your comment has been deleted successfully!"</span><span class="p">)</span>
+                <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="k">except</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">Error</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Error while executing the UPDATE:"</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span>
+        <span class="c1"># Close the cursor and connection objects</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Menu-with-CRUD-Procedures">
+<a class="anchor" href="#Menu-with-CRUD-Procedures" aria-hidden="true"><span class="octicon octicon-link"></span></a>Menu with CRUD Procedures<a class="anchor-link" href="#Menu-with-CRUD-Procedures"> </a>
+</h2>
+<p>Now that all of the CRUD features are done, I decided to make a menu that takes advantage of the user log-in capabilities I created before. The user starts by logging in (based on the information provided to the users database). After that, the user can make comments, read other comments, or update and delete their own comments.</p>
+<p>Because of the forum-like nature of this menu system, the <code>c_read</code> function created above is not used in the menu directly. Instead, the <code>forum</code> function, which also reads comment data, is placed in the menu instead.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">udb</span> <span class="o">=</span> <span class="s1">'instance/sqlite.db'</span>
+
+<span class="k">def</span> <span class="nf">login</span><span class="p">():</span>
+    <span class="c1"># Connect to the database file</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">udb</span><span class="p">)</span>
+    <span class="c1"># Create a cursor object to execute SQL queries</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="c1"># get user input</span>
+    <span class="n">uid</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Enter your user ID: "</span><span class="p">)</span>
+    <span class="n">password</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Enter your password: "</span><span class="p">)</span>
+    <span class="c1"># Execute a SELECT statement to retrieve data from the table</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">"SELECT * FROM users WHERE _uid = ? AND _password = ?"</span><span class="p">,</span> <span class="p">(</span><span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">))</span>
+    <span class="c1"># fetch the first matching row</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+    <span class="c1">#closing cursor</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="c1">#checking if user with matching data exists</span>
+    <span class="k">if</span> <span class="n">user</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Welcome, </span><span class="si">{</span><span class="n">user</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">!"</span><span class="p">)</span>
+        <span class="n">uid</span> <span class="o">=</span> <span class="n">user</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">c_menu</span><span class="p">(</span><span class="n">uid</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"User not found. Make sure that your user ID and password are inputted correctly."</span><span class="p">)</span>
+        <span class="n">login</span><span class="p">()</span>
+
+<span class="c1"># Even COOLER menu to run other cells from one control point</span>
+<span class="k">def</span> <span class="nf">c_menu</span><span class="p">(</span><span class="n">userID</span><span class="p">):</span>
+    <span class="n">operation</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Enter: (C)reate, (R)ead, (U)pdate or (D)elete"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">operation</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">'c'</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">enemy</span> <span class="ow">in</span> <span class="n">e_read</span><span class="p">():</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">enemy</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]</span><span class="si">}</span><span class="s1">. </span><span class="si">{</span><span class="n">enemy</span><span class="p">[</span><span class="s2">"name"</span><span class="p">]</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+        <span class="n">make_comment</span><span class="p">(</span><span class="n">userID</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">operation</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">'r'</span><span class="p">:</span>
+        <span class="n">forum</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="n">operation</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">'u'</span><span class="p">:</span>
+        <span class="n">c_update</span><span class="p">(</span><span class="n">userID</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">operation</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">'d'</span><span class="p">:</span>
+        <span class="n">c_delete</span><span class="p">(</span><span class="n">userID</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">operation</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="c1"># Escape Key</span>
+        <span class="k">return</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Please enter c, r, u, or d"</span><span class="p">)</span> 
+    <span class="n">c_menu</span><span class="p">(</span><span class="n">userID</span><span class="p">)</span> <span class="c1"># repeat the menu</span>
+        
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">login</span><span class="p">()</span> <span class="c1"># log in to your account</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Bye-bye!"</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Welcome, Drew Reed!
+1. Forest Guardian
+2. Sea Guardian
+3. Terra Guardian
+4. Molten Guardian
+5. Sky Guardian
+Enemy found. Please enter a comment.
+Your comment will look like this:
+mrdew: His eyes glow red when he's charging a magic attack, and since they do less damage, you can spend that turn attacking or healing. If his eyes glow blue, it means he's charging a strong physical attack, so guard!
+Is this alright?
+Comment posted successfully!
+1. mrdew: He always charges up strong attacks, so guard after he does. He takes more damage from magic attacks, so try setting up weather if you can!
+2. mrdew: His eyes glow red when he's charging a magic attack, and since they do less damage, you can spend that turn attacking or healing. If his eyes glow blue, it means he's charging a strong physical attack, so guard!
+Your comment will be permanently deleted. Is that alright?
+Your comment has been deleted successfully!
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Reflection">
 <a class="anchor" href="#Reflection" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reflection<a class="anchor-link" href="#Reflection"> </a>
 </h3>
 <p>I had never worked with parent-child objects before this, nor had I understood how to use <code>ForeignKey</code> attributes before this, but I worked on it for a very long time and eventually still got it to work.</p>
 <p>Doing this made me realize that sometimes, the procedural, non-object-oriented method we learned in class today is just easier. The classes were a lot to juggle, and I found myself really struggling to jump between the two different methods.</p>
 <p>At the same time, I was doing that to demonstrate knowledge. If I didn't have to do any of that, I could have more easily used two separate sqlite tables together.</p>
-<h2 id="Procedural-Abstraction-Question">
+<h3 id="Procedural-Abstraction-Question">
 <a class="anchor" href="#Procedural-Abstraction-Question" aria-hidden="true"><span class="octicon octicon-link"></span></a>Procedural Abstraction Question<a class="anchor-link" href="#Procedural-Abstraction-Question"> </a>
-</h2>
+</h3>
 <p>We were tasked to answer where procedural abstraction can be seen in our new databases. In mine, it can very easily be seen all throughout the process, starting with the <code>Comment</code> and <code>Enemy</code> class functions and ending with the <code>forum</code> function. In each case, I created new functions to prevent other functions from becoming too bulky or difficult to understand.</p>
 <p>For example, I made sure that the primary focus of <code>verify</code> was to log the user in before making a comment. Then, I had it transition into the <code>make_comment</code> function when it was time for that step in the process.</p>
 <p>I also used it for <code>e_read</code> so that I could grab the up-to-date enemy table data in an easy-to-manipulate JSON format whenever I needed to in other functions, including <code>make_comment</code> and <code>forum</code>. I think this was some pretty valuable foresight.</p>
+<p>The CRUD all works with named procedures to make the menu more accessible.</p>
 
 </div>
 </div>
