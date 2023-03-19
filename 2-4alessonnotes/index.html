@@ -190,7 +190,9 @@ window.onload = wrap_img;
 </ul>
 <ol>
 <li>
-<strong>Flask app object</strong>:Our Flask servers that we created our databases on obviously used Flask previously. It often ends up in conjunction with...2. <strong>SQLAlchemy object</strong>: This is always associated with our recent database creations. It is used both to work with others' data and create our own.</li>
+<strong>Flask app object</strong>:Our Flask servers that we created our databases on obviously used Flask previously. It often ends up in conjunction with...</li>
+<li>
+<strong>SQLAlchemy object</strong>: This is always associated with our recent database creations. It is used both to work with others' data and create our own.</li>
 </ol>
 
 </div>
@@ -245,15 +247,24 @@ window.onload = wrap_img;
 <p>Define columns, initialization, and CRUD methods for users table in sqlite.db</p>
 </blockquote>
 <ul>
-<li>Comment on these items in the class</li>
 <li>
-<strong><code>class User</code> purpose</strong>:Abstracts a user into a specific, named object and creates variables for each of its attributes and traits.- <strong><code>db.Model</code> inheritance</strong>: Takes attributes and aspects of <code>db.Model</code> when creating the Users class.</li>
+<p>Comment on these items in the class</p>
+</li>
 <li>
-<strong><code>__init__</code> method</strong>: Acts as the constructor for the class, which defines each of the object's attributes.</li>
+<p><strong><code>class User</code> purpose</strong>:Abstracts a user into a specific, named object and creates variables for each of its attributes and traits.</p>
+</li>
 <li>
-<strong><code>@property</code> (getter), <code>@[column].setter</code> (setter)</strong>: Getter and setter functions, allows for reading an attribute respectively.</li>
+<p><strong><code>db.Model</code> inheritance</strong>: Takes attributes and aspects of <code>db.Model</code> when creating the Users class.</p>
+</li>
 <li>
-<strong>Additional methods</strong>: <code>delete</code> and <code>update</code> functions that I use later.</li>
+<p><strong><code>__init__</code> method</strong>: Acts as the constructor for the class, which defines each of the object's attributes.</p>
+</li>
+<li>
+<p><strong><code>@property</code> (getter), <code>@[column].setter</code> (setter)</strong>: Getter and setter functions, allows for reading an attribute respectively.</p>
+</li>
+<li>
+<p><strong>Additional methods</strong>: <code>delete</code> and <code>update</code> functions that I use later.</p>
+</li>
 </ul>
 
 </div>
@@ -433,9 +444,13 @@ window.onload = wrap_img;
 </ul>
 <ol>
 <li>
-<strong>Create All Tables from <code>db</code> Object</strong>:The <code>create_all()</code> function creates the SQLite table, allowing for the user objects to be added into it.2. <strong><code>User</code> Object Constructors</strong>: The user object is created differently for each user variable below. The constructors create a user object with the attributes defined by the arguments provided to the <code>User</code> class.</li>
+<strong>Create All Tables from <code>db</code> Object</strong>:The <code>create_all()</code> function creates the SQLite table, allowing for the user objects to be added into it.</li>
 <li>
-<strong><code>Try</code> / <code>Except</code></strong>: Using the <code>try</code> condition means that, if the user creation fails, there is a failsafe to the error in the <code>except</code> case that doesn't completely destroy the process. It also acts as a validation process.</li>
+<p><strong><code>User</code> Object Constructors</strong>: The user object is created differently for each user variable below. The constructors create a user object with the attributes defined by the arguments provided to the <code>User</code> class.</p>
+</li>
+<li>
+<p><strong><code>Try</code> / <code>Except</code></strong>: Using the <code>try</code> condition means that, if the user creation fails, there is a failsafe to the error in the <code>except</code> case that doesn't completely destroy the process. It also acts as a validation process.</p>
+</li>
 </ol>
 
 </div>
@@ -520,7 +535,9 @@ Created new uid raven
 </ul>
 <ol>
 <li>
-<strong><code>User.query.filter_by</code></strong>:Finds a specific user and its data based on the given UID, which will then have its password used as a checker.2. <strong><code>user.password</code></strong>: Used to varify the password input after getting the UID in question.</li>
+<strong><code>User.query.filter_by</code></strong>:Finds a specific user and its data based on the given UID, which will then have its password used as a checker.</li>
+<li>
+<strong><code>user.password</code></strong>: Used to varify the password input after getting the UID in question.</li>
 </ol>
 
 </div>
@@ -572,11 +589,16 @@ Created new uid raven
 </ul>
 <ol>
 <li>
-<strong><code>user.find_by_uid()</code> and <code>try</code>/<code>except</code></strong>:The <code>find_by_uid</code> function is used to define the <code>user</code> function as the user with the given <code>uid</code> variable. However, the <code>find_by_uid</code> process will fail if a user with the inputted <code>uid</code> doesn't exist. As a result, the <code>print</code> function under the <code>try</code> condition will have an error when trying to read the <code>user</code> variable if it was never defined, and the <code>except</code> condition will occur, using <code>pass</code> to transition in to the user creation process.2. <strong><code>user = User(...)</code></strong>: The <code>user</code> variable is defined as a <code>User</code> object with the name, user ID and password inputted above. The placement of this definition/initialization process is important because of the <code>user.dob</code> definition (described below).</li>
+<strong><code>user.find_by_uid()</code> and <code>try</code>/<code>except</code></strong>:The <code>find_by_uid</code> function is used to define the <code>user</code> function as the user with the given <code>uid</code> variable. However, the <code>find_by_uid</code> process will fail if a user with the inputted <code>uid</code> doesn't exist. As a result, the <code>print</code> function under the <code>try</code> condition will have an error when trying to read the <code>user</code> variable if it was never defined, and the <code>except</code> condition will occur, using <code>pass</code> to transition in to the user creation process.</li>
 <li>
-<strong><code>user.dob</code> and <code>try</code>/<code>except</code></strong>: After defining <code>user</code> as the <code>User</code> object, the program attempts to create the user's date of birth based on the inputted year, month and day by directly adding the attribute using <code>user.dob</code>. If the date of birth was inputted incorrectly, the <code>.strptime</code> function will fail and the <code>except</code> condition will be triggered, setting a default user date of birth as the current date.</li>
+<p><strong><code>user = User(...)</code></strong>: The <code>user</code> variable is defined as a <code>User</code> object with the name, user ID and password inputted above. The placement of this definition/initialization process is important because of the <code>user.dob</code> definition (described below).</p>
+</li>
 <li>
-<strong><code>user.create()</code> and <code>try</code>/<code>except</code></strong>: The <code>user.create()</code> function adds the user object to the database. This is put within a <code>try</code> condition because, if for some reason this fails, the <code>except</code> function will be used to cancel the process and state that an unknown error occurred.</li>
+<p><strong><code>user.dob</code> and <code>try</code>/<code>except</code></strong>: After defining <code>user</code> as the <code>User</code> object, the program attempts to create the user's date of birth based on the inputted year, month and day by directly adding the attribute using <code>user.dob</code>. If the date of birth was inputted incorrectly, the <code>.strptime</code> function will fail and the <code>except</code> condition will be triggered, setting a default user date of birth as the current date.</p>
+</li>
+<li>
+<p><strong><code>user.create()</code> and <code>try</code>/<code>except</code></strong>: The <code>user.create()</code> function adds the user object to the database. This is put within a <code>try</code> condition because, if for some reason this fails, the <code>except</code> function will be used to cancel the process and state that an unknown error occurred.</p>
+</li>
 </ol>
 
 </div>
@@ -664,7 +686,9 @@ Created new uid raven
 </ul>
 <ol>
 <li>
-<code>User.query.all</code>:This represents the full table of User data, which is then defined as the local <code>table</code> variable which is iterated through to create the JSON.2. <code>json_ready</code> assignment: The <code>json_ready</code> variable represents the correctly-formatted JSON data formed by the procedure beside it. It is then returned with the function.</li>
+<code>User.query.all</code>:This represents the full table of User data, which is then defined as the local <code>table</code> variable which is iterated through to create the JSON.</li>
+<li>
+<code>json_ready</code> assignment: The <code>json_ready</code> variable represents the correctly-formatted JSON data formed by the procedure beside it. It is then returned with the function.</li>
 </ol>
 
 </div>
