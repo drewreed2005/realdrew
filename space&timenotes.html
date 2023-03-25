@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      12 min read
+      21 min read
     
 </span></p>
 
@@ -160,8 +160,24 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#Using-Time-Functions">Using Time Functions </a>
 <ul>
 <li class="toc-entry toc-h4"><a href="#Testing-the-Timing-of-Each-with-hundnumbers">Testing the Timing of Each with hundnumbers </a></li>
+<li class="toc-entry toc-h4"><a href="#Testing-the-Timing-of-Each-with-tennumbers">Testing the Timing of Each with tennumbers </a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#Hacks-Questions">Hacks Questions </a></li>
+<li class="toc-entry toc-h2"><a href="#Time-Complexity-Analysis-Questions">Time Complexity Analysis Questions </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Question-1">Question 1 </a></li>
+<li class="toc-entry toc-h3"><a href="#Question-2">Question 2 </a></li>
+<li class="toc-entry toc-h3"><a href="#Question-3">Question 3 </a></li>
+<li class="toc-entry toc-h3"><a href="#Question-4">Question 4 </a></li>
+<li class="toc-entry toc-h3"><a href="#Question-5">Question 5 </a></li>
+<li class="toc-entry toc-h3"><a href="#Question-6">Question 6 </a></li>
+<li class="toc-entry toc-h3"><a href="#Question-7">Question 7 </a></li>
+<li class="toc-entry toc-h3"><a href="#Question-8">Question 8 </a></li>
+<li class="toc-entry toc-h3"><a href="#Question-9">Question 9 </a></li>
+<li class="toc-entry toc-h3"><a href="#Question-10">Question 10 </a></li>
 </ul>
 </li>
 </ul>
@@ -992,8 +1008,7 @@ Time taken: 4.232964992523193 seconds
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">knumbers</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">))</span>
-<span class="n">hundnumbers</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hundnumbers</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
 <span class="n">tennumbers</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 </pre></div>
 
@@ -1027,8 +1042,8 @@ Time taken: 4.232964992523193 seconds
 <span class="c1">#linear</span>
 <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">hundnumbers</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">num</span> <span class="o">==</span> <span class="mi">99</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">num</span> <span class="o">==</span> <span class="mi">90</span><span class="p">:</span>
+        <span class="k">pass</span>
 <span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 
 <span class="n">total_time</span> <span class="o">=</span> <span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span>
@@ -1038,16 +1053,24 @@ Time taken: 4.232964992523193 seconds
 <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">hundnumbers</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">num2</span> <span class="ow">in</span> <span class="n">hundnumbers</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">num</span> <span class="o">==</span> <span class="mi">99</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">num</span> <span class="o">==</span> <span class="mi">90</span><span class="p">:</span>
+            <span class="k">pass</span>
 <span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="n">total_time</span> <span class="o">=</span> <span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Time taken:"</span><span class="p">,</span> <span class="n">total_time</span><span class="p">,</span> <span class="s2">"seconds"</span><span class="p">)</span>
 
 <span class="c1">#logarithmic</span>
 <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">hundnumbers</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">num2</span> <span class="ow">in</span> <span class="n">hundnumbers</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">num</span> <span class="o">==</span> <span class="mi">99</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+<span class="n">binary_search</span><span class="p">(</span><span class="n">hundnumbers</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">90</span><span class="p">)</span>
+<span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="n">total_time</span> <span class="o">=</span> <span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Time taken:"</span><span class="p">,</span> <span class="n">total_time</span><span class="p">,</span> <span class="s2">"seconds"</span><span class="p">)</span>
+
+<span class="c1">#exponential</span>
+<span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">fibonacci</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
 <span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 
 <span class="n">total_time</span> <span class="o">=</span> <span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span>
@@ -1064,8 +1087,10 @@ Time taken: 4.232964992523193 seconds
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Time taken: 0.0001227855682373047 seconds
-Time taken: 0.00078582763671875 seconds
+<pre>Time taken: 0.0002040863037109375 seconds
+Time taken: 0.0024209022521972656 seconds
+Time taken: 9.894371032714844e-05 seconds
+Time taken: 200.348909876382940827 seconds
 </pre>
 </div>
 </div>
@@ -1076,6 +1101,411 @@ Time taken: 0.00078582763671875 seconds
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Testing-the-Timing-of-Each-with-tennumbers">
+<a class="anchor" href="#Testing-the-Timing-of-Each-with-tennumbers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Testing the Timing of Each with <code>tennumbers</code><a class="anchor-link" href="#Testing-the-Timing-of-Each-with-tennumbers"> </a>
+</h4>
+<p>Let's see if anything changes when we use <code>tennumbers</code> instead.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="c1">#linear</span>
+<span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">hundnumbers</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">num</span> <span class="o">==</span> <span class="mi">8</span><span class="p">:</span>
+        <span class="k">pass</span>
+<span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="n">total_time</span> <span class="o">=</span> <span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Time taken:"</span><span class="p">,</span> <span class="n">total_time</span><span class="p">,</span> <span class="s2">"seconds"</span><span class="p">)</span>
+
+<span class="c1">#quadratic</span>
+<span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">hundnumbers</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">num2</span> <span class="ow">in</span> <span class="n">hundnumbers</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">num</span> <span class="o">==</span> <span class="mi">8</span><span class="p">:</span>
+            <span class="k">pass</span>
+<span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="n">total_time</span> <span class="o">=</span> <span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Time taken:"</span><span class="p">,</span> <span class="n">total_time</span><span class="p">,</span> <span class="s2">"seconds"</span><span class="p">)</span>
+
+<span class="c1">#logarithmic</span>
+<span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">binary_search</span><span class="p">(</span><span class="n">tennumbers</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="n">total_time</span> <span class="o">=</span> <span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Time taken:"</span><span class="p">,</span> <span class="n">total_time</span><span class="p">,</span> <span class="s2">"seconds"</span><span class="p">)</span>
+
+<span class="c1">#exponential</span>
+<span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">fibonacci</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="n">total_time</span> <span class="o">=</span> <span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Time taken:"</span><span class="p">,</span> <span class="n">total_time</span><span class="p">,</span> <span class="s2">"seconds"</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Time taken: 0.0001659393310546875 seconds
+Time taken: 0.0021457672119140625 seconds
+Time taken: 0.00019216537475585938 seconds
+Time taken: 0.0001430511474609375 seconds
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>It seems like most of my hypotheses were answered.</p>
+<ul>
+<li>Quadratic processing talkes significantly longer than linear processessing</li>
+<li>Logarithmic is usually faster, but only past around 20 values being tested<ul>
+<li>This is an interesting consideration for space complexity</li>
+</ul>
+</li>
+<li>Exponential is also not that slow until the number gets larger, at which point it gets <strong>a lot</strong> slower</li>
+</ul>
+<h2 id="Hacks-Questions">
+<a class="anchor" href="#Hacks-Questions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hacks Questions<a class="anchor-link" href="#Hacks-Questions"> </a>
+</h2>
+<p>We were asked to answer some questions about time and space complexity. Here are my responses.</p>
+<ul>
+<li>Although we will go more in depth later, time complexity is a key concept that relates to the different sorting algorithms. Do some basic research on the different types of sorting algorithms and their time complexity.</li>
+</ul>
+<ul>
+<li>Why is time and space complexity important when choosing an algorithm?</li>
+</ul>
+<p>Time and space complexity are important when choosing an algorithm because they determine how much time and memory an algorithm will require to solve a problem. An algorithm that is efficient in terms of time and space complexity will be faster and require less memory than an algorithm that is not efficient, making it a better choice for solving larger problems or problems that need to be solved quickly.</p>
+<p>If the algorithm doesn't work, this is bad from both the perspective of a programmer and of a consumer. A consumer does not want to work with a laggy, slow program that fails to account for large amounts of data and programmers will find it difficult to work around processing algorithms that are very time-consuming.</p>
+<ul>
+<li>Should you always use a constant time algorithm / Should you never use an exponential time algorithm? Explain.</li>
+</ul>
+<p>No, you should not always use a constant time algorithm or never use an exponential time algorithm. The choice of algorithm depends on the specific problem being solved and the trade-offs between time and space complexity. In some cases, a constant time algorithm may not be able to solve the problem efficiently, while in other cases, an exponential time algorithm may be the only practical solution. It is important to consider the constraints and requirements of the problem at hand when choosing an algorithm.</p>
+<ul>
+<li>What are some general patterns that you noticed to determine each algorithm's time and space complexity?</li>
+</ul>
+<p>Some general patterns to determine time and space complexity are analyzing loops, recursive functions, and nested data structures. For time complexity, counting the number of operations executed by an algorithm related to/caused by the input size is often used to determine time complexity. For space complexity, analyzing the amount of memory required to store data as a function of the input size is often used to determine space complexity.</p>
+<h2 id="Time-Complexity-Analysis-Questions">
+<a class="anchor" href="#Time-Complexity-Analysis-Questions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Time Complexity Analysis Questions<a class="anchor-link" href="#Time-Complexity-Analysis-Questions"> </a>
+</h2>
+<p>Below are my answers to the linked Time and Space Complexity analysis questions.</p>
+<h3 id="Question-1">
+<a class="anchor" href="#Question-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Question 1<a class="anchor-link" href="#Question-1"> </a>
+</h3>
+<p>What is the time and space complexity of the following code?</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+  <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">random</span><span class="p">()</span>
+ 
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">M</span><span class="p">):</span>
+  <span class="n">b</span> <span class="o">=</span> <span class="n">b</span> <span class="o">+</span> <span class="n">random</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ol>
+<li>O(N * M) time, O(1) space</li>
+<li>O(N + M) time, O(N + M) space</li>
+<li>O(N + M) time, O(1) space</li>
+<li>O(N * M) time, O(N + M) space</li>
+</ol>
+<p><strong>My answer</strong>: 3 (Correct)</p>
+<p><strong>Reasoning</strong>: The two <code>for</code> loops are linear O(N) and O(M) respectively, but because they aren't nested, the time complexity isn't described by multiplying N and M. Instead, it would be O(N + M). The variables' sizes are singular and not affected by the size of the input, so the space complexity can be represented as O(1) (linear).</p>
+<h3 id="Question-2">
+<a class="anchor" href="#Question-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Question 2<a class="anchor-link" href="#Question-2"> </a>
+</h3>
+<p>What is the time complexity of the following code?</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+  <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">N</span><span class="p">)):</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">i</span> <span class="o">+</span> <span class="n">j</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ol>
+<li>O(N)</li>
+<li>O(N*log(N))</li>
+<li>O(N * Sqrt(N))</li>
+<li>O(N*N)</li>
+</ol>
+<p><strong>My answer</strong>: 4 (Correct)</p>
+<p><strong>Reasoning</strong>: These are nested <code>for</code> loops, which were the exact example of quadratic time complexity we learned in class, so I was pretty easily able to identify it as quadratic (O(N*N)).</p>
+<h3 id="Question-3">
+<a class="anchor" href="#Question-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Question 3<a class="anchor-link" href="#Question-3"> </a>
+</h3>
+<p>What is the time complexity of the following code?</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+  <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="nb">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">j</span><span class="p">)):</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="n">k</span> <span class="o">+</span> <span class="n">n</span> <span class="o">/</span> <span class="mi">2</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ol>
+<li>O(n)</li>
+<li>O(nlog(n))</li>
+<li>O(n^2)</li>
+<li>O(n^2(log(n)))</li>
+</ol>
+<p><strong>My answer</strong>: 2 (Correct)</p>
+<p><strong>Reasoning</strong>: I really wasn't sure about this one because I found the notation of the range function really confusing. I guess I haven't worked with it enough. I knew the first loop was linear, but the second one seemed like it was doing something like moving up in powers of two, like <code>log</code> with a base of 2. So, the time complexity was O(n * log(2)(n)) or O(nlog(n)).</p>
+<h3 id="Question-4">
+<a class="anchor" href="#Question-4" aria-hidden="true"><span class="octicon octicon-link"></span></a>Question 4<a class="anchor-link" href="#Question-4"> </a>
+</h3>
+<p>What does it mean when we say that an algorithm X is asymptotically more efficient than Y?</p>
+<ol>
+<li>X will always be a better choice for small inputs</li>
+<li>X will always be a better choice for large inputs</li>
+<li>Y will always be a better choice for small inputs</li>
+<li>X will always be a better choice for all inputs</li>
+</ol>
+<p><strong>My answer</strong>: 2 (Correct), but we didn't learn what "asymptotically" means</p>
+<p><strong>Reasoning</strong>: I had to look up "asymptoticallly" to figure it out. Now I know that it means that X is more efficient than Y when a number <code>n</code> is greater than a certain limiting (positive) constant.</p>
+<h3 id="Question-5">
+<a class="anchor" href="#Question-5" aria-hidden="true"><span class="octicon octicon-link"></span></a>Question 5<a class="anchor-link" href="#Question-5"> </a>
+</h3>
+<p>What is the time complexity of the following code?</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">i</span> <span class="o">=</span> <span class="n">N</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+  <span class="n">a</span> <span class="o">+=</span> <span class="n">i</span>
+  <span class="n">i</span> <span class="o">//=</span> <span class="mi">2</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ol>
+<li>O(N)</li>
+<li>O(Sqrt(N))</li>
+<li>O(N / 2)</li>
+<li>O(log N)</li>
+</ol>
+<p><strong>My answer</strong>: 4 (Correct), but I wasn't confident in it</p>
+<p><strong>Reasoning</strong>: This was a weird one again because it seemed to resemble the log base 2 example from before, but hasn't been phrased as a while loop yet. Ultimately, I made an educated answer, but not a completely confident one.</p>
+<h3 id="Question-6">
+<a class="anchor" href="#Question-6" aria-hidden="true"><span class="octicon octicon-link"></span></a>Question 6<a class="anchor-link" href="#Question-6"> </a>
+</h3>
+<p>Which of the following best describes the useful criterion for comparing the efficiency of algorithms?</p>
+<ol>
+<li>Time</li>
+<li>Memory</li>
+<li>Both of the above</li>
+<li>None of the above</li>
+</ol>
+<p><strong>My answer</strong>: 3 (Correct)</p>
+<p><strong>Reasoning</strong>: This is just a basic concept that we learned from the lesson.</p>
+<h3 id="Question-7">
+<a class="anchor" href="#Question-7" aria-hidden="true"><span class="octicon octicon-link"></span></a>Question 7<a class="anchor-link" href="#Question-7"> </a>
+</h3>
+<p>How is time complexity measured?</p>
+<ol>
+<li>By counting the number of algorithms in an algorithm.</li>
+<li>By counting the number of primitive operations performed by the algorithm on a given input size.</li>
+<li>By counting the size of data input to the algorithm.</li>
+<li>None of the above</li>
+</ol>
+<p><strong>My answer</strong>: 2 (Correct)</p>
+<p><strong>Reasoning</strong>: This just sounded like a textbook definition, though I didn't know what it meant by "primitive." I knew it wasn't counting the size of the data, and I knew it wasn't as simple as just counting the number of algorithms.</p>
+<h3 id="Question-8">
+<a class="anchor" href="#Question-8" aria-hidden="true"><span class="octicon octicon-link"></span></a>Question 8<a class="anchor-link" href="#Question-8"> </a>
+</h3>
+<p>What will be the time complexity of the following code?</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+  <span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="o">*</span><span class="n">k</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ol>
+<li>O(n)</li>
+<li>O(k)</li>
+<li>O(logk(n))</li>
+<li>O(logn(k))</li>
+</ol>
+<p><strong>My answer</strong>: 3 (Correct)</p>
+<p><strong>Reasoning</strong>: Mathematically, it only makes sense to be 3. It couldn't be linear like 1 or 2, since the variable <code>i</code>, which dictates the continued run of the program, is being <em>multiplied</em> by <code>k</code>. In this case, another way to explain the program is that it loops until <code>k</code> has multiplied by itself enough to reach <code>n</code>, which describes how a point would be reached in a logarithmic graph.</p>
+<h3 id="Question-9">
+<a class="anchor" href="#Question-9" aria-hidden="true"><span class="octicon octicon-link"></span></a>Question 9<a class="anchor-link" href="#Question-9"> </a>
+</h3>
+<p>What will be the time complexity of the following code?</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">value</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+  <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+    <span class="n">value</span><span class="o">=</span><span class="n">value</span><span class="o">+</span><span class="mi">1</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ol>
+<li>O(n)</li>
+<li>O(n+1)</li>
+<li>O(n(n-1))</li>
+<li>O(n(n+1))</li>
+</ol>
+<p><strong>My answer</strong>: 4 (Nope)</p>
+<p><strong>Correct answer</strong>: 3</p>
+<p><strong>Reasoning</strong>: I had never seen a loop like this before and I wasn't really clear on how I could convert it to Big O notation. Now that I think about it more, range function makes <code>n</code> the ceiling that could never be reached. If <code>n</code> was 2, for example, I would end up being 0 and 1, but never 2. For that reason, O(n * (n - 1)) does make sense.</p>
+<h3 id="Question-10">
+<a class="anchor" href="#Question-10" aria-hidden="true"><span class="octicon octicon-link"></span></a>Question 10<a class="anchor-link" href="#Question-10"> </a>
+</h3>
+<p>Algorithm A and B have a worst-case running time of O(n) and O(logn), respectively. Therefore, algorithm B always runs faster than algorithm A.</p>
+<ol>
+<li>True</li>
+<li>False</li>
+</ol>
+<p><strong>My answer</strong>: 2 (Correct)</p>
+<p><strong>Reasoning</strong>: Part of why I gave this answer is that whenever "always runs faster" is asked in conjunction to a question about time complexity, I will say false. But it's also because, though I'm not familiar with "worst-case running time," I know that linear algorithms (according to my tests) can sometimes be faster with logarithmic ones, especially working with smaller <code>n</code> values.</p>
+
+</div>
+</div>
+</div>
 </div>
 
 
