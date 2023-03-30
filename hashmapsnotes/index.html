@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Hashmaps, Sets, Hash Tables, Hashing and Collisions Notes | Drew’s Big Fastpages Blog</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Hashmaps, Sets, Hash Tables, Hashing and Collisions Notes" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Observing hashmaps with python dictionaries" />
+<meta property="og:description" content="Observing hashmaps with python dictionaries" />
+<link rel="canonical" href="https://drewreed2005.github.io/realdrew/hashmapsnotes/" />
+<meta property="og:url" content="https://drewreed2005.github.io/realdrew/hashmapsnotes/" />
+<meta property="og:site_name" content="Drew’s Big Fastpages Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-03-29T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Hashmaps, Sets, Hash Tables, Hashing and Collisions Notes" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-03-29T00:00:00-05:00","datePublished":"2023-03-29T00:00:00-05:00","description":"Observing hashmaps with python dictionaries","headline":"Hashmaps, Sets, Hash Tables, Hashing and Collisions Notes","mainEntityOfPage":{"@type":"WebPage","@id":"https://drewreed2005.github.io/realdrew/hashmapsnotes/"},"url":"https://drewreed2005.github.io/realdrew/hashmapsnotes/"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/realdrew/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://drewreed2005.github.io/realdrew/feed.xml" title="Drew's Big Fastpages Blog" /><link rel="shortcut icon" type="image/x-icon" href="/realdrew/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/realdrew/">Drew&#39;s Big Fastpages Blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/realdrew/about/">About Me</a><a class="page-link" href="/realdrew/vocab/">Vocabulary</a><a class="page-link" href="/realdrew/notes/">Notes</a><a class="page-link" href="/realdrew/more/">Programs and More</a><a class="page-link" href="/realdrew/search/">Search</a><a class="page-link" href="/realdrew/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Hashmaps, Sets, Hash Tables, Hashing and Collisions Notes</h1><p class="page-description">Observing hashmaps with python dictionaries</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2023-03-29T00:00:00-05:00" itemprop="datePublished">
+        Mar 29, 2023
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      13 min read
+    
+</span></p>
+
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-justify-center">
+          <div class="px-2">
+
+    <a href="https://github.com/drewreed2005/realdrew/tree/master/_notebooks/2023-03-29-DS-hashmaps.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/realdrew/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/drewreed2005/realdrew/master?filepath=_notebooks%2F2023-03-29-DS-hashmaps.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/realdrew/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/drewreed2005/realdrew/blob/master/_notebooks/2023-03-29-DS-hashmaps.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/realdrew/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+          <div class="px-2">
+  <a href="https://deepnote.com/launch?url=https%3A%2F%2Fgithub.com%2Fdrewreed2005%2Frealdrew%2Fblob%2Fmaster%2F_notebooks%2F2023-03-29-DS-hashmaps.ipynb" target="_blank">
+      <img class="notebook-badge-image" src="/realdrew/assets/badges/deepnote.svg" alt="Launch in Deepnote"/>
+  </a>
+</div>
+
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h2"><a href="#What-is-a-Hashtable/Hashmap?">What is a Hashtable/Hashmap? </a></li>
+<li class="toc-entry toc-h2"><a href="#What-is-Hashing-and-Collision?">What is Hashing and Collision? </a></li>
+<li class="toc-entry toc-h2"><a href="#What-is-a-Set?">What is a Set? </a></li>
+<li class="toc-entry toc-h2"><a href="#Dictionary-Example">Dictionary Example </a></li>
+<li class="toc-entry toc-h2"><a href="#Hacks">Hacks </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Hacks-Completed-Throughout-the-Lesson">Hacks Completed Throughout the Lesson </a></li>
+<li class="toc-entry toc-h3"><a href="#Canva-Diagrams">Canva Diagrams </a></li>
+<li class="toc-entry toc-h3"><a href="#Personal-Album-Dictionary">Personal Album Dictionary </a></li>
+<li class="toc-entry toc-h3"><a href="#My-Favorite-Taylor-Swift-Song">My Favorite Taylor Swift Song </a></li>
+</ul>
+</li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2023-03-29-DS-hashmaps.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="What-is-a-Hashtable/Hashmap?">
+<a class="anchor" href="#What-is-a-Hashtable/Hashmap?" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is a Hashtable/Hashmap?<a class="anchor-link" href="#What-is-a-Hashtable/Hashmap?"> </a>
+</h2>
+<blockquote>
+<p>A hashtable is a data structure that has a collection of key-value pairs, where each key maps to a value, and the keys must be unique and hashable.</p>
+</blockquote>
+<ul>
+<li>In Python there is a built in hashtable known as a <mark>dictionary</mark>.</li>
+</ul>
+<blockquote>
+<p>The primary purpose of a hashtable is to provide efficient lookup, insertion, and deletion operations. When an element is to be inserted into the hashtable, a hash function is used to map the key to a specific index in the underlying array that is used to store the key-value pairs. The value is then stored at that index. When searching for a value, the hash function is used again to find the index where the value is stored.</p>
+<p>The key advantage of a hashtable over other data structures like arrays and linked lists is its average-case time complexity for lookup, insertion, and deletion operations.</p>
+</blockquote>
+<ul>
+<li>The typical time complexity of a hashtable is <mark>O(1), or constant</mark>. </li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="What-is-Hashing-and-Collision?">
+<a class="anchor" href="#What-is-Hashing-and-Collision?" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is Hashing and Collision?<a class="anchor-link" href="#What-is-Hashing-and-Collision?"> </a>
+</h2>
+<blockquote>
+<p>Hashing is the process of mapping a given key to a value in a hash table or hashmap, using a hash function. The hash function takes the key as input and produces a hash value or hash code, which is then used to determine the index in the underlying array where the value is stored. The purpose of hashing is to provide a quick and efficient way to access data, by eliminating the need to search through an entire data structure to find a value.</p>
+<p>However, it is possible for two different keys to map to the same hash value, resulting in a collision. When a collision occurs, there are different ways to resolve it, depending on the collision resolution strategy used.</p>
+<p>Python's dictionary implementation is optimized to handle collisions efficiently, and the performance of the dictionary is generally very good, even in the presence of collisions. However, if the number of collisions is very high, the performance of the dictionary can degrade, so it is important to choose a good hash function that minimizes collisions when designing a Python dictionary.</p>
+</blockquote>
+<h2 id="What-is-a-Set?">
+<a class="anchor" href="#What-is-a-Set?" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is a Set?<a class="anchor-link" href="#What-is-a-Set?"> </a>
+</h2>
+<p>(Questions are answered in the code comments.)</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_set</span><span class="p">)</span>  
+
+<span class="c1"># What do you notice in the output?</span>
+<span class="c1"># the output only contains the first instance of each of the unique numbers</span>
+<span class="c1"># the output also has brackets around it like a dictionary</span>
+<span class="c1"># according to a test, it also automatically orders it by increasing value</span>
+
+<span class="c1"># Why do you think Sets are in the same tech talk as Hashmaps/Hashtables?</span>
+<span class="c1"># dictionaries also cannot have duplicate keys, like these sets</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>{1, 2, 3}
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Dictionary-Example">
+<a class="anchor" href="#Dictionary-Example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dictionary Example<a class="anchor-link" href="#Dictionary-Example"> </a>
+</h2>
+<p>Below are just some basic features of a dictionary. As always, documentation is always the main source for all the full capablilties.</p>
+<p>(Code comment questions are answered throughout.)</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">lover_album</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"title"</span><span class="p">:</span> <span class="s2">"Lover"</span><span class="p">,</span>
+    <span class="s2">"artist"</span><span class="p">:</span> <span class="s2">"Taylor Swift"</span><span class="p">,</span>
+    <span class="s2">"year"</span><span class="p">:</span> <span class="mi">2019</span><span class="p">,</span>
+    <span class="s2">"genre"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"Pop"</span><span class="p">,</span> <span class="s2">"Synth-pop"</span><span class="p">],</span>
+    <span class="s2">"tracks"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="mi">1</span><span class="p">:</span> <span class="s2">"I Forgot That You Existed"</span><span class="p">,</span>
+        <span class="mi">2</span><span class="p">:</span> <span class="s2">"Cruel Summer"</span><span class="p">,</span>
+        <span class="mi">3</span><span class="p">:</span> <span class="s2">"Lover"</span><span class="p">,</span>
+        <span class="mi">4</span><span class="p">:</span> <span class="s2">"The Man"</span><span class="p">,</span>
+        <span class="mi">5</span><span class="p">:</span> <span class="s2">"The Archer"</span><span class="p">,</span>
+        <span class="mi">6</span><span class="p">:</span> <span class="s2">"I Think He Knows"</span><span class="p">,</span>
+        <span class="mi">7</span><span class="p">:</span> <span class="s2">"Miss Americana &amp; The Heartbreak Prince"</span><span class="p">,</span>
+        <span class="mi">8</span><span class="p">:</span> <span class="s2">"Paper Rings"</span><span class="p">,</span>
+        <span class="mi">9</span><span class="p">:</span> <span class="s2">"Cornelia Street"</span><span class="p">,</span>
+        <span class="mi">10</span><span class="p">:</span> <span class="s2">"Death By A Thousand Cuts"</span><span class="p">,</span>
+        <span class="mi">11</span><span class="p">:</span> <span class="s2">"London Boy"</span><span class="p">,</span>
+        <span class="mi">12</span><span class="p">:</span> <span class="s2">"Soon You'll Get Better (feat. Dixie Chicks)"</span><span class="p">,</span>
+        <span class="mi">13</span><span class="p">:</span> <span class="s2">"False God"</span><span class="p">,</span>
+        <span class="mi">14</span><span class="p">:</span> <span class="s2">"You Need To Calm Down"</span><span class="p">,</span>
+        <span class="mi">15</span><span class="p">:</span> <span class="s2">"Afterglow"</span><span class="p">,</span>
+        <span class="mi">16</span><span class="p">:</span> <span class="s2">"Me! (feat. Brendon Urie of Panic! At The Disco)"</span><span class="p">,</span>
+        <span class="mi">17</span><span class="p">:</span> <span class="s2">"It's Nice To Have A Friend"</span><span class="p">,</span>
+        <span class="mi">18</span><span class="p">:</span> <span class="s2">"Daylight"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1"># What data structures do you see?</span>
+<span class="c1"># i see strings, integers, lists, and a nested dictionary inside the dictionary</span>
+
+<span class="c1"># Printing the dictionary</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lover_album</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>These are two different methods to retrieve the data behind a certain key.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">lover_album</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'tracks'</span><span class="p">))</span>
+<span class="c1"># or</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lover_album</span><span class="p">[</span><span class="s1">'tracks'</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>These are, similarly, alternatives to each other.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">lover_album</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'tracks'</span><span class="p">)[</span><span class="mi">4</span><span class="p">])</span>
+<span class="c1"># or</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lover_album</span><span class="p">[</span><span class="s1">'tracks'</span><span class="p">][</span><span class="mi">4</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>I made it a set to prevent the duplicate Taylor Swift from showing up.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">lover_album</span><span class="p">[</span><span class="s2">"producer"</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s1">'Taylor Swift'</span><span class="p">,</span> <span class="s1">'Jack Antonoff'</span><span class="p">,</span> <span class="s1">'Joel Little'</span><span class="p">,</span> <span class="s1">'Taylor Swift'</span><span class="p">,</span> <span class="s1">'Louis Bell'</span><span class="p">,</span> <span class="s1">'Frank Dukes'</span><span class="p">])</span>
+
+<span class="c1"># What can you change to make sure there are no duplicate producers?</span>
+<span class="c1"># you could turn the list of producers into a set</span>
+
+<span class="c1"># Printing the dictionary</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lover_album</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">lover_album</span><span class="p">[</span><span class="s2">"tracks"</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="mi">19</span><span class="p">:</span> <span class="s2">"All Of The Girls You Loved Before"</span><span class="p">})</span>
+
+<span class="c1"># How would add an additional genre to the dictionary, like electropop? </span>
+<span class="c1"># you would .update the ["genre"] key by appending "electropop"</span>
+
+<span class="c1"># Printing the dictionary</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lover_album</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="sd">"""</span>
+<span class="sd">for k,v in lover_album.items(): # iterate using a for loop for key and value</span>
+<span class="sd">    print(str(k) + ": " + str(v))</span>
+<span class="sd">"""</span>
+
+<span class="c1"># Write your own code to print tracks in readable format</span>
+<span class="c1"># you can see that below; I also reformatted the other data</span>
+
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">lover_album</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span> <span class="ow">or</span> <span class="nb">type</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">==</span> <span class="nb">set</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span> <span class="o">+</span> <span class="s2">": "</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">", "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+    <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">==</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span> <span class="o">+</span> <span class="s2">":"</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">num</span><span class="p">,</span> <span class="n">track</span> <span class="ow">in</span> <span class="n">v</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\t</span><span class="s2">"</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">num</span><span class="p">)</span> <span class="o">+</span> <span class="s2">": "</span> <span class="o">+</span> <span class="n">track</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span> <span class="o">+</span> <span class="s2">": "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Title: Lover
+Artist: Taylor Swift
+Year: 2019
+Genre: Pop, Synth-pop
+Tracks:
+	1: I Forgot That You Existed
+	2: Cruel Summer
+	3: Lover
+	4: The Man
+	5: The Archer
+	6: I Think He Knows
+	7: Miss Americana &amp; The Heartbreak Prince
+	8: Paper Rings
+	9: Cornelia Street
+	10: Death By A Thousand Cuts
+	11: London Boy
+	12: Soon You'll Get Better (feat. Dixie Chicks)
+	13: False God
+	14: You Need To Calm Down
+	15: Afterglow
+	16: Me! (feat. Brendon Urie of Panic! At The Disco)
+	17: It's Nice To Have A Friend
+	18: Daylight
+	19: All Of The Girls You Loved Before
+Producer: Taylor Swift, Louis Bell, Joel Little, Frank Dukes, Jack Antonoff
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">search</span><span class="p">():</span>
+    <span class="n">search</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"What would you like to know about the album?"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">lover_album</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">search</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Invalid Search"</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">lover_album</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">search</span><span class="o">.</span><span class="n">lower</span><span class="p">()))</span>
+
+<span class="c1"># This is a very basic code segment, how can you improve upon this code?</span>
+<span class="c1"># I think it could be improved upon by reformatting the output to be more readable</span>
+<span class="c1"># It would also be good to tell the user what their options are</span>
+<span class="c1"># I did all of this below</span>
+
+<span class="k">def</span> <span class="nf">search</span><span class="p">():</span> <span class="c1">#here is search but better</span>
+    <span class="n">info</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">lover_album</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">info</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+    <span class="n">search</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"What would you like to know about the album? (Options: "</span> <span class="o">+</span> <span class="s2">", "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">info</span><span class="p">)</span> <span class="o">+</span> <span class="s2">")"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">lover_album</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">search</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Invalid Search"</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">lover_album</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">search</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span> <span class="ow">or</span> <span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">==</span> <span class="nb">set</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">search</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span> <span class="o">+</span> <span class="s2">": "</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">", "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+        <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">==</span> <span class="nb">dict</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">search</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span> <span class="o">+</span> <span class="s2">":"</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">num</span><span class="p">,</span> <span class="n">track</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\t</span><span class="s2">"</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">num</span><span class="p">)</span> <span class="o">+</span> <span class="s2">": "</span> <span class="o">+</span> <span class="n">track</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">search</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span> <span class="o">+</span> <span class="s2">": "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+
+<span class="n">search</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Tracks:
+	1: I Forgot That You Existed
+	2: Cruel Summer
+	3: Lover
+	4: The Man
+	5: The Archer
+	6: I Think He Knows
+	7: Miss Americana &amp; The Heartbreak Prince
+	8: Paper Rings
+	9: Cornelia Street
+	10: Death By A Thousand Cuts
+	11: London Boy
+	12: Soon You'll Get Better (feat. Dixie Chicks)
+	13: False God
+	14: You Need To Calm Down
+	15: Afterglow
+	16: Me! (feat. Brendon Urie of Panic! At The Disco)
+	17: It's Nice To Have A Friend
+	18: Daylight
+	19: All Of The Girls You Loved Before
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Hacks">
+<a class="anchor" href="#Hacks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hacks<a class="anchor-link" href="#Hacks"> </a>
+</h2>
+<h3 id="Hacks-Completed-Throughout-the-Lesson">
+<a class="anchor" href="#Hacks-Completed-Throughout-the-Lesson" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hacks Completed Throughout the Lesson<a class="anchor-link" href="#Hacks-Completed-Throughout-the-Lesson"> </a>
+</h3>
+<ul>
+<li>Answer <em>ALL</em> questions in the code segments</li>
+</ul>
+<p>I made sure to do that.</p>
+<ul>
+<li>Expand upon the code given to you, possible improvements in comments</li>
+</ul>
+<p>For each of the code segments with possible improvements, I went through and improved them.</p>
+<p>One way I did this was using the <code>.capitalize()</code> function to make the keys into grammatically-correct headings. I also improved the displays more comprehensively by reformatting the data displayed depending on the type of data using the <code>type()</code> function.</p>
+<p>For example:</p>
+<blockquote>
+<p>Data sets with type <code>list</code> or type <code>set</code> could be handled the same way:to prevent the code formatting brackets from showing up, I used <code>", ".join(list)</code> in the print statement to get rid of it.
+Data sets with type <code>dictionary</code> could be iterated through to display the key, a colon, and the value using the <code>for k,v in dict.items()</code> format. I decided to tab intent each of these instances to set it apart from the "Tracks" header in this specific case.</p>
+<p>All singular data sets were just displayed in a single print statement, with the key of the key, a colon, and the value.</p>
+</blockquote>
+<h3 id="Canva-Diagrams">
+<a class="anchor" href="#Canva-Diagrams" aria-hidden="true"><span class="octicon octicon-link"></span></a>Canva Diagrams<a class="anchor-link" href="#Canva-Diagrams"> </a>
+</h3>
+<figure>
+  <img src="/realdrew/images/Pros%20And%20Cons%20Entrepreneurship%20Infographic%20Graph.png" alt="Pros and Cons of Sets Diagram" width="800">
+</figure><figure>
+  <img src="/realdrew/images/Green%20Illustrative%20Animals%20Venn%20Diagram.png" alt="Lists vs. Dictionaries Venn Diagram" width="800">
+</figure><h3 id="Personal-Album-Dictionary">
+<a class="anchor" href="#Personal-Album-Dictionary" aria-hidden="true"><span class="octicon octicon-link"></span></a>Personal Album Dictionary<a class="anchor-link" href="#Personal-Album-Dictionary"> </a>
+</h3>
+<p>My friend has been trying to get me to listen to music by a certain artist (Rav) for a while now, and I just recently listened through one of his more popular albums "Beneath the Toxic Jungle". I noticed that it contained a lot of features that weren't mentioned in the song titles, so I decided that, in the track list, I would list all of the artists involved along with the title of the song. This shows the ability to nest dictionaries.</p>
+<p>I then made a system to sift through the data and display it in an appealing way.</p>
+<p>Since in previous examples, the <code>get</code> function was used, I decided to pull information from the keys in the other format to show understanding.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">date</span>
+
+<span class="c1"># Creating a dictionary with information about the album "BENEATH THE TOXIC JUNGLE"</span>
+<span class="n">btj_album</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"title"</span><span class="p">:</span> <span class="s2">"BENEATH THE TOXIC JUNGLE"</span><span class="p">,</span> <span class="c1">#dictionaries can store strings,...</span>
+    <span class="s2">"artist"</span><span class="p">:</span> <span class="s2">"Rav"</span><span class="p">,</span>
+    <span class="s2">"date"</span><span class="p">:</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">19</span><span class="p">),</span> <span class="c1">#date objects,...</span>
+    <span class="s2">"genres"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"Abstract Hip Hop"</span><span class="p">,</span> <span class="s2">"Jazz Rap"</span><span class="p">,</span> <span class="s2">"Lo-Fi Hip Hop, Experimental Hip Hop"</span><span class="p">],</span> <span class="c1">#lists,...</span>
+    <span class="s2">"tracklist"</span><span class="p">:</span> <span class="p">{</span> <span class="c1">#and even more dictionaries</span>
+        <span class="mi">1</span><span class="p">:</span> <span class="p">{</span><span class="s2">"title"</span><span class="p">:</span> <span class="s2">"1,000 Years In The Sea"</span><span class="p">,</span> <span class="s2">"mixer"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"Kill Bill"</span><span class="p">],</span> <span class="s2">"producers"</span><span class="p">:[</span><span class="s2">"Ljones"</span><span class="p">]},</span>
+        <span class="mi">2</span><span class="p">:</span> <span class="p">{</span><span class="s2">"title"</span><span class="p">:</span> <span class="s2">"Solanine"</span><span class="p">,</span> <span class="s2">"producers"</span><span class="p">:[</span><span class="s2">"dream Entact."</span><span class="p">]},</span>
+        <span class="mi">3</span><span class="p">:</span> <span class="p">{</span><span class="s2">"title"</span><span class="p">:</span> <span class="s2">"Save Face As..."</span><span class="p">,</span> <span class="s2">"features"</span><span class="p">:[</span><span class="s2">"Kill Bill"</span><span class="p">],</span> <span class="s2">"mixer"</span><span class="p">:[</span><span class="s2">"Kill Bill"</span><span class="p">],</span> <span class="s2">"producers"</span><span class="p">:[</span><span class="s2">"Yuni Wa"</span><span class="p">]},</span>
+        <span class="mi">4</span><span class="p">:</span> <span class="p">{</span><span class="s2">"title"</span><span class="p">:</span> <span class="s2">"Devil Fruit Smoothies"</span><span class="p">,</span> <span class="s2">"features"</span><span class="p">:[</span><span class="s2">"JINZO THE TRAP LORD"</span><span class="p">],</span> <span class="s2">"mixer"</span><span class="p">:[</span><span class="s2">"Kill Bill"</span><span class="p">],</span> <span class="s2">"producers"</span><span class="p">:[</span><span class="s2">"MAITRO"</span><span class="p">,</span> <span class="s2">"Plaid"</span><span class="p">]},</span>
+        <span class="mi">5</span><span class="p">:</span> <span class="p">{</span><span class="s2">"title"</span><span class="p">:</span> <span class="s2">"Addlerall"</span><span class="p">,</span> <span class="s2">"features"</span><span class="p">:[</span><span class="s2">"Scuare"</span><span class="p">],</span> <span class="s2">"mixer"</span><span class="p">:[</span><span class="s2">"Scuare"</span><span class="p">],</span> <span class="s2">"producers"</span><span class="p">:[</span><span class="s2">"Birocratic"</span><span class="p">]},</span>
+        <span class="mi">6</span><span class="p">:</span> <span class="p">{</span><span class="s2">"title"</span><span class="p">:</span> <span class="s2">"A Better Place"</span><span class="p">,</span> <span class="s2">"features"</span><span class="p">:[</span><span class="s2">"Ashido Brown"</span><span class="p">,</span> <span class="s2">"Rekcahdam"</span><span class="p">],</span> <span class="s2">"mixer"</span><span class="p">:[</span><span class="s2">"Rekcahdam"</span><span class="p">],</span> <span class="s2">"producers"</span><span class="p">:[</span><span class="s2">"Edo Lee"</span><span class="p">]},</span>
+        <span class="mi">7</span><span class="p">:</span> <span class="p">{</span><span class="s2">"title"</span><span class="p">:</span> <span class="s2">"Lavender"</span><span class="p">,</span> <span class="s2">"features"</span><span class="p">:[</span><span class="s2">"Kill Bill"</span><span class="p">],</span> <span class="s2">"producers"</span><span class="p">:[</span><span class="s2">"Datfootdive"</span><span class="p">,</span> <span class="s2">"Moar"</span><span class="p">]},</span>
+        <span class="mi">8</span><span class="p">:</span> <span class="p">{</span><span class="s2">"title"</span><span class="p">:</span> <span class="s2">"Get Mine II"</span><span class="p">,</span> <span class="s2">"features"</span><span class="p">:[</span><span class="s2">"Scuare"</span><span class="p">,</span> <span class="s2">"suddlenuance"</span><span class="p">],</span> <span class="s2">"mixer"</span><span class="p">:[</span><span class="s2">"Kill Bill"</span><span class="p">],</span> <span class="s2">"producers"</span><span class="p">:[</span><span class="s2">"Tantu"</span><span class="p">]},</span>
+        <span class="mi">9</span><span class="p">:</span> <span class="p">{</span><span class="s2">"title"</span><span class="p">:</span> <span class="s2">"1,000 Years In The Mountains"</span><span class="p">,</span> <span class="s2">"producers"</span><span class="p">:[</span><span class="s2">"Pacific Yew"</span><span class="p">]},</span>
+        <span class="s2">"Bonus Track"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"title"</span><span class="p">:</span> <span class="s2">"Tachyon"</span><span class="p">,</span> <span class="s2">"producers"</span><span class="p">:[</span><span class="s2">"Raistlin"</span><span class="p">]}</span>
+    <span class="p">},</span> <span class="c1">#contributors are all in list form to allow for proper iteration through each one</span>
+<span class="p">}</span>
+<span class="n">feat_list</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#creating initial lists of features, mixers, producers, and all contributors</span>
+<span class="n">mix_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">prod_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">cont_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">num</span><span class="p">,</span> <span class="n">track</span> <span class="ow">in</span> <span class="n">btj_album</span><span class="p">[</span><span class="s2">"tracklist"</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">track</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="s2">"features"</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">v</span><span class="p">:</span>
+                <span class="n">feat_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">k</span> <span class="o">==</span> <span class="s2">"mixer"</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">v</span><span class="p">:</span>
+                <span class="n">mix_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">k</span> <span class="o">==</span> <span class="s2">"producers"</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">v</span><span class="p">:</span>
+                <span class="n">prod_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">k</span> <span class="o">!=</span> <span class="s1">'title'</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">v</span><span class="p">:</span>
+                <span class="n">cont_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<span class="n">btj_album</span><span class="p">[</span><span class="s2">"features"</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">feat_list</span><span class="p">)</span> <span class="c1">#a set of filtered info, no duplicates</span>
+<span class="n">btj_album</span><span class="p">[</span><span class="s2">"mixers"</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">mix_list</span><span class="p">)</span> <span class="c1">#same formatting below</span>
+<span class="n">btj_album</span><span class="p">[</span><span class="s2">"producers"</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">prod_list</span><span class="p">)</span>
+<span class="n">btj_album</span><span class="p">[</span><span class="s2">"contributors"</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">cont_list</span><span class="p">)</span> <span class="c1">#list of all outside contributors</span>
+
+<span class="c1"># process to print album information</span>
+<span class="k">def</span> <span class="nf">print_album</span><span class="p">(</span><span class="n">album</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\"</span><span class="si">{</span><span class="n">album</span><span class="p">[</span><span class="s1">'title'</span><span class="p">]</span><span class="si">}</span><span class="se">\"</span><span class="s2"> by </span><span class="si">{</span><span class="n">album</span><span class="p">[</span><span class="s1">'artist'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span> <span class="c1">#title and artist display</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\t</span><span class="s2">Release Date: </span><span class="si">{</span><span class="n">album</span><span class="p">[</span><span class="s1">'date'</span><span class="p">]</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">'%m-</span><span class="si">%d</span><span class="s1">-%Y'</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span> <span class="c1">#release date format</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\t</span><span class="s2">Genres: "</span> <span class="o">+</span> <span class="s2">", "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">album</span><span class="p">[</span><span class="s1">'genres'</span><span class="p">]))</span> <span class="c1">#genre listing, formatted</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\t</span><span class="s2">Tracklist:"</span><span class="p">)</span> <span class="c1">#header for tracklist</span>
+    <span class="k">for</span> <span class="n">part</span><span class="p">,</span> <span class="n">track</span> <span class="ow">in</span> <span class="n">album</span><span class="p">[</span><span class="s1">'tracklist'</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\t\t</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">part</span><span class="p">)</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">track</span><span class="p">[</span><span class="s1">'title'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span> <span class="c1">#leading with title, primary</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">info</span> <span class="ow">in</span> <span class="n">track</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">key</span> <span class="o">!=</span> <span class="s2">"title"</span><span class="p">:</span> <span class="c1">#filtered to avoid double printing title</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\t\t\t\t</span><span class="si">{</span><span class="n">key</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span><span class="si">}</span><span class="s2">: "</span> <span class="o">+</span> <span class="s2">", "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">info</span><span class="p">))</span> <span class="c1">#info and details</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Contributors: "</span> <span class="o">+</span> <span class="s2">", "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">btj_album</span><span class="p">[</span><span class="s1">'contributors'</span><span class="p">]))</span> <span class="c1">#contributor list, no repeats</span>
+
+<span class="n">print_album</span><span class="p">(</span><span class="n">btj_album</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>"BENEATH THE TOXIC JUNGLE" by Rav
+	Release Date: 12-19-2015
+	Genres: Abstract Hip Hop, Jazz Rap, Lo-Fi Hip Hop, Experimental Hip Hop
+	Tracklist:
+		1: 1,000 Years In The Sea
+				Mixer: Kill Bill
+				Producers: Ljones
+		2: Solanine
+				Producers: dream Entact.
+		3: Save Face As...
+				Features: Kill Bill
+				Mixer: Kill Bill
+				Producers: Yuni Wa
+		4: Devil Fruit Smoothies
+				Features: JINZO THE TRAP LORD
+				Mixer: Kill Bill
+				Producers: MAITRO, Plaid
+		5: Addlerall
+				Features: Scuare
+				Mixer: Scuare
+				Producers: Birocratic
+		6: A Better Place
+				Features: Ashido Brown, Rekcahdam
+				Mixer: Rekcahdam
+				Producers: Edo Lee
+		7: Lavender
+				Features: Kill Bill
+				Producers: Datfootdive, Moar
+		8: Get Mine II
+				Features: Scuare, suddlenuance
+				Mixer: Kill Bill
+				Producers: Tantu
+		9: 1,000 Years In The Mountains
+				Producers: Pacific Yew
+		Bonus Track: Tachyon
+				Producers: Raistlin
+Contributors: Moar, MAITRO, dream Entact., Scuare, Rekcahdam, Pacific Yew, Yuni Wa, Raistlin, suddlenuance, Kill Bill, Edo Lee, Tantu, Datfootdive, Birocratic, Ljones, JINZO THE TRAP LORD, Plaid, Ashido Brown
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>I added code comments throughout to describe what's going on.</p>
+<p>Yes, that friend was AJ. I'm like 90% sure he's also gonna do an album by Rav.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="My-Favorite-Taylor-Swift-Song">
+<a class="anchor" href="#My-Favorite-Taylor-Swift-Song" aria-hidden="true"><span class="octicon octicon-link"></span></a>My Favorite Taylor Swift Song<a class="anchor-link" href="#My-Favorite-Taylor-Swift-Song"> </a>
+</h3>
+<p>I don't need ChatGPT to help me argue in favor of "Teardrops On My Guitar". To be completely honest, I've never been a fan of the more recent Taylor Swift music, though that's mostly due to the genre. It's nothing personal. I also wouldn't say I'm a fan of country by any means, but, especially in my more recent personal life, country music has adopted a sort of nostalgic value.</p>
+<figure>
+  <img src="/realdrew/images/artworks-000235225080-ruobns-t500x500.jpeg" alt="Teardrops On My Guitar Cover" width="600">
+</figure><p>This song has quite literally followed me through my life. Being released on her 2006 self-titled debut album "Taylor Swift", it (along with her first single "Tim McGraw") earned her some of her first share of popularity. It was cowritten by Liz Rose, who received a Songwriter of the Year award from Society of European Stage Authors and Composers the following year for her work on these two singles. In an interview about the song, Rose talked about how Swift was good at expressing the emotions she wished to portray in the song to her. Rose made it very clear that she was not stepping in or creating a corporate, filtered expression of Swift's idea, as she wanted Swift to "be the vehicle." It was produced by Nathan Chapman, known for his work on many other early Taylor Swift songs as well as other artists like Lady Antebellum and, more recently, Revival.</p>
+<p>If you know this song well enough, you know I'm failing to address a big elephant in the room. The elephant's name is "Drew."</p>
+<p>For my whole life, my family has, mockingly or not, sung this song around me, played it in the car, etc. "Drew looks at me" was a lyric that wrapped itself around my brain fairly often. My dad bought her debut album on iTunes just so that they could play it in my mom's old van, which couldn't play music from my dad's phone unless it was saved through iTunes. When I picked up guitar, my parent said it was the first song I should learn. My girlfriend, an avid Taylor Swift and country fan, referenced it not long after I met her. If it's not clear, I have a lot of personal associations with this song.</p>
+<p>And speaking of playing it on guitar, it's a very easy song to learn if you strip it of all of the complicated bits. The fact that it comes with so many potential variations to learn, though, like the somewhat melancholy Dsus4 chord in the second verse and the various pinky-finger add-ons that you can choose to play.</p>
+<p>There's lots of other stuff I could talk about with this song, like how the actual "Drew" is actually named "Andrew," like me. Or how the "Drew" from the song is now in jail for child abuse, while, fun fact, I'm not. But I think I'll leave it at that. I'm not trying to convince you to change your mind on your favorite. But now, if you ever hear that song again, you might think of me. And I think that's funny.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><a class="u-url" href="/realdrew/hashmapsnotes/" hidden></a>
+</article>
+
+<script src="https://utteranc.es/client.js"
+        repo="[ENTER REPO HERE]"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/realdrew/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="https://drewreed2005.github.io/realdrew/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/realdrew/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Documentation of my constant progress toward being a master coder (haiyah).</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li>
+  <a rel="me" href="https://github.com/nighthawkcoders" target="_blank" title="github">
+    <svg class="svg-icon grey">
+      <use xlink:href="/realdrew/assets/minima-social-icons.svg#github"></use>
+    </svg>
+  </a>
+</li>
+<li>
+  <a rel="me" href="https://twitter.com/NighthawkCoding" target="_blank" title="twitter">
+    <svg class="svg-icon grey">
+      <use xlink:href="/realdrew/assets/minima-social-icons.svg#twitter"></use>
+    </svg>
+  </a>
+</li>
+<li>
+  <a rel="me" href="https://www.youtube.com/channel/UClIKOsDS5dsfzFA3zveDT3Q" target="_blank" title="youtube">
+    <svg class="svg-icon grey">
+      <use xlink:href="/realdrew/assets/minima-social-icons.svg#youtube"></use>
+    </svg>
+  </a>
+</li>
+</ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
