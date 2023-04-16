@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      7 min read
+      13 min read
     
 </span></p>
 
@@ -91,8 +91,19 @@ window.onload = wrap_img;
     <ul id="toc" class="section-nav">
 <li class="toc-entry toc-h2"><a href="#requirements">Requirements</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#how-a-computer-works">How a Computer Works</a></li>
-<li class="toc-entry toc-h3"><a href="#the-internet">The Internet</a></li>
+<li class="toc-entry toc-h3"><a href="#how-a-computer-works">How a Computer Works</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#diagrams">Diagrams</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#the-internet">The Internet</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#411-vocabulary">4.1.1 Vocabulary</a></li>
+<li class="toc-entry toc-h4"><a href="#the-internet-true-of-false">The Internet True of False</a></li>
+<li class="toc-entry toc-h4"><a href="#internet-diagram">Internet Diagram</a></li>
+<li class="toc-entry toc-h4"><a href="#previous-big-idea-4-work">Previous Big Idea 4 Work</a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h3"><a href="#fault-tolerance">Fault Tolerance</a>
 <ul>
 <li class="toc-entry toc-h4"><a href="#video-examples">Video Examples</a>
@@ -103,17 +114,23 @@ window.onload = wrap_img;
 </li>
 </ul>
 </li>
-<li class="toc-entry toc-h3"><a href="#parallel-and-distributed-computing">Parallel and Distributed Computing</a></li>
+<li class="toc-entry toc-h3"><a href="#parallel-and-distributed-computing">Parallel and Distributed Computing</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#answering-questions">Answering Questions</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul><h2 id="requirements">
 <a class="anchor" href="#requirements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Requirements</h2>
+
 <blockquote>
   <p>Work through College Board Unit 4… blog, add definitions, and pictures.  Be creative, for instance make a story of Computing and Networks that is related to your PBL experiences this year.</p>
 </blockquote>
 
 <h3 id="how-a-computer-works">
 <a class="anchor" href="#how-a-computer-works" aria-hidden="true"><span class="octicon octicon-link"></span></a>How a Computer Works</h3>
+
 <blockquote>
   <p>As we have learned, a computer needs aa program to do something smart.  The sequence of a program initiates a series of actions with the computers Central Processing Unit (CPU). This component is essentially a binary machine focussing on program instructions provided.  The CPU retrieives and stores the data it acts upon in Random Access Memory (RAM). Between the CPU, RAM, and Storage Devices a computer can work with many programs and large amounts of data.</p>
 </blockquote>
@@ -126,6 +143,9 @@ window.onload = wrap_img;
   <li>Storage in GB: 251 GB of total Flash Storage (195 GB allocated to the Mac HD, 55.68 GB to BOOTCAMP)</li>
   <li>OS: macOS Catalina version 10.15.7 (19H15)</li>
 </ul>
+
+<h4 id="diagrams">
+<a class="anchor" href="#diagrams" aria-hidden="true"><span class="octicon octicon-link"></span></a>Diagrams</h4>
 
 <p>Define or describe usage of Computer using Computer Programs. Pictures are preferred over a lot of text.  Use your experience.</p>
 
@@ -149,6 +169,8 @@ window.onload = wrap_img;
 
 <p><img src="/realdrew/images/Screen%20Shot%202023-04-07%20at%203.06.44%20PM.png" alt="Processes"></p>
 
+<p>These are the concurrent processes that were going on on my laptop when I took the screenshot. Processes are essentially areas of program activity, which often run parallel to one another (as long as they aren’t dependent on one another, or certain independent processes will run with given space while other room is left for necessarily sequential tasks).</p>
+
 <ul>
   <li>Ports</li>
 </ul>
@@ -163,6 +185,8 @@ window.onload = wrap_img;
 
 <p><img src="/realdrew/images/Data%20Files.png" alt="Data files"></p>
 
+<p>I’ve been sharing diagrams in the form of data files throughout this blog.</p>
+
 <ul>
   <li>Inspect Running Code</li>
   <li>Inspect Variables</li>
@@ -170,12 +194,15 @@ window.onload = wrap_img;
 
 <p><img src="/realdrew/images/Screen%20Shot%202023-03-17%20at%207.27.15%20PM.png" alt="Inspect variable"></p>
 
+<p>The screenshot above shows variables from a time that we were inspecting code live. I decided to connect back to previous lessons specifically in reference to this.</p>
+
 <p>Inspect running code: The process of analyzing and examining the source code of a program that is currently running to identify errors, optimize performance, or better understand how the program functions.</p>
 
-<p>Inspect variables: The process of examining the values of variables that are being used by a program to identify issues or optimize performance. This can be done through debugging tools or other software that allows for real-time inspection of program variables.</p>
+<p>Inspect variables: The process of examining the values of variables that are being used by a program to identify issues or optimize performance. This can be done through debugging tools or other software that allows for real-time inspection of program variables. I have most often used the console in inspect element (especially working with frontend) and the VSCode debug option (when working with backend). In this case, the SQLite3 <code class="language-plaintext highlighter-rouge">connection</code> object.</p>
 
 <h3 id="the-internet">
 <a class="anchor" href="#the-internet" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Internet</h3>
+
 <blockquote>
   <p>Watch/review College Board Daily Video for 4.1.1</p>
 </blockquote>
@@ -193,7 +220,13 @@ window.onload = wrap_img;
       <li>Bandwidth is usually measured in bits per second</li>
     </ul>
   </li>
-  <li>Complete Vocabulary Matching Activity.  Incorporate this into your learnings from year.  To analyze measure path and latency use <code class="language-plaintext highlighter-rouge">traceroute</code> and <code class="language-plaintext highlighter-rouge">ping</code> commands from Linux Terminal.
+</ul>
+
+<h4 id="411-vocabulary">
+<a class="anchor" href="#411-vocabulary" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.1.1 Vocabulary</h4>
+
+<ul>
+  <li>Complete Vocabulary Matching Activity. Incorporate this into your learnings from year.
     <ul>
       <li>Path</li>
       <li>Route</li>
@@ -205,9 +238,20 @@ window.onload = wrap_img;
   </li>
 </ul>
 
+<p><img src="/realdrew/images/Screen%20Shot%202023-04-15%20at%2010.17.14%20AM.png" alt="The Internet Vocab Matching"></p>
+
+<p>These are all integral aspects of the functionality of the internet and computers, so these terms’ relation to our learnings throughout the year is very broad.</p>
+
+<p>One way to view it is in terms of how they relate to a CRUD program that connects a frontend (in our class, I’ll say hosted on GitHub Pages) and a backend (let’s say Flask on an AWS container). The link to the frontend page, “http://whatever.github.io/frontend/”, acts as a descriptor for the <mark>path</mark> that needs to be taken to access it. The Internet Protocol (IP) tells systems how to <mark>route</mark> messages between each other, which had been broken down into packets and are then reconstructed by the network. This is able to occur thanks to the <mark>computer network</mark> that connects computers and servers that hold information.</p>
+
+<p>The <mark>computer system</mark> and <mark>computer device</mark> vocab are ever-present, but don’t make a specific contribution in our learning. We use our laptops, our computer devices, in class, and take advantage of the many things they offer in terms of personalization.</p>
+
 <blockquote>
   <p>Watch/review College Board Daily Video 4.1.2</p>
 </blockquote>
+
+<h4 id="the-internet-true-of-false">
+<a class="anchor" href="#the-internet-true-of-false" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Internet True of False</h4>
 
 <ul>
   <li>Complete True of False Questions</li>
@@ -234,16 +278,22 @@ window.onload = wrap_img;
       <li>The world wide web uses the internet</li>
     </ul>
   </li>
+</ul>
+
+<h4 id="internet-diagram">
+<a class="anchor" href="#internet-diagram" aria-hidden="true"><span class="octicon octicon-link"></span></a>Internet Diagram</h4>
+
+<ul>
   <li>Go over AP videos, vocabulary, and essential knowledge.  Draw a diagram showing the internet and its many levels. A preferred diagram would using your knowledge of frontend, backend, deployment, etc.  Picture would highligh vocabulary by illustration. The below illustration have some ideas</li>
 </ul>
 
-<p><img src="/realdrew/images/fullstack.png" alt="Full Stack"></p>
+<p><img src="/realdrew/images/The%20Tower%20of%20the%20Internet.png" alt="The Internet True or False"></p>
 
 <ul>
-  <li>Often we draw pictures of machines communicating over the Internet with arrows.  However, the real communication goes through protocol layers and the machine and then is trasported of the network.   For College Board and future Computer Knowledge you should become familiar with the following …</li>
+  <li>Often we draw pictures of machines communicating over the Internet with arrows.  However, the real communication goes through protocol layers and the machine and then is trasported of the network. For College Board and future Computer Knowledge you should become familiar with the following …</li>
 </ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     User Machine  &lt;---&gt; Frontend Server &lt;---&gt; Backend Server
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    User Machine  &lt;---&gt; Frontend Server &lt;---&gt; Backend Server
     +-----------+         +-----------+         +-----------+
     |  Browser  |         |  GH Page  |         |   Flask   |
     +-----------+    ^    +-----------+    ^    +-----------+
@@ -265,8 +315,14 @@ window.onload = wrap_img;
 
 <p>The “network” layer is responsible for <strong><em>routing data packets between networks</em></strong> using the Internet Protocol (IP). This layer handles tasks such as packet addressing and routing, fragmentation and reassembly, and <strong><em>network congestion</em></strong> control.</p>
 
+<h4 id="previous-big-idea-4-work">
+<a class="anchor" href="#previous-big-idea-4-work" aria-hidden="true"><span class="octicon octicon-link"></span></a>Previous Big Idea 4 Work</h4>
+
+<p>After referencing back to <a href="/realdrew/theinternetnotes/">these notes</a> quite a few times during the process of making this blog, I figured I should link it again to show how comprehensively I’ve studied this concept in the past.</p>
+
 <h3 id="fault-tolerance">
 <a class="anchor" href="#fault-tolerance" aria-hidden="true"><span class="octicon octicon-link"></span></a>Fault Tolerance</h3>
+
 <blockquote>
   <p>Watch both Daily videos for 4.2</p>
 </blockquote>
@@ -281,7 +337,7 @@ window.onload = wrap_img;
 
 <p>Fault tolerance makes systems more reliable but it also requires a lot of resources and time if not balanced carefully. Non-fault-tolerant connections are shown in the black ink, an over-the-top fault tolerant version is in blue, and a balanced set of eight connections is marked in green.</p>
 
-<p>Fault tolerance is also Satanic.</p>
+<p>Fault tolerance is also satanic.</p>
 
 <h4 id="video-examples">
 <a class="anchor" href="#video-examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Video Examples</h4>
@@ -289,23 +345,57 @@ window.onload = wrap_img;
 <h5 id="example-1">
 <a class="anchor" href="#example-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example 1</h5>
 
+<p><img src="/realdrew/images/Screen%20Shot%202023-04-15%20at%2010.03.44%20AM.png" alt="FT Example 1"></p>
+
+<p>C is the answer. The whole point point of fault tolerance is to allow systems to take advantage of multiple alternate routes to one another, <strong>especially</strong> when other routes are available.</p>
+
+<p>C was the correct answer.</p>
+
 <h5 id="example-2">
 <a class="anchor" href="#example-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example 2</h5>
 
+<p><img src="/realdrew/images/Screen%20Shot%202023-04-15%20at%2010.10.22%20AM.png" alt="FT Example 2"></p>
+
+<p>A is the answer. A is the only endpoint with only a single route, meaning that another connection (such as to B) would make the system fault tolerant.</p>
+
+<p>A was the correct answer.</p>
+
 <h3 id="parallel-and-distributed-computing">
 <a class="anchor" href="#parallel-and-distributed-computing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parallel and Distributed Computing</h3>
+
 <blockquote>
   <p>Review previous lecture on Parallel Computing and watch Daily vidoe 4.3.  Think of ways to make something in you team project to utilize Cores more effectively.  Here are some thoughts to add to your story of Computers and Networks…</p>
 </blockquote>
 
+<h4 id="answering-questions">
+<a class="anchor" href="#answering-questions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Answering Questions</h4>
+
 <ul>
-  <li>
-    <p>What is naturally Distributed in Frontend/Backend archeticture?</p>
-  </li>
-  <li>
-    <p>Analyze this command in Docker: <code class="language-plaintext highlighter-rouge">ENV GUNICORN_CMD_ARGS="--workers=1 --bind=0.0.0.0:8086"</code> computing within the server that runs python/gunicorn.  Here is an <a href="https://medium.com/building-the-system/gunicorn-3-means-of-concurrency-efbb547674b7">article</a></p>
-  </li>
+  <li>What is naturally Distributed in Frontend/Backend archeticture?</li>
 </ul>
+
+<p>The frontend/backend structure naturally distributes tasks between frontend and backend, particularly tasks that relate to their differing purposes. Frontend tasks usually relate to user interface or relationship to the backend, while backend tasks can be more computationally taxing and relate to the data needed by the user side.</p>
+
+<p>In the frontend/backend structure, parallel computing is often used to speed up the processing of frontend requests using multiple nodes. A fairly common example is something we already showed in class: image processing is often split across multiple processors.</p>
+
+<ul>
+  <li>Analyze this command in Docker: <code class="language-plaintext highlighter-rouge">ENV GUNICORN_CMD_ARGS="--workers=1 --bind=0.0.0.0:8086"</code> computing within the server that runs python/gunicorn.  Here is an <a href="https://medium.com/building-the-system/gunicorn-3-means-of-concurrency-efbb547674b7">article</a>
+</li>
+</ul>
+
+<p>The <code class="language-plaintext highlighter-rouge">ENV GUNICORN_CMD_ARGS</code> is setting up to present specific arguments to the gunicorn environment.</p>
+
+<p>The article discusses how <code class="language-plaintext highlighter-rouge">--workers=?</code> creates <code class="language-plaintext highlighter-rouge">?</code> workers to handle HTTP requests. the master gunicorn process ensures that the specified number of workers is kept consistent at all times, forking itself initially to create the workers and forking itself again and again as workers crash or fail. In this case, having <code class="language-plaintext highlighter-rouge">1</code> worker means that only a single forked subprocess is responsible for taking HTTP requests. This is never recommended; the article suggests deciding the amount of workers by doubling your computer’s CPU and then adding 1, so in order to optimally end up with only one worker, you’d have to have a CPU of zero, which isn’t exactly possible.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">--bind=?</code> argument establishes an endpoint for the HTTP processes at the specified address and port. In this case, it uses the default IP host of <code class="language-plaintext highlighter-rouge">0.0.0.0</code> and the port <code class="language-plaintext highlighter-rouge">8086</code>, both established locally.</p>
+
+<p><strong>Other Gunicorn Arguments</strong></p>
+
+<p>The <code class="language-plaintext highlighter-rouge">--threads:?</code> argument can be used to provide threads to each of the workers to further divide the process. These threads work in the same memory space as each other, and each worker still has its own unique space in memory.</p>
+
+<p>It is important to understand that the maximum concurrent requests is now represented by the product of <code class="language-plaintext highlighter-rouge">workers * threads</code>. If one were to provide the argument <code class="language-plaintext highlighter-rouge">--workers:3 --threads:3</code>, the maximum concurrent processes would be 9. This number should still be defined by twice the CPU plus one. As a result, these settings would be ideal for a quad-core machine (<code class="language-plaintext highlighter-rouge">(4 * 2) + 1 = 9</code>).</p>
+
+<p>Worker classes can also be used in tandem with Python concurrency libraries. When <code class="language-plaintext highlighter-rouge">threads</code> are established, the <code class="language-plaintext highlighter-rouge">worker</code> class is automatically set to <code class="language-plaintext highlighter-rouge">--worker-class=gthread</code>. When using <code class="language-plaintext highlighter-rouge">gevent</code>, for example, the <code class="language-plaintext highlighter-rouge">--worker-class=gevent</code> can be used. This creates broader flexibility for gunicorn concurrency.</p>
 
 <blockquote>
   <p>Last week we discussed parallel computing on local machine.  There are many options.  Here is something to get parallel computing work with a tool called Ray.</p>
@@ -349,6 +439,26 @@ window.onload = wrap_img;
 <span class="c1"># print the result
 </span><span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </code></pre></div></div>
+
+<p><strong>Trying Larger Squares</strong></p>
+
+<p>We were curious to see how parallel processing would change given larger numbers to square and more of them.</p>
+
+<p><img src="/realdrew/images/Screen%20Shot%202023-04-16%20at%2012.30.34%20PM.png" alt="Larger Numbers"></p>
+
+<p>This was about a second longer than the <code class="language-plaintext highlighter-rouge">[1, 2, 3, 4, 5]</code> process above took.</p>
+
+<p><img src="/realdrew/images/Screen%20Shot%202023-04-16%20at%2012.32.47%20PM.png" alt="Even Larger Numbers"></p>
+
+<p>Adding much larger numbers and a few more, it took almost two more seconds to finish the process.</p>
+
+<p><strong>Trying More Processes</strong></p>
+
+<p>I was curious if adding more concurrent processes would make it faster.</p>
+
+<p><img src="/realdrew/images/Screen%20Shot%202023-04-16%20at%2012.37.24%20PM.png" alt="Three Processes"></p>
+
+<p>I’m somewhat surprised to say that the process took a second less with three concurrent processes than it did with two. I thought this was a pretty interesting test, showing the sort of time save that’s possible by creating multiple concurrent processes for even simple things like squaring numbers.</p>
 
   </div><!-- from https://github.com/utterance/utterances -->
 <script src="https://utteranc.es/client.js"
