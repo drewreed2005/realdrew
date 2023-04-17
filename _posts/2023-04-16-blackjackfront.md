@@ -9,20 +9,252 @@ search-exclude: true
 
 <table style="border:1px solid">
     <tr>
-        <td>Dealer Hand</td>
+        <th>Dealer Hand</th>
     </tr>
     <tr id="dealer_cards">
-        <td>Card 1<td>
+        <td>Card 1</td>
     </tr>
     <tr>
-        <td>Player Hand</td>
+        <th>Player Hand</th>
     </tr>
     <tr id="player_cards">
-        <td>Card 1<td>
+        <td>Card 1</td>
     </tr>
 
 <script>
+    // card class
     class Card {
-        
+        constructor(suit, val) {
+            this.suit = suit;
+            this.value = val;
+            if (val == 11) {
+                this.kind = "Ace";
+            } else if (val == 12) {
+                this.kind = "Jack";
+            } else if (val == 13) {
+                this.kind = "Queen";
+            } else if (val == 14) {
+                this.kind = "King";
+            } else {
+                this.kind = String(val);
+            }
+        };
+        cshow() {
+            return this.kind + " of " + this.suit;
+        };
+        adjustAce() {
+            if (this.kind == "Ace") {
+                this.value = 1;
+            }
+        };
+    };
+
+    // card test
+    var tcard = new Card("Spades", 3);
+    console.log(tcard.cshow());
+
+    // deck class
+    class Deck {
+        constructor() {
+            this.cards = [];
+            this.build()
+        }
+        build() {
+            const suits = ["Spades", "Hearts", "Diamonds", "Clubs"];
+            for (let s in suits) {
+                for (let v = 2; v < 15; v++) {
+                    this.cards.push(new Card(suits[s], v));
+                }
+            }
+        }
+        shuffle() {
+            for (var i = this.cards.length - 1; i > 0; i--) {
+                var j = Math.floor(Math.random() * (i + 1));
+                var temp = this.cards[i];
+                this.cards[i] = this.cards[j];
+                this.cards[j] = temp;
+            }
+        }
+        draw() {
+            return this.cards.pop();
+        }
+    };
+
+    // deck test
+    var tdeck = new Deck();
+    tdeck.shuffle();
+    console.log(tdeck.cards);
+
+    //initiating globals
+    let playerChips = 100;
+    var pBet = 0;
+    var playerHand = [];
+    var dealerHand = [];
+    var deck = new Deck()
+
+    function gameStart() {
+        var pBet = 0;
+        playerHand = [];
+        dealerHand = [];
+        deck = new Deck();
+        deck.shuffle();
+        pBet = bet(playerChips); // getting the player bet
+
+        console.log("Initial draws:"); // giving the initial draws
+        d1 = hit(dealerHand);
+        console.log("The dealer draws: " + d1);
+        console.log("You receive: " + hit(playerHand));
+        d2 = hit(dealerHand);
+        console.log("The dealer draws a face-down card...");
+        console.log("You receive: " + hit(playerHand));
+        console.log(playerHand);
+        if (takesum(playerHand) == 21) { // instant player win on blackjack potentially
+            if (takesum(playerHand) != 21) {
+                console.log("WOW! A blackjack! You win!");
+                win(pBet);
+                playAgain();
+                return;
+            } else {
+                console.log("Both you and the dealer have blackjack. It's a push! Keep your bet.");
+                playAgain();
+                return;
+            }
+        };
+        console.log("--------------------------------")
+        console.log("Dealer's hand: " + d1 + ", ???")
+        playerTurn() // once player turn finishes, the dealer turn occurs
+
+        playAgain()
     }
+
+    function bet(chips) {
+        console.log("Your chips: " + String(playerChips) + ". How many will you bet?");
+        b = prompt();
+        try {
+            if (Number(b) <= chips) {
+                return Number(b);
+            } else {
+                console.log("Invalid bet");
+                bet(chips);
+            }
+        } catch (error) {
+            console.log("Invalid bet");
+            bet(chips);
+        }
+    };
+
+    function takesum(hand) {
+        let sm = 0;
+        for (let i = 0; i < hand.length; i++) {
+            var pcard = hand[i];
+            if (pcard.value > 11) {
+                sm = sm + 10;
+            } else {
+                sm = sm + pcard.value;
+            };
+        };
+        if (sm > 21) {
+            for (let i = 0; i < hand.length; i++) {
+                var pcard = hand[i];
+                if (pcard.value == 11) {
+                    pcard.adjustAce();
+                    return takesum(hand);
+                };
+            };
+        };
+        console.log(sm)
+        return sm
+    };
+
+    function hit(hand) {
+        var res = deck.draw();
+        console.log(res);
+        if ((res.value == 11) && (takesum(hand) + 11 > 21)) { // adjusting ace if it would break
+            res.adjustAce();
+        };
+        hand.push(res);
+        return res.kind + " of " + res.suit;
+    };
+
+    function handDisplay(hand) {
+        //var disp_hand = [];
+        //for (var card in hand) {
+            //var shown = card.kind + " of " + card.suit;
+            //disp_hand.push(shown);
+        //};
+        return hand;
+    };
+
+    function playerTurn() {
+        console.log("Your hand: " + String(handDisplay(playerHand)));
+        if (takesum(playerHand) > 21) {
+            console.log("You break! You lose.");
+            lose(pBet);
+            return
+        }
+        rsp = prompt("Would you like to hit (h) or stay (s)? (input either option)")
+        if (rsp == "h") {
+            received = hit(playerHand);
+            console.log("You drew a " + received + "!");
+            playerTurn();
+        } else if (rsp == "s") {
+            console.log("You stand.");
+            dealerTurn();
+        } else {
+            console.log('Invalid input. Input "h" to hit or "s" to stand.');
+            playerTurn();
+        };
+    }
+
+    function dealerTurn() {
+        console.log("Dealer's hand: " + String(handDisplay(dealerHand)));
+        if (takesum(dealerHand) > 16) {
+            console.log("The dealer stays.");
+        } else {
+            console.log("The dealer draws: " + hit(dealerHand));
+            if (takesum(dealerHand) > 21) {
+                console.log("The dealer breaks! You win.");
+                win(pBet);
+                return;
+            }
+            dealerTurn();
+            return;
+        };
+        if (takesum(playerHand) > takesum(dealerHand)) {
+            console.log("Congratulations! You won with a hand worth " + String(takesum(playerHand)) + "!");
+            win(pBet);
+        } else if (takesum(dealerHand) > takesum(playerHand)) {
+            console.log("Too bad! You lost to the dealer's hand, worth "  + String(takesum(dealerHand)) + "!");
+            lose(pBet);
+        } else {
+            console.log("It's a push! You keep your bet.");
+        };
+        return
+    }
+
+    function win(bet) {
+        playerChips += bet;
+        return
+    }
+    function lose(bet) {
+        playerChips -= bet;
+        return
+    }
+
+    function playAgain() {
+        if (playerChips != 0) {
+            pa = prompt('Would you like to play again? (Input "y" for yes and "n" for no.)');
+            if (pa == "y") {
+                gameStart();
+            } else {
+                console.log("You finished with " + String(playerChips) + " chips!");
+                return;
+            };
+        } else {
+            console.log("Too bad! You lost all of your chips. Try again!");
+            return;
+        }
+    }
+
+    setTimeout(gameStart(), 50000)
 </script>
