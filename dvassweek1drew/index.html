@@ -327,6 +327,10 @@ window.onload = wrap_img;
             <span class="n">win</span><span class="p">(</span><span class="n">p_bet</span><span class="p">)</span>
             <span class="n">play_again</span><span class="p">()</span>
             <span class="k">return</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Both you and the dealer have blackjack, so it's a bust! Keep your bet."</span><span class="p">)</span>
+            <span class="n">play_again</span><span class="p">()</span>
+            <span class="k">return</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"--------------------------------"</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Dealer's hand: </span><span class="si">{</span><span class="n">d1</span><span class="si">}</span><span class="s2">, ???"</span><span class="p">)</span>
     <span class="n">player_turn</span><span class="p">()</span> <span class="c1">#once player turn finishes, the dealer turn occurs</span>
@@ -339,6 +343,9 @@ window.onload = wrap_img;
     <span class="k">try</span><span class="p">:</span>
         <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">chips</span><span class="p">:</span>
             <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Invalid bet."</span><span class="p">)</span>
+            <span class="n">bet</span><span class="p">(</span><span class="n">chips</span><span class="p">)</span>
     <span class="k">except</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">"Invalid bet."</span><span class="p">)</span>
         <span class="n">bet</span><span class="p">(</span><span class="n">chips</span><span class="p">)</span>
