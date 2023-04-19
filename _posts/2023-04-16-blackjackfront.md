@@ -6,8 +6,13 @@ permalink: /bjhead
 hide: true
 search-exclude: true
 ---
+<style>
+    .card_table {
+        width: 1000px;
+    }
+</style>
 
-<table style="border:1px solid">
+<table id="card_table" class="card_table" style="border:1px solid">
     <tr>
         <th>Dealer Hand</th>
     </tr>
@@ -20,6 +25,11 @@ search-exclude: true
     <tr id="player_cards">
         <td>Card 1</td>
     </tr>
+</table>
+
+<button id="play_button" onclick="gameStart()">Play in console</button>
+<button id="hit_button" onclick="hit(playerHand)">Hit</button>
+<button id="stay_button" onclick="stay()">Stay</button>
 
 <script>
     // card class
@@ -66,7 +76,7 @@ search-exclude: true
                     this.cards.push(new Card(suits[s], v));
                 }
             }
-        }
+        };
         shuffle() {
             for (var i = this.cards.length - 1; i > 0; i--) {
                 var j = Math.floor(Math.random() * (i + 1));
@@ -86,19 +96,16 @@ search-exclude: true
     console.log(tdeck.cards);
 
     //initiating globals
-    let playerChips = 100;
-    var pBet = 0;
+    var currentStreak = 0;
     var playerHand = [];
     var dealerHand = [];
-    var deck = new Deck()
+    var deck = new Deck();
 
     function gameStart() {
-        var pBet = 0;
         playerHand = [];
         dealerHand = [];
         deck = new Deck();
         deck.shuffle();
-        pBet = bet(playerChips); // getting the player bet
 
         console.log("Initial draws:"); // giving the initial draws
         d1 = hit(dealerHand);
@@ -111,11 +118,11 @@ search-exclude: true
         if (takesum(playerHand) == 21) { // instant player win on blackjack potentially
             if (takesum(playerHand) != 21) {
                 console.log("WOW! A blackjack! You win!");
-                win(pBet);
+                win();
                 playAgain();
                 return;
             } else {
-                console.log("Both you and the dealer have blackjack. It's a push! Keep your bet.");
+                console.log("Both you and the dealer have blackjack. It's a push! Your streak stays the same.");
                 playAgain();
                 return;
             }
@@ -125,22 +132,6 @@ search-exclude: true
         playerTurn() // once player turn finishes, the dealer turn occurs
 
         playAgain()
-    }
-
-    function bet(chips) {
-        console.log("Your chips: " + String(playerChips) + ". How many will you bet?");
-        b = prompt();
-        try {
-            if (Number(b) <= chips) {
-                return Number(b);
-            } else {
-                console.log("Invalid bet");
-                bet(chips);
-            }
-        } catch (error) {
-            console.log("Invalid bet");
-            bet(chips);
-        }
     };
 
     function takesum(hand) {
@@ -168,7 +159,6 @@ search-exclude: true
 
     function hit(hand) {
         var res = deck.draw();
-        console.log(res);
         if ((res.value == 11) && (takesum(hand) + 11 > 21)) { // adjusting ace if it would break
             res.adjustAce();
         };
@@ -177,19 +167,20 @@ search-exclude: true
     };
 
     function handDisplay(hand) {
-        //var disp_hand = [];
-        //for (var card in hand) {
-            //var shown = card.kind + " of " + card.suit;
-            //disp_hand.push(shown);
-        //};
-        return hand;
+        var disp_hand = [];
+        for (let i = 0; i < hand.length; i++) {
+            var thisCard = hand[i];
+            var shown = thisCard.kind + " of " + thisCard.suit;
+            disp_hand.push(shown);
+        };
+        return disp_hand;
     };
 
     function playerTurn() {
         console.log("Your hand: " + String(handDisplay(playerHand)));
         if (takesum(playerHand) > 21) {
             console.log("You break! You lose.");
-            lose(pBet);
+            lose();
             return
         }
         rsp = prompt("Would you like to hit (h) or stay (s)? (input either option)")
@@ -214,7 +205,7 @@ search-exclude: true
             console.log("The dealer draws: " + hit(dealerHand));
             if (takesum(dealerHand) > 21) {
                 console.log("The dealer breaks! You win.");
-                win(pBet);
+                win();
                 return;
             }
             dealerTurn();
@@ -222,39 +213,36 @@ search-exclude: true
         };
         if (takesum(playerHand) > takesum(dealerHand)) {
             console.log("Congratulations! You won with a hand worth " + String(takesum(playerHand)) + "!");
-            win(pBet);
+            win();
         } else if (takesum(dealerHand) > takesum(playerHand)) {
             console.log("Too bad! You lost to the dealer's hand, worth "  + String(takesum(dealerHand)) + "!");
-            lose(pBet);
+            lose();
         } else {
             console.log("It's a push! You keep your bet.");
         };
         return
     }
 
-    function win(bet) {
-        playerChips += bet;
+    function win() {
+        currentStreak += 1;
         return
     }
-    function lose(bet) {
-        playerChips -= bet;
+    function lose() {
+        currentStreak = 0;
         return
     }
 
     function playAgain() {
-        if (playerChips != 0) {
-            pa = prompt('Would you like to play again? (Input "y" for yes and "n" for no.)');
-            if (pa == "y") {
-                gameStart();
-            } else {
-                console.log("You finished with " + String(playerChips) + " chips!");
-                return;
-            };
+        // allow the user to choose whether or not to play again with buttons, show them
+        pa = prompt('Would you like to play again? (Input "y" for yes and "n" for no.)');
+        if (pa == "y") {
+            gameStart();
         } else {
-            console.log("Too bad! You lost all of your chips. Try again!");
+            // allow user to upload to database; use try so that it functions when server isn't running
+            console.log("You finished with with a streak of " + String(currentStreak));
+            // try for streak save here
+            currentStreak = 0;
             return;
-        }
+        };
     }
-
-    setTimeout(gameStart(), 50000)
 </script>
