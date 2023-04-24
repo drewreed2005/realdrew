@@ -226,7 +226,7 @@ search-exclude: true
         givePlayerCard(p2)
         console.log(playerHand);
         if (takesum(playerHand) == 21) { // instant player win on blackjack potentially
-            if (takesum(playerHand) != 21) {
+            if (takesum(dealerHand) != 21) {
                 console.log("WOW! A blackjack! You win!");
                 win();
                 return;
