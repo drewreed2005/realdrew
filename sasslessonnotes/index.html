@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>SASS Lesson notes | Drew’s Big Fastpages Blog</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="SASS Lesson notes" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="SASS Lesson Notes" />
+<meta property="og:description" content="SASS Lesson Notes" />
+<link rel="canonical" href="https://drewreed2005.github.io/realdrew/sasslessonnotes/" />
+<meta property="og:url" content="https://drewreed2005.github.io/realdrew/sasslessonnotes/" />
+<meta property="og:site_name" content="Drew’s Big Fastpages Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-04-24T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="SASS Lesson notes" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-04-24T00:00:00-05:00","datePublished":"2023-04-24T00:00:00-05:00","description":"SASS Lesson Notes","headline":"SASS Lesson notes","mainEntityOfPage":{"@type":"WebPage","@id":"https://drewreed2005.github.io/realdrew/sasslessonnotes/"},"url":"https://drewreed2005.github.io/realdrew/sasslessonnotes/"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/realdrew/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://drewreed2005.github.io/realdrew/feed.xml" title="Drew's Big Fastpages Blog" /><link rel="shortcut icon" type="image/x-icon" href="/realdrew/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/realdrew/">Drew&#39;s Big Fastpages Blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/realdrew/about/">About Me</a><a class="page-link" href="/realdrew/vocab/">Vocabulary</a><a class="page-link" href="/realdrew/notes/">Notes</a><a class="page-link" href="/realdrew/more/">Programs and More</a><a class="page-link" href="/realdrew/search/">Search</a><a class="page-link" href="/realdrew/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">SASS Lesson notes</h1><p class="page-description">SASS Lesson Notes</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2023-04-24T00:00:00-05:00" itemprop="datePublished">
+        Apr 24, 2023
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      4 min read
+    
+</span></p>
+
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-justify-center">
+          <div class="px-2">
+
+    <a href="https://github.com/drewreed2005/realdrew/tree/master/_notebooks/2023-04-24-sass-lesson.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/realdrew/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/drewreed2005/realdrew/master?filepath=_notebooks%2F2023-04-24-sass-lesson.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/realdrew/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/drewreed2005/realdrew/blob/master/_notebooks/2023-04-24-sass-lesson.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/realdrew/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+          <div class="px-2">
+  <a href="https://deepnote.com/launch?url=https%3A%2F%2Fgithub.com%2Fdrewreed2005%2Frealdrew%2Fblob%2Fmaster%2F_notebooks%2F2023-04-24-sass-lesson.ipynb" target="_blank">
+      <img class="notebook-badge-image" src="/realdrew/assets/badges/deepnote.svg" alt="Launch in Deepnote"/>
+  </a>
+</div>
+
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h2"><a href="#Why-SASS?">Why SASS? </a></li>
+<li class="toc-entry toc-h2"><a href="#SASS-vs-SCSS">SASS vs SCSS </a></li>
+<li class="toc-entry toc-h2"><a href="#Getting-started">Getting started </a></li>
+<li class="toc-entry toc-h2"><a href="#Nesting">Nesting </a></li>
+<li class="toc-entry toc-h2"><a href="#Mini-hack">Mini-hack </a></li>
+<li class="toc-entry toc-h2"><a href="#Extend/Inheritance">Extend/Inheritance </a></li>
+<li class="toc-entry toc-h2"><a href="#Mixin">Mixin </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Mini-hack">Mini-hack </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#Function">Function </a></li>
+<li class="toc-entry toc-h2"><a href="#Import">Import </a></li>
+<li class="toc-entry toc-h2"><a href="#SASS-Hacks">SASS Hacks </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2023-04-24-sass-lesson.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Why-SASS?">
+<a class="anchor" href="#Why-SASS?" aria-hidden="true"><span class="octicon octicon-link"></span></a>Why SASS?<a class="anchor-link" href="#Why-SASS?"> </a>
+</h2>
+<p>SASS is an improvement on CSS in that there are methods of abstraction. It is a <strong>stylesheet</strong> language that is <strong>compiled</strong> into CSS, which means that <strong>Sass will translate the Sass code you wrote into CSS</strong>, which is what your web browser can read.</p>
+<h2 id="SASS-vs-SCSS">
+<a class="anchor" href="#SASS-vs-SCSS" aria-hidden="true"><span class="octicon octicon-link"></span></a>SASS vs SCSS<a class="anchor-link" href="#SASS-vs-SCSS"> </a>
+</h2>
+<p>As you learn about Sass, you might notice something called Scss. They are basically the same thing except that Scss uses curly braces and semicolons to distinguish between lines. Sass uses indentation and newlines instead.</p>
+<p>We will be teaching the Scss syntax because it is more commonly used.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Getting-started">
+<a class="anchor" href="#Getting-started" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting started<a class="anchor-link" href="#Getting-started"> </a>
+</h2>
+<p>A easy way to write SASS and have it preprocessed into CSS is by using a Jekyll powered website, such as GitHub pages or Fastpages.</p>
+<p>The first step is to clone a GitHub pages repo, such as this <a href="https://github.com/lwu1822/sassy_squad">one</a>.</p>
+<p>Within the repository, head over to <code>assets/css/</code>, and open <code>style.scss</code>.</p>
+<p>This is where you can create your SASS code.</p>
+<p>To see your CSS-translated SASS code, head over to <code>_site/assets/css/style.css</code></p>
+<p>Note: You will need to run bundle exec jekyll serve before the _site directory appears.</p>
+<p>The first few hundred lines are used to style Github's theme. Make sure to scroll to the very bottom to see the SASS code that you wrote, which is in the form of CSS.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Nesting">
+<a class="anchor" href="#Nesting" aria-hidden="true"><span class="octicon octicon-link"></span></a>Nesting<a class="anchor-link" href="#Nesting"> </a>
+</h2>
+<p>Sass nesting decreases repetition by allowing related CSS instructions. Instead of this...</p>
+
+<pre><code>.font .title { 
+    font-family: "Times New Roman", serif;
+    font-size: 3em;
+}
+
+.font .text {
+    font-family: "Times New Roman", serif; 
+    font-size: 1em;
+}</code></pre>
+<p>...you could define text font settings like this:</p>
+
+<pre><code>.font {
+    .title {
+    font-family: "Times New Roman", serif;
+    font-size: 3em;
+    }
+
+    .text {
+    font-family: "Times New Roman", serif;
+    font-size: 1em;
+    } 
+}</code></pre>
+<p>These respective classes can be used to affect text settings in, for example divs, like they use on their lesson site.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Mini-hack">
+<a class="anchor" href="#Mini-hack" aria-hidden="true"><span class="octicon octicon-link"></span></a>Mini-hack<a class="anchor-link" href="#Mini-hack"> </a>
+</h2>
+<p>Write out the SASS equivalent for the following CSS code:</p>
+
+<pre><code>.a .b {
+    color: green;
+}
+
+.a .c {
+    color: blue;
+}</code></pre>
+<p>You can nest it within the <code>a</code> class:</p>
+<div class="highlight"><pre><span></span><span class="nc">.a</span> <span class="err">{</span>
+    <span class="nc">.b</span> <span class="err">{</span>
+        <span class="na">color</span><span class="o">:</span> <span class="ni">green</span><span class="err">;</span>
+    <span class="err">}</span>
+
+    <span class="nc">.c</span> <span class="err">{</span>
+        <span class="na">color</span><span class="o">:</span> <span class="ni">blue</span><span class="err">;</span>
+    <span class="err">}</span>
+<span class="err">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Extend/Inheritance">
+<a class="anchor" href="#Extend/Inheritance" aria-hidden="true"><span class="octicon octicon-link"></span></a>Extend/Inheritance<a class="anchor-link" href="#Extend/Inheritance"> </a>
+</h2>
+<p><strong>What are some similarities that the buttons share? What are the differences?</strong></p>
+<p>The text in the buttons have the same font, size, and color. The gradients appear to have similar fading, but different colors. They react the same to being hovered over, but send to different links.</p>
+<p>Inheritance can be used to share the same traits.</p>
+
+<pre><code>%buttonLayout {
+
+    width: 15em;
+
+    height: 15em;
+
+    color: #ffffff;
+
+    margin-right: 10%;
+
+}</code></pre>
+<p>Each button is given the same traits below:</p>
+
+<pre><code>.gettingStartedButton, .nestingButton, .extendButton {
+
+    @extend %buttonLayout;
+
+}</code></pre>
+<p>NOTICE @extend</p>
+<p>They can then have their own colors by setting them here:</p>
+
+<pre><code>.gettingStartedButton {
+
+    background: radial-gradient( #1539db, #8a8ce6);
+
+}
+
+.nestingButton {
+
+    background: radial-gradient( #3a9fa7, #8ae0e6);
+
+}
+
+.extendButton {
+
+    background: radial-gradient( #643aa7, #d78ae6);
+
+}</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Mixin">
+<a class="anchor" href="#Mixin" aria-hidden="true"><span class="octicon octicon-link"></span></a>Mixin<a class="anchor-link" href="#Mixin"> </a>
+</h2>
+<p>(The lesson was moving too fast so I copied these instructions directly from the notes.)</p>
+<p>A mixin is similar to extend in that it creates a code template that can be reused. It can also take in parameters so that you can create dynamic styling.</p>
+<p>In the example of the buttons, all three buttons have a gradient background. However, the background colors are different.</p>
+<p>With SASS, we can create a @mixin at rule that takes in two colors as the parameter:</p>
+
+<pre><code>@mixin buttonLayout($innerColor, $outerColor) {
+    background: radial-gradient($innerColor, $outerColor);
+}</code></pre>
+<p>So, for the buttons, you could also represent the gradient as this:</p>
+
+<pre><code>.gettingStartedButton {
+    @include buttonLayout(#1539db, #8a8ce6);
+}</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Mini-hack">
+<a class="anchor" href="#Mini-hack" aria-hidden="true"><span class="octicon octicon-link"></span></a>Mini-hack<a class="anchor-link" href="#Mini-hack"> </a>
+</h3>
+<p>Write out a mixin in SASS that takes in a color and a font size as the parameter. Within the mixin, set the background color and font color to the color parameter, and set the font size to the font size parameter. Then create a selector that calls the mixin, and pass in a color and font size of your choice as the arguments.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Function">
+<a class="anchor" href="#Function" aria-hidden="true"><span class="octicon octicon-link"></span></a>Function<a class="anchor-link" href="#Function"> </a>
+</h2>
+<p>Functions in sass look like this:</p>
+
+<pre><code>@function name(parameters) {
+    //code
+    @return value;
+}</code></pre>
+<p>An example with working code can be seen below. It is used for dark vs. light mode:</p>
+
+<pre><code>@function sassInvert($r, $g, $b) {
+    $newColor: rgb(255 - $r, 255 - $g, 255 - $b);
+    @return $newColor;
+}</code></pre>
+<p>A selector for the example <code>sassInvert</code> function is seen below.</p>
+
+<pre><code>.invert {
+    background-color: sassInvert(0, 0, 0);
+    color: sassInvert(211,202,202);
+}</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Import">
+<a class="anchor" href="#Import" aria-hidden="true"><span class="octicon octicon-link"></span></a>Import<a class="anchor-link" href="#Import"> </a>
+</h2>
+<p>Sass code requires lots of code, so it's important to split the code between files and import it later for organization.</p>
+<p>The lesson provides this example of use:</p>
+<p>"For instance, to put the styling for function.html in another SASS file, first create a directory called <code>_sass</code>.</p>
+<p>Within the directory, create another SASS file. In this case, the file is called <code>functionStyle.scss</code>.</p>
+<p>Write your SASS code in that file. Once you are finished, switch back to style.scss and import the file with <code>@import "file-name"</code>.</p>
+<p>For instance, to import the <code>functionStyle.scss</code> file into <code>style.scss</code>, the import statement would be <code>@import "functionStyle"</code>."</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="SASS-Hacks">
+<a class="anchor" href="#SASS-Hacks" aria-hidden="true"><span class="octicon octicon-link"></span></a>SASS Hacks<a class="anchor-link" href="#SASS-Hacks"> </a>
+</h2>
+<ol>
+<li>
+<p>Take notes and complete the mini-hacks. (0.9)</p>
+</li>
+<li>
+<p>Complete the <a href="https://lwu1822.github.io/sassy_squad/quizQuestions">quiz questions</a> and provide your answers in this notebook. (0.9)</p>
+</li>
+<li>
+<p>Use SASS to create something that uses either extend or mixin. (0.9)</p>
+</li>
+<li>
+<p>Extra credit: Research other SASS features and blog about what you learned or add to your SASS project with any extra features not covered in this lesson. More points will be given if both are done.</p>
+</li>
+</ol>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><a class="u-url" href="/realdrew/sasslessonnotes/" hidden></a>
+</article>
+
+<script src="https://utteranc.es/client.js"
+        repo="[ENTER REPO HERE]"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/realdrew/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="https://drewreed2005.github.io/realdrew/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/realdrew/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Documentation of my constant progress toward being a master coder (haiyah).</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li>
+  <a rel="me" href="https://github.com/nighthawkcoders" target="_blank" title="github">
+    <svg class="svg-icon grey">
+      <use xlink:href="/realdrew/assets/minima-social-icons.svg#github"></use>
+    </svg>
+  </a>
+</li>
+<li>
+  <a rel="me" href="https://twitter.com/NighthawkCoding" target="_blank" title="twitter">
+    <svg class="svg-icon grey">
+      <use xlink:href="/realdrew/assets/minima-social-icons.svg#twitter"></use>
+    </svg>
+  </a>
+</li>
+<li>
+  <a rel="me" href="https://www.youtube.com/channel/UClIKOsDS5dsfzFA3zveDT3Q" target="_blank" title="youtube">
+    <svg class="svg-icon grey">
+      <use xlink:href="/realdrew/assets/minima-social-icons.svg#youtube"></use>
+    </svg>
+  </a>
+</li>
+</ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
