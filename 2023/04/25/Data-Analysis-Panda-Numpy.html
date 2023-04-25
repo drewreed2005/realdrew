@@ -1,0 +1,1567 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Petite Pandas Data Analysis using Pandas and NumPy | Drew’s Big Fastpages Blog</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Petite Pandas Data Analysis using Pandas and NumPy" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A series of lessons based on the utilization of Pandas and NumPy to read and create interesting things with files and data." />
+<meta property="og:description" content="A series of lessons based on the utilization of Pandas and NumPy to read and create interesting things with files and data." />
+<link rel="canonical" href="https://drewreed2005.github.io/realdrew/2023/04/25/Data-Analysis-Panda-Numpy.html" />
+<meta property="og:url" content="https://drewreed2005.github.io/realdrew/2023/04/25/Data-Analysis-Panda-Numpy.html" />
+<meta property="og:site_name" content="Drew’s Big Fastpages Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-04-25T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Petite Pandas Data Analysis using Pandas and NumPy" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-04-25T00:00:00-05:00","datePublished":"2023-04-25T00:00:00-05:00","description":"A series of lessons based on the utilization of Pandas and NumPy to read and create interesting things with files and data.","headline":"Petite Pandas Data Analysis using Pandas and NumPy","mainEntityOfPage":{"@type":"WebPage","@id":"https://drewreed2005.github.io/realdrew/2023/04/25/Data-Analysis-Panda-Numpy.html"},"url":"https://drewreed2005.github.io/realdrew/2023/04/25/Data-Analysis-Panda-Numpy.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/realdrew/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://drewreed2005.github.io/realdrew/feed.xml" title="Drew's Big Fastpages Blog" /><link rel="shortcut icon" type="image/x-icon" href="/realdrew/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/realdrew/">Drew&#39;s Big Fastpages Blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/realdrew/about/">About Me</a><a class="page-link" href="/realdrew/vocab/">Vocabulary</a><a class="page-link" href="/realdrew/notes/">Notes</a><a class="page-link" href="/realdrew/more/">Programs and More</a><a class="page-link" href="/realdrew/search/">Search</a><a class="page-link" href="/realdrew/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Petite Pandas Data Analysis using Pandas and NumPy</h1><p class="page-description">A series of lessons based on the utilization of Pandas and NumPy to read and create interesting things with files and data.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2023-04-25T00:00:00-05:00" itemprop="datePublished">
+        Apr 25, 2023
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      17 min read
+    
+</span></p>
+
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-justify-center">
+          <div class="px-2">
+
+    <a href="https://github.com/drewreed2005/realdrew/tree/master/_notebooks/2023-04-25-Data-Analysis-Panda-Numpy.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/realdrew/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/drewreed2005/realdrew/master?filepath=_notebooks%2F2023-04-25-Data-Analysis-Panda-Numpy.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/realdrew/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/drewreed2005/realdrew/blob/master/_notebooks/2023-04-25-Data-Analysis-Panda-Numpy.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/realdrew/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+          <div class="px-2">
+  <a href="https://deepnote.com/launch?url=https%3A%2F%2Fgithub.com%2Fdrewreed2005%2Frealdrew%2Fblob%2Fmaster%2F_notebooks%2F2023-04-25-Data-Analysis-Panda-Numpy.ipynb" target="_blank">
+      <img class="notebook-badge-image" src="/realdrew/assets/badges/deepnote.svg" alt="Launch in Deepnote"/>
+  </a>
+</div>
+
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#Predictive-Analysis">Predictive Analysis </a></li>
+<li class="toc-entry toc-h1"><a href="#1.-Intro-to-NumPy-and-the-features-it-consists">1. Intro to NumPy and the features it consists </a></li>
+<li class="toc-entry toc-h1"><a href="#2.-Using-NumPy-to-create-arrays">2. Using NumPy to create arrays </a></li>
+<li class="toc-entry toc-h1"><a href="#3.-Basic-array-operations">3. Basic array operations </a></li>
+<li class="toc-entry toc-h1"><a href="#4.-Data-analysis-using-numpy">4. Data analysis using numpy </a></li>
+<li class="toc-entry toc-h1"><a href="#Pandas">Pandas </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#What-is-Pandas">What is Pandas </a></li>
+<li class="toc-entry toc-h3"><a href="#Why-Use-Pandas?">Why Use Pandas? </a></li>
+<li class="toc-entry toc-h3"><a href="#What-Can-Pandas-Do?">What Can Pandas Do? </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#Basics-of-Pandas.">Basics of Pandas. </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#DICTIONARIES-AND-DATASETS">DICTIONARIES AND DATASETS </a></li>
+<li class="toc-entry toc-h3"><a href="#Indexing-and-manipulaton-of-data-through-lists.">Indexing and manipulaton of data through lists. </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#Pandas-Classes">Pandas Classes </a></li>
+<li class="toc-entry toc-h1"><a href="#PeriodIndex">PeriodIndex </a></li>
+<li class="toc-entry toc-h1"><a href="#Dataframe-Grouped-By">Dataframe Grouped By </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Categorical">Categorical </a></li>
+<li class="toc-entry toc-h3"><a href="#Timestamp-Class">Timestamp Class </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#CSV-FILES!">CSV FILES! </a></li>
+<li class="toc-entry toc-h1"><a href="#Our-Frontend-Data-Analysis-Project">Our Frontend Data Analysis Project </a></li>
+<li class="toc-entry toc-h1"><a href="#Popcorn-Hacks">Popcorn Hacks </a></li>
+<li class="toc-entry toc-h1"><a href="#Main-Hack">Main Hack </a></li>
+<li class="toc-entry toc-h1"><a href="#Grading">Grading </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2023-04-25-Data-Analysis-Panda-Numpy.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Predictive-Analysis">
+<a class="anchor" href="#Predictive-Analysis" aria-hidden="true"><span class="octicon octicon-link"></span></a>Predictive Analysis<a class="anchor-link" href="#Predictive-Analysis"> </a>
+</h1>
+<p>Predictive analysis is the use of <strong>statistical</strong>, data mining, and machine learning techniques to analyze current and historical data in order to make predictions about future events or behaviors. It involves identifying <strong>patterns</strong> and trends in data, and then using that information to forecast what is likely to happen in the future.</p>
+<p>Predictive analysis is used in a wide range of applications, from forecasting sales and demand, to predicting customer behavior, to detecting fraudulent transactions. It involves collecting and analyzing data from a variety of sources, including historical data, customer data, financial data, and social media data, among others.</p>
+<p>The process of predictive analysis typically involves the following steps:</p>
+<ol>
+<li>Defining the problem and identifying the relevant data sources</li>
+<li><strong>Collecting and cleaning the data</strong></li>
+<li>Exploring and analyzing the data to identify patterns and trends</li>
+<li>Selecting an appropriate model or algorithm to use for predictions</li>
+<li>Training and validating the model using historical data</li>
+<li><strong>Using the model to make predictions on new data</strong></li>
+<li>Monitoring and evaluating the performance of the model over time</li>
+</ol>
+<p>Predictive analysis can help organizations make more informed decisions, improve efficiency, and gain a competitive advantage by leveraging insights from data.</p>
+<p>It is most commonly used in <strong>Retail</strong>, where workers try to predict which products would be most popular and try to advertise those products as much as possible, and also <strong>Healthcare</strong>, where algorithms analyze patterns and reveal prerequisites for diseases and suggest preventive treatment, predict the results of various treatments and choose the best option for each patient individually, and predict disease outbreaks and epidemics.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="1.-Intro-to-NumPy-and-the-features-it-consists">
+<a class="anchor" href="#1.-Intro-to-NumPy-and-the-features-it-consists" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. Intro to NumPy and the features it consists<a class="anchor-link" href="#1.-Intro-to-NumPy-and-the-features-it-consists"> </a>
+</h1>
+<p>Numpy, by definition, is the fundamental package for <strong>scientific computing</strong> in Python which can be used to perform <strong>mathematical operations</strong>, provide <strong>multidimensional array objects</strong>, and makes <strong>data analysis</strong> much <strong>easier</strong>. Numpy is very important and useful when it comes to data analysis, as it can easily use its features to complete and perform any mathematical operation, as well as analyze data files.</p>
+<p>If you don't already have numpy installed, you can do so using <code>conda install numpy</code> or <code>pip install numpy</code></p>
+<p>Once that is complete, to import numpy in your code, all you must do is:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="2.-Using-NumPy-to-create-arrays">
+<a class="anchor" href="#2.-Using-NumPy-to-create-arrays" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Using NumPy to create arrays<a class="anchor-link" href="#2.-Using-NumPy-to-create-arrays"> </a>
+</h1>
+<p>An array is the central <strong><strong><strong>__</strong></strong></strong> of the NumPy library. They are used as <strong><strong><strong>__</strong></strong></strong> which are able to store more than one item at the same time. Using the function <code>np.array</code> is used to create an array, in which you can create multidimensional arrays.</p>
+<p>Shown below is how to create a 1D array:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> 
+<span class="c1"># this creates a 1D array</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[1 2 3]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>How could you create a 3D array based on knowing how to make a 1D array?</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]],</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]]],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[list([[-6, -5, -4], [-3, -2, -1]])
+ list([[1, 2, 3], [4, 5, 6], [7, 8, 9]])]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Arrays can be printed in different ways, especially a more readable format. As we have seen, arrays are printed in rows and columns, but we can change that by using the <code>reshape</code> function</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span> <span class="c1"># organizes it all in a single line of output</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[[1 2 3 4 5 6 7 8 9]]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In the code segment below, we can also specially select certain rows and columns from the array to further analyze selective data.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="p">:</span><span class="mi">2</span><span class="p">])</span>
+<span class="c1"># the 1: means "start at row 1 and select all the remaining rows"</span>
+<span class="c1"># the :2 means "select the first two columns"</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[[4 5]
+ [7 8]]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="3.-Basic-array-operations">
+<a class="anchor" href="#3.-Basic-array-operations" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. Basic array operations<a class="anchor-link" href="#3.-Basic-array-operations"> </a>
+</h1>
+<p>One of the most basic operations that can be performed on arrays is <strong><strong><strong>___</strong></strong></strong>. With numpy, it is very easy to perform arithmetic operations on arrays. You can <strong><em>__</em></strong>, <strong><strong>_</strong></strong>, <strong><strong>__</strong></strong> and <strong><strong>__</strong></strong> arrays, just like you would with regular numbers. When performing these operations, numpy applies the operation element-wise, meaning that it performs the operation on each element in the array separately. This makes it easy to perform operations on large amounts of data quickly and efficiently.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="c1"># adds each value based on the column the integer is in</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="c1"># subtracts each value based on the column the integer is in</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">)</span> <span class="c1"># multiplies each value based on the column the integer is in</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">)</span> <span class="c1"># divides each value based on the column the integer is in</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[5 7 9]
+[-3 -3 -3]
+[ 4 10 18]
+[0.25 0.4  0.5 ]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="n">e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[ 54.59815003 148.4131591  403.42879349]
+[2.         2.23606798 2.44948974]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>From the knowledge of how to use more advanced mathematical expressions than the basic 4 mathematical operations such as exponent and square root, now can you code how to calculate the 3 main trig expressions (sin, cos, tan), natural log, and log10 of a 1D array.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">b</span><span class="p">))</span> <span class="c1"># calculate sin</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">b</span><span class="p">))</span> <span class="c1"># calculate cos</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">b</span><span class="p">))</span> <span class="c1"># calculate tan</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">b</span><span class="p">))</span> <span class="c1"># calculate natural log</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">b</span><span class="p">))</span> <span class="c1"># calculate log10</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[-0.7568025  -0.95892427 -0.2794155 ]
+[-0.65364362  0.28366219  0.96017029]
+[ 1.15782128 -3.38051501 -0.29100619]
+[1.38629436 1.60943791 1.79175947]
+[0.60205999 0.69897    0.77815125]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="4.-Data-analysis-using-numpy">
+<a class="anchor" href="#4.-Data-analysis-using-numpy" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. Data analysis using numpy<a class="anchor-link" href="#4.-Data-analysis-using-numpy"> </a>
+</h1>
+<p>Numpy provides a convenient and powerful way to perform data analysis tasks on <strong>large datasets</strong>. One of the most common tasks in data analysis is finding the <strong>mean</strong>, <strong>median</strong>, and <strong>standard deviation</strong> of a dataset. Numpy provides functions to perform these operations quickly and easily. The mean function calculates the average value of the data, while the median function calculates the middle value in the data. The standard deviation function calculates how spread out the data is from the mean. Additionally, numpy provides functions to find the minimum and maximum values in the data. These functions are very useful for gaining insight into the properties of large datasets and can be used for a wide range of data analysis tasks.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">19</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">))</span> <span class="c1"># finds the mean of the dataset</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">data</span><span class="p">))</span> <span class="c1"># finds the median of the dataset</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">data</span><span class="p">))</span> <span class="c1"># finds the standard deviation of the dataset</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">data</span><span class="p">))</span> <span class="c1"># finds the min of the dataset</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">data</span><span class="p">))</span> <span class="c1"># finds the max of the dataset</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>10.2
+12.0
+6.04648658313239
+2
+19
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now from learning this, can you find a different way from how we can solve the sum or products of a dataset other than how we learned before?</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">example</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">283</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">example</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="n">example</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>337
+56600
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Numpy also has the ability to handle CSV files, which are commonly used to store and exchange large datasets. By importing CSV files into numpy arrays, we can easily perform complex operations and analysis on the data, making numpy an essential tool for data scientists and researchers.</p>
+<p><code>genfromtxt</code> and <code>loadtxt</code> are two functions in the numpy library that can be used to read data from text files, including CSV files.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>genfromtxt</code> is a more advanced function that can be used to read text files that have more complex structures, including CSV files. <code>genfromtxt</code> can handle files that have missing or invalid data, or files that have columns of different data types. It can also be used to skip header lines or to read only specific columns from the file.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">padres</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">genfromtxt</span><span class="p">(</span><span class="s1">'files/padres.csv'</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">','</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">)</span>
+<span class="c1"># delimiter indicates that the data is separated into columns which is distinguished by commas</span>
+<span class="c1"># genfromtxt is used to read the csv file itself</span>
+<span class="c1"># dtype is used to have numpy automatically detect the data type in the csv file</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">padres</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[['Name' ' Position' ' Average' ' HR' ' RBI' ' OPS' ' JerseyNumber']
+ ['Manny Machado' ' 3B' ' .298' ' 32' ' 102' ' .897' ' 13']
+ ['Fernando Tatis Jr' ' RF' ' .281' ' 42' ' 97' ' .975' ' 23']
+ ['Juan Soto' ' LF' ' .242' ' 27' ' 62' ' .853' ' 22']
+ ['Xander Bogaerts' ' SS' ' .307' ' 15' ' 73' ' .833' ' 2']
+ ['Nelson Cruz' ' DH' ' .234' ' 10' ' 64' ' .651' ' 32']
+ ['Matt Carpenter' ' DH' ' .305' ' 15' ' 37' ' 1.138' ' 14']
+ ['Jake Cronenworth' ' 1B' ' .239' ' 17' ' 88' ' .722' ' 9']
+ ['Ha-Seong Kim' ' 2B' ' .251' ' 11' ' 59' ' .708' ' 7']
+ ['Trent Grisham' ' CF' ' .184' ' 17' ' 53' ' .626' ' 1']
+ ['Luis Campusano' ' C' ' .250' ' 1' ' 5' ' .593' ' 12']
+ ['Austin Nola' ' C' ' .251' ' 4' ' 40' ' .649' ' 26']
+ ['Jose Azocar' ' OF' ' .257' ' 0' ' 10' ' .630' ' 28']]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>loadtxt</code> is a simpler function that can be used to read simple text files that have a regular structure, such as files that have only one type of data (such as all integers or all floats). <code>loadtxt</code> can be faster than <code>genfromtxt</code> because it assumes that the data in the file is well-structured and can be easily parsed.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">padres</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">'files/padres.csv'</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">','</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">padres</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">padres</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">","</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Name, Position, Average, HR, RBI, OPS, JerseyNumber
+Manny Machado, 3B, .298, 32, 102, .897, 13
+Fernando Tatis Jr, RF, .281, 42, 97, .975, 23
+Juan Soto, LF, .242, 27, 62, .853, 22
+Xander Bogaerts, SS, .307, 15, 73, .833, 2
+Nelson Cruz, DH, .234, 10, 64, .651, 32
+Matt Carpenter, DH, .305, 15, 37, 1.138, 14
+Jake Cronenworth, 1B, .239, 17, 88, .722, 9
+Ha-Seong Kim, 2B, .251, 11, 59, .708, 7
+Trent Grisham, CF, .184, 17, 53, .626, 1
+Luis Campusano, C, .250, 1, 5, .593, 12
+Austin Nola, C, .251, 4, 40, .649, 26
+Jose Azocar, OF, .257, 0, 10, .630, 28
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Pandas">
+<a class="anchor" href="#Pandas" aria-hidden="true"><span class="octicon octicon-link"></span></a>Pandas<a class="anchor-link" href="#Pandas"> </a>
+</h1>
+<h3 id="What-is-Pandas">
+<a class="anchor" href="#What-is-Pandas" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is Pandas<a class="anchor-link" href="#What-is-Pandas"> </a>
+</h3>
+<p>Pandas is a Python library used for working with data sets. A python library is something  It has functions for analyzing, cleaning, exploring, and manipulating data.</p>
+<h3 id="Why-Use-Pandas?">
+<a class="anchor" href="#Why-Use-Pandas?" aria-hidden="true"><span class="octicon octicon-link"></span></a>Why Use Pandas?<a class="anchor-link" href="#Why-Use-Pandas?"> </a>
+</h3>
+<p>Pandas allows us to analyze big data and make conclusions based on statistical theories. Pandas can clean messy data sets, and make them readable and relevant. Also it is a part of data analysis, and data manipulation.</p>
+<h3 id="What-Can-Pandas-Do?">
+<a class="anchor" href="#What-Can-Pandas-Do?" aria-hidden="true"><span class="octicon octicon-link"></span></a>What Can Pandas Do?<a class="anchor-link" href="#What-Can-Pandas-Do?"> </a>
+</h3>
+<p>Pandas gives you answers about the data. Like:</p>
+<ul>
+<li>Is there a correlation between two or more columns?</li>
+<li>What is average value</li>
+<li>Max value</li>
+<li>Min value</li>
+<li>How to load data </li>
+<li>Delete data </li>
+<li>Sort Data.</li>
+</ul>
+<p>Pandas are also able to delete rows that are not relevant, or contains wrong values, like empty or NULL values. This is called cleaning the data.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Basics-of-Pandas.">
+<a class="anchor" href="#Basics-of-Pandas." aria-hidden="true"><span class="octicon octicon-link"></span></a>Basics of Pandas.<a class="anchor-link" href="#Basics-of-Pandas."> </a>
+</h1>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="c1"># What this does is it calls the python pandas library and this code segment is needed whenever incorporating pandas.</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="DICTIONARIES-AND-DATASETS">
+<a class="anchor" href="#DICTIONARIES-AND-DATASETS" aria-hidden="true"><span class="octicon octicon-link"></span></a>DICTIONARIES AND DATASETS<a class="anchor-link" href="#DICTIONARIES-AND-DATASETS"> </a>
+</h4>
+<ul>
+<li>One way you are able to manipulate a pandas data set is by creating a dictionary and calling it as seen with the dict data 1 and pd.dataframe which is a way to print the set.</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">data1</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">'teams'</span><span class="p">:</span> <span class="p">[</span><span class="s2">"BARCA"</span><span class="p">,</span> <span class="s2">"REAL"</span><span class="p">,</span> <span class="s2">"ATLETICO"</span><span class="p">],</span>
+  <span class="s1">'standings'</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="n">myvar</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">myvar</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>      teams  standings
+0     BARCA          1
+1      REAL          2
+2  ATLETICO          3
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Indexing-and-manipulaton-of-data-through-lists.">
+<a class="anchor" href="#Indexing-and-manipulaton-of-data-through-lists." aria-hidden="true"><span class="octicon octicon-link"></span></a>Indexing and manipulaton of data through lists.<a class="anchor-link" href="#Indexing-and-manipulaton-of-data-through-lists."> </a>
+</h3>
+<ul>
+<li>With pandas you can also organize the data which is one of its biggest perks, we call this indexing, this is when we define the first column in a data frame.</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> 
+
+<span class="n">score</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="o">/</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="o">/</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">5</span><span class="p">]</span>
+
+<span class="n">myvar</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">score</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"math"</span><span class="p">,</span> <span class="s2">"science"</span><span class="p">,</span> <span class="s2">"pe"</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">myvar</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>math       1.0
+science    1.0
+pe         0.2
+dtype: float64
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Pandas-Classes">
+<a class="anchor" href="#Pandas-Classes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Pandas Classes<a class="anchor-link" href="#Pandas-Classes"> </a>
+</h1>
+<p>Within pandas the library consits of a lot of functions which allow you to manipulate datasets in lists dictionsaries and csv files here are some of the ones we are going to cover (hint: take notes on these)</p>
+<ul>
+<li>Series</li>
+</ul>
+<ul>
+<li>Index</li>
+<li>PeriodIndex</li>
+</ul>
+<p>This provides a way to repeat data over time. It can divide time periods by certain intervals, such as the example provided that splits by month. It can also go by year or by day.</p>
+<ul>
+<li>DataframeGroupedBy</li>
+<li>Categorical</li>
+<li>Time Stamp</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="PeriodIndex">
+<a class="anchor" href="#PeriodIndex" aria-hidden="true"><span class="octicon octicon-link"></span></a>PeriodIndex<a class="anchor-link" href="#PeriodIndex"> </a>
+</h1>
+<ul>
+<li>This allows for a way to repeat data over time that it occurs as seen from january 2022 to december 2023. You can use Y for years, M for months, and D for days.</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+
+<span class="n">time</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">period_range</span><span class="p">(</span><span class="s1">'2022-01'</span><span class="p">,</span> <span class="s1">'2022-12'</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">'M'</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">time</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>PeriodIndex(['2022-01', '2022-02', '2022-03', '2022-04', '2022-05', '2022-06',
+             '2022-07', '2022-08', '2022-09', '2022-10', '2022-11', '2022-12'],
+            dtype='period[M]')
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now implement a way to show a period index from June 2022 to July 2023 in days.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">timetwo</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">period_range</span><span class="p">(</span><span class="s1">'2022-06'</span><span class="p">,</span> <span class="s1">'2023-07'</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">'D'</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">timetwo</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>PeriodIndex(['2022-06-01', '2022-06-02', '2022-06-03', '2022-06-04',
+             '2022-06-05', '2022-06-06', '2022-06-07', '2022-06-08',
+             '2022-06-09', '2022-06-10',
+             ...
+             '2023-06-22', '2023-06-23', '2023-06-24', '2023-06-25',
+             '2023-06-26', '2023-06-27', '2023-06-28', '2023-06-29',
+             '2023-06-30', '2023-07-01'],
+            dtype='period[D]', length=396)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Dataframe-Grouped-By">
+<a class="anchor" href="#Dataframe-Grouped-By" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dataframe Grouped By<a class="anchor-link" href="#Dataframe-Grouped-By"> </a>
+</h1>
+<ul>
+<li>This allows for you to organize your data and calculate the different functions such as</li>
+<li>count(): returns the number of non-null values in each group.</li>
+<li>sum(): returns the sum of values in each group.</li>
+<li>mean(): returns the mean of values in each group.</li>
+<li>min(): returns the minimum value in each group.</li>
+<li>max(): returns the maximum value in each group.</li>
+<li>median(): returns the median of values in each group.</li>
+<li>var(): returns the variance of values in each group.</li>
+<li>agg(): applies one or more functions to each group and returns a new DataFrame with the results.</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">'Category'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'E'</span><span class="p">,</span> <span class="s1">'F'</span><span class="p">,</span> <span class="s1">'E'</span><span class="p">,</span> <span class="s1">'F'</span><span class="p">,</span> <span class="s1">'E'</span><span class="p">,</span> <span class="s1">'F'</span><span class="p">,</span> <span class="s1">'E'</span><span class="p">,</span> <span class="s1">'F'</span><span class="p">],</span>
+    <span class="s1">'Value'</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">156</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">240</span><span class="p">,</span> <span class="mi">303</span><span class="p">,</span> <span class="mi">253</span><span class="p">,</span> <span class="mi">3014</span><span class="p">]</span>
+<span class="p">}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+
+<span class="n">grouped</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'Category'</span><span class="p">)</span> <span class="c1">#GUESS WHAT THIS WOULD BE IF WE WERE LOOKING FOR COMBINED TOTALS!()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">grouped</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x7fbd2cd31d30&gt;
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">groupedtwo</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'Value'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">groupedtwo</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x7fbd2cd310d0&gt;
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Categorical">
+<a class="anchor" href="#Categorical" aria-hidden="true"><span class="octicon octicon-link"></span></a>Categorical<a class="anchor-link" href="#Categorical"> </a>
+</h3>
+<ul>
+<li>This sets up a category for something and puts it within the categories and allows for better orginzation </li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">colors</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">([</span><span class="s1">'yellow'</span><span class="p">,</span> <span class="s1">'orange'</span><span class="p">,</span> <span class="s1">'blue'</span><span class="p">,</span> <span class="s1">'yellow'</span><span class="p">,</span> <span class="s1">'orange'</span><span class="p">],</span> <span class="n">categories</span><span class="o">=</span><span class="p">[</span><span class="s1">'yellow'</span><span class="p">,</span> <span class="s1">'orange'</span><span class="p">,</span> <span class="s1">'blue'</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">colors</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>['yellow', 'orange', 'blue', 'yellow', 'orange']
+Categories (3, object): ['yellow', 'orange', 'blue']
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Timestamp-Class">
+<a class="anchor" href="#Timestamp-Class" aria-hidden="true"><span class="octicon octicon-link"></span></a>Timestamp Class<a class="anchor-link" href="#Timestamp-Class"> </a>
+</h3>
+<ul>
+<li>This allows to display a single time which can be useful when working with datasets that deal with time allowing you to manipulate the time you do something and how you do it. </li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+
+<span class="n">timing</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">'2023-02-05 02:00:00'</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">timing</span><span class="p">)</span> <span class="o">+</span> <span class="s2">" is 2:00am on February 5th, 2023."</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>2023-02-05 02:00:00 is 2:00am on February 5th, 2023.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="CSV-FILES!">
+<a class="anchor" href="#CSV-FILES!" aria-hidden="true"><span class="octicon octicon-link"></span></a>CSV FILES!<a class="anchor-link" href="#CSV-FILES!"> </a>
+</h1>
+<ul>
+<li>A csv file contains data and within pandas you are able to call the function and you are able to manipulate the data with the certain data classes talked about above. </li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Name, Position, Average, HR, RBI, OPS, JerseyNumber</li>
+<li>Manny Machado, 3B, .298, 32, 102, .897, 13</li>
+<li>Tatis Jr, RF, .281, 42, 97, .975, 23</li>
+<li>Juan Soto, LF, .242, 27, 62, .853, 22</li>
+<li>Xanger Bogaerts, SS, .307, 15, 73, .833, 2</li>
+<li>Nelson Cruz, DH, .234, 10, 64, .651, 32</li>
+<li>Matt Carpenter, DH, .305, 15, 37, 1.138, 14</li>
+<li>Cronezone, 1B, .239, 17, 88, .722, 9</li>
+<li>Ha-Seong Kim, 2B, .251, 11, 59, .708, 7</li>
+<li>Trent Grisham, CF, .184, 17, 53, .626, 1</li>
+<li>Luis Campusano, C, .250, 1, 5, .593, 12</li>
+<li>Austin Nola, C, .251, 4, 40, .649, 26</li>
+<li>Jose Azocar, OF, .257, 0, 10, .630, 28</li>
+</ul>
+<p>QUESTION: WHAT DO YOU GUYS THINK THE INDEX FOR THIS WOULD BE?</p>
+<p>I think the indexes are Name, Position, Average, HR, RBI, OPS and JerseyNumber.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Can you explain what is going on in this code segment below? (hint: define what ascending= false means, and df. head means)</p>
+<p>In the code segment below, the data in the Padres <code>.csv</code> file</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1">#read csv and sort 'Duration' largest to smallest</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'files/padres.csv'</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">'Name'</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"--Duration Top 10---------"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"--Duration Bottom 10------"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">', '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">10</span><span class="p">)))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>--Duration Top 10---------
+                Name  Position   Average   HR   RBI    OPS   JerseyNumber
+3    Xander Bogaerts        SS     0.307   15    73  0.833              2
+8      Trent Grisham        CF     0.184   17    53  0.626              1
+4        Nelson Cruz        DH     0.234   10    64  0.651             32
+5     Matt Carpenter        DH     0.305   15    37  1.138             14
+0      Manny Machado        3B     0.298   32   102  0.897             13
+9     Luis Campusano         C     0.250    1     5  0.593             12
+2          Juan Soto        LF     0.242   27    62  0.853             22
+11       Jose Azocar        OF     0.257    0    10  0.630             28
+6   Jake Cronenworth        1B     0.239   17    88  0.722              9
+7       Ha-Seong Kim        2B     0.251   11    59  0.708              7
+--Duration Bottom 10------
+                 Name  Position   Average   HR   RBI    OPS   JerseyNumber
+4         Nelson Cruz        DH     0.234   10    64  0.651             32
+5      Matt Carpenter        DH     0.305   15    37  1.138             14
+0       Manny Machado        3B     0.298   32   102  0.897             13
+9      Luis Campusano         C     0.250    1     5  0.593             12
+2           Juan Soto        LF     0.242   27    62  0.853             22
+11        Jose Azocar        OF     0.257    0    10  0.630             28
+6    Jake Cronenworth        1B     0.239   17    88  0.722              9
+7        Ha-Seong Kim        2B     0.251   11    59  0.708              7
+1   Fernando Tatis Jr        RF     0.281   42    97  0.975             23
+10        Austin Nola         C     0.251    4    40  0.649             26
+Name,  Position,  Average,  HR,  RBI,  OPS,  JerseyNumber
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"./files/housing.csv"</span><span class="p">)</span>
+
+
+<span class="n">mode_total_rooms</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'total_rooms'</span><span class="p">]</span><span class="o">.</span><span class="n">mode</span><span class="p">()</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"The mode of the 'total_rooms' column is: </span><span class="si">{</span><span class="n">mode_total_rooms</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>The mode of the 'total_rooms' column is: 0    1527.0
+Name: total_rooms, dtype: float64
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"./files/housing.csv"</span><span class="p">)</span>
+
+
+<span class="n">grouped_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'total_rooms'</span><span class="p">)</span>
+
+
+<span class="n">agg_df</span> <span class="o">=</span> <span class="n">grouped_df</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">'total_rooms'</span><span class="p">:</span> <span class="s1">'sum'</span><span class="p">,</span> <span class="s1">'population'</span><span class="p">:</span> <span class="s1">'mean'</span><span class="p">,</span> <span class="s1">'longitude'</span><span class="p">:</span> <span class="s1">'count'</span><span class="p">})</span>
+
+<span class="c1"># WHAT DO YOU GUYS THINK df.agg means in context of pandas and what does it stand for.</span>
+<span class="c1"># I think it stands for the aggregation of the dataset, which summarizes data as specified by the values</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">agg_df</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>             total_rooms  population  longitude
+total_rooms                                    
+2.0                  2.0         6.0          1
+6.0                  6.0         8.0          1
+8.0                  8.0        13.0          1
+11.0                11.0        24.0          1
+12.0                12.0        18.0          1
+...                  ...         ...        ...
+30450.0          30450.0      9419.0          1
+32054.0          32054.0     15507.0          1
+32627.0          32627.0     28566.0          1
+37937.0          37937.0     16122.0          1
+39320.0          39320.0     16305.0          1
+
+[5926 rows x 3 columns]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Our-Frontend-Data-Analysis-Project">
+<a class="anchor" href="#Our-Frontend-Data-Analysis-Project" aria-hidden="true"><span class="octicon octicon-link"></span></a>Our Frontend Data Analysis Project<a class="anchor-link" href="#Our-Frontend-Data-Analysis-Project"> </a>
+</h1>
+<p><a href="https://paravsalaniwal.github.io/T3Project/DataAnalysisProject/">Link</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Popcorn-Hacks">
+<a class="anchor" href="#Popcorn-Hacks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Popcorn Hacks<a class="anchor-link" href="#Popcorn-Hacks"> </a>
+</h1>
+<ul>
+<li>Complete fill in the blanks for Predictive Analysis Numpy</li>
+<li>Takes notes on Panda where it asks you to</li>
+<li>Complete code segment tasks in Panda and Numpy</li>
+</ul>
+<h1 id="Main-Hack">
+<a class="anchor" href="#Main-Hack" aria-hidden="true"><span class="octicon octicon-link"></span></a>Main Hack<a class="anchor-link" href="#Main-Hack"> </a>
+</h1>
+<ul>
+<li>Make a data file - content is up to you, just make sure there are integer values - and print</li>
+<li>Run Panda and Numpy commands<ul>
+<li>Panda:<ul>
+<li>Find Min and Max values</li>
+<li>Sort in order - can be order of least to greatest or vice versa</li>
+<li>Create a smaller dataframe and merge it with your data file</li>
+</ul>
+</li>
+<li>Numpy:<ul>
+<li>Random number generation</li>
+<li>create a multi-dimensional array (multiple elements)</li>
+<li>create an array with linearly spaced intervals between values</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Grading">
+<a class="anchor" href="#Grading" aria-hidden="true"><span class="octicon octicon-link"></span></a>Grading<a class="anchor-link" href="#Grading"> </a>
+</h1>
+<p>The grading will be binary - all or nothing; no partial credit</p>
+<ul>
+<li>0.3 for all the popcorn hacks</li>
+<li>0.6 for the main hack - CSV file</li>
+<li>0.1 for going above and beyond in the main hack</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><a class="u-url" href="/realdrew/2023/04/25/Data-Analysis-Panda-Numpy.html" hidden></a>
+</article>
+
+<script src="https://utteranc.es/client.js"
+        repo="[ENTER REPO HERE]"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/realdrew/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="https://drewreed2005.github.io/realdrew/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/realdrew/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Documentation of my constant progress toward being a master coder (haiyah).</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li>
+  <a rel="me" href="https://github.com/nighthawkcoders" target="_blank" title="github">
+    <svg class="svg-icon grey">
+      <use xlink:href="/realdrew/assets/minima-social-icons.svg#github"></use>
+    </svg>
+  </a>
+</li>
+<li>
+  <a rel="me" href="https://twitter.com/NighthawkCoding" target="_blank" title="twitter">
+    <svg class="svg-icon grey">
+      <use xlink:href="/realdrew/assets/minima-social-icons.svg#twitter"></use>
+    </svg>
+  </a>
+</li>
+<li>
+  <a rel="me" href="https://www.youtube.com/channel/UClIKOsDS5dsfzFA3zveDT3Q" target="_blank" title="youtube">
+    <svg class="svg-icon grey">
+      <use xlink:href="/realdrew/assets/minima-social-icons.svg#youtube"></use>
+    </svg>
+  </a>
+</li>
+</ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
