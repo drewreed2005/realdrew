@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      4 min read
+      6 min read
     
 </span></p>
 
@@ -324,6 +324,31 @@ window.onload = wrap_img;
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="nd">@mixin</span> <span class="n">colored</span><span class="p">(</span><span class="err">$</span><span class="n">bgColor</span><span class="p">,</span> <span class="err">$</span><span class="n">textColor</span><span class="p">,</span> <span class="err">$</span><span class="n">fontSize</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">background</span><span class="o">-</span><span class="n">color</span><span class="p">:</span> <span class="err">$</span><span class="n">bgColor</span><span class="p">;</span>
+    <span class="n">color</span><span class="p">:</span> <span class="err">$</span><span class="n">textColor</span><span class="p">;</span>
+    <span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="p">:</span> <span class="err">$</span><span class="n">fontSize</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="o">.</span><span class="n">divColor</span> <span class="p">{</span>
+    <span class="nd">@include</span> <span class="n">colored</span><span class="p">(</span><span class="c1">#000000, #FFFFFF, 30px);</span>
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -375,18 +400,162 @@ window.onload = wrap_img;
 <a class="anchor" href="#SASS-Hacks" aria-hidden="true"><span class="octicon octicon-link"></span></a>SASS Hacks<a class="anchor-link" href="#SASS-Hacks"> </a>
 </h2>
 <ol>
-<li>
-<p>Take notes and complete the mini-hacks. (0.9)</p>
+<li>Take notes and complete the mini-hacks. (0.9)</li>
+</ol>
+<p>I did that above.</p>
+<ol>
+<li>Complete the <a href="https://lwu1822.github.io/sassy_squad/quizQuestions">quiz questions</a> and provide your answers in this notebook. (0.9)</li>
+</ol>
+<p>What is SASS?</p>
+<ul>
+<li>a. A type of operating system used by many devices</li>
+<li><mark>b. A scripting language that has many styling operations</mark></li>
+<li>c. The name of a commonly used computer networking system</li>
+<li>d. A debugging system with many features</li>
+</ul>
+<p>What is the difference between SASS and SCSS?</p>
+<ul>
+<li><mark>a. They are very similar in their function, but their syntax is slightly different</mark></li>
+<li>b. They are the exact same, but SASS is more commonly used</li>
+<li>c. SASS was developed by a larger company</li>
+</ul>
+<p>What is an example of an advantage of using SASS over just CSS?</p>
+<ul>
+<li><mark>a. SASS has more functions than CSS</mark></li>
+<li>b. SASS is not as expensive to use than CSS</li>
+<li>c. CSS takes up more bytes</li>
+<li>d. CSS is not as commonly used, so it’s hard to find solutions to problems that arise while coding in it.</li>
+</ul>
+<p>What does SASS stand for?</p>
+<ul>
+<li>a. Systematically Arranged Sample Sheets</li>
+<li><mark>b. Syntactically Awesome Style Sheets</mark></li>
+</ul>
+<p>Which of the following is NOT an example of an available SASS directive?</p>
+<ul>
+<li>a. warn</li>
+<li>b. debug</li>
+<li>c. import</li>
+<li><mark>d. compute</mark></li>
+</ul>
+<p>The __ directive is used to share rules and relationships between selectors.</p>
+<ul>
+<li>a. each</li>
+<li>b. <mark>extend</mark>
 </li>
-<li>
-<p>Complete the <a href="https://lwu1822.github.io/sassy_squad/quizQuestions">quiz questions</a> and provide your answers in this notebook. (0.9)</p>
-</li>
-<li>
-<p>Use SASS to create something that uses either extend or mixin. (0.9)</p>
-</li>
-<li>
-<p>Extra credit: Research other SASS features and blog about what you learned or add to your SASS project with any extra features not covered in this lesson. More points will be given if both are done.</p>
-</li>
+<li>c. mixin</li>
+<li>d. error</li>
+</ul>
+<p>What is “@___” called?</p>
+<ul>
+<li>a. Enhancement</li>
+<li><mark>b. Directive</mark></li>
+<li>c. Label</li>
+<li>d. Token</li>
+</ul>
+<ol>
+<li>Use SASS to create something that uses either extend or mixin. (0.9)</li>
+</ol>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="nd">@mixin</span> <span class="n">cardSettings</span><span class="p">(</span><span class="err">$</span><span class="n">bgColor1</span><span class="p">,</span> <span class="err">$</span><span class="n">bgColor2</span><span class="p">,</span> <span class="err">$</span><span class="n">borderColor</span><span class="p">,)</span> <span class="p">{</span>
+    <span class="n">background</span><span class="p">:</span> <span class="n">radial</span><span class="o">-</span><span class="n">gradient</span><span class="p">(</span><span class="err">$</span><span class="n">bgColor1</span><span class="p">,</span> <span class="err">$</span><span class="n">bgColor2</span><span class="p">);</span>
+    <span class="n">border</span><span class="p">:</span> <span class="mi">5</span><span class="n">px</span> <span class="n">solid</span> <span class="err">$</span><span class="n">borderColor</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="o">%</span><span class="n">bigCard</span> <span class="p">{</span>
+    <span class="n">color</span><span class="p">:</span> <span class="c1">#FFFFFF;</span>
+    <span class="n">font</span><span class="o">-</span><span class="n">family</span><span class="p">:</span> <span class="n">Arial</span><span class="p">,</span> <span class="n">Helvetica</span><span class="p">,</span> <span class="n">sans</span><span class="o">-</span><span class="n">serif</span><span class="p">;</span>
+    <span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="p">:</span> <span class="mi">20</span><span class="n">px</span><span class="p">;</span>
+    <span class="n">height</span><span class="p">:</span> <span class="mi">600</span><span class="n">px</span><span class="p">;</span>
+    <span class="n">width</span><span class="p">:</span> <span class="mi">400</span><span class="n">px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="o">.</span><span class="n">redCard</span> <span class="p">{</span>
+    <span class="nd">@include</span> <span class="n">cardSettings</span><span class="p">(</span><span class="c1">#CB0000, #FF2323, #710000);</span>
+    <span class="nd">@extend</span> <span class="o">%</span><span class="n">bigCard</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="o">.</span><span class="n">blueCard</span> <span class="p">{</span>
+    <span class="nd">@include</span> <span class="n">cardSettings</span><span class="p">(</span><span class="c1">#0069A3, #00A4FF, #003654);</span>
+    <span class="nd">@extend</span> <span class="o">%</span><span class="n">bigCard</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="o">.</span><span class="n">greenCard</span> <span class="p">{</span>
+    <span class="nd">@include</span> <span class="n">cardSettings</span><span class="p">(</span><span class="c1">#009C0E, #00EE15, #004D07);</span>
+    <span class="nd">@extend</span> <span class="o">%</span><span class="n">bigCard</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<style>
+    .redCard {
+        border: 5px solid #710000;
+        background: radial-gradient(#CB0000, #FF2323);
+        color: #FFFFFF;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        height: 600px;
+        width: 400px;
+    }
+
+    .blueCard {
+        border: 5px solid #003654;
+        background: radial-gradient(#0069A3, #00A4FF);
+        color: #FFFFFF;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        height: 600px;
+        width: 400px;
+    }
+
+    .greenCard {
+        border: 5px solid #004D07;
+        background: radial-gradient(#009C0E, #00EE15);
+        color: #FFFFFF;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        height: 600px;
+        width: 400px;
+    }
+</style>
+<div style="margin:auto;justify-content:center;">
+    <div class="redCard">
+        Red Card
+    </div>
+    <div class="blueCard">
+        Blue Card
+    </div>
+    <div class="greenCard">
+        Green Card
+    </div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ol>
+<li>Extra credit: Research other SASS features and blog about what you learned or add to your SASS project with any extra features not covered in this lesson. More points will be given if both are done.</li>
 </ol>
 
 </div>
