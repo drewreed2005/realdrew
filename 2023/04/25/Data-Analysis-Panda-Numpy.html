@@ -217,7 +217,7 @@ window.onload = wrap_img;
 <h1 id="2.-Using-NumPy-to-create-arrays">
 <a class="anchor" href="#2.-Using-NumPy-to-create-arrays" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Using NumPy to create arrays<a class="anchor-link" href="#2.-Using-NumPy-to-create-arrays"> </a>
 </h1>
-<p>An array is the central <strong><strong><strong>__</strong></strong></strong> of the NumPy library. They are used as <strong><strong><strong>__</strong></strong></strong> which are able to store more than one item at the same time. Using the function <code>np.array</code> is used to create an array, in which you can create multidimensional arrays.</p>
+<p>An array is the central <strong>data structure</strong> of the NumPy library. They are used as <strong>containers</strong> which are able to store more than one item at the same time. Using the function <code>np.array</code> is used to create an array, in which you can create multidimensional arrays.</p>
 <p>Shown below is how to create a 1D array:</p>
 
 </div>
@@ -385,7 +385,7 @@ window.onload = wrap_img;
 <h1 id="3.-Basic-array-operations">
 <a class="anchor" href="#3.-Basic-array-operations" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. Basic array operations<a class="anchor-link" href="#3.-Basic-array-operations"> </a>
 </h1>
-<p>One of the most basic operations that can be performed on arrays is <strong><strong><strong>___</strong></strong></strong>. With numpy, it is very easy to perform arithmetic operations on arrays. You can <strong><em>__</em></strong>, <strong><strong>_</strong></strong>, <strong><strong>__</strong></strong> and <strong><strong>__</strong></strong> arrays, just like you would with regular numbers. When performing these operations, numpy applies the operation element-wise, meaning that it performs the operation on each element in the array separately. This makes it easy to perform operations on large amounts of data quickly and efficiently.</p>
+<p>One of the most basic operations that can be performed on arrays is <strong>arithmetic operations</strong>. With numpy, it is very easy to perform arithmetic operations on arrays. You can <strong>add, subtract, multiply</strong> and <strong>divide</strong> arrays, just like you would with regular numbers. When performing these operations, numpy applies the operation element-wise, meaning that it performs the operation on each element in the array separately. This makes it easy to perform operations on large amounts of data quickly and efficiently.</p>
 
 </div>
 </div>
@@ -921,14 +921,24 @@ dtype: float64
 <ul>
 <li>Series</li>
 </ul>
+<p>A one-dimensional array that can have custom keys as indexes. It can hold data of any type.</p>
 <ul>
 <li>Index</li>
+</ul>
+<p>Also called a key, it is used as an identifier for a certain ambiguous value.</p>
+<ul>
 <li>PeriodIndex</li>
 </ul>
 <p>This provides a way to repeat data over time. It can divide time periods by certain intervals, such as the example provided that splits by month. It can also go by year or by day.</p>
 <ul>
 <li>DataframeGroupedBy</li>
+</ul>
+<p>Allows data to be grouped by a certain index/category/etc. in data.</p>
+<ul>
 <li>Categorical</li>
+</ul>
+<p>Categorical idetification helps certain data be defined under certain categories, helping to identify certain aspects of different code objects.</p>
+<ul>
 <li>Time Stamp</li>
 </ul>
 
@@ -1071,7 +1081,7 @@ dtype: float64
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
 
-<span class="n">grouped</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'Category'</span><span class="p">)</span> <span class="c1">#GUESS WHAT THIS WOULD BE IF WE WERE LOOKING FOR COMBINED TOTALS!()</span>
+<span class="n">grouped</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'Category'</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="c1">#GUESS WHAT THIS WOULD BE IF WE WERE LOOKING FOR COMBINED TOTALS!()</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">grouped</span><span class="p">)</span>
 </pre></div>
@@ -1086,39 +1096,10 @@ dtype: float64
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x7fbd2cd31d30&gt;
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-    
-
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">groupedtwo</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'Value'</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">groupedtwo</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x7fbd2cd310d0&gt;
+<pre>           Value
+Category        
+E         187.25
+F         955.50
 </pre>
 </div>
 </div>
@@ -1268,7 +1249,7 @@ Categories (3, object): ['yellow', 'orange', 'blue']
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Can you explain what is going on in this code segment below? (hint: define what ascending= false means, and df. head means)</p>
-<p>In the code segment below, the data in the Padres <code>.csv</code> file</p>
+<p>In the code segment below, the data in the Padres <code>.csv</code> file is sorted by its top ten and bottom ten by duration.</p>
 
 </div>
 </div>
