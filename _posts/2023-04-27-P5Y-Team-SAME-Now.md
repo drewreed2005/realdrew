@@ -818,7 +818,7 @@ John Mortensen&#39;s record has been updated.
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>This database will hold information about a restaurant for a theoretical restaurant database.</p>
-<h2 id="CRUD-Functions">CRUD Functions<a class="anchor-link" href="#CRUD-Functions"> </a></h2><p>These functions are a bit more complicated than the previous databases we've looked at because of how the average function works. Since working with base SQLite and not using the <code>db.model</code> method means that only four primitive data types can be stored to</p>
+<h2 id="CRUD-Functions">CRUD Functions<a class="anchor-link" href="#CRUD-Functions"> </a></h2><p>These functions are a bit more complicated than the previous databases we've looked at because of how the average function works. Since working with base SQLite and not using the <code>db.model</code> method means that only four primitive data types can be stored to it.</p>
 
 </div>
 </div>
