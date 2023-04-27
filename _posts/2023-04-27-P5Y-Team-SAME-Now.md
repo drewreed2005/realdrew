@@ -818,11 +818,59 @@ John Mortensen&#39;s record has been updated.
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>This database will hold information about a restaurant for a theoretical restaurant database.</p>
-<h2 id="CRUD-Functions">CRUD Functions<a class="anchor-link" href="#CRUD-Functions"> </a></h2><p>These functions are a bit more complicated than the previous databases we've looked at because of how the average function works. Since working with base SQLite and not using the <code>db.model</code> method means that only four primitive data types can be stored to it.</p>
+<h2 id="CRUD-Functions">CRUD Functions<a class="anchor-link" href="#CRUD-Functions"> </a></h2><p>These functions are a bit more complicated than the previous databases we've looked at because of how the average function works. Since working with base SQLite and not using the <code>db.model</code> method means that only four primitive data types can be stored to it. As a result, I couldn't have a class method for finding the restaurant's rating average.</p>
+<p>There also had to be two create functions: a create restaurant function to add a restaurant to the database and a create review function so that the overall rating of the restaurant can change.</p>
 
 </div>
 </div>
 </div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sqlite3</span>
+
+<span class="k">def</span> <span class="nf">create_res</span><span class="p">():</span>
+   <span class="n">database</span> <span class="o">=</span> <span class="s1">&#39;instance/professors.db&#39;</span>
+   <span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter the professor&#39;s name: &quot;</span><span class="p">)</span>
+   <span class="n">field</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter the professor&#39;s field of expertise: &quot;</span><span class="p">)</span>
+   <span class="n">rating</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter the professor&#39;s rating (out of 10): &quot;</span><span class="p">)</span>
+   <span class="n">reviews</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter any reviews or comments about the professor: &quot;</span><span class="p">)</span>
+
+
+   <span class="c1"># Connect to the database and create a cursor to execute SQL commands</span>
+   <span class="n">connection</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">database</span><span class="p">)</span>
+   <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+
+
+   <span class="k">try</span><span class="p">:</span>
+       <span class="c1"># Execute SQL to insert record into db</span>
+       <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;INSERT INTO professors (name, field, rating, reviews) VALUES (?, ?, ?, ?)&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">rating</span><span class="p">,</span> <span class="n">reviews</span><span class="p">))</span>
+       <span class="c1"># Commit the changes</span>
+       <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+       <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> has been added to the list of coding professors.&quot;</span><span class="p">)</span>
+              
+   <span class="k">except</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">Error</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+       <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error while inserting record&quot;</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span>
+
+
+   <span class="c1"># Close cursor and connection</span>
+   <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+   <span class="n">connection</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="n">create_res</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="HACKS">HACKS<a class="anchor-link" href="#HACKS"> </a></h1><ul>
