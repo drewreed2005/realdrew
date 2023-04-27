@@ -1,0 +1,16 @@
+Name,Pokedex,Type1,Type2,BST,HP,Attack,Defense,Sp. Atk,Sp. Def,Speed,Generation,Legendary
+Skarmory,227,Steel,Flying,465,65,80,140,40,70,70,2,False
+Toedscruel,949,Ground,Grass,515,80,70,65,80,120,100,9,False
+Reuniclus,579,Psychic,None,490,110,65,75,125,85,30,5,False
+Ampharos,181,Electric,None,510,90,75,85,115,90,55,2,False
+Avalugg,713,Ice,None,514,95,117,184,44,46,28,6,False
+Appletun,842,Grass,Dragon,485,110,85,80,100,80,30,8,False
+Furret,162,Normal,None,415,85,76,64,45,55,90,2,False
+Accelgor,617,Bug,None,495,80,70,40,100,60,145,5,False
+Mudsdale,750,Ground,None,500,100,125,100,55,85,35,7,False
+Durant,632,Bug,Steel,484,58,109,112,48,48,109,5,False
+Minior-Orange,774,Rock,Flying,500,60,100,60,100,60,120,7,False
+Galvantula,596,Bug,Electric,472,70,77,60,97,60,108,5,False
+Meowstic-Male,678,Psychic,None,466,74,48,76,83,81,104,6,False
+Dragonite,149,Dragon,Flying,600,91,134,95,100,100,80,1,False
+Shaymin (Land Forme),492,Grass,None,600,100,100,100,100,100,100,4,True
