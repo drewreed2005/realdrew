@@ -82,7 +82,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      16 min read
+      23 min read
     
 </span></p>
 
@@ -128,14 +128,6 @@ window.onload = wrap_img;
 
 <div class="container" id="notebook-container">
         
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>NOTE</strong></p>
-<p>As you follow along, make sure to fill in the blanks and complete the coding exercises!</p>
-
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Introduction">Introduction<a class="anchor-link" href="#Introduction"> </a></h1><p>When building an application that requires users to create accounts or sign in, handling data related to users is crucial. This data can include things like user profiles, preferences, and activity logs, which can be used to personalize the user experience and improve the application's performance.</p>
@@ -328,7 +320,7 @@ Jane Doe
 </pre></div>
 <p>In the context of backend functionality, the getter and setter methods provide a clean and controlled way to access and modify the attributes of an object. This can be particularly useful when interacting with databases, APIs, or other parts of a web application that require the management and manipulation of object attributes.</p>
 <p><strong>CHECK: Explain the function of getters and setters in your own words.</strong></p>
-<p>Getters and setters are property decorators, which allow programmers to read and update the attributes of a specific instance of an object in a controlled way.</p>
+<p>Getters and setters are property decorators that allow programmers to read and update the attributes of a specific instance of an object in a controlled way.</p>
 
 </div>
 </div>
@@ -381,6 +373,11 @@ Jane Doe
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Take notes here on property decorators and the purpose they serve:</strong></p>
+<ul>
+<li>Property decorators are built into Python.</li>
+<li>They give special functionality to certain class methods.</li>
+<li>We mentioned setters and getters, but there are also deleters.</li>
+</ul>
 
 </div>
 </div>
@@ -479,6 +476,14 @@ Working with multiple objects and class attributes
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Take notes here on the basic components of SQL:</strong></p>
+<ul>
+<li>SQL provides functions that can be used to modify the data within a database</li>
+<li>The connection object allows you to connect to an instance within a python program</li>
+<li>The SQL cursor object allows you to execute programs that you would otherwise complete in an SQLite termina<ul>
+<li>This allows you to create, read, update and delete data</li>
+</ul>
+</li>
+</ul>
 
 </div>
 </div>
@@ -910,8 +915,8 @@ John Mortensen&#39;s record has been updated.
 <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
 
 <span class="c1"># Create a table in the database using SQL commands</span>
-<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;CREATE TABLE restaurant_table</span>
-<span class="s1">                 (id INTEGER PRIMARY KEY, name TEXT, address TEXT, rating REAL)&#39;&#39;&#39;</span><span class="p">)</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;CREATE TABLE restaurant</span>
+<span class="s1">                 (id INTEGER PRIMARY KEY, name TEXT, type TEXT, address TEXT, rating REAL, num_ratings INTEGER)&#39;&#39;&#39;</span><span class="p">)</span>
 
 <span class="c1"># Commit the changes to the database</span>
 <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
@@ -930,7 +935,428 @@ John Mortensen&#39;s record has been updated.
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>This database will hold information about a restaurant for a theoretical restaurant database.</p>
-<h2 id="CRUD-Functions">CRUD Functions<a class="anchor-link" href="#CRUD-Functions"> </a></h2><p>These functions are a bit more complicated than the previous databases we've looked at because of how the average function works. Since working with base SQLite and not using the <code>db.model</code> method means that only four primitive data types can be stored to</p>
+<h2 id="CRUD-Functions">CRUD Functions<a class="anchor-link" href="#CRUD-Functions"> </a></h2><p>These functions are a bit more complicated than the previous databases we've looked at because of how the average function works. Since working with base SQLite and not using the <code>db.model</code> method means that only four primitive data types can be stored to it. As a result, I couldn't have a class method for finding the restaurant's rating average.</p>
+<p>There also had to be two create functions: a create restaurant function to add a restaurant to the database and a create review function so that the overall rating of the restaurant can change.</p>
+<h3 id="Create-Restaurant">Create Restaurant<a class="anchor-link" href="#Create-Restaurant"> </a></h3>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sqlite3</span>
+
+<span class="k">def</span> <span class="nf">create_res</span><span class="p">():</span>
+   <span class="n">database</span> <span class="o">=</span> <span class="s1">&#39;instance/restaurant.db&#39;</span>
+   <span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter the restaurant&#39;s name: &quot;</span><span class="p">)</span>
+   <span class="nb">type</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter the type of food at the restaurant: &quot;</span><span class="p">)</span>
+   <span class="n">address</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter the address of the restaurant: &quot;</span><span class="p">)</span>
+
+
+   <span class="c1"># Connect to the database and create a cursor to execute SQL commands</span>
+   <span class="n">connection</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">database</span><span class="p">)</span>
+   <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+
+
+   <span class="k">try</span><span class="p">:</span>
+       <span class="c1"># Execute SQL to insert record into db</span>
+       <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;INSERT INTO restaurant (name, type, address, rating, num_ratings) VALUES (?, ?, ?, ?, ?)&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">address</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+       <span class="c1"># Commit the changes</span>
+       <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+       <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> has been added to the restaurants database.&quot;</span><span class="p">)</span>
+              
+   <span class="k">except</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">Error</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+       <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error while inserting record&quot;</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span>
+
+
+   <span class="c1"># Close cursor and connection</span>
+   <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+   <span class="n">connection</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="n">create_res</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Roberto&#39;s Taco Shop has been added to the restaurants database.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Create-Rating">Create Rating<a class="anchor-link" href="#Create-Rating"> </a></h3><p>This function had to be done in a kind of creative way. Because I couldn't list out all of the numerical ratings, this function would instead take into account the current review and the number of total reviews when a rating is provided. You can see it in action below. This ends up looking more like an update function, actually.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">create_rev</span><span class="p">():</span>
+   <span class="n">database</span> <span class="o">=</span> <span class="s1">&#39;instance/restaurant.db&#39;</span>
+   <span class="n">rest</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter the name of the restaurant you&#39;d like to review.&quot;</span><span class="p">)</span>
+   <span class="n">str_rating</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter your review of the restaurant (1-10): &quot;</span><span class="p">)</span>
+   <span class="k">try</span><span class="p">:</span>
+    <span class="n">int_rating</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">str_rating</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">int_rating</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">int_rating</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Invalid rating. Enter a rating between 1 and 10.&quot;</span><span class="p">)</span>
+        <span class="n">create_rev</span><span class="p">()</span>
+        <span class="k">return</span>
+   <span class="k">except</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Invalid rating.&quot;</span><span class="p">)</span>
+    <span class="n">create_rev</span><span class="p">()</span>
+    <span class="k">return</span>
+
+   <span class="c1"># Connect to the database and create a cursor to execute SQL commands</span>
+   <span class="n">connection</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">database</span><span class="p">)</span>
+   <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+   
+   <span class="c1"># Grab the current rating</span>
+   <span class="k">try</span><span class="p">:</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT rating, num_ratings FROM restaurant WHERE name=?&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">rest</span><span class="p">,))</span>
+    <span class="n">rat_data</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">rat_data</span><span class="p">:</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="n">connection</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;No restaurant called </span><span class="si">{</span><span class="n">rest</span><span class="si">}</span><span class="s1"> was found.&#39;</span><span class="p">)</span>
+        <span class="k">return</span>
+   <span class="k">except</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;An error occurred when communicating with the database.&quot;</span><span class="p">)</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">connection</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">return</span>
+
+   <span class="c1"># Calculate the new rating</span>
+   <span class="k">if</span> <span class="n">rat_data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">new_rat</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">int_rating</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+   <span class="k">else</span><span class="p">:</span>
+    <span class="n">new_rat</span> <span class="o">=</span> <span class="nb">round</span><span class="p">((((</span><span class="n">rat_data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">rat_data</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="n">int_rating</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">rat_data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)),</span> <span class="mi">1</span><span class="p">)</span>
+   <span class="n">new_count</span> <span class="o">=</span> <span class="n">rat_data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+
+   <span class="c1"># Updating review values</span>
+   <span class="k">try</span><span class="p">:</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;UPDATE restaurant SET rating=?, num_ratings=? WHERE name=?&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">new_rat</span><span class="p">,</span> <span class="n">new_count</span><span class="p">,</span> <span class="n">rest</span><span class="p">))</span>
+    <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">rest</span><span class="si">}</span><span class="s2">&#39;s rating has been updated.&quot;</span><span class="p">)</span>
+   <span class="k">except</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;There was an error when trying to create your review.&quot;</span><span class="p">)</span>
+
+   <span class="c1"># Close cursor and connection</span>
+   <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+   <span class="n">connection</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="n">create_rev</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Panera Bread&#39;s rating has been updated.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Read,-Update-and-Delete">Read, Update and Delete<a class="anchor-link" href="#Read,-Update-and-Delete"> </a></h3><p>I put these all in the same section because there is little special about them. They're pretty much exactly to the template.</p>
+<p>One interesting thing is that I programmed the Read function to interpret a review score of <code>0</code> as "No Reviews".</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sqlite3</span>
+
+<span class="k">def</span> <span class="nf">read_res</span><span class="p">():</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># Open a connection to the database and create a cursor</span>
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;instance/restaurant.db&#39;</span><span class="p">)</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+
+        <span class="c1"># Fetch all records from the professors table</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM restaurant&quot;</span><span class="p">)</span>
+        <span class="n">rows</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+
+        <span class="c1"># If there are any records, print them</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;List of restaurant information:&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">rat_info</span> <span class="o">=</span> <span class="s2">&quot;No Rating&quot;</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">rat_info</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Name: </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">Type of food: </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">Address: </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">Rating: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">rat_info</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;There are no restaurants in the database.&quot;</span><span class="p">)</span>
+
+    <span class="k">except</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">Error</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error while connecting to the database:&quot;</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span>
+
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="c1"># Close the cursor and the connection to the database</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="n">connection</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="n">read_res</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>List of restaurant information:
+
+Name: Board &amp; Brew
+Type of food: Sandwiches
+Address: 16480 Paseo Del Sur
+Rating: 8.5
+
+Name: Panera Bread
+Type of food: Cafe
+Address: 10430 Craftsman Way
+Rating: 8.0
+
+Name: Roberto&#39;s Taco Shop
+Type of food: Mexican food
+Address: 16773 Bernardo Center Drive
+Rating: No Rating
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sqlite3</span>
+
+<span class="k">def</span> <span class="nf">update_res</span><span class="p">():</span>
+    <span class="n">database</span> <span class="o">=</span> <span class="s1">&#39;instance/restaurant.db&#39;</span>
+    <span class="n">connection</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">database</span><span class="p">)</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># Get the professor&#39;s name to update</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter the name of the restaurant to update: &quot;</span><span class="p">)</span>
+        
+        <span class="c1"># Retrieve the current record from the database</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM restaurant WHERE name=?&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">name</span><span class="p">,))</span>
+        <span class="n">record</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+        
+        <span class="c1"># If the professor is found, update the record</span>
+        <span class="k">if</span> <span class="n">record</span><span class="p">:</span>
+            <span class="nb">type</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Current type of food: </span><span class="si">{</span><span class="n">record</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s2">. New type of food: &quot;</span><span class="p">)</span>
+            <span class="n">address</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Current address: </span><span class="si">{</span><span class="n">record</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span><span class="s2">. New address: &quot;</span><span class="p">)</span>
+            
+            <span class="c1"># Execute SQL to update the record</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;UPDATE restaurant SET type=?, address=? WHERE name=?&quot;</span><span class="p">,</span> <span class="p">(</span><span class="nb">type</span><span class="p">,</span> <span class="n">address</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+            
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;s record has been updated.&quot;</span><span class="p">)</span>
+        
+        <span class="c1"># If the professor is not found, notify the user</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No record found for </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+    
+    <span class="k">except</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">Error</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error while updating record&quot;</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span>
+    
+    <span class="c1"># Close cursor and connection</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">connection</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">delete_res</span><span class="p">():</span>
+    <span class="c1"># Connect to the database and create a cursor</span>
+    <span class="n">connection</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;instance/restaurant.db&#39;</span><span class="p">)</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+
+    <span class="c1"># Prompt the user for the name of the professor to delete</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter the name of the restaurant you want to delete: &quot;</span><span class="p">)</span>
+
+    <span class="c1"># Use a SQL query to find the professor with the given name</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM restaurant WHERE name=?&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">name</span><span class="p">,))</span>
+    <span class="n">row</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+
+    <span class="c1"># If the professor exists, confirm deletion and delete the record</span>
+    <span class="k">if</span> <span class="n">row</span><span class="p">:</span>
+        <span class="n">confirm</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Are you sure you want to delete </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">? (y/n): &quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">confirm</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;DELETE FROM restaurant WHERE name=?&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">name</span><span class="p">,))</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> has been deleted from the database of restaurants.&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> not found in the database of restaurants.&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Close the cursor and the connection to the database</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">connection</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Full-Menu">Full Menu<a class="anchor-link" href="#Full-Menu"> </a></h3><p>Using this full menu, you can create a new restaurant in the system, leave a rating on a restaurant that's already present, read restaurant data, update the data of a restaurant, and delete a restaurant from the database.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sqlite3</span>
+
+<span class="k">def</span> <span class="nf">res_menu</span><span class="p">():</span>
+    <span class="n">operation</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Key: (C) to create restaurant; (L) to leave a rating; (R) to read data; (U) to update; or (D) to delete. ESC key to finish.&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">operation</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span>
+        <span class="n">create_res</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="n">operation</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;l&#39;</span><span class="p">:</span>
+        <span class="n">create_rev</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="n">operation</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;r&#39;</span><span class="p">:</span>
+        <span class="n">read_res</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="n">operation</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;u&#39;</span><span class="p">:</span>
+        <span class="n">update_res</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="n">operation</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;d&#39;</span><span class="p">:</span>
+        <span class="n">delete_res</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">operation</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span> <span class="c1"># Escape Key</span>
+        <span class="k">return</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Please enter c, l, r, u, or d&quot;</span><span class="p">)</span>
+    <span class="n">res_menu</span><span class="p">()</span> <span class="c1"># menu repeats after function is done</span>
+
+<span class="n">res_menu</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Los Primos has been added to the restaurants database.
+Los Primos&#39;s rating has been updated.
+Los Primos&#39;s record has been updated.
+Roberto&#39;s Taco Shop has been deleted from the database of restaurants.
+List of restaurant information:
+
+Name: Board &amp; Brew
+Type of food: Sandwiches
+Address: 16480 Paseo Del Sur
+Rating: 8.5
+
+Name: Panera Bread
+Type of food: Cafe
+Address: 10430 Craftsman Way
+Rating: 8.0
+
+Name: Los Primos
+Type of food: Mexican food
+Address: 16621 Dove Canyon Road
+Rating: 7.0
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As you can see from the output above, all of the functions work as intended. Below is a picture of the SQLite table after messing with the CRUD functions.</p>
+<figure>
+  <img src="/realdrew/images/Screen Shot 2023-04-27 at 5.46.35 PM.png" alt="The database works" width="700" />
+  <figcaption>I deleted Roberto's when I ran the cell above.</figcaption>
+</figure><h2 id="Extra-Credit">Extra Credit<a class="anchor-link" href="#Extra-Credit"> </a></h2><p>In order to connect frontend to backend, I'd need to use the object-oriented method of making the SQLite table. Instead of converting everything, here's a different database, centering around user-made events, that I made.</p>
+<p><a href="https://www.youtube.com/watch?v=Ja2tz-NUYok">Click here</a> to see a video that goes over its functionality, and see its model code <a href="https://github.com/drewreed2005/cafendback/blob/main/model/events.py">here</a> and API code <a href="https://github.com/drewreed2005/cafendback/blob/main/api/event.py">here</a>.</p>
+<p>Because AWS containers were taken down about a month ago, it now requires a local server to be connected in order to work.</p>
 
 </div>
 </div>
