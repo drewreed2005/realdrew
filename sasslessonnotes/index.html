@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      6 min read
+      7 min read
     
 </span></p>
 
@@ -331,14 +331,14 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="nd">@mixin</span> <span class="n">colored</span><span class="p">(</span><span class="err">$</span><span class="n">bgColor</span><span class="p">,</span> <span class="err">$</span><span class="n">textColor</span><span class="p">,</span> <span class="err">$</span><span class="n">fontSize</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">background</span><span class="o">-</span><span class="n">color</span><span class="p">:</span> <span class="err">$</span><span class="n">bgColor</span><span class="p">;</span>
-    <span class="n">color</span><span class="p">:</span> <span class="err">$</span><span class="n">textColor</span><span class="p">;</span>
-    <span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="p">:</span> <span class="err">$</span><span class="n">fontSize</span><span class="p">;</span>
+<div class=" highlight hl-javascript"><pre><span></span><span class="err">@</span><span class="nx">mixin</span> <span class="nx">colored</span><span class="p">(</span><span class="nx">$bgColor</span><span class="p">,</span> <span class="nx">$textColor</span><span class="p">,</span> <span class="nx">$fontSize</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">background</span><span class="o">-</span><span class="nx">color</span><span class="o">:</span> <span class="nx">$bgColor</span><span class="p">;</span>
+    <span class="nx">color</span><span class="o">:</span> <span class="nx">$textColor</span><span class="p">;</span>
+    <span class="nx">font</span><span class="o">-</span><span class="nx">size</span><span class="o">:</span> <span class="nx">$fontSize</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="o">.</span><span class="n">divColor</span> <span class="p">{</span>
-    <span class="nd">@include</span> <span class="n">colored</span><span class="p">(</span><span class="c1">#000000, #FFFFFF, 30px);</span>
+<span class="p">.</span><span class="nx">divColor</span> <span class="p">{</span>
+    <span class="err">@</span><span class="nx">include</span> <span class="nx">colored</span><span class="p">(</span><span class="err">#</span><span class="mo">000000</span><span class="p">,</span> <span class="err">#</span><span class="nx">FFFFFF</span><span class="p">,</span> <span class="mf">30</span><span class="nx">px</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -467,32 +467,32 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="nd">@mixin</span> <span class="n">cardSettings</span><span class="p">(</span><span class="err">$</span><span class="n">bgColor1</span><span class="p">,</span> <span class="err">$</span><span class="n">bgColor2</span><span class="p">,</span> <span class="err">$</span><span class="n">borderColor</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">background</span><span class="p">:</span> <span class="n">radial</span><span class="o">-</span><span class="n">gradient</span><span class="p">(</span><span class="err">$</span><span class="n">bgColor1</span><span class="p">,</span> <span class="err">$</span><span class="n">bgColor2</span><span class="p">);</span>
-    <span class="n">border</span><span class="p">:</span> <span class="mi">5</span><span class="n">px</span> <span class="n">solid</span> <span class="err">$</span><span class="n">borderColor</span><span class="p">;</span>
+<div class=" highlight hl-javascript"><pre><span></span><span class="err">@</span><span class="nx">mixin</span> <span class="nx">cardSettings</span><span class="p">(</span><span class="nx">$bgColor1</span><span class="p">,</span> <span class="nx">$bgColor2</span><span class="p">,</span> <span class="nx">$borderColor</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">background</span><span class="o">:</span> <span class="nx">radial</span><span class="o">-</span><span class="nx">gradient</span><span class="p">(</span><span class="nx">$bgColor1</span><span class="p">,</span> <span class="nx">$bgColor2</span><span class="p">);</span>
+    <span class="nx">border</span><span class="o">:</span> <span class="mf">5</span><span class="nx">px</span> <span class="nx">solid</span> <span class="nx">$borderColor</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="o">%</span><span class="n">bigCard</span> <span class="p">{</span>
-    <span class="n">color</span><span class="p">:</span> <span class="c1">#FFFFFF;</span>
-    <span class="n">font</span><span class="o">-</span><span class="n">family</span><span class="p">:</span> <span class="n">Arial</span><span class="p">,</span> <span class="n">Helvetica</span><span class="p">,</span> <span class="n">sans</span><span class="o">-</span><span class="n">serif</span><span class="p">;</span>
-    <span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="p">:</span> <span class="mi">20</span><span class="n">px</span><span class="p">;</span>
-    <span class="n">height</span><span class="p">:</span> <span class="mi">600</span><span class="n">px</span><span class="p">;</span>
-    <span class="n">width</span><span class="p">:</span> <span class="mi">400</span><span class="n">px</span><span class="p">;</span>
+<span class="o">%</span><span class="nx">bigCard</span> <span class="p">{</span>
+    <span class="nx">color</span><span class="o">:</span> <span class="err">#</span><span class="nx">FFFFFF</span><span class="p">;</span>
+    <span class="nx">font</span><span class="o">-</span><span class="nx">family</span><span class="o">:</span> <span class="nx">Arial</span><span class="p">,</span> <span class="nx">Helvetica</span><span class="p">,</span> <span class="nx">sans</span><span class="o">-</span><span class="nx">serif</span><span class="p">;</span>
+    <span class="nx">font</span><span class="o">-</span><span class="nx">size</span><span class="o">:</span> <span class="mf">20</span><span class="nx">px</span><span class="p">;</span>
+    <span class="nx">height</span><span class="o">:</span> <span class="mf">600</span><span class="nx">px</span><span class="p">;</span>
+    <span class="nx">width</span><span class="o">:</span> <span class="mf">400</span><span class="nx">px</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="o">.</span><span class="n">redCard</span> <span class="p">{</span>
-    <span class="nd">@include</span> <span class="n">cardSettings</span><span class="p">(</span><span class="c1">#CB0000, #FF2323, #710000);</span>
-    <span class="nd">@extend</span> <span class="o">%</span><span class="n">bigCard</span><span class="p">;</span>
+<span class="p">.</span><span class="nx">redCard</span> <span class="p">{</span>
+    <span class="err">@</span><span class="nx">include</span> <span class="nx">cardSettings</span><span class="p">(</span><span class="err">#</span><span class="nx">CB0000</span><span class="p">,</span> <span class="err">#</span><span class="nx">FF2323</span><span class="p">,</span> <span class="err">#</span><span class="mf">710000</span><span class="p">);</span>
+    <span class="err">@</span><span class="nx">extend</span> <span class="o">%</span><span class="nx">bigCard</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="o">.</span><span class="n">blueCard</span> <span class="p">{</span>
-    <span class="nd">@include</span> <span class="n">cardSettings</span><span class="p">(</span><span class="c1">#0069A3, #00A4FF, #003654);</span>
-    <span class="nd">@extend</span> <span class="o">%</span><span class="n">bigCard</span><span class="p">;</span>
+<span class="p">.</span><span class="nx">blueCard</span> <span class="p">{</span>
+    <span class="err">@</span><span class="nx">include</span> <span class="nx">cardSettings</span><span class="p">(</span><span class="err">#</span><span class="mo">006</span><span class="mf">9</span><span class="nx">A3</span><span class="p">,</span> <span class="err">#</span><span class="mo">00</span><span class="nx">A4FF</span><span class="p">,</span> <span class="err">#</span><span class="mo">003654</span><span class="p">);</span>
+    <span class="err">@</span><span class="nx">extend</span> <span class="o">%</span><span class="nx">bigCard</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="o">.</span><span class="n">greenCard</span> <span class="p">{</span>
-    <span class="nd">@include</span> <span class="n">cardSettings</span><span class="p">(</span><span class="c1">#009C0E, #00EE15, #004D07);</span>
-    <span class="nd">@extend</span> <span class="o">%</span><span class="n">bigCard</span><span class="p">;</span>
+<span class="p">.</span><span class="nx">greenCard</span> <span class="p">{</span>
+    <span class="err">@</span><span class="nx">include</span> <span class="nx">cardSettings</span><span class="p">(</span><span class="err">#</span><span class="mo">00</span><span class="mf">9</span><span class="nx">C0E</span><span class="p">,</span> <span class="err">#</span><span class="mo">00</span><span class="nx">EE15</span><span class="p">,</span> <span class="err">#</span><span class="mo">004</span><span class="nx">D07</span><span class="p">);</span>
+    <span class="err">@</span><span class="nx">extend</span> <span class="o">%</span><span class="nx">bigCard</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -557,6 +557,78 @@ window.onload = wrap_img;
 <ol>
 <li>Extra credit: Research other SASS features and blog about what you learned or add to your SASS project with any extra features not covered in this lesson. More points will be given if both are done.</li>
 </ol>
+<p>Here are some extra directives that weren't mentioned in the lesson:</p>
+<ul>
+<li>
+<code>@if</code>, <code>@else if</code> and <code>@else</code> directives exist for conditionals in SASS. I left an example below:</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="nt">p</span> <span class="p">{</span>
+  <span class="err">@if</span> <span class="err">$test</span> <span class="err">&lt;</span> <span class="err">3</span> <span class="err">{</span>
+        <span class="n">text-color</span><span class="p">:</span> <span class="kc">red</span><span class="p">;</span>
+    <span class="p">}</span> <span class="p">@</span><span class="k">else</span> <span class="nt">if</span> <span class="o">$</span><span class="nt">test</span> <span class="o">==</span> <span class="nt">3</span> <span class="p">{</span>
+        <span class="nt">text-color</span><span class="o">:</span> <span class="nt">blue</span><span class="o">;</span>
+    <span class="p">}</span> <span class="p">@</span><span class="k">else</span> <span class="p">{</span>
+        <span class="nt">text-color</span><span class="o">:</span> <span class="nt">white</span><span class="o">;</span>
+    <span class="p">}</span>
+<span class="err">}</span>
+</pre></div>
+<ul>
+<li>There are also loop directives like <code>@while</code> and <code>@for</code>. See them below:</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="p">@</span><span class="k">while</span> <span class="o">$</span><span class="nt">p</span> <span class="o">&lt;</span> <span class="nt">5</span> <span class="p">{</span>
+    <span class="p">.</span><span class="nc">item-</span><span class="err">#</span><span class="p">{</span><span class="err">$p</span><span class="p">}</span> <span class="p">{</span>
+        <span class="k">color</span><span class="p">:</span> <span class="kc">red</span><span class="p">;</span>
+        <span class="err">$</span><span class="n">p</span> <span class="p">:</span> <span class="err">$</span><span class="n">p</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="p">@</span><span class="k">for</span> <span class="o">$</span><span class="nt">i</span> <span class="nt">from</span> <span class="nt">1</span> <span class="nt">through</span> <span class="nt">5</span> <span class="p">{</span>
+   <span class="p">.</span><span class="nc">list-</span><span class="err">#</span><span class="p">{</span><span class="err">$i</span><span class="p">}</span> <span class="p">{</span>
+      <span class="k">width</span><span class="p">:</span> <span class="mi">2</span><span class="kt">px</span> <span class="o">*</span> <span class="err">$</span><span class="n">i</span><span class="p">;</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+<ul>
+<li>One example of the <code>@for</code> directive being helpful is the code below:</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="p">.</span><span class="nc">list-1</span> <span class="p">{</span>
+  <span class="k">margin-left</span><span class="p">:</span> <span class="mi">2</span><span class="kt">px</span><span class="p">;</span> 
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">list-2</span> <span class="p">{</span>
+  <span class="k">margin-left</span><span class="p">:</span> <span class="mi">4</span><span class="kt">px</span><span class="p">;</span> 
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">list-3</span> <span class="p">{</span>
+  <span class="k">margin-left</span><span class="p">:</span> <span class="mi">6</span><span class="kt">px</span><span class="p">;</span> 
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">list-4</span> <span class="p">{</span>
+  <span class="k">margin-left</span><span class="p">:</span> <span class="mi">8</span><span class="kt">px</span><span class="p">;</span> 
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">list-5</span> <span class="p">{</span>
+  <span class="k">margin-left</span><span class="p">:</span> <span class="mi">10</span><span class="kt">px</span><span class="p">;</span> 
+<span class="p">}</span>
+</pre></div>
+<p><strong>vs.</strong></p>
+<div class="highlight"><pre><span></span><span class="p">@</span><span class="k">for</span> <span class="o">$</span><span class="nt">i</span> <span class="nt">from</span> <span class="nt">1</span> <span class="nt">to</span> <span class="nt">5</span> <span class="p">{</span>
+   <span class="p">.</span><span class="nc">list-</span><span class="err">#</span><span class="p">{</span><span class="err">$i</span><span class="p">}</span> <span class="p">{</span>
+      <span class="k">width</span><span class="p">:</span> <span class="mi">2</span><span class="kt">px</span> <span class="o">*</span> <span class="err">$</span><span class="n">i</span><span class="p">;</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+<ul>
+<li>
+<code>@each</code> is another recursive directive that works a bit similar to a usual for loop.</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="p">@</span><span class="k">each</span> <span class="o">$</span><span class="nt">name</span><span class="o">,</span> <span class="o">$</span><span class="nt">style</span><span class="o">,</span> <span class="o">$</span><span class="nt">size</span> <span class="nt">in</span> <span class="o">((</span><span class="nt">normal</span><span class="o">,</span> <span class="nt">bold</span><span class="o">,</span> <span class="nt">10px</span><span class="o">),</span> <span class="o">(</span><span class="nt">emphasis</span><span class="o">,</span> <span class="nt">bold</span><span class="o">,</span> <span class="nt">15px</span><span class="o">))</span> <span class="p">{</span>
+   <span class="o">.</span><span class="err">#</span><span class="p">{</span><span class="err">$name</span><span class="p">}</span> <span class="p">{</span>
+      <span class="k">font-weight</span><span class="p">:</span> <span class="err">$</span><span class="kc">style</span><span class="p">;</span>
+      <span class="n">text-size</span><span class="p">:</span> <span class="err">$</span><span class="k">size</span><span class="p">;</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
 
 </div>
 </div>
