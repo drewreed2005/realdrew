@@ -216,10 +216,9 @@
             for (cardID in cardList) {
                 newCard = document.createElement("td");
                 newCard.innerHTML = cardList[cardID];
-                newCard.style = 'cursor:pointer;title:"Click to play your ' + cardList[cardID] + '!"';
                 if (player == true) {
-                    newCard.onclick = 'playCard(cardID, playerHand)';
                     newCard.setAttribute('onclick', 'playCard(' + String(cardID) + ')');
+                    newCard.style = 'cursor:pointer;title:"Click to play your ' + cardList[cardID] + '!"';
                 }
                 rowList[0].appendChild(newCard);
             };
@@ -228,8 +227,8 @@
                 newCard = document.createElement("td");
                 newCard.innerHTML = cardList[i];
                 if (player == true) {
-                    newCard.onclick = 'playCard(i, playerHand)';
                     newCard.setAttribute('onclick', 'playCard(' + String(i) + ')');
+                    newCard.style = 'cursor:pointer;title:"Click to play your ' + cardList[cardID] + '!"';
                 }
                 rowList[0].appendChild(newCard);
             };
@@ -237,8 +236,8 @@
                 newCard = document.createElement("td");
                 newCard.innerHTML = cardList[i];
                 if (player == true) {
-                    newCard.onclick = 'playCard(i, playerHand)';
                     newCard.setAttribute('onclick', 'playCard(' + String(i) + ')');
+                    newCard.style = 'cursor:pointer;title:"Click to play your ' + cardList[cardID] + '!"';
                 }
                 rowList[1].appendChild(newCard);
             }
@@ -246,8 +245,21 @@
     }
 
     function playCard(cardID) {
-        console.log(playerHand[cardID]);
+        if ((playerHand[cardID].value == topCard.value) || (playerHand[cardID].color == topCard.color)) {
+            resultBox.innerHTML = "";
+            playedCard = playerHand.splice(cardID, 1)[0];
+            pDispHand.splice(cardID, 1);
+            console.log(playedCard);
+            topCard = playedCard;
+            currentCard.innerHTML = "Top Card: " + topCard.cshow();
+            buildTable(pDispHand, true);
+            oppTurn();
+        } else {
+            resultBox.innerHTML = playerHand[cardID].cshow() + " cannot be played right now!";
+        }
     }
+
+    function oppTurn() {}
 
     function oppCard(cardID) {
         console.log(opponentHand[cardID])
