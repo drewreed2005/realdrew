@@ -78,6 +78,18 @@
         display: none;
     }
 
+    #the_deck {
+        margin:auto;
+        text-align:center;
+        justify-content:center;
+        display: none;
+        width: 50px;
+        height: 50px;
+        background-color: white;
+        border: 5px solid;
+        cursor:pointer;
+    }
+
     table { margin: auto }
 </style>
 
@@ -102,6 +114,7 @@
     <div id="buttons" style="margin:auto;text-align:center;justify-content:center">
         <br />
         <button id="start_button" class="select_button" onclick="startGame()">Start</button>
+        <div id="the_deck" onclick="drawCard(playerHand, true)">deck</div>
         <br />
         <div id="green_border" class="green_border">
             <div id="current_card"></div>
@@ -124,6 +137,7 @@
     const pCardTable = document.getElementById("player_card_table");
     const pCardRow1 = document.getElementById("player_cards_r1");
     const pCardRow2 = document.getElementById("player_cards_r2");
+    const deckElement = document.getElementById("the_deck");
     var newCard = "";
     var rowList = [];
     var playerHand = [];
@@ -180,6 +194,7 @@
     var thisCard = "placeholder";
 
     function startGame() {
+        deckElement.style = "display:block";
         startButton.style = "display:none";
         greenBox.style = "display:inline-block";
         theDeck = new Deck();
@@ -226,7 +241,7 @@
             for (let i = 0; i < 8; i++) {
                 newCard = document.createElement("td");
                 newCard.innerHTML = cardList[i];
-                if (player == true) {
+                if (player) {
                     newCard.setAttribute('onclick', 'playCard(' + String(i) + ')');
                     newCard.style = 'cursor:pointer;title:"Click to play your ' + cardList[cardID] + '!"';
                 }
@@ -235,12 +250,33 @@
             for (let i = 8; i < cardList.length; i++) {
                 newCard = document.createElement("td");
                 newCard.innerHTML = cardList[i];
-                if (player == true) {
+                if (player) {
                     newCard.setAttribute('onclick', 'playCard(' + String(i) + ')');
                     newCard.style = 'cursor:pointer;title:"Click to play your ' + cardList[cardID] + '!"';
                 }
                 rowList[1].appendChild(newCard);
             }
+        }
+    }
+
+    function drawCard(hand, player) {
+        console.log("The player draws.");
+        if (theDeck.cards.length > 0) {
+            var tempNewCard = theDeck.draw();
+            hand.push(tempNewCard);
+            if (player) {
+                pDispHand.push(tempNewCard.cshow());
+            } else {
+                oDispHand.push(tempNewCard.cshow());
+            }
+        } else {
+            resultBox.innerHTML = "The deck is empty!";
+            // maybe count cards here for winner
+        }
+        if (player) {
+            buildTable(pDispHand, true);
+        } else {
+            buildTable(oDispHand, false);
         }
     }
 
@@ -259,10 +295,74 @@
         }
     }
 
-    function oppTurn() {}
-
     function oppCard(cardID) {
-        console.log(opponentHand[cardID])
+        resultBox.innerHTML = "";
+        playedCard = opponentHand.splice(cardID, 1)[0];
+        oDispHand.splice(cardID, 1);
+        console.log(playedCard);
+        topCard = playedCard;
+        currentCard.innerHTML = "Top Card: " + topCard.cshow();
+        buildTable(oDispHand, false);
+    }
+
+    function oppTurn() {
+        var colorValues = {
+            "Red":0,
+            "Blue":0,
+            "Yellow":0,
+            "Green":0
+        };
+        var numbers = [];
+        for (card of opponentHand) {
+            colorValues[card.color] += 1;
+            numbers.push(card.value);
+        };
+        // order: [red, blue, yellow, green]
+        var sortingList = [colorValues["Red"], colorValues["Blue"], colorValues["Yellow"], colorValues["Green"]].sort();
+        var favorList = [];
+        var i = 0;
+        while (favorList.length < 4) {
+            for (key in colorValues) {
+                if (sortingList[i] == colorValues[key] && !(favorList.includes(key))) {
+                    favorList.push(key);
+                };
+            }
+            i += 1;
+        };
+        for (i = 3; i >= 0; i--) {
+            if (topCard.color == favorList[i]) {
+                for (cardID in opponentHand) {
+                    if (opponentHand[cardID].color == favorList[i]) {
+                        oppCard(cardID);
+                        return;
+                    }
+                }
+            }
+            for (cardID in opponentHand) {
+                if (topCard.value == opponentHand[cardID].value) {
+                    oppCard(cardID);
+                    return;
+                };
+            };
+        };
+        drawCard(opponentHand, false);
+        oppTurn();
+        return;
+    };
+
+    function winCheck() {
+        if (playerHand.length == 1 || opponentHand.length == 1) {
+            resultBox.innerHTML = "Uno!"
+        }
+        if (playerHand.length == 0) {
+            resultBox.innerHTML = "Congratulations! You win! Your final time is [implemented later]. [create score input]";
+            startButton.innerHTML = "Play Again";
+            startButton.style = "display:inline-block";
+        } else if (opponentHand.length == 0) {
+            resultBox.innerHTML = "Oh no! You lost.";
+            startButton.innerHTML = "Play Again";
+            startButton.style = "display:inline-block";
+        }
     }
 </script>
 
