@@ -10,12 +10,13 @@
     }
 
     .card_table_o {
-        width: 1000px;
-        height: 300px;
+        width: 300px;
+        height: 50px;
         border: 10px solid;
         border-radius: 150px;
         background-color: #FF5D5D;
-        padding:20px;
+        margin:auto;
+        padding:30px 20px 20px 20px;
         justify-content:center;
         text-align:center;
         font-size:16px;
@@ -97,12 +98,9 @@
     <br />
     <div style="text-align:center;justify-content:center">
         <h2>Opponent Hand</h2>
-        <table id="opponent_card_table" class="card_table_o">
-            <tr id="opponent_cards_r1">
-            </tr>
-            <tr id="opponent_cards_r2">
-            </tr>
-        </table>
+        <div id="opponent_cards" class="card_table_o">
+            The opponent's number of cards will be displayed here.
+        </div>
         <h2>Player Hand</h2>
         <table id="player_card_table" class="card_table_p">
             <tr id="player_cards_r1">
@@ -132,8 +130,7 @@
     const currentCard = document.getElementById("current_card");
     const resultBox = document.getElementById("result_text");
     const oCardTable = document.getElementById("opponent_card_table");
-    const oCardRow1 = document.getElementById("opponent_cards_r1");
-    const oCardRow2 = document.getElementById("opponent_cards_r2");
+    const oCardRow = document.getElementById("opponent_cards");
     const pCardTable = document.getElementById("player_card_table");
     const pCardRow1 = document.getElementById("player_cards_r1");
     const pCardRow2 = document.getElementById("player_cards_r2");
@@ -153,6 +150,10 @@
             this.value = val;
             if (val == 11) {
                 this.kind = "Draw Two";
+            } else if (val == 12) {
+                this.kind = "Reverse";
+            } else if (val == 13) {
+                this.kind = "Skip";
             } else {
                 this.kind = String(val);
             }
@@ -172,7 +173,7 @@
         build() {
             const colors = ["Red", "Yellow", "Green", "Blue"];
             for (let c in colors) {
-                for (let v = 1; v < 12; v++) {
+                for (let v = 1; v < 14; v++) {
                     this.cards.push(new Uno(colors[c], v));
                 }
             }
@@ -222,7 +223,8 @@
         if (player) {
             rowList = [pCardRow1, pCardRow2];
         } else {
-            rowList = [oCardRow1, oCardRow2];
+            oCardRow.innerHTML = "Cards remaining: " + String(cardList.length)
+            return
         };
         for (rowID in rowList) {
             rowList[rowID].innerHTML = "";
@@ -289,10 +291,17 @@
             topCard = playedCard;
             currentCard.innerHTML = "Top Card: " + topCard.cshow();
             buildTable(pDispHand, true);
+            winCheck();
+            if (playedCard.value == 11) {
+                drawCard(opponentHand, false)
+                drawCard(opponentHand, false)
+            } else if (playedCard.value > 11) {
+                return;
+            };
             oppTurn();
         } else {
             resultBox.innerHTML = playerHand[cardID].cshow() + " cannot be played right now!";
-        }
+        };
     }
 
     function oppCard(cardID) {
@@ -303,6 +312,13 @@
         topCard = playedCard;
         currentCard.innerHTML = "Top Card: " + topCard.cshow();
         buildTable(oDispHand, false);
+        winCheck();
+        if (playedCard.value == 11) {
+            drawCard(playerHand, true)
+            drawCard(playerHand, true)
+        } else if (playedCard.value > 11) {
+            oppTurn();
+        };
     }
 
     function oppTurn() {
@@ -355,10 +371,12 @@
             resultBox.innerHTML = "Uno!"
         }
         if (playerHand.length == 0) {
+            deckElement.style = "display:none";
             resultBox.innerHTML = "Congratulations! You win! Your final time is [implemented later]. [create score input]";
             startButton.innerHTML = "Play Again";
             startButton.style = "display:inline-block";
         } else if (opponentHand.length == 0) {
+            deckElement.style = "display:none";
             resultBox.innerHTML = "Oh no! You lost.";
             startButton.innerHTML = "Play Again";
             startButton.style = "display:inline-block";
