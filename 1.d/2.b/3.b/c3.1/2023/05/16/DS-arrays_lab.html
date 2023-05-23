@@ -81,7 +81,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      14 min read
+      15 min read
     
 </span></p>
 
@@ -458,10 +458,10 @@ For loop with shortcut (*) row expansion
 
 
 
-<div id="56af7498-232e-4f5b-b2e8-68f6327aef1f"></div>
+<div id="e5c6f504-8ec5-4da9-9298-d94749b40a3f"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#56af7498-232e-4f5b-b2e8-68f6327aef1f');
+var element = $('#e5c6f504-8ec5-4da9-9298-d94749b40a3f');
 
 /*
 * Creator: Nighthawk Coding Society
@@ -529,10 +529,10 @@ element.append(arr2D);
 
 
 
-<div id="b56a7a6f-4f11-4839-a868-b0890ef5dbc9"></div>
+<div id="b3afd6de-7fdf-408a-8c7d-7054e2659216"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#b56a7a6f-4f11-4839-a868-b0890ef5dbc9');
+var element = $('#b3afd6de-7fdf-408a-8c7d-7054e2659216');
 
 var newarr2D = [[" ", "O", " "], ["/", "|", "\\"], ["/", " ", "\\"]];
  
@@ -1201,6 +1201,8 @@ for (let row of newarr2D) {
 <h3 id="My-Own-ASCII-Animation">
 <a class="anchor" href="#My-Own-ASCII-Animation" aria-hidden="true"><span class="octicon octicon-link"></span></a>My Own ASCII Animation<a class="anchor-link" href="#My-Own-ASCII-Animation"> </a>
 </h3>
+<p>I made an animation that randomly generates a number of birds to fly over a desert.</p>
+
 </div>
 </div>
 </div>
@@ -1211,10 +1213,62 @@ for (let row of newarr2D) {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="s2">"do later"</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">time</span> <span class="c1"># used for delay</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">clear_output</span> <span class="k">as</span> <span class="n">clr</span> <span class="c1"># jupyter specific clear</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">white</span> <span class="o">=</span> <span class="s2">"</span><span class="se">\u001b</span><span class="s2">[97m"</span>
+<span class="n">green</span> <span class="o">=</span> <span class="s2">"</span><span class="se">\u001b</span><span class="s2">[32m"</span>
+<span class="n">yellow</span> <span class="o">=</span> <span class="s2">"</span><span class="se">\u001b</span><span class="s2">[33m"</span>
+
+<span class="n">bird1</span> <span class="o">=</span> <span class="n">white</span> <span class="o">+</span> <span class="s2">"/^v^</span><span class="se">\\</span><span class="s2">"</span>
+<span class="n">bird2</span> <span class="o">=</span> <span class="n">white</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\\</span><span class="s2">^v^/"</span>
+
+<span class="n">ground</span> <span class="o">=</span> <span class="n">yellow</span> <span class="o">+</span> <span class="s2">"_,_..__"</span> <span class="o">+</span> <span class="n">green</span> <span class="o">+</span> <span class="s2">"r~~r"</span> <span class="o">+</span> <span class="n">yellow</span> <span class="o">+</span> <span class="s2">"__,._._,__"</span> <span class="o">+</span> <span class="n">green</span> <span class="o">+</span> <span class="s2">"|^|"</span> <span class="o">+</span> <span class="n">yellow</span> <span class="o">+</span> <span class="s2">"____,,__.___."</span>
+<span class="c1">#35 ground tiles</span>
+
+<span class="k">def</span> <span class="nf">birds</span><span class="p">():</span>
+    <span class="n">birdsPresent</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="mi">4</span><span class="p">)</span>
+    <span class="n">sky</span> <span class="o">=</span> <span class="p">[</span><span class="s2">""</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="s2">""</span><span class="p">]</span>
+    <span class="n">bird</span> <span class="o">=</span> <span class="s2">""</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">):</span>
+        <span class="n">clr</span><span class="p">(</span><span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
+            <span class="n">string</span> <span class="o">=</span> <span class="s2">""</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">birdsPresent</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">bird</span> <span class="o">=</span> <span class="n">bird1</span>
+            <span class="k">elif</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">birdsPresent</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">bird</span> <span class="o">=</span> <span class="n">bird2</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">bird</span> <span class="o">=</span> <span class="s2">""</span>
+            <span class="n">string</span> <span class="o">=</span> <span class="n">string</span> <span class="o">+</span> <span class="p">(</span><span class="s2">" "</span> <span class="o">*</span> <span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="n">bird</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">ground</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
+
+<span class="n">birds</span><span class="p">()</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>                             
+                             <span class="ansi-white-intense-fg">/^v^\
+                             
+                             </span><span class="ansi-white-intense-fg">/^v^\
+</span><span class="ansi-yellow-fg">_,_..__</span><span class="ansi-green-fg">r~~r</span><span class="ansi-yellow-fg">__,._._,__</span><span class="ansi-green-fg">|^|</span><span class="ansi-yellow-fg">____,,__.___.
+</span></pre>
+</div>
+</div>
+
 </div>
 </div>
 
