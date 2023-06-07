@@ -57,27 +57,27 @@ In the end, it did what Night at the Museum always does to my brain. I kept thin
 I had some time to look at ceramics and drawing & painting before I left. Here are a few pieces I really liked.
 
 <figure>
-  <img src="{{site.baseurl}}/images/7251.jpg" alt="Bria Sculptures" width="600"/>
+  <img src="{{site.baseurl}}/images/IMG_7251.jpg" alt="Bria Sculptures" width="600"/>
   <figcaption>Sculptures by the famous coder and theatre tech Bria Gilliam.</figcaption>
 </figure>
 
 <figure>
-  <img src="{{site.baseurl}}/images/7252.jpg" alt="Tower" width="600"/>
+  <img src="{{site.baseurl}}/images/IMG_7252.jpg" alt="Tower" width="600"/>
   <figcaption>It reminded me of Rapunzel. Kendall really wanted me to take a picture for my blog.</figcaption>
 </figure>
 
 <figure>
-  <img src="{{site.baseurl}}/images/7253.jpg" alt="Lots of Faces" width="600"/>
+  <img src="{{site.baseurl}}/images/IMG_7253.jpg" alt="Lots of Faces" width="600"/>
   <figcaption>When I tried to be an artist a long time ago, faces were hard for me. The colors, anatomy and art style really impressed me.</figcaption>
 </figure>
 
 <figure>
-  <img src="{{site.baseurl}}/images/8319.jpg" alt="Lots of Faces" width="600"/>
+  <img src="{{site.baseurl}}/images/IMG_8319.jpg" alt="Lots of Faces" width="600"/>
   <figcaption>I can't escape Mario. I've always liked the look of Bowser's shell though, for real. That one's pretty cool.</figcaption>
 </figure>
 
 <figure>
-  <img src="{{site.baseurl}}/images/8321.jpg" alt="Lots of Faces" width="600"/>
+  <img src="{{site.baseurl}}/images/IMG_8321.jpg" alt="Lots of Faces" width="600"/>
   <figcaption>I can't imagine being able to draw a hand that well.</figcaption>
 </figure>
 
